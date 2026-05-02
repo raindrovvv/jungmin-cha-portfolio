@@ -2132,16 +2132,15 @@ html.dark .music-cover {
 }
 
 .game-cover {
+  --media-control-inset: 14px;
+  --media-control-button-width: 104px;
   position: relative;
   max-width: 100%;
   min-height: 0;
   aspect-ratio: 16 / 9;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   margin: 0 0 18px;
-  padding: 14px;
+  padding: var(--media-control-inset);
   overflow: hidden;
   border-radius: calc(var(--radius) - 1px);
   background-color: var(--surface-muted);
@@ -2158,7 +2157,7 @@ html.dark .music-cover {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.76)),
+    linear-gradient(180deg, transparent 26%, rgba(0, 0, 0, 0.18) 54%, rgba(0, 0, 0, 0.82)),
     radial-gradient(circle at 16% 18%, rgba(47, 157, 145, 0.26), transparent 36%);
   opacity: 0.95;
 }
@@ -2166,7 +2165,9 @@ html.dark .music-cover {
 .game-cover::after {
   content: "";
   position: absolute;
-  inset: auto 14px 52px 14px;
+  left: var(--media-control-inset);
+  right: calc(var(--media-control-inset) + var(--media-control-button-width) + 14px);
+  bottom: calc(var(--media-control-inset) + 20px);
   z-index: 1;
   height: 1px;
   background: color-mix(in srgb, #ffffff 58%, transparent);
@@ -2178,18 +2179,39 @@ html.dark .game-cover {
 }
 
 .media-label {
-  position: relative;
+  position: absolute;
+  left: var(--media-control-inset);
+  bottom: calc(var(--media-control-inset) + 2px);
   z-index: 2;
-  align-self: flex-end;
+  max-width: calc(100% - var(--media-control-button-width) - var(--media-control-inset) * 2 - 18px);
   color: #ffffff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.1px;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .media-button {
-  flex: 0 0 auto;
+  position: absolute;
+  right: var(--media-control-inset);
+  bottom: var(--media-control-inset);
+  min-width: var(--media-control-button-width);
+  justify-content: center;
+  padding-inline: 12px;
+}
+
+.work-card.featured .game-cover {
+  --media-control-inset: 16px;
+  --media-control-button-width: 112px;
+}
+
+.work-card.featured .media-label {
+  font-size: 12px;
+  letter-spacing: 1.18px;
 }
 
 .card-meta,
