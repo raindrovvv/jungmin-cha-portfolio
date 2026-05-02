@@ -8,9 +8,37 @@
       name="description"
       content="Jungmin Cha Game Audio Designer 포트폴리오. Wwise, Unreal Engine 5, SFX, BGM, 인게임 오디오 구현."
     />
+    <link rel="canonical" href="https://jungmin-cha-portfolio.pages.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jungmin Cha Portfolio" />
+    <meta property="og:title" content="Jungmin Cha | Game Audio Designer" />
+    <meta
+      property="og:description"
+      content="Wwise와 Unreal Engine 5 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
+    />
+    <meta property="og:url" content="https://jungmin-cha-portfolio.pages.dev/" />
+    <meta property="og:image" content="https://jungmin-cha-portfolio.pages.dev/assets/game/guardian-seeker-poster.jpg" />
+    <meta property="og:image:alt" content="Guardian & Seeker game audio portfolio preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jungmin Cha | Game Audio Designer" />
+    <meta
+      name="twitter:description"
+      content="Wwise와 Unreal Engine 5 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
+    />
+    <meta name="twitter:image" content="https://jungmin-cha-portfolio.pages.dev/assets/game/guardian-seeker-poster.jpg" />
     <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f8f3e8" media="(prefers-color-scheme: light)" />
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jungmin Cha",
+        "jobTitle": "Game Audio Designer",
+        "url": "https://jungmin-cha-portfolio.pages.dev/",
+        "knowsAbout": ["Wwise", "Unreal Engine 5", "Game Audio", "Sound Design", "Interactive Music"]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -105,7 +133,7 @@
                   Explore
                 </button>
                 <button class="console-state-button" type="button" data-audio-state="combat">Combat</button>
-              <button class="console-state-button" type="button" data-audio-state="boss">Boss Room</button>
+                <button class="console-state-button" type="button" data-audio-state="boss">Boss Room</button>
               </div>
               <label class="console-slider hero-slider">
                 <span>Occlusion RTPC</span>
@@ -167,15 +195,17 @@
         </div>
         <div class="reel-layout">
           <div class="reel-frame" aria-label="Guardian and Seeker 데모릴 YouTube 임베드">
-            <div class="reel-embed">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/d7xon5fv-kg?rel=0&modestbranding=1"
-                title="Guardian & Seeker gameplay audio demo reel"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
+            <div
+              class="reel-embed"
+              data-youtube-lazy
+              data-youtube-id="d7xon5fv-kg"
+              data-youtube-title="Guardian & Seeker gameplay audio demo reel"
+            >
+              <button class="youtube-poster" type="button" aria-label="Guardian & Seeker 데모릴 재생">
+                <img src="./assets/game/guardian-seeker-poster.jpg" alt="" loading="lazy" decoding="async" />
+                <span class="reel-play" aria-hidden="true">▶</span>
+                <span class="youtube-poster-label">Watch demo reel</span>
+              </button>
             </div>
             <div class="reel-meta">
               <span class="reel-kicker">Guardian & Seeker</span>
@@ -243,6 +273,6 @@
       <span>Stop audio</span>
     </button>
 
-    <script src="./script.js?v=20260502-waveform-scope"></script>
+    <script src="./script.js?v=20260503-media-ux"></script>
   </body>
 </html>

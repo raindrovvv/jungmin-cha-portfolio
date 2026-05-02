@@ -1623,6 +1623,64 @@ html.dark .reel-embed {
   border: 0;
 }
 
+.youtube-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--surface-muted);
+  cursor: pointer;
+}
+
+.youtube-poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+  transform: scale(1.01);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.youtube-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 34%, rgba(0, 0, 0, 0.74)),
+    radial-gradient(circle at 50% 44%, rgba(47, 157, 145, 0.18), transparent 36%);
+}
+
+.youtube-poster:hover img {
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+.youtube-poster-label {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, #ffffff 38%, transparent);
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  background: rgba(12, 10, 9, 0.48);
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(14px);
+}
+
 .reel-meta {
   display: grid;
   gap: 8px;
@@ -1897,6 +1955,11 @@ html.dark .work-card.featured {
 
 .work-card.linked-case {
   position: relative;
+}
+
+.work-card.linked-case-end {
+  align-self: start;
+  min-height: auto;
 }
 
 .work-card.linked-case-start::after {
@@ -2726,11 +2789,11 @@ html.dark [data-text-editable="true"]:focus {
   }
 
   .signal-panel > div {
-    padding: 12px;
+    padding: 10px;
   }
 
   .signal-panel .panel-top {
-    padding-block: 12px;
+    padding-block: 10px;
     font-size: 12.5px;
   }
 
@@ -2768,6 +2831,10 @@ html.dark [data-text-editable="true"]:focus {
   .audio-transport {
     flex: 0 0 auto;
     min-height: 36px;
+  }
+
+  .signal-panel .featured-case {
+    display: none;
   }
 
   .metric {

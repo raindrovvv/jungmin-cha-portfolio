@@ -48,7 +48,8 @@ const portfolio = {
       media: {
         label: "Main demo",
         href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
-        image: "./assets/game/guardian-seeker.gif",
+        image: "./assets/game/guardian-seeker.webp",
+        fallback: "./assets/game/guardian-seeker.gif",
       },
       cta: "Demo video",
       connection: {
@@ -73,7 +74,8 @@ const portfolio = {
       media: {
         label: "Audio tech",
         href: "https://www.youtube.com/watch?v=dp_Kr3LQ6EE",
-        image: "./assets/game/audio-debugging.gif",
+        image: "./assets/game/audio-debugging.webp",
+        fallback: "./assets/game/audio-debugging.gif",
       },
       cta: "Tech video",
       connection: {
@@ -98,7 +100,8 @@ const portfolio = {
       media: {
         label: "Gameplay demo",
         href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
-        image: "./assets/game/joseon-knights.gif",
+        image: "./assets/game/joseon-knights.webp",
+        fallback: "./assets/game/joseon-knights.gif",
       },
       cta: "Demo video",
       skills: ["Team Lead", "BGM 3 tracks", "SFX 40", "UE5", "PM"],
@@ -118,7 +121,8 @@ const portfolio = {
       media: {
         label: "Cinematic demo",
         href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
-        image: "./assets/game/symbio.gif",
+        image: "./assets/game/symbio.webp",
+        fallback: "./assets/game/symbio.gif",
       },
       cta: "Demo video",
       skills: ["BGM", "SFX", "UI/UX", "Level Design", "Cinematic"],
@@ -138,7 +142,8 @@ const portfolio = {
       media: {
         label: "Console RPG demo",
         href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
-        image: "./assets/game/rainbow-guardian.gif",
+        image: "./assets/game/rainbow-guardian.webp",
+        fallback: "./assets/game/rainbow-guardian.gif",
       },
       cta: "Demo video",
       skills: ["BGM", "SFX", "Story", "Map System", "Console RPG"],
@@ -158,7 +163,8 @@ const portfolio = {
       media: {
         label: "Interactive media",
         href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
-        image: "./assets/game/flight-record.gif",
+        image: "./assets/game/flight-record.webp",
+        fallback: "./assets/game/flight-record.gif",
       },
       cta: "Demo video",
       skills: ["Unity", "C#", "Interactive Media", "Album BGM"],
@@ -620,17 +626,33 @@ const getProjectMedia = (project) => {
   const href = project.media.href || project.href || "";
   const youtubeId = getYouTubeId(href);
   const fallbackImage = youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : "";
-  const usesAnimatedPreview = project.media.image?.toLowerCase().endsWith(".gif");
-  const image = usesAnimatedPreview && prefersReducedMotion ? fallbackImage : project.media.image || fallbackImage;
+  const usesAnimatedPreview = /\.(gif|webp)$/i.test(project.media.image || "");
+  const posterImage =
+    project.media.poster || project.media.image?.replace(/\.(gif|webp)$/i, "-poster.jpg") || fallbackImage;
+  const image = usesAnimatedPreview && prefersReducedMotion ? posterImage : project.media.image || fallbackImage;
 
   if (!image) return null;
 
   return {
     href,
     image,
+    fallback: prefersReducedMotion ? "" : project.media.fallback || "",
     label: project.media.label || "Preview",
     isVideo: Boolean(youtubeId),
   };
+};
+
+const renderCoverMedia = (media) => {
+  const image = `<img class="cover-media" src="${media.image}" alt="" loading="lazy" decoding="async" />`;
+
+  if (!media.fallback || !media.image.toLowerCase().endsWith(".webp")) {
+    return image;
+  }
+
+  return `<picture>
+    <source srcset="${media.image}" type="image/webp" />
+    <img class="cover-media" src="${media.fallback}" alt="" loading="lazy" decoding="async" />
+  </picture>`;
 };
 
 const workViewCache = new Map();
@@ -686,14 +708,14 @@ const renderProjects = (activeTab = "game") => {
               projectMedia
                 ? projectMedia.href
                   ? `<a class="game-cover" href="${projectMedia.href}" target="_blank" rel="noreferrer" aria-label="${project.title} 미디어 보기">
-                    <img class="cover-media" src="${projectMedia.image}" alt="" loading="lazy" decoding="async" />
+                    ${renderCoverMedia(projectMedia)}
                     <span class="media-label">${projectMedia.label}</span>
                     <span class="listen-button media-button">
                       ${projectMedia.isVideo ? `<span aria-hidden="true">▶</span><span>Watch</span>` : `<span aria-hidden="true">↗</span><span>View</span>`}
                     </span>
                   </a>`
                   : `<div class="game-cover" aria-label="${project.title} 미디어 프리뷰">
-                    <img class="cover-media" src="${projectMedia.image}" alt="" loading="lazy" decoding="async" />
+                    ${renderCoverMedia(projectMedia)}
                     <span class="media-label">${projectMedia.label}</span>
                   </div>`
                 : ""
@@ -2096,6 +2118,31 @@ const setupOrbitLinks = () => {
   });
 };
 
+const setupLazyYouTubeEmbeds = () => {
+  document.querySelectorAll("[data-youtube-lazy]").forEach((root) => {
+    const youtubeId = root.dataset.youtubeId;
+    if (!youtubeId) return;
+
+    const button = root.querySelector("button");
+    const title = root.dataset.youtubeTitle || "YouTube video";
+    const loadEmbed = () => {
+      if (root.dataset.loaded === "true") return;
+      root.dataset.loaded = "true";
+
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.title = title;
+      iframe.loading = "lazy";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      root.replaceChildren(iframe);
+    };
+
+    button?.addEventListener("click", loadEmbed);
+  });
+};
+
 fillFields();
 renderFocus();
 renderReelNotes();
@@ -2109,3 +2156,4 @@ setupMarqueeScroll();
 setupAudioConsole();
 setupCursorInteraction();
 setupOrbitLinks();
+setupLazyYouTubeEmbeds();
