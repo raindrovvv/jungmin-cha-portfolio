@@ -51,6 +51,11 @@ const portfolio = {
         image: "./assets/game/guardian-seeker.gif",
       },
       cta: "Demo video",
+      connection: {
+        label: "Guardian & Seeker",
+        role: "Core audio case",
+        side: "start",
+      },
       skills: ["Wwise", "UE5.6", "SFX", "Interactive BGM", "QA"],
       scope: {
         content: "캐릭터, 몬스터, 환경, UI 사운드 / 전투 BGM",
@@ -71,6 +76,11 @@ const portfolio = {
         image: "./assets/game/audio-debugging.gif",
       },
       cta: "Tech video",
+      connection: {
+        label: "Same project",
+        role: "Occlusion deep dive",
+        side: "end",
+      },
       skills: ["Occlusion", "RTPC", "Collision", "Line Trace"],
       scope: {
         content: "몬스터 위치감, 벽/문 너머 공간감 개선",
@@ -662,7 +672,7 @@ const renderProjects = (activeTab = "game") => {
       const cardCta = isMusic && listenHref && !hasMusicCover ? "Listen" : project.cta || "View detail";
 
       return `
-        <article class="work-card${project.featured ? " featured" : ""}">
+        <article class="work-card${project.featured ? " featured" : ""}${project.connection ? ` linked-case linked-case-${project.connection.side}` : ""}">
           <div>
             ${
               hasMusicCover
@@ -685,6 +695,14 @@ const renderProjects = (activeTab = "game") => {
                   : `<div class="game-cover" aria-label="${project.title} 미디어 프리뷰">
                     <img class="cover-media" src="${projectMedia.image}" alt="" loading="lazy" decoding="async" />
                     <span class="media-label">${projectMedia.label}</span>
+                  </div>`
+                : ""
+            }
+            ${
+              project.connection
+                ? `<div class="connection-badge" aria-label="${project.connection.label} ${project.connection.role}">
+                    <span>${project.connection.label}</span>
+                    <small>${project.connection.role}</small>
                   </div>`
                 : ""
             }
@@ -914,6 +932,8 @@ const setupSecretTextEditor = () => {
           "#work-intro p",
           ".work-card h3",
           ".work-card p",
+          ".connection-badge span",
+          ".connection-badge small",
           ".scope-list dt",
           ".scope-list dd",
           ".skill-pill",

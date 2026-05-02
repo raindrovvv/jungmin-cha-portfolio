@@ -1891,6 +1891,77 @@ html.dark .work-card.featured {
     var(--surface);
 }
 
+.work-card.linked-case {
+  position: relative;
+}
+
+.work-card.linked-case::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 2px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--accent) 54%, transparent);
+  opacity: 0.34;
+  pointer-events: none;
+}
+
+.work-card.linked-case-start::after {
+  content: "";
+  position: absolute;
+  top: 128px;
+  right: -17px;
+  z-index: 2;
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 74%, transparent), transparent);
+  pointer-events: none;
+}
+
+html.dark .work-card.linked-case::before {
+  opacity: 0.58;
+}
+
+.connection-badge {
+  width: fit-content;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -4px 0 12px;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
+  border-radius: var(--radius-pill);
+  color: var(--body);
+  background: color-mix(in srgb, var(--surface) 84%, var(--accent) 8%);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.connection-badge span {
+  color: var(--text);
+}
+
+.connection-badge small {
+  color: color-mix(in srgb, var(--accent) 78%, var(--text));
+  font-size: inherit;
+  font-weight: 700;
+}
+
+html.dark .connection-badge {
+  border-color: color-mix(in srgb, var(--accent) 42%, transparent);
+  color: var(--muted);
+  background: color-mix(in srgb, var(--surface-muted) 74%, var(--accent) 10%);
+}
+
+html.dark .connection-badge small {
+  color: var(--accent);
+}
+
 .work-card:nth-child(2) {
   grid-column: span 2;
 }
@@ -2459,6 +2530,10 @@ html.dark [data-text-editable="true"]:focus {
   .work-card.featured,
   .work-card:nth-child(2) {
     grid-column: auto;
+  }
+
+  .work-card.linked-case-start::after {
+    display: none;
   }
 
   .work-tabs {
