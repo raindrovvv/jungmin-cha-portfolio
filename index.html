@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jungmin Cha | Game Audio Designer</title>
+    <meta
+      name="description"
+      content="Jungmin Cha Game Audio Designer 포트폴리오. Wwise, Unreal Engine 5, SFX, BGM, 인게임 오디오 구현."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&family=Inter:wght@400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="홈으로 이동">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Jungmin Cha</span>
+      </a>
+      <nav class="nav" aria-label="주요 섹션">
+        <a href="#reel">Reel</a>
+        <a href="#work">Work</a>
+        <a href="#practice">Strengths</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="다크모드 전환" aria-pressed="false">
+          <span aria-hidden="true">●</span>
+        </button>
+        <a class="header-cta" href="mailto:vnrs97@gmail.com">Email</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="role-orbit" aria-label="빠른 이동 오브젝트">
+          <a class="role-token token-sound" href="#work" data-work-jump="game" data-orbit>Sound Designer</a>
+          <a class="role-token token-audio" href="#console" data-orbit>Audio Implementer</a>
+          <a
+            class="symbol-token token-music"
+            href="#work"
+            aria-label="음악 디스코그래피 섹션으로 이동"
+            data-work-jump="music"
+            data-orbit
+            >♪</a
+          >
+          <a class="role-token token-field" href="#practice" data-orbit>Full-stack Audio</a>
+          <a class="symbol-token token-reel" href="#reel" aria-label="데모릴 섹션으로 이동" data-orbit>✱</a>
+          <a
+            class="symbol-token token-down"
+            href="#contact"
+            aria-label="페이지 하단 연락처 섹션으로 이동"
+            data-orbit
+            >↓</a
+          >
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow" data-field="role">Independent Builder</p>
+          <h1 id="hero-title">
+            <span class="hero-title-name">차정민</span>
+            <span class="hero-title-role">Game Audio Designer</span>
+          </h1>
+          <p class="lede" data-field="intro">
+            Wwise와 Unreal Engine 5로 전투 BGM, SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#reel">데모릴 보기</a>
+            <a class="button secondary" href="#work">케이스 보기</a>
+          </div>
+          <div class="hero-chips" id="hero-focus-list" aria-label="핵심 역량"></div>
+        </div>
+        <aside
+          class="signal-panel"
+          id="console"
+          data-audio-console
+          aria-label="인터랙티브 오디오 릴과 포트폴리오 요약"
+        >
+          <div class="panel-top">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="console-status">Interactive audio reel</span>
+          </div>
+          <div class="signal-visual">
+            <div class="meter-header">
+              <span>G.A.S / <span id="console-state">Explore</span></span>
+              <span>-12.4 LUFS</span>
+            </div>
+            <div class="console-meter" aria-hidden="true">
+              <i class="meter-playhead" aria-hidden="true"></i>
+            </div>
+            <div class="hero-console-route" id="console-route" aria-live="polite">
+              Event: Play_Explore_Music · Switch: Explore
+            </div>
+            <div class="hero-console-controls">
+              <div class="segmented-control hero-state-control" role="group" aria-label="BGM 상태">
+                <button class="console-state-button is-active" type="button" data-audio-state="explore">
+                  Explore
+                </button>
+                <button class="console-state-button" type="button" data-audio-state="combat">Combat</button>
+              <button class="console-state-button" type="button" data-audio-state="boss">Boss Room</button>
+              </div>
+              <label class="console-slider hero-slider">
+                <span>Occlusion RTPC</span>
+                <input id="occlusion-control" type="range" min="0" max="100" value="14" />
+              </label>
+              <label class="console-slider hero-slider">
+                <span>Distance RTPC</span>
+                <input id="distance-control" type="range" min="0" max="100" value="32" />
+              </label>
+            </div>
+            <div class="routing-row">
+              <button class="cue-button is-active" type="button" data-audio-cue="ui">UI</button>
+              <button class="cue-button" type="button" data-audio-cue="hit">Hit</button>
+              <button class="cue-button" type="button" data-audio-cue="trap">Trap</button>
+              <button class="cue-button" type="button" data-audio-cue="monster">Monster</button>
+            </div>
+            <div class="console-readouts">
+              <span id="console-lpf">LPF 18.0kHz</span>
+              <span id="console-volume">Distance 18m</span>
+              <span id="console-cue">Cue UI</span>
+            </div>
+            <div class="console-actions hero-console-actions">
+              <button
+                class="audio-transport"
+                type="button"
+                id="audio-enable"
+                aria-label="오디오 재생"
+                aria-pressed="false"
+              >
+                <span class="transport-icon" aria-hidden="true"></span>
+                <span class="transport-label">Play audio</span>
+              </button>
+              <button class="button secondary" type="button" id="audio-reset">Reset</button>
+            </div>
+          </div>
+          <div class="featured-case">
+            <span class="label">Featured case</span>
+            <strong>Guardian & Seeker</strong>
+            <p>UE5.6 + Wwise 기반 전투 BGM 전환, 재질별 발소리, 오클루전, UI 피드백 구현.</p>
+            <a href="#work">케이스 보기</a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="strip" aria-label="핵심 분야">
+        <span class="strip-label">Toolchain</span>
+        <div
+          class="marquee"
+          id="focus-list"
+          tabindex="0"
+          aria-label="툴체인 목록. 마우스로 드래그하거나 휠로 좌우 이동할 수 있습니다."
+        ></div>
+      </section>
+
+      <section class="section reel-section" id="reel" aria-labelledby="reel-title">
+        <div class="section-heading">
+          <p class="eyebrow">Demo Reel</p>
+          <h2 id="reel-title">Guardian & Seeker로 사운드 설계와 구현을 보여줍니다</h2>
+        </div>
+        <div class="reel-layout">
+          <div class="reel-frame" aria-label="Guardian and Seeker 데모릴 YouTube 임베드">
+            <div class="reel-embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/d7xon5fv-kg?rel=0&modestbranding=1"
+                title="Guardian & Seeker gameplay audio demo reel"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="reel-meta">
+              <span class="reel-kicker">Guardian & Seeker</span>
+              <span class="reel-caption">UE5.6 · Wwise · 191 Audio Assets · Combat BGM · Occlusion</span>
+            </div>
+          </div>
+          <div class="reel-notes" id="reel-notes"></div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="work-title">게임 오디오와 음악 작업을 구분해 담았습니다</h2>
+        </div>
+        <div class="work-tabs" role="tablist" aria-label="작업 분류">
+          <button class="work-tab is-active" type="button" role="tab" aria-selected="true" data-work-tab="game">
+            Game Audio / BGM
+          </button>
+          <button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="music">
+            Music Discography
+          </button>
+        </div>
+        <div class="work-intro" id="work-intro" aria-live="polite"></div>
+        <div class="work-grid" id="project-list"></div>
+      </section>
+
+      <section class="section split" id="practice" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <p class="eyebrow">Strengths</p>
+          <h2 id="practice-title">제작에서 구현, QA까지 이어지는 감각</h2>
+        </div>
+        <div class="practice-list" id="practice-list"></div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">
+            <span>좋은 사운드는</span>
+            <span>플레이 안에서</span>
+            <span>증명됩니다</span>
+          </h2>
+          <p data-field="contactNote">
+            전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다.
+          </p>
+        </div>
+        <div class="contact-links" id="contact-links"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span data-field="footerName">Personal Portfolio</span>
+      <span>Wwise · Unreal Engine 5 · SFX · Interactive Audio</span>
+    </footer>
+
+    <button
+      class="floating-audio-control"
+      id="floating-audio-control"
+      type="button"
+      aria-hidden="true"
+      aria-label="현재 재생 중인 오디오 끄기"
+    >
+      <span class="floating-audio-dot" aria-hidden="true"></span>
+      <span>Stop audio</span>
+    </button>
+
+    <script src="./script.js?v=20260502-waveform-scope"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Lore Pocket voice pipeline preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#162421"/>
+      <stop offset="0.48" stop-color="#2f716a"/>
+      <stop offset="1" stop-color="#b88a4a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="28%" cy="22%" r="60%">
+      <stop offset="0" stop-color="#f7f4ee" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f7f4ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <rect width="960" height="540" fill="url(#glow)"/>
+  <g fill="none" stroke="#f7f4ee" stroke-opacity="0.26">
+    <path d="M120 142h720M120 270h720M120 398h720"/>
+    <path d="M220 90v360M480 90v360M740 90v360"/>
+  </g>
+  <g transform="translate(110 104)">
+    <rect width="260" height="332" rx="28" fill="#fffefa" fill-opacity="0.9"/>
+    <circle cx="70" cy="74" r="30" fill="#2f9d91"/>
+    <rect x="120" y="52" width="98" height="14" rx="7" fill="#141413" fill-opacity="0.75"/>
+    <rect x="120" y="82" width="68" height="10" rx="5" fill="#141413" fill-opacity="0.28"/>
+    <rect x="42" y="146" width="174" height="18" rx="9" fill="#141413" fill-opacity="0.26"/>
+    <rect x="42" y="184" width="138" height="18" rx="9" fill="#141413" fill-opacity="0.18"/>
+    <rect x="42" y="250" width="176" height="48" rx="24" fill="#2f9d91"/>
+  </g>
+  <g transform="translate(420 168)" fill="#f7f4ee">
+    <rect x="0" y="0" width="82" height="204" rx="41" fill-opacity="0.92"/>
+    <rect x="128" y="36" width="82" height="132" rx="41" fill-opacity="0.72"/>
+    <rect x="256" y="70" width="82" height="64" rx="32" fill-opacity="0.54"/>
+    <path d="M76 102h70M206 102h70" stroke="#f7f4ee" stroke-width="16" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="110" y="486" fill="#f7f4ee" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="3">VOICE PIPELINE</text>
+  <text x="624" y="486" fill="#f7f4ee" fill-opacity="0.76" font-family="Inter, Arial, sans-serif" font-size="20">Prompt · Persona · TTS</text>
+</svg>
