@@ -701,6 +701,7 @@ const renderProjects = (activeTab = "game") => {
             ${
               project.connection
                 ? `<div class="connection-badge" aria-label="${project.connection.label} ${project.connection.role}">
+                    <span class="connection-icon" aria-hidden="true">⌁</span>
                     <span>${project.connection.label}</span>
                     <small>${project.connection.role}</small>
                   </div>`

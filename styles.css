@@ -1895,33 +1895,30 @@ html.dark .work-card.featured {
   position: relative;
 }
 
-.work-card.linked-case::before {
-  content: "";
-  position: absolute;
-  top: 24px;
-  left: 0;
-  width: 2px;
-  height: 64px;
-  border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--accent) 54%, transparent);
-  opacity: 0.34;
-  pointer-events: none;
-}
-
 .work-card.linked-case-start::after {
-  content: "";
+  content: "⌁";
   position: absolute;
-  top: 128px;
-  right: -17px;
+  top: 46px;
+  right: -29px;
   z-index: 2;
-  width: 18px;
-  height: 1px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 74%, transparent), transparent);
+  width: 42px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed color-mix(in srgb, var(--accent) 62%, transparent);
+  border-radius: var(--radius-pill);
+  color: color-mix(in srgb, var(--accent) 86%, var(--text));
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  font-family: var(--body-font);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
   pointer-events: none;
 }
 
-html.dark .work-card.linked-case::before {
-  opacity: 0.58;
+html.dark .work-card.linked-case-start::after {
+  background: color-mix(in srgb, var(--surface) 84%, #000000);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
 }
 
 .connection-badge {
@@ -1942,8 +1939,24 @@ html.dark .work-card.linked-case::before {
   line-height: 1.2;
 }
 
+.connection-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--on-primary);
+  background: color-mix(in srgb, var(--accent) 88%, var(--text));
+  font-size: 14px;
+  line-height: 1;
+}
+
 .connection-badge span {
   color: var(--text);
+}
+
+.connection-badge .connection-icon {
+  color: var(--on-primary);
 }
 
 .connection-badge small {
