@@ -1829,6 +1829,7 @@ html.dark .work-intro {
 }
 
 .work-grid {
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
@@ -1836,6 +1837,7 @@ html.dark .work-intro {
 
 .work-card {
   grid-column: span 2;
+  min-width: 0;
   min-height: 330px;
   --tilt-x: 0;
   --tilt-y: 0;
@@ -1905,6 +1907,7 @@ html.dark .work-card.featured {
 
 .music-cover {
   position: relative;
+  max-width: 100%;
   min-height: 190px;
   display: flex;
   align-items: flex-end;
@@ -2005,6 +2008,7 @@ html.dark .music-cover {
 
 .game-cover {
   position: relative;
+  max-width: 100%;
   min-height: 0;
   aspect-ratio: 16 / 9;
   display: flex;
@@ -2791,7 +2795,32 @@ html.dark [data-text-editable="true"]:focus {
 
   .game-cover,
   .music-cover {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
     margin: -2px -2px 14px;
+    background:
+      radial-gradient(circle at 22% 18%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 42%),
+      var(--surface-muted);
+  }
+
+  .work-card.featured .game-cover {
+    aspect-ratio: 16 / 10;
+  }
+
+  .work-grid[data-active-work="music"] .music-cover {
+    aspect-ratio: 1 / 1;
+  }
+
+  .work-card .cover-media {
+    object-fit: contain;
+    background: color-mix(in srgb, var(--surface-muted) 92%, #000000);
+  }
+
+  .music-cover::before,
+  .game-cover::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0 48%, rgba(0, 0, 0, 0.72)),
+      radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 38%);
   }
 
   .scope-row {
