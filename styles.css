@@ -77,11 +77,13 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   position: relative;
+  overflow-x: hidden;
   margin: 0;
   background:
     linear-gradient(180deg, rgba(255, 254, 250, 0.76), transparent 420px),
@@ -513,6 +515,7 @@ html.dark .symbol-token.is-hopping {
 
 .hero-copy {
   grid-area: copy;
+  min-width: 0;
   max-width: 720px;
 }
 
@@ -738,6 +741,7 @@ html.dark .tag {
 
 .signal-panel {
   grid-area: panel;
+  min-width: 0;
   display: grid;
   gap: 1px;
   --tilt-x: 0;
@@ -817,6 +821,17 @@ html.dark .signal-visual {
   gap: 12px;
   color: var(--muted);
   font-size: 12px;
+}
+
+.meter-header > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meter-header > span:last-child {
+  flex: 0 0 auto;
 }
 
 .waveform {
@@ -2367,6 +2382,20 @@ html.dark [data-text-editable="true"]:focus {
 }
 
 @media (max-width: 900px) {
+  .site-header {
+    gap: 14px;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+  }
+
+  .brand span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .hero,
   .split,
   .contact,
@@ -2384,6 +2413,7 @@ html.dark [data-text-editable="true"]:focus {
     min-height: auto;
     align-items: start;
     row-gap: 28px;
+    padding-inline: clamp(18px, 5vw, 42px);
   }
 
   .role-orbit {
@@ -2418,7 +2448,13 @@ html.dark [data-text-editable="true"]:focus {
   }
 
   .work-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .work-card,
+  .work-card.featured,
+  .work-card:nth-child(2) {
+    grid-column: auto;
   }
 
   .work-tabs {
@@ -2439,12 +2475,6 @@ html.dark [data-text-editable="true"]:focus {
     min-height: 480px;
   }
 
-  .work-card,
-  .work-card.featured,
-  .work-card:nth-child(2) {
-    grid-column: auto;
-  }
-
   .contact-links {
     justify-content: flex-start;
   }
@@ -2452,39 +2482,355 @@ html.dark [data-text-editable="true"]:focus {
 
 @media (max-width: 620px) {
   .site-header {
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 14px 18px 10px;
+    gap: 10px 12px;
+    min-height: 58px;
+    padding: 10px 14px 8px;
+  }
+
+  .brand {
+    flex-basis: calc(100% - 112px);
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .brand-mark {
+    flex-basis: 26px;
+    width: 26px;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    min-height: 36px;
+  }
+
+  .header-cta {
+    min-height: 36px;
+    padding-inline: 14px;
+    font-size: 13px;
   }
 
   .nav {
     order: 3;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav a {
-    flex: 0 1 auto;
-    padding-inline: 8px;
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding-inline: 10px;
     font-size: 13px;
   }
 
   .hero {
-    padding-top: 30px;
+    row-gap: 22px;
+    padding: 24px 14px 32px;
+  }
+
+  .role-orbit {
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    margin-inline: -14px;
+    padding: 0 14px 4px;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .role-orbit::-webkit-scrollbar {
+    display: none;
+  }
+
+  .role-token,
+  .symbol-token {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .role-token {
+    padding-inline: 13px;
+    white-space: nowrap;
+  }
+
+  .hero-copy {
+    max-width: none;
   }
 
   h1 {
-    font-size: clamp(38px, 13vw, 58px);
+    max-width: 100%;
+    font-size: clamp(42px, 14vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -0.72px;
+  }
+
+  html.dark h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 14vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -0.72px;
+  }
+
+  .hero-title-name {
+    letter-spacing: -0.8px;
   }
 
   .hero-title-role {
     white-space: normal;
+    letter-spacing: -0.8px;
+  }
+
+  .lede {
+    margin-top: 18px;
+    font-size: 15.5px;
+    line-height: 1.62;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 22px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .hero-chips {
+    max-width: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -14px;
+    padding: 0 14px 3px;
+    scrollbar-width: none;
+  }
+
+  .hero-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .signal-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .signal-panel > div {
+    padding: 12px;
+  }
+
+  .signal-panel .panel-top {
+    padding-block: 12px;
+    font-size: 12.5px;
+  }
+
+  .signal-visual {
+    min-height: auto;
+  }
+
+  .signal-panel .console-meter {
+    --waveform-bars: 32;
+    height: 38px;
+    min-height: 38px;
+    gap: 3px;
+  }
+
+  .signal-panel .segmented-control,
+  .signal-panel .routing-row,
+  .signal-panel .console-actions {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .signal-panel .segmented-control::-webkit-scrollbar,
+  .signal-panel .routing-row::-webkit-scrollbar,
+  .signal-panel .console-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .signal-panel .console-state-button,
+  .signal-panel .cue-button {
+    flex: 0 0 auto;
+  }
+
+  .audio-transport {
+    flex: 0 0 auto;
+    min-height: 36px;
+  }
+
+  .metric {
+    font-size: 32px;
+  }
+
+  .label {
+    font-size: 12px;
   }
 
   .metric-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .metric-row > div {
+    padding: 12px 10px;
+  }
+
+  .featured-case strong {
+    font-size: 23px;
+  }
+
+  .featured-case p {
+    font-size: 14px;
+  }
+
+  .strip {
+    position: sticky;
+    top: 107px;
+    z-index: 12;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding-inline: 14px;
+  }
+
+  .strip-label {
+    font-size: 11px;
+  }
+
+  .tag {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 58px 14px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    max-width: 100%;
+    font-size: clamp(34px, 11.5vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.54px;
+  }
+
+  .reel-layout {
+    gap: 14px;
+  }
+
+  .reel-frame {
+    padding: 12px;
+  }
+
+  .reel-embed {
+    border-radius: 10px;
+  }
+
+  .reel-caption {
+    font-size: clamp(25px, 8vw, 32px);
+  }
+
+  .reel-note {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .work-tabs {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .work-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-tab {
+    flex: 1 0 max-content;
+    min-height: 40px;
+    padding-inline: 14px;
+  }
+
+  .work-intro {
+    padding: 18px;
+  }
+
+  .work-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .work-card {
+    min-height: auto;
+    gap: 18px;
+  }
+
+  .work-grid[data-active-work="game"] .work-card,
+  .work-grid[data-active-work="music"] .work-card {
+    padding: 16px;
+  }
+
+  .game-cover,
+  .music-cover {
+    margin: -2px -2px 14px;
+  }
+
+  .scope-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .split {
+    padding-inline: 14px;
+  }
+
+  .practice-item {
+    padding: 18px;
+  }
+
+  .contact {
+    gap: 24px;
+  }
+
+  .contact h2 {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .contact-links a {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .floating-audio-control {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    justify-content: center;
   }
 
   .console-device,
@@ -2509,15 +2855,28 @@ html.dark [data-text-editable="true"]:focus {
     justify-content: center;
   }
 
-  .strip {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0;
-    padding-block: 10px;
-  }
-
   .footer {
     flex-direction: column;
+    padding: 24px 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-cta {
+    display: none;
+  }
+
+  .brand {
+    flex-basis: calc(100% - 48px);
+  }
+
+  .hero-actions,
+  .contact-links {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-row {
+    grid-template-columns: 1fr;
   }
 }
 
