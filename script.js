@@ -1,4 +1,4 @@
-const portfolio = {
+const portfolioKo = {
   name: "차정민",
   role: "Game Audio · Wwise · Unreal Engine 5",
   headline: "차정민 Game Audio Designer",
@@ -8,7 +8,7 @@ const portfolio = {
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다. 싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 직접 연결됩니다.",
+    "전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다. 싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 적용합니다.",
   footerName: "차정민 Game Audio Designer Portfolio",
   focus: [
     "Wwise",
@@ -25,7 +25,7 @@ const portfolio = {
   reelNotes: [
     {
       title: "4v1 PvP 프로젝트의 실제 구현 사례",
-      text: "G-STAR 2025 출품을 목표로 제작한 UE5 팀 프로젝트에서 전투, 환경, UI 사운드를 Wwise로 직접 설계하고 적용했습니다.",
+      text: "G-STAR 2025 출품 프로젝트에서 전투, 환경, UI 사운드를 Wwise로 직접 설계하고 적용했습니다.",
     },
     {
       title: "SFX 제작부터 Wwise·UE 적용까지",
@@ -37,91 +37,91 @@ const portfolio = {
     },
   ],
   techAudio: {
-    eyebrow: "Technical Audio",
+    eyebrow: "기술 오디오",
     title: "Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템",
     intro:
-      "채용공고에서 요구하는 엔진 구현, 미들웨어 설계, 디버깅, 협업 설명력을 Guardian & Seeker 사례 중심으로 먼저 보여줍니다.",
+      "Guardian & Seeker에서 Wwise 설계, UE5 구현, 오클루전 디버깅, 플레이테스트 피드백 반영까지 오디오 시스템 제작 흐름을 정리했습니다.",
     items: [
       {
-        title: "Wwise System Design",
+        title: "Wwise 시스템 설계",
         type: "Event / Switch / RTPC",
         summary:
           "전투 BGM 전환, UI 피드백, 몬스터/환경 사운드를 Event, Switch, RTPC, 컨테이너 구조로 나눠 관리했습니다.",
         proof: "191개 오디오 에셋을 캐릭터, 몬스터, 환경, UI/System 단위로 분류",
         breakdown: [
           {
-            label: "Problem",
+            label: "문제",
             text: "전투, 탐색, UI, 몬스터 사운드가 동시에 재생될 때 무엇이 우선 들려야 하는지 정리해야 했습니다.",
           },
           {
-            label: "Wwise structure",
+            label: "Wwise 구조",
             text: "Event, Switch, RTPC, Random Container를 역할별로 나누고 반복 재생되는 효과음에는 변형 폭을 줬습니다.",
           },
           {
-            label: "Before / after",
+            label: "개선 방향",
             text: "단순 재생 중심 구조에서 상태와 거리, 이벤트 목적에 따라 반응하는 구조로 정리했습니다.",
           },
         ],
       },
       {
-        title: "UE5 Implementation",
+        title: "UE5 연동 구현",
         type: "Blueprint / Anim Notify",
         summary:
           "Physical Material 기반 발소리, 애니메이션 타이밍, 블루프린트 이벤트를 연결해 실제 플레이 입력과 사운드를 맞췄습니다.",
-        proof: "UE5.6 프로젝트에서 Wwise Event와 인게임 상태를 직접 연결",
+        proof: "UE5.6 프로젝트에서 Wwise Event와 인게임 상태를 직접 적용",
         breakdown: [
           {
-            label: "Connection",
+            label: "연동",
             text: "Anim Notify와 Blueprint 이벤트에서 Wwise Event를 호출해 움직임, 피격, UI 조작 타이밍을 맞췄습니다.",
           },
           {
-            label: "Surface logic",
+            label: "재질 로직",
             text: "Physical Material 정보를 기준으로 발소리 후보를 나누고 지면 변화가 사운드에 반영되도록 설계했습니다.",
           },
           {
-            label: "Validation",
+            label: "검증",
             text: "실제 플레이 중 어긋나는 타이밍과 누락되는 이벤트를 찾아 Notify 위치와 호출 조건을 조정했습니다.",
           },
         ],
       },
       {
-        title: "Runtime Debugging",
+        title: "런타임 디버깅",
         type: "Occlusion / Collision",
         summary:
           "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise와 UE 콜리전/라인 트레이스 기준으로 점검했습니다.",
-        proof: "Occlusion, Diffraction, Transmission, Environmental Curve 조정 사례 보유",
+        proof: "오클루전 디버깅 영상과 함께 차폐/거리감 조정 과정 기록",
         breakdown: [
           {
-            label: "Problem",
+            label: "문제",
             text: "벽 너머 몬스터 소리가 가까운 소리처럼 들려 위험 위치를 잘못 읽게 만드는 구간이 있었습니다.",
           },
           {
-            label: "Debug route",
+            label: "점검 경로",
             text: "Wwise 오클루전 값, UE Collision, Line Trace, 문/벽 구조를 함께 보며 차폐가 걸리는 지점을 확인했습니다.",
           },
           {
-            label: "Result",
+            label: "결과",
             text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달감을 조정해 공간 정보를 더 명확하게 만들었습니다.",
           },
         ],
       },
       {
-        title: "Team-facing Decisions",
+        title: "팀 피드백 반영",
         type: "Audio QA / Communication",
         summary:
           "플레이테스트 피드백을 사운드 우선순위, 믹스 밸런스, 시스템 수정 항목으로 번역해 팀과 공유했습니다.",
         proof: "299명 체험, 평균 4.36/5 피드백 이후 BGM 전환과 UI 피드백 개선",
         breakdown: [
           {
-            label: "Feedback",
+            label: "피드백",
             text: "플레이테스트에서 BGM 전환, UI 피드백, 발소리 인지, 공간감 관련 반응을 분리해 확인했습니다.",
           },
           {
-            label: "Decision",
+            label: "판단",
             text: "감상평을 그대로 반영하기보다 우선순위, 믹스, 시스템 조건 중 어디를 바꿀지 판단했습니다.",
           },
           {
-            label: "Team output",
+            label: "공유 방식",
             text: "기획/프로그래밍과 공유할 수 있도록 문제 현상, 원인 후보, 수정 방향을 짧은 작업 단위로 정리했습니다.",
           },
         ],
@@ -129,66 +129,66 @@ const portfolio = {
     ],
   },
   sfxBreakdown: {
-    eyebrow: "SFX Breakdown",
-    title: "효과음 제작부터 인게임 검증까지 한 흐름으로 보여줍니다",
+    eyebrow: "효과음 브레이크다운",
+    title: "효과음 제작부터 인게임 검증까지 한 흐름으로 정리했습니다",
     process: [
       {
         step: "01",
-        title: "Sound Intent",
+        title: "사운드 목적 정의",
         text: "캐릭터, 몬스터, UI, 환경별로 플레이어가 알아야 할 정보와 감정 톤을 먼저 정의합니다.",
       },
       {
         step: "02",
-        title: "Source & Edit",
+        title: "소스 선택과 편집",
         text: "라이브러리 소스, 직접 제작한 레이어, 음악 프로덕션 경험을 조합해 SFX를 편집하고 믹스합니다.",
       },
       {
         step: "03",
-        title: "Middleware Setup",
+        title: "미들웨어 설정",
         text: "Wwise Random/Blend Container, Switch, RTPC, 볼륨/피치 변형으로 반복감을 줄이고 상태 변화를 만듭니다.",
       },
       {
         step: "04",
-        title: "In-game QA",
+        title: "인게임 QA",
         text: "실제 플레이에서 묻히는 소리, 과한 피드백, 거리/차폐 오류를 잡아 우선순위와 밸런스를 조정합니다.",
       },
     ],
     examples: [
       {
-        title: "Footstep Kit",
+        title: "발소리 키트",
         meta: "Physical Material",
         text: "지면 재질과 이동 상태에 맞춰 발소리 후보를 나누고 랜덤 재생으로 반복감을 줄입니다.",
         deepDive: [
           {
-            label: "Source",
+            label: "소스",
             text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나눕니다.",
           },
           {
-            label: "Layering",
+            label: "레이어링",
             text: "접지감, 마찰감, 장비감처럼 역할이 다른 레이어를 분리해 캐릭터 무게와 속도를 만듭니다.",
           },
           {
-            label: "Variation",
+            label: "변형",
             text: "Wwise Random Container에서 피치와 볼륨 변형을 주어 같은 발소리가 반복되는 느낌을 줄입니다.",
           },
           {
-            label: "In-game check",
+            label: "인게임 확인",
             text: "UE Physical Material과 Anim Notify 타이밍을 확인해 지면 변화와 발 접지 순간이 맞게 들리는지 검증합니다.",
           },
         ],
       },
       {
-        title: "Combat Hit",
+        title: "전투 타격음",
         meta: "Impact Layering",
         text: "타격감, 위험 신호, 피격 확인을 분리해 전투 중에도 필요한 정보가 먼저 들리게 설계합니다.",
       },
       {
-        title: "Monster Cue",
+        title: "몬스터 신호음",
         meta: "Spatial Debug",
         text: "몬스터 위치감과 차폐감을 조정해 벽 너머 위협과 실제 거리감을 구분하도록 만듭니다.",
       },
       {
-        title: "UI Feedback",
+        title: "UI 피드백",
         meta: "2D / Priority",
         text: "전투와 BGM 위에서도 조작 성공, 선택, 경고 피드백이 짧고 명확하게 들리도록 다듬습니다.",
       },
@@ -266,7 +266,7 @@ const portfolio = {
       scope: {
         content: "한국 전통 모티프 기반 BGM, 전투 SFX, UI/캐릭터/맵 아이콘",
         implementation: "Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조",
-        proof: "Notion Credit: Team Lead, PM, Creative Director / BGM 3트랙, SFX 40종",
+        proof: "담당: Team Lead, PM, Creative Director · BGM 3트랙, SFX 40종",
       },
     },
     {
@@ -287,7 +287,7 @@ const portfolio = {
       scope: {
         content: "폐쇄적 연구소 톤의 BGM/SFX, UI 피드백, 시네마틱 오디오",
         implementation: "UE5 프로젝트 내 게임플레이 및 시네마틱 컷씬에 오디오 직접 적용",
-        proof: "Notion Credit: BGM/SFX 제작, UI/UX 설계, 레벨 디자인, 시네마틱 컷씬 담당",
+        proof: "담당: BGM/SFX 제작, UI/UX 설계, 레벨 디자인, 시네마틱 컷씬",
       },
     },
     {
@@ -308,7 +308,7 @@ const portfolio = {
       scope: {
         content: "8개 테마 타워, 몬스터, 전투/상점/제단 사운드",
         implementation: "콘솔 텍스트 RPG 맵 시스템, 전투 씬, 층별 테마 구성",
-        proof: "Notion Credit: 게임 컨셉/스토리, BGM 작편곡, 효과음 제작",
+        proof: "담당: 게임 컨셉/스토리, BGM 작편곡, 효과음 제작",
       },
     },
     {
@@ -329,7 +329,7 @@ const portfolio = {
       scope: {
         content: "비행 앨범 수록곡 초안 3곡: 탈선, ばらばら, 청춘예찬(VNRS remix)",
         implementation: "Unity C# 기반 탐험, 상호작용, 음악 트리거",
-        proof: "Notion Credit: 프로젝트 리더, PM, 기획 / 사운드 디자이너, 개발",
+        proof: "담당: 프로젝트 리더, PM, 기획 / 사운드 디자인, 개발",
       },
     },
   ],
@@ -666,11 +666,11 @@ const portfolio = {
     },
   },
   aiLab: {
-    eyebrow: "Voice Pipeline / Source Management",
+    eyebrow: "보이스 파이프라인 / 소스 관리",
     title: "보이스와 소스 리소스를 목적에 맞게 관리합니다",
     titleLines: ["보이스와 소스 리소스를", "목적에 맞게 관리합니다"],
     intro:
-      "싱어송라이터이자 프로듀서로 직접 녹음, 디렉팅, 편집, 믹싱한 경험을 게임 보이스 프리프로덕션과 대사 리소스 관리 관점으로 연결합니다.",
+      "싱어송라이터이자 프로듀서로 직접 녹음, 디렉팅, 편집, 믹싱한 경험을 게임 보이스 프리프로덕션과 대사 리소스 관리 기준으로 확장했습니다.",
     items: [
       {
         title: "Recording-Based Source Management",
@@ -723,7 +723,7 @@ const portfolio = {
     },
     {
       title: "Implementation-ready workflow",
-      text: "FL Studio에서 소스를 만들고 Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 Blueprint, Anim Notify, 데이터 테이블과 연결합니다.",
+      text: "FL Studio에서 소스를 만들고 Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 Blueprint, Anim Notify, 데이터 테이블에 적용합니다.",
     },
     {
       title: "Audio QA & polishing",
@@ -753,12 +753,496 @@ const portfolio = {
   ],
 };
 
+const clonePortfolio = (value) => JSON.parse(JSON.stringify(value));
+
+const createEnglishPortfolio = () => {
+  const en = clonePortfolio(portfolioKo);
+
+  Object.assign(en, {
+    name: "Jungmin Cha",
+    role: "Game Audio · Wwise · Unreal Engine 5",
+    headline: "Jungmin Cha Game Audio Designer",
+    intro:
+      "I design audio that helps players read combat, space, danger, and feedback intuitively. I build combat BGM transitions, environmental and character SFX, and UI feedback with Wwise and Unreal Engine 5, then refine how they land in play.",
+    contactNote:
+      "I handle both sound design and implementation so combat flow, spatial cues, and feedback timing read naturally in play. My singer-songwriter and production background informs BGM and emotional direction.",
+    footerName: "Jungmin Cha Game Audio Designer Portfolio",
+  });
+
+  en.reelNotes = [
+    {
+      title: "A shipped-facing 4v1 PvP audio case",
+      text: "For a UE5 team project presented for G-STAR 2025, I designed and implemented combat, environment, and UI audio directly in Wwise.",
+    },
+    {
+      title: "From SFX production to Wwise and UE integration",
+      text: "I organized 191 audio assets across character, monster, environment, and UI/System categories, then connected them with Events, Switches, RTPCs, and Anim Notifies.",
+    },
+    {
+      title: "Balancing and QA through playtests",
+      text: "After a 299-player test with a 4.36/5 average rating, I refined BGM transitions, footsteps, occlusion, and UI feedback.",
+    },
+  ];
+
+  en.techAudio = {
+    eyebrow: "Technical Audio",
+    title: "Audio systems that work inside Wwise and UE5",
+    intro:
+      "Guardian & Seeker brings together Wwise structure, UE5 implementation, occlusion debugging, and playtest-driven iteration in one concrete audio workflow.",
+    items: [
+      {
+        title: "Wwise System Design",
+        type: "Event / Switch / RTPC",
+        summary:
+          "I separated combat BGM transitions, UI feedback, monster cues, and environment audio into Events, Switches, RTPCs, and container structures.",
+        proof: "191 audio assets categorized by character, monster, environment, and UI/System",
+        breakdown: [
+          {
+            label: "Problem",
+            text: "Combat, exploration, UI, and monster sounds could overlap, so I clarified which cues needed to read first.",
+          },
+          {
+            label: "Wwise structure",
+            text: "I separated Events, Switches, RTPCs, and Random Containers by role and added variation to repeated SFX.",
+          },
+          {
+            label: "Iteration",
+            text: "The setup moved from simple playback toward state-, distance-, and purpose-aware audio behavior.",
+          },
+        ],
+      },
+      {
+        title: "UE5 Implementation",
+        type: "Blueprint / Anim Notify",
+        summary:
+          "I connected Physical Material footsteps, animation timing, and Blueprint events so sound responded to actual player input.",
+        proof: "Wwise Events connected to in-game states inside a UE5.6 project",
+        breakdown: [
+          {
+            label: "Connection",
+            text: "Anim Notifies and Blueprint events call Wwise Events for movement, hit reactions, and UI timing.",
+          },
+          {
+            label: "Surface logic",
+            text: "Footstep candidates are split by Physical Material so surface changes are reflected in sound.",
+          },
+          {
+            label: "Validation",
+            text: "I checked missing events and timing drift in play, then adjusted Notify positions and call conditions.",
+          },
+        ],
+      },
+      {
+        title: "Runtime Debugging",
+        type: "Occlusion / Collision",
+        summary:
+          "I checked monster distance, occlusion, and transmission through Wwise values and UE collision/line trace behavior.",
+        proof: "Occlusion debugging video documents distance and obstruction tuning",
+        breakdown: [
+          {
+            label: "Problem",
+            text: "Monster sounds behind walls could read too close, making the threat location unclear.",
+          },
+          {
+            label: "Debug route",
+            text: "I reviewed Wwise occlusion values, UE collision, line traces, and wall/door layout together.",
+          },
+          {
+            label: "Result",
+            text: "Filter, volume, and transmission tuning made blocked and distant sounds easier to distinguish.",
+          },
+        ],
+      },
+      {
+        title: "Team Feedback",
+        type: "Audio QA / Communication",
+        summary:
+          "I translated playtest feedback into audio priority, mix balance, and system-level tasks for the team.",
+        proof: "299-player test, 4.36/5 average rating, followed by BGM and UI feedback improvements",
+        breakdown: [
+          {
+            label: "Feedback",
+            text: "I separated comments around BGM transitions, UI feedback, footsteps, and spatial clarity.",
+          },
+          {
+            label: "Decision",
+            text: "Instead of applying comments literally, I chose whether priority, mix, or system conditions needed adjustment.",
+          },
+          {
+            label: "Team output",
+            text: "Issues, likely causes, and proposed fixes were summarized into small tasks that designers and programmers could share.",
+          },
+        ],
+      },
+    ],
+  };
+
+  en.sfxBreakdown = {
+    eyebrow: "SFX Breakdown",
+    title: "From SFX production to in-game validation",
+    process: [
+      {
+        step: "01",
+        title: "Sound Intent",
+        text: "I define what the player needs to understand and what emotional tone each character, monster, UI, or environment cue should carry.",
+      },
+      {
+        step: "02",
+        title: "Source & Edit",
+        text: "I combine library sources, custom layers, and music production experience to edit and mix SFX.",
+      },
+      {
+        step: "03",
+        title: "Middleware Setup",
+        text: "Random/Blend Containers, Switches, RTPCs, and pitch/volume variation reduce repetition and support state changes.",
+      },
+      {
+        step: "04",
+        title: "In-game QA",
+        text: "I tune priority and balance by checking masked sounds, excessive feedback, and distance/occlusion issues in play.",
+      },
+    ],
+    examples: [
+      {
+        title: "Footstep Kit",
+        meta: "Physical Material",
+        text: "Footstep candidates are organized by surface and movement state, with randomized playback to reduce repetition.",
+        deepDive: [
+          {
+            label: "Source",
+            text: "Library and edited short sources are grouped by material.",
+          },
+          {
+            label: "Layering",
+            text: "Separate layers for contact, friction, and gear create weight and speed.",
+          },
+          {
+            label: "Variation",
+            text: "Pitch and volume variation in Wwise Random Containers reduces repeated-footstep fatigue.",
+          },
+          {
+            label: "In-game check",
+            text: "Physical Material and Anim Notify timing are checked against surface changes and foot contact.",
+          },
+        ],
+      },
+      {
+        title: "Combat Hit",
+        meta: "Impact Layering",
+        text: "Hit confirmation, danger signal, and impact weight are separated so the right information reads in combat.",
+      },
+      {
+        title: "Monster Cue",
+        meta: "Spatial Debug",
+        text: "Monster position and obstruction are tuned so threats behind walls read differently from nearby threats.",
+      },
+      {
+        title: "UI Feedback",
+        meta: "2D / Priority",
+        text: "Selection, warning, and success cues are kept short and clear over combat and BGM.",
+      },
+    ],
+  };
+
+  en.projects = [
+    {
+      ...en.projects[0],
+      summary:
+        "I handled character, monster, environment, and UI sound design plus Wwise implementation for a 4v1 asymmetrical PvP action game. I designed combat BGM transitions, Physical Material footsteps, and occlusion behavior, then refined balance and QA through playtests.",
+      scope: {
+        content: "Character, monster, environment, UI audio / combat BGM",
+        implementation: "Wwise Events, Switches, RTPCs, UE5 Blueprint, Anim Notify",
+        proof: "G-STAR 2025 project, 299 players, 4.36/5 average rating",
+      },
+    },
+    {
+      ...en.projects[1],
+      summary:
+        "An audio debugging case focused on monster distance and obstruction through walls and doors. I reviewed Wwise occlusion, Environmental Curves, Diffraction/Transmission, UE collision, and line traces together.",
+      scope: {
+        content: "Monster position, wall/door obstruction, spatial clarity",
+        implementation: "Wwise Occlusion, Diffraction, Transmission, UE Collision Debug",
+        proof: "Adjusted system behavior so distant and obstructed sounds read differently",
+      },
+    },
+    {
+      ...en.projects[2],
+      summary:
+        "A multiplayer platform fighter prototype set in late Joseon. As Team Lead, PM, and Creative Director, I created 3 BGM tracks and 40 SFX while also contributing to mix, balance, HUD layout, characters, maps, and skills.",
+      scope: {
+        content: "Traditional Korean-inspired BGM, combat SFX, UI/character/map icons",
+        implementation: "Buff & StatComponent, DeathVolume, support for three knight skill designs",
+        proof: "Role: Team Lead, PM, Creative Director · 3 BGM tracks, 40 SFX",
+      },
+    },
+    {
+      ...en.projects[3],
+      summary:
+        "A UE-based TPS/FPS shooting prototype. I worked on game design, UI/UX, BGM/SFX, level design, and cinematic cutscenes to shape the world and audio tone together.",
+      scope: {
+        content: "Closed-lab BGM/SFX, UI feedback, cinematic audio",
+        implementation: "Direct audio implementation in gameplay and cinematic scenes",
+        proof: "Role: BGM/SFX, UI/UX, level design, cinematic cutscenes",
+      },
+    },
+    {
+      ...en.projects[4],
+      summary:
+        "A console text RPG about exploring eight themed maze towers. I handled concept, story, map systems, BGM arrangement, and SFX to give each floor a clear mood and emotional line.",
+      scope: {
+        content: "Eight themed towers, monsters, battle/shop/altar sounds",
+        implementation: "Console RPG map system, battle scenes, themed floor structure",
+        proof: "Role: concept/story, BGM arrangement, SFX production",
+      },
+    },
+    {
+      ...en.projects[5],
+      summary:
+        "An interactive media project where players explore a digital space through music. Three draft tracks from my album Flight were used so movement and exploration became part of the listening experience.",
+      scope: {
+        content: "Three draft tracks from Flight: Talseon, ばらばら, Youth Anthem (VNRS remix)",
+        implementation: "Unity C# exploration, interaction, and music triggers",
+        proof: "Role: project lead, PM, planning / sound design, development",
+      },
+    },
+  ];
+
+  const musicSummaries = {
+    "[LP] 비행":
+      "A full-length album about nostalgia and journeys. As VENI RAIN, I wrote lyrics, composed, and performed vocals; as VENIRUS, I arranged, mixed, and mastered the record.",
+    "[EP] Rainshower":
+      "A six-track EP where I participated in lyrics and composition across the record and built fundamentals in arrangement, mixing, and mastering with VENIRUS.",
+    "[Single] RAINDROP":
+      "An early single where I contributed to lyrics, composition, arrangement collaboration, mixing, and mastering, establishing the VENI RAIN/VENIRUS workflow.",
+    "[Prod. by & Feat.] Neon Romance":
+      "An external collaboration with Arthur where I handled featured vocals, co-composition, and VENIRUS arrangement for a band-driven production.",
+    "[Single] 잔": "A recent single completed independently across lyrics, composition, arrangement, artwork, mixing, and mastering.",
+    "[Prod. by] Sober - Romantic Refuge :: 밤":
+      "A track from Sober's EP Romantic Refuge, credited to VENIRUS for composition and production.",
+    "[EP] Downtown Man": "An EP where I handled lyrics, artwork, mixing, mastering, and the overall production flow.",
+    "[EP] V-taper": "An EP credited to VENIRUS, covering chorus, artwork, mixing, mastering, and broader production work.",
+    "[EP] FEAR & AMBITION":
+      "An EP where I participated in lyrics and composition as VENI RAIN, expanding the style built through earlier singles.",
+    "[Single] FLOWER":
+      "A single written and composed as VENI RAIN, centered on vocal songwriting and production sensibility.",
+    "[Single] OAO":
+      "A single featuring HUNDOSHI, carried from lyrics, composition, arrangement, artwork, mixing, and mastering through release.",
+    "[Single] HIGHWAY":
+      "A two-track single where VENI RAIN's writing and composition worked together with VENIRUS arrangement, mixing, and mastering.",
+    "[Single] FIRE & WATER":
+      "An early two-track single led by VENIRUS production, with songwriting and arrangement across both tracks.",
+    "[Single] FOUND ME":
+      "An early three-track single that built the collaborative production system between VENI RAIN and VENIRUS.",
+    "[EP] FORECAST": "An EP released together under VENI RAIN and VENIRUS credits.",
+    "[Single] UNBERELLA": "A single/visualizer release by VENI RAIN, organized as a music-and-video project.",
+    "[Prod.by] 스내키챈 - 숫자일 뿐":
+      "An external collaboration where I participated with VENIRUS producer credits.",
+    "[Prod.by] kumira - 돌연변이": "An external collaboration with kumira credited to VENIRUS for production and arrangement.",
+    "[Prod.by] kumira - 위험해":
+      "A kumira single where I contributed production work and collaborated with an external vocalist/rapper.",
+    "[Prod.by] Holmsted - Survive": "An external collaboration with Holmsted credited to VENIRUS for composition and production.",
+    "[Prod.by] kumira - KottonVill : 다락방": "An external collaboration where I handled production across the full album.",
+    "[Prod.by & Feat.] IndEgo Aid - 자가격리패키지 : Comma":
+      "A collaboration where I contributed both production and featured vocals.",
+    "[Mixtape] P V R V D V X": "A mixtape produced across all tracks.",
+    "[Arr.by] 서연고 사이퍼 CINDY": "A cypher arrangement credited to VENIRUS, showing external work as an arranger as well as composer.",
+  };
+  en.musicProjects = en.musicProjects.map((project) => ({
+    ...project,
+    summary: musicSummaries[project.title] || project.summary,
+  }));
+
+  en.workTabs = {
+    game: {
+      eyebrow: "Game Audio / BGM",
+      title: "Sound that works inside play",
+      text: "Selected work around Wwise and Unreal Engine 5 implementation, combat BGM, spatial cues, and UI feedback that players can immediately read.",
+    },
+    music: {
+      eyebrow: "Music Discography",
+      title: "VENI RAIN / VENIRUS music work",
+      text: "24 releases covering lyrics, composition, vocals, arrangement, mixing, and mastering. This is seven-plus years of music production experience alongside game audio.",
+    },
+  };
+
+  en.aiLab = {
+    eyebrow: "Voice Pipeline / Source Management",
+    title: "Managing voice and source assets with production intent",
+    titleLines: ["Managing voice and source assets", "with production intent"],
+    intro:
+      "My recording, direction, editing, and mixing experience as a singer-songwriter and producer extends into game voice preproduction and dialogue resource management.",
+    items: [
+      {
+        title: "Recording-Based Source Management",
+        type: "Recording / Direction / Editing",
+        summary:
+          "By recording, editing, and mixing my own voice and artist vocals, I learned how source quality shapes the final sound.",
+        gameAudioUse:
+          "I apply this to voice session preparation, take management, emotional direction, and resource organization for game dialogue.",
+        proof:
+          "Vocal recording, take management, emotion-based direction, and EQ/Compression/Reverb/Delay editing and mixing",
+        href: en.aiLab.items[0].href,
+        cta: "Slides p.15",
+        featured: true,
+        tags: ["Recording", "Direction", "Take Management", "Editing/Mixing"],
+      },
+      {
+        title: "Source-centered Production",
+        type: "Foley / Library / Source QA",
+        summary:
+          "I organize recorded and library sources by production purpose, then turn them into usable assets for the project context.",
+        gameAudioUse:
+          "Foley, voice, and library SFX are separated by role so source choice, editing, and mix standards stay clear.",
+        proof:
+          "Direct recording and direction experience informs how I design and choose suitable sources.",
+        href: en.aiLab.items[1].href,
+        cta: "Slides",
+        featured: false,
+        tags: ["Foley Mindset", "Library Source", "Source Quality"],
+      },
+      {
+        title: "Workflow Documentation",
+        type: "Audio QA / Team Knowledge",
+        summary:
+          "I turn recording, editing, mix, and QA standards into reusable documents and checklists for the team.",
+        gameAudioUse:
+          "Voice naming, take selection, revision requests, and sound QA standards are organized into repeatable workflows.",
+        proof:
+          "Success criteria, repeatable test environments, and expert debugging steps translated into working standards.",
+        href: en.aiLab.items[2].href,
+        cta: "Read insight",
+        featured: false,
+        tags: ["Resource Management", "QA", "Team Knowledge"],
+      },
+    ],
+  };
+
+  en.practice = [
+    {
+      title: "Gameplay-first audio",
+      text: "I design sound as information that helps players understand state, distance, danger, and interaction, rather than as decoration.",
+    },
+    {
+      title: "Implementation-ready workflow",
+      text: "I create sources in FL Studio, structure Wwise Events, Switches, RTPCs, and containers, then apply them through UE5 Blueprint, Anim Notify, and data tables.",
+    },
+    {
+      title: "Audio QA & polishing",
+      text: "In playtests, I identify masked cues, excessive feedback, playback errors, and spatial issues, then tune volume and priority.",
+    },
+    {
+      title: "Source-centered production",
+      text: "As a singer-songwriter and producer, I directly handle vocal recording, direction, editing, and mixing, bringing source-quality standards into game audio.",
+    },
+  ];
+
+  return en;
+};
+
+const portfolioEn = createEnglishPortfolio();
+
+const uiLocales = {
+  ko: {
+    htmlLang: "ko",
+    title: "Jungmin Cha | Game Audio Designer",
+    navReel: "릴",
+    navTech: "기술 오디오",
+    navSfx: "효과음 분석",
+    navWork: "작업",
+    navContact: "연락",
+    email: "이메일",
+    orbitSound: "사운드 디자인",
+    orbitAudio: "오디오 구현",
+    orbitField: "설계부터 구현까지",
+    heroPrimary: "데모릴 보기",
+    heroSecondary: "기술 케이스 보기",
+    featuredCase: "대표 사례",
+    featuredCaseCta: "기술 케이스 보기",
+    toolchain: "툴체인",
+    reelEyebrow: "데모릴",
+    reelTitle: "Guardian & Seeker의 오디오 설계와 구현 과정을 담았습니다",
+    workEyebrow: "주요 작업",
+    workTitle: "플레이 안에서 작동한 사운드와 음악 작업",
+    workTabGame: "게임 오디오 / BGM",
+    workTabMusic: "음악 디스코그래피",
+    strengthsEyebrow: "강점",
+    contactEyebrow: "연락",
+    contactTitle1: "좋은 사운드는",
+    contactTitle2: "플레이 안에서",
+    contactTitle3: "완성됩니다",
+    scopeLabels: { content: "내용", implementation: "구현", proof: "근거" },
+    aiLabLabels: { gameAudioUse: "파이프라인 적용", proof: "근거" },
+    proofLabel: "근거",
+    viewBreakdown: "상세 보기",
+    footstepDeepDive: "발소리 제작 흐름 보기",
+    cardFallbackCta: "자세히 보기",
+    listen: "듣기",
+    watch: "보기",
+    view: "보기",
+    techKeywordsLabel: "대표 기술 키워드",
+  },
+  en: {
+    htmlLang: "en",
+    title: "Jungmin Cha | Game Audio Designer",
+    navReel: "Reel",
+    navTech: "Tech Audio",
+    navSfx: "SFX Breakdown",
+    navWork: "Work",
+    navContact: "Contact",
+    email: "Email",
+    orbitSound: "Sound Designer",
+    orbitAudio: "Audio Implementer",
+    orbitField: "Design to Implementation",
+    heroPrimary: "Watch reel",
+    heroSecondary: "View tech cases",
+    featuredCase: "Featured case",
+    featuredCaseCta: "View tech case",
+    toolchain: "Toolchain",
+    reelEyebrow: "Demo Reel",
+    reelTitle: "Guardian & Seeker audio design and implementation in practice",
+    workEyebrow: "Selected Work",
+    workTitle: "Sound and music work built for play",
+    workTabGame: "Game Audio / BGM",
+    workTabMusic: "Music Discography",
+    strengthsEyebrow: "Strengths",
+    contactEyebrow: "Contact",
+    contactTitle1: "Good sound",
+    contactTitle2: "is completed",
+    contactTitle3: "inside play",
+    scopeLabels: { content: "Content", implementation: "Implementation", proof: "Evidence" },
+    aiLabLabels: { gameAudioUse: "Pipeline use", proof: "Evidence" },
+    proofLabel: "Evidence",
+    viewBreakdown: "View breakdown",
+    footstepDeepDive: "Open footstep deep dive",
+    cardFallbackCta: "View detail",
+    listen: "Listen",
+    watch: "Watch",
+    view: "View",
+    techKeywordsLabel: "Core technical keywords",
+  },
+};
+
+const portfolioLocales = {
+  ko: portfolioKo,
+  en: portfolioEn,
+};
+
+const LANGUAGE_STORAGE_KEY = "jungmin-portfolio-language";
+let currentLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) === "en" ? "en" : "ko";
+let portfolio = portfolioLocales[currentLanguage];
+let uiCopy = uiLocales[currentLanguage];
+
 const fillFields = () => {
   document.querySelectorAll("[data-field]").forEach((node) => {
     const key = node.dataset.field;
     if (portfolio[key]) node.textContent = portfolio[key];
   });
-  document.title = "Jungmin Cha | Game Audio Designer";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    if (uiCopy[key]) node.textContent = uiCopy[key];
+  });
+  document.documentElement.lang = uiCopy.htmlLang;
+  document.title = uiCopy.title;
 };
 
 const TEXT_EDIT_STORAGE_KEY = "jungmin-portfolio-text-overrides-v1";
@@ -912,7 +1396,7 @@ const renderProjects = (activeTab = "game") => {
       const hasMusicCover = isMusic && (project.coverImage || getYouTubeId(listenHref));
       const musicCover = hasMusicCover ? getCoverData(project, index) : null;
       const cardHref = isMusic && listenHref && !hasMusicCover ? listenHref : project.href;
-      const cardCta = isMusic && listenHref && !hasMusicCover ? "Listen" : project.cta || "View detail";
+      const cardCta = isMusic && listenHref && !hasMusicCover ? uiCopy.listen : project.cta || uiCopy.cardFallbackCta;
 
       return `
         <article class="work-card${project.featured ? " featured" : ""}${project.connection ? ` linked-case linked-case-${project.connection.side}` : ""}">
@@ -921,21 +1405,21 @@ const renderProjects = (activeTab = "game") => {
               hasMusicCover
                 ? `<div class="music-cover" style="${musicCover.style}">
                     <img class="cover-media" src="${musicCover.image}" alt="" loading="lazy" decoding="async" />
-                    <a class="listen-button" href="${listenHref}" target="_blank" rel="noreferrer" aria-label="${project.title} 바로 듣기"><span aria-hidden="true">▶</span><span>Listen</span></a>
+                    <a class="listen-button" href="${listenHref}" target="_blank" rel="noreferrer" aria-label="${project.title} ${uiCopy.listen}"><span aria-hidden="true">▶</span><span>${uiCopy.listen}</span></a>
                   </div>`
                 : ""
             }
             ${
               projectMedia
                 ? projectMedia.href
-                  ? `<a class="game-cover" href="${projectMedia.href}" target="_blank" rel="noreferrer" aria-label="${project.title} 미디어 보기">
+                  ? `<a class="game-cover" href="${projectMedia.href}" target="_blank" rel="noreferrer" aria-label="${project.title} ${uiCopy.view}">
                     ${renderCoverMedia(projectMedia)}
                     <span class="media-label">${projectMedia.label}</span>
                     <span class="listen-button media-button">
-                      ${projectMedia.isVideo ? `<span aria-hidden="true">▶</span><span>Watch</span>` : `<span aria-hidden="true">↗</span><span>View</span>`}
+                      ${projectMedia.isVideo ? `<span aria-hidden="true">▶</span><span>${uiCopy.watch}</span>` : `<span aria-hidden="true">↗</span><span>${uiCopy.view}</span>`}
                     </span>
                   </a>`
-                  : `<div class="game-cover" aria-label="${project.title} 미디어 프리뷰">
+                  : `<div class="game-cover" aria-label="${project.title} preview">
                     ${renderCoverMedia(projectMedia)}
                     <span class="media-label">${projectMedia.label}</span>
                   </div>`
@@ -961,7 +1445,7 @@ const renderProjects = (activeTab = "game") => {
                 ? `<div class="scope-list">${Object.entries(project.scope)
                     .map(
                       ([key, value]) =>
-                        `<div class="scope-row"><strong>${scopeLabels[key] || key}</strong><span>${value}</span></div>`,
+                        `<div class="scope-row"><strong>${uiCopy.scopeLabels[key] || key}</strong><span>${value}</span></div>`,
                     )
                     .join("")}</div>`
                 : ""
@@ -986,17 +1470,6 @@ const renderProjects = (activeTab = "game") => {
   refreshTextEditorTargets();
 };
 
-const scopeLabels = {
-  content: "Content",
-  implementation: "Implementation",
-  proof: "Proof",
-};
-
-const aiLabLabels = {
-  gameAudioUse: "Pipeline use",
-  proof: "Evidence",
-};
-
 const renderAiTags = (tags = []) =>
   tags.map((tag) => `<span class="ai-tag">${tag}</span>`).join("");
 
@@ -1008,7 +1481,7 @@ const escapeHtml = (value = "") =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
-const renderDisclosure = (items = [], { className = "", summary = "View breakdown" } = {}) => {
+const renderDisclosure = (items = [], { className = "", summary = uiCopy.viewBreakdown } = {}) => {
   if (!items.length) return "";
 
   return `
@@ -1043,7 +1516,7 @@ const renderTechAudio = () => {
   title.textContent = techAudio.title;
   lead.innerHTML = `
     <p>${escapeHtml(techAudio.intro)}</p>
-    <div class="tech-signal-row" aria-label="대표 기술 키워드">
+    <div class="tech-signal-row" aria-label="${uiCopy.techKeywordsLabel}">
       ${["Wwise", "Unreal Engine 5", "Blueprint", "Anim Notify", "Occlusion", "Audio QA"]
         .map((item) => `<span>${item}</span>`)
         .join("")}
@@ -1060,7 +1533,7 @@ const renderTechAudio = () => {
             <p>${escapeHtml(item.summary)}</p>
           </div>
           <div class="tech-proof">
-            <strong>Proof</strong>
+            <strong>${uiCopy.proofLabel}</strong>
             <span>${escapeHtml(item.proof)}</span>
           </div>
           ${renderDisclosure(item.breakdown, { className: "tech-breakdown" })}
@@ -1104,7 +1577,7 @@ const renderSfxBreakdown = () => {
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.text)}</p>
           </div>
-          ${renderDisclosure(item.deepDive, { className: "sfx-deep-dive", summary: "Open Footstep deep dive" })}
+          ${renderDisclosure(item.deepDive, { className: "sfx-deep-dive", summary: uiCopy.footstepDeepDive })}
         </article>
       `,
     )
@@ -1120,8 +1593,8 @@ const renderAiTitle = (aiLab) => {
 };
 
 const renderAiDetails = (item, { showProof = false } = {}) => {
-  const details = [{ label: aiLabLabels.gameAudioUse, value: item.gameAudioUse }];
-  if (showProof) details.push({ label: aiLabLabels.proof, value: item.proof });
+  const details = [{ label: uiCopy.aiLabLabels.gameAudioUse, value: item.gameAudioUse }];
+  if (showProof) details.push({ label: uiCopy.aiLabLabels.proof, value: item.proof });
 
   return `
     <div class="ai-detail-list">
@@ -1773,6 +2246,49 @@ const setupWorkTabs = () => {
   document.querySelectorAll("[data-work-tab]").forEach((tab) => {
     tab.addEventListener("click", () => {
       activateWorkTab(tab.dataset.workTab);
+    });
+  });
+};
+
+const renderAllContent = ({ activeTab = document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game" } = {}) => {
+  fillFields();
+  renderFocus();
+  renderReelNotes();
+  renderTechAudio();
+  renderSfxBreakdown();
+  document.querySelector("#project-list").dataset.activeWork = "";
+  workViewCache.clear();
+  activateWorkTab(activeTab);
+  renderAiLab();
+  renderPractice();
+  renderLinks();
+};
+
+const setupLanguageToggle = () => {
+  const buttons = document.querySelectorAll("[data-language]");
+  if (!buttons.length) return;
+
+  const syncButtons = () => {
+    buttons.forEach((button) => {
+      const isActive = button.dataset.language === currentLanguage;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  syncButtons();
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextLanguage = button.dataset.language === "en" ? "en" : "ko";
+      if (nextLanguage === currentLanguage) return;
+
+      currentLanguage = nextLanguage;
+      portfolio = portfolioLocales[currentLanguage];
+      uiCopy = uiLocales[currentLanguage];
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+      syncButtons();
+      renderAllContent();
     });
   });
 };
@@ -2619,6 +3135,7 @@ renderLinks();
 setupSecretTextEditor();
 setupTheme();
 setupWorkTabs();
+setupLanguageToggle();
 setupMarqueeScroll();
 setupAudioConsole();
 setupCursorInteraction();

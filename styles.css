@@ -182,6 +182,17 @@ a {
   gap: 8px;
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 40px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+}
+
 .brand {
   min-width: 0;
   gap: 10px;
@@ -221,6 +232,7 @@ body.text-edit-mode .brand-mark {
 }
 
 .nav a,
+.language-button,
 .theme-toggle,
 .header-cta,
 .button,
@@ -230,6 +242,27 @@ body.text-edit-mode .brand-mark {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-pill);
+}
+
+.language-button {
+  min-width: 34px;
+  min-height: 32px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.language-button.is-active {
+  color: var(--on-primary);
+  background: var(--accent);
 }
 
 .theme-toggle {
@@ -315,6 +348,16 @@ html.dark .theme-toggle {
   border-color: var(--line-strong);
   background: var(--surface-strong);
   color: var(--accent);
+}
+
+html.dark .language-toggle {
+  border-color: var(--line-strong);
+  background: var(--surface-strong);
+}
+
+html.dark .language-button.is-active {
+  color: var(--on-primary);
+  background: var(--accent);
 }
 
 html.dark .header-cta {
@@ -3502,8 +3545,9 @@ html.dark [data-text-editable="true"]:focus {
   }
 
   .brand {
-    flex-basis: calc(100% - 112px);
+    flex: 1 1 92px;
     gap: 8px;
+    min-width: 0;
     font-size: 16px;
   }
 
@@ -3519,6 +3563,17 @@ html.dark [data-text-editable="true"]:focus {
   .theme-toggle {
     width: 36px;
     min-height: 36px;
+  }
+
+  .language-toggle {
+    min-height: 36px;
+  }
+
+  .language-button {
+    min-width: 31px;
+    min-height: 28px;
+    padding-inline: 8px;
+    font-size: 11px;
   }
 
   .header-cta {

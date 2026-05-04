@@ -66,25 +66,29 @@
         <span>Jungmin Cha</span>
       </a>
       <nav class="nav" aria-label="주요 섹션">
-        <a href="#reel">Reel</a>
-        <a href="#tech-audio">Tech Audio</a>
-        <a href="#sfx-breakdown">SFX Breakdown</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
+        <a href="#reel" data-i18n="navReel">릴</a>
+        <a href="#tech-audio" data-i18n="navTech">기술 오디오</a>
+        <a href="#sfx-breakdown" data-i18n="navSfx">효과음 분석</a>
+        <a href="#work" data-i18n="navWork">작업</a>
+        <a href="#contact" data-i18n="navContact">연락</a>
       </nav>
       <div class="header-actions">
+        <div class="language-toggle" role="group" aria-label="언어 전환">
+          <button class="language-button is-active" type="button" data-language="ko" aria-pressed="true">KR</button>
+          <button class="language-button" type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
         <button class="theme-toggle" type="button" aria-label="다크모드 전환" aria-pressed="false">
           <span aria-hidden="true">●</span>
         </button>
-        <a class="header-cta" href="mailto:vnrs97@gmail.com">Email</a>
+        <a class="header-cta" href="mailto:vnrs97@gmail.com" data-i18n="email">이메일</a>
       </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="role-orbit" aria-label="빠른 이동 오브젝트">
-          <a class="role-token token-sound" href="#sfx-breakdown" data-orbit>Sound Designer</a>
-          <a class="role-token token-audio" href="#console" data-orbit>Audio Implementer</a>
+          <a class="role-token token-sound" href="#sfx-breakdown" data-orbit data-i18n="orbitSound">사운드 디자인</a>
+          <a class="role-token token-audio" href="#console" data-orbit data-i18n="orbitAudio">오디오 구현</a>
           <a
             class="symbol-token token-music"
             href="#work"
@@ -93,7 +97,7 @@
             data-orbit
             >♪</a
           >
-          <a class="role-token token-field" href="#tech-audio" data-orbit>Full-stack Audio</a>
+          <a class="role-token token-field" href="#tech-audio" data-orbit data-i18n="orbitField">설계부터 구현까지</a>
           <a class="symbol-token token-reel" href="#reel" aria-label="데모릴 섹션으로 이동" data-orbit>✱</a>
           <a
             class="symbol-token token-down"
@@ -113,8 +117,8 @@
             Wwise와 Unreal Engine 5로 전투 BGM, SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#reel">데모릴 보기</a>
-            <a class="button secondary" href="#tech-audio">기술 케이스 보기</a>
+            <a class="button primary" href="#reel" data-i18n="heroPrimary">데모릴 보기</a>
+            <a class="button secondary" href="#tech-audio" data-i18n="heroSecondary">기술 케이스 보기</a>
           </div>
           <div class="hero-chips" id="hero-focus-list" aria-label="핵심 역량"></div>
         </div>
@@ -182,16 +186,16 @@
             </div>
           </div>
           <div class="featured-case">
-            <span class="label">Featured case</span>
+            <span class="label" data-i18n="featuredCase">대표 사례</span>
             <strong>Guardian & Seeker</strong>
             <p>UE5.6 · Wwise · 전투 BGM · 발소리 · 오클루전 · UI 피드백</p>
-            <a href="#tech-audio">기술 케이스 보기</a>
+            <a href="#tech-audio" data-i18n="featuredCaseCta">기술 케이스 보기</a>
           </div>
         </aside>
       </section>
 
       <section class="strip" aria-label="핵심 분야">
-        <span class="strip-label">Toolchain</span>
+        <span class="strip-label" data-i18n="toolchain">툴체인</span>
         <div
           class="marquee"
           id="focus-list"
@@ -202,8 +206,8 @@
 
       <section class="section reel-section" id="reel" aria-labelledby="reel-title">
         <div class="section-heading">
-          <p class="eyebrow">Demo Reel</p>
-          <h2 id="reel-title">사운드 설계부터 구현까지, Guardian & Seeker로 증명합니다</h2>
+          <p class="eyebrow" data-i18n="reelEyebrow">데모릴</p>
+          <h2 id="reel-title" data-i18n="reelTitle">Guardian & Seeker의 오디오 설계와 구현 과정을 담았습니다</h2>
         </div>
         <div class="reel-layout">
           <div class="reel-frame" aria-label="Guardian and Seeker 데모릴 YouTube 임베드">
@@ -230,7 +234,7 @@
 
       <section class="section tech-audio" id="tech-audio" aria-labelledby="tech-audio-title">
         <div class="section-heading">
-          <p class="eyebrow" id="tech-audio-eyebrow">Technical Audio</p>
+          <p class="eyebrow" id="tech-audio-eyebrow">기술 오디오</p>
           <h2 id="tech-audio-title">Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템</h2>
         </div>
         <div class="section-lead" id="tech-audio-lead"></div>
@@ -239,8 +243,8 @@
 
       <section class="section sfx-breakdown" id="sfx-breakdown" aria-labelledby="sfx-breakdown-title">
         <div class="section-heading">
-          <p class="eyebrow" id="sfx-breakdown-eyebrow">SFX Breakdown</p>
-          <h2 id="sfx-breakdown-title">효과음 제작부터 인게임 검증까지 한 흐름으로 보여줍니다</h2>
+          <p class="eyebrow" id="sfx-breakdown-eyebrow">효과음 브레이크다운</p>
+          <h2 id="sfx-breakdown-title">효과음 제작부터 인게임 검증까지 한 흐름으로 정리했습니다</h2>
         </div>
         <div class="sfx-layout">
           <div class="sfx-process" id="sfx-process-list"></div>
@@ -250,15 +254,15 @@
 
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2 id="work-title">플레이 안의 사운드와 음악 작업을 모았습니다</h2>
+          <p class="eyebrow" data-i18n="workEyebrow">주요 작업</p>
+          <h2 id="work-title" data-i18n="workTitle">플레이 안에서 작동한 사운드와 음악 작업</h2>
         </div>
         <div class="work-tabs" role="tablist" aria-label="작업 분류">
           <button class="work-tab is-active" type="button" role="tab" aria-selected="true" data-work-tab="game">
-            Game Audio / BGM
+            <span data-i18n="workTabGame">게임 오디오 / BGM</span>
           </button>
           <button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="music">
-            Music Discography
+            <span data-i18n="workTabMusic">음악 디스코그래피</span>
           </button>
         </div>
         <div class="work-intro" id="work-intro" aria-live="polite"></div>
@@ -267,7 +271,7 @@
 
       <section class="section split" id="practice" aria-labelledby="practice-title">
         <div class="section-heading">
-          <p class="eyebrow">Strengths</p>
+          <p class="eyebrow" data-i18n="strengthsEyebrow">강점</p>
           <h2 id="practice-title">제작부터 구현, QA까지 이어지는 워크플로</h2>
         </div>
         <div class="practice-list" id="practice-list"></div>
@@ -275,7 +279,7 @@
 
       <section class="section ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
         <div class="section-heading">
-          <p class="eyebrow" id="ai-lab-eyebrow">Voice Pipeline</p>
+          <p class="eyebrow" id="ai-lab-eyebrow">보이스 파이프라인</p>
           <h2 id="ai-lab-title">
             <span class="ai-lab-title-line">보이스와 소스 리소스를</span>
             <span class="ai-lab-title-line">목적에 맞게 관리합니다</span>
@@ -292,15 +296,15 @@
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div>
-          <p class="eyebrow">Contact</p>
+          <p class="eyebrow" data-i18n="contactEyebrow">연락</p>
           <h2 id="contact-title">
-            <span>좋은 사운드는</span>
-            <span>플레이 안에서</span>
-            <span>증명됩니다</span>
+            <span data-i18n="contactTitle1">좋은 사운드는</span>
+            <span data-i18n="contactTitle2">플레이 안에서</span>
+            <span data-i18n="contactTitle3">완성됩니다</span>
           </h2>
           <p data-field="contactNote">
             전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다.
-            싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 직접 연결됩니다.
+            싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 적용합니다.
           </p>
         </div>
         <div class="contact-links" id="contact-links"></div>
@@ -323,6 +327,6 @@
       <span>Stop audio</span>
     </button>
 
-    <script src="./script.js?v=20260503-media-ux"></script>
+    <script src="./script.js?v=20260504-language-toggle"></script>
   </body>
 </html>
