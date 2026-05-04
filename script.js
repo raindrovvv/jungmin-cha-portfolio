@@ -527,6 +527,7 @@ const portfolio = {
   aiLab: {
     eyebrow: "AI Lab / Research Log",
     title: "AI로 보이스와 개발 루프를 빠르게 검증합니다",
+    titleLines: ["AI로 보이스와 개발 루프를", "빠르게 검증합니다"],
     intro:
       "AI 코딩과 리서치를 캐릭터 보이스, 언리얼 구현, 사운드 QA에 바로 연결합니다.",
     items: [
@@ -843,6 +844,21 @@ const aiLabLabels = {
 const renderAiTags = (tags = []) =>
   tags.map((tag) => `<span class="ai-tag">${tag}</span>`).join("");
 
+const escapeHtml = (value = "") =>
+  String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+const renderAiTitle = (aiLab) => {
+  const lines = aiLab.titleLines?.length ? aiLab.titleLines : [aiLab.title];
+  return lines
+    .map((line) => `<span class="ai-lab-title-line">${escapeHtml(line)}</span>`)
+    .join("");
+};
+
 const renderAiDetails = (item, { showProof = false } = {}) => {
   const details = [{ label: aiLabLabels.gameAudioUse, value: item.gameAudioUse }];
   if (showProof) details.push({ label: aiLabLabels.proof, value: item.proof });
@@ -877,7 +893,7 @@ const renderAiLab = () => {
   const logs = aiLab.items.filter((item) => item !== feature);
 
   eyebrow.textContent = aiLab.eyebrow;
-  title.textContent = aiLab.title;
+  title.innerHTML = renderAiTitle(aiLab);
   intro.textContent = aiLab.intro;
 
   featureRoot.innerHTML = `
