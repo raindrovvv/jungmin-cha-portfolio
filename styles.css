@@ -947,6 +947,12 @@ html.dark .featured-case strong {
   word-break: keep-all;
 }
 
+@media (min-width: 1024px) {
+  .signal-panel .featured-case p {
+    white-space: nowrap;
+  }
+}
+
 .featured-case a {
   justify-self: start;
   min-height: 34px;
