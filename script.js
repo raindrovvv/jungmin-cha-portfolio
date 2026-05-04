@@ -164,10 +164,6 @@ const portfolioKo = {
             text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나눕니다.",
           },
           {
-            label: "레이어링",
-            text: "접지감, 마찰감, 장비감처럼 역할이 다른 레이어를 분리해 캐릭터 무게와 속도를 만듭니다.",
-          },
-          {
             label: "변형",
             text: "Wwise Random Container에서 피치와 볼륨 변형을 주어 같은 발소리가 반복되는 느낌을 줄입니다.",
           },
@@ -911,10 +907,6 @@ const createEnglishPortfolio = () => {
           {
             label: "Source",
             text: "Library and edited short sources are grouped by material.",
-          },
-          {
-            label: "Layering",
-            text: "Separate layers for contact, friction, and gear create weight and speed.",
           },
           {
             label: "Variation",
