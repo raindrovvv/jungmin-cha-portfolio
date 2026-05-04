@@ -513,6 +513,19 @@ html.dark .symbol-token.is-hopping {
   }
 }
 
+@keyframes hero-name-glow-breathe {
+  0%,
+  100% {
+    opacity: var(--name-glow-min);
+    transform: translate3d(-1%, 0, 0) scale(0.96);
+  }
+
+  50% {
+    opacity: var(--name-glow-max);
+    transform: translate3d(1%, -1%, 0) scale(1.02);
+  }
+}
+
 .hero-copy {
   grid-area: copy;
   min-width: 0;
@@ -568,6 +581,8 @@ html.dark h1 {
 }
 
 .hero-title-name {
+  --name-glow-min: 0.22;
+  --name-glow-max: 0.38;
   position: relative;
   isolation: isolate;
   width: fit-content;
@@ -576,30 +591,32 @@ html.dark h1 {
   font-size: 0.94em;
   font-weight: 300;
   letter-spacing: -1.4px;
-  text-shadow:
-    0 0 18px color-mix(in srgb, var(--accent) 18%, transparent),
-    0 0 34px color-mix(in srgb, var(--accent-amber) 12%, transparent);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 .hero-title-name::after {
   content: "";
   position: absolute;
-  inset: 8% -0.18em 5% -0.18em;
+  inset: 14% -0.1em 9% -0.1em;
   z-index: -1;
   border-radius: 50%;
   background:
     radial-gradient(
       ellipse at 48% 56%,
-      color-mix(in srgb, var(--accent) 24%, transparent),
-      transparent 70%
+      color-mix(in srgb, var(--accent) 14%, transparent),
+      transparent 68%
     ),
     radial-gradient(
       ellipse at 58% 46%,
-      color-mix(in srgb, var(--accent-amber) 14%, transparent),
-      transparent 68%
+      color-mix(in srgb, var(--accent-amber) 8%, transparent),
+      transparent 66%
     );
-  filter: blur(18px);
-  opacity: 0.74;
+  filter: blur(13px);
+  opacity: var(--name-glow-min);
+  transform: translate3d(0, 0, 0) scale(0.96);
+  transform-origin: center;
+  animation: hero-name-glow-breathe 6.4s ease-in-out infinite;
+  will-change: transform, opacity;
   pointer-events: none;
 }
 
@@ -612,17 +629,15 @@ html.dark h1 {
 }
 
 html.dark .hero-title-name {
-  text-shadow:
-    0 0 14px rgba(30, 215, 96, 0.24),
-    0 0 34px rgba(30, 215, 96, 0.18),
-    0 0 56px rgba(255, 255, 255, 0.08);
+  --name-glow-min: 0.26;
+  --name-glow-max: 0.46;
+  text-shadow: 0 0 10px rgba(30, 215, 96, 0.13);
 }
 
 html.dark .hero-title-name::after {
   background:
-    radial-gradient(ellipse at 48% 56%, rgba(30, 215, 96, 0.28), transparent 70%),
-    radial-gradient(ellipse at 58% 46%, rgba(255, 255, 255, 0.1), transparent 66%);
-  opacity: 0.9;
+    radial-gradient(ellipse at 48% 56%, rgba(30, 215, 96, 0.15), transparent 68%),
+    radial-gradient(ellipse at 58% 46%, rgba(255, 255, 255, 0.06), transparent 66%);
 }
 
 h2 {
@@ -3380,5 +3395,14 @@ html.dark [data-text-editable="true"]:focus {
 
   body::before {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-name::after {
+    animation: none;
+    opacity: var(--name-glow-min);
+    transform: translate3d(0, 0, 0) scale(0.98);
+    will-change: auto;
   }
 }
