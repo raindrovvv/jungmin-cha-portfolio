@@ -3,12 +3,12 @@ const portfolio = {
   role: "Game Audio · Wwise · Unreal Engine 5",
   headline: "차정민 Game Audio Designer",
   intro:
-    "플레이어가 상황을 더 빨리 이해하도록 사운드를 설계합니다. Wwise와 Unreal Engine 5로 전투 BGM 전환, 환경/캐릭터 SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.",
+    "플레이어가 상황을 직관적으로 읽도록 사운드를 설계합니다. Wwise와 Unreal Engine 5로 전투 BGM 전환, 환경/캐릭터 SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.",
   years: "7년+",
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다. 음악 프로덕션 경험은 BGM과 감정선 설계로 연결합니다.",
+    "전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다. 싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 직접 연결됩니다.",
   footerName: "차정민 Game Audio Designer Portfolio",
   focus: [
     "Wwise",
@@ -33,7 +33,7 @@ const portfolio = {
     },
     {
       title: "플레이 테스트로 밸런싱과 QA 검증",
-      text: "299명 체험, 평균 4.36/5 피드백을 바탕으로 BGM State 전환, Physical Material 발소리, 오클루전과 UI 피드백을 다듬었습니다.",
+      text: "299명 플레이테스트(평균 4.36/5) 피드백을 바탕으로 BGM 전환, 발소리, 오클루전, UI 피드백을 세밀하게 조정했습니다.",
     },
   ],
   projects: [
@@ -42,7 +42,7 @@ const portfolio = {
       period: "G-STAR 2025",
       type: "UE5.6 / Wwise",
       summary:
-        "4v1 비대칭 PvP 액션 게임에서 캐릭터, 몬스터, 환경, UI 사운드 디자인과 Wwise 구현을 담당했습니다. 전투 BGM 상태 전환, Physical Material 기반 발소리, 오클루전, 인게임 밸런싱과 QA까지 연결했습니다.",
+        "4v1 비대칭 PvP 액션 게임의 캐릭터, 몬스터, 환경, UI 사운드 디자인과 Wwise 구현 전반을 담당했습니다. 전투 BGM 전환, Physical Material 기반 발소리, 오클루전 시스템을 설계하고 플레이테스트를 통해 밸런싱과 QA까지 마무리했습니다.",
       featured: true,
       href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
       media: {
@@ -69,7 +69,7 @@ const portfolio = {
       period: "Troubleshooting",
       type: "Occlusion / Spatial Audio",
       summary:
-        "벽과 문 너머의 몬스터 소리가 거리와 차폐 상태에 맞게 들리도록 조정한 디버깅 사례입니다. Wwise 오클루전, Environmental Curves, Diffraction / Transmission, UE 콜리전과 라인 트레이스를 함께 점검했습니다.",
+        "벽과 문 너머 몬스터 소리의 거리감과 차폐감을 실제 플레이 기준으로 교정한 오디오 디버깅 사례입니다. Wwise 오클루전, Environmental Curves, Diffraction / Transmission, UE 콜리전과 라인 트레이스를 함께 점검했습니다.",
       href: "https://www.youtube.com/watch?v=dp_Kr3LQ6EE",
       media: {
         label: "Audio tech",
@@ -128,7 +128,7 @@ const portfolio = {
       skills: ["BGM", "SFX", "UI/UX", "Level Design", "Cinematic"],
       scope: {
         content: "폐쇄적 연구소 톤의 BGM/SFX, UI 피드백, 시네마틱 오디오",
-        implementation: "UE5 프로젝트 내 시연 영상, 게임플레이, 컷씬 흐름에 오디오 적용",
+        implementation: "UE5 프로젝트 내 게임플레이 및 시네마틱 컷씬에 오디오 직접 적용",
         proof: "Notion Credit: BGM/SFX 제작, UI/UX 설계, 레벨 디자인, 시네마틱 컷씬 담당",
       },
     },
@@ -137,7 +137,7 @@ const portfolio = {
       period: "2025.01.16",
       type: "Text RPG / Console",
       summary:
-        "8가지 콘셉트의 미로형 타워를 탐험하는 콘솔 텍스트 RPG입니다. 게임 콘셉트와 스토리, 맵 시스템, BGM 작편곡, 효과음 제작을 맡아 텍스트 기반 플레이에서도 층별 분위기와 전투 피드백이 전달되도록 설계했습니다.",
+        "8가지 콘셉트의 미로형 타워를 탐험하는 콘솔 텍스트 RPG입니다. 게임 콘셉트와 스토리, 맵 시스템, BGM 작편곡, 효과음 제작을 맡아 층마다 뚜렷한 분위기와 감정선을 만들었습니다.",
       href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
       media: {
         label: "Console RPG demo",
@@ -539,7 +539,7 @@ const portfolio = {
     },
     {
       title: "Source-centered production",
-      text: "싱어송라이터이자 프로듀서로 보컬 녹음, 디렉팅, 편집, 믹싱을 경험하며 소스 퀄리티와 밸런스를 중요하게 다룹니다.",
+      text: "싱어송라이터이자 프로듀서로 보컬 녹음, 디렉팅, 편집, 믹싱을 직접 다루며 소스 퀄리티와 밸런스에 대한 기준을 게임 오디오에도 그대로 적용합니다.",
     },
   ],
   links: [
