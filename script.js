@@ -524,6 +524,70 @@ const portfolio = {
       text: "작사, 작곡, 보컬, 편곡, 믹싱/마스터링까지 직접 다룬 24개 릴리즈를 모았습니다. 게임 오디오와는 별개로 이어온 7년+ 음악 제작 경력입니다.",
     },
   },
+  aiLab: {
+    eyebrow: "AI Lab / Research Log",
+    title: "AI를 게임 오디오 제작 흐름으로 연결합니다",
+    intro:
+      "AI를 단순한 코드 생성 도구가 아니라, 기획-구현-검토-학습을 빠르게 반복하는 작업 파트너로 사용합니다. 캐릭터 보이스, 언리얼 개발 흐름, QA 기준, 팀 지식 자산화를 게임 오디오 제작 방식과 연결해 기록합니다.",
+    items: [
+      {
+        title: "Lore Pocket",
+        type: "OpenAI API / TTS Prototype",
+        summary:
+          "캐릭터 설정, 대사, 음성 후보를 하나의 데이터 흐름으로 묶어 보는 AI 보이스 프리프로덕션 실험입니다.",
+        gameAudioUse:
+          "대사 톤과 보이스 방향을 빠르게 검증하고, 엔진에 넣기 쉬운 구조화된 캐릭터 음성 자산을 설계합니다.",
+        proof:
+          "Persona, Dialogue, Voice, Engine-ready Pack으로 이어지는 흐름과 JSON 검증 기준을 제작기로 정리했습니다.",
+        href: "https://raindrovvv.tistory.com/144",
+        cta: "Dev log",
+        featured: true,
+        tags: ["OpenAI API", "TTS", "Persona JSON", "Voice Pipeline"],
+      },
+      {
+        title: "bkit.ai 개발 프레임워크 리서치",
+        type: "AI Dev Framework",
+        summary:
+          "AI 에이전트가 기획, 설계, 구현, 검증 루프를 어떻게 구조화하는지 언리얼 프로젝트 관점에서 정리했습니다.",
+        gameAudioUse:
+          "오디오 시스템 설계 문서, 구현 체크리스트, 플레이테스트 QA 항목을 반복 가능한 흐름으로 관리합니다.",
+        proof:
+          "Guardian & Seeker 같은 1v4 구조를 예시로 클래스 설계, GAS, QA 시나리오까지 연결해 분석했습니다.",
+        href: "https://raindrovvv.tistory.com/143",
+        cta: "Research note",
+        featured: false,
+        tags: ["AI Agents", "PDCA", "Unreal Workflow"],
+      },
+      {
+        title: "AI 자산화와 팀 워크플로",
+        type: "Workflow Research",
+        summary:
+          "개인의 노하우를 팀이 재사용할 수 있는 프로세스와 기준으로 바꾸는 AI 자산화 관점을 정리했습니다.",
+        gameAudioUse:
+          "사운드 QA, 디버깅 순서, 믹스 기준을 팀원이 따라갈 수 있는 이정표로 만들어 협업 품질을 높입니다.",
+        proof:
+          "성공 기준 정의, 반복 테스트 환경, 전문가 디버깅 프로세스의 자산화 방식을 작업 기준으로 번역했습니다.",
+        href: "https://raindrovvv.tistory.com/132",
+        cta: "Read insight",
+        featured: false,
+        tags: ["AI Assetization", "QA", "Team Knowledge"],
+      },
+      {
+        title: "Claude Dispatch와 위임형 AI",
+        type: "Agent Workflow",
+        summary:
+          "AI를 자동화 버튼이 아니라 결과를 맡기는 작업 파트너로 보는 관점을 제품 경험 중심으로 정리했습니다.",
+        gameAudioUse:
+          "반복 파일 정리, 문서 요약, 작업 세션 이어받기처럼 오디오 구현 시간을 잡아먹는 루틴을 작게 위임합니다.",
+        proof:
+          "직접 연결과 화면 조작의 차이, 안전한 위임 범위, 작은 작업부터 실험하는 기준을 정리했습니다.",
+        href: "https://raindrovvv.tistory.com/172",
+        cta: "Read note",
+        featured: false,
+        tags: ["Delegation", "Computer Use", "Automation"],
+      },
+    ],
+  },
   practice: [
     {
       title: "Gameplay-first audio",
@@ -771,6 +835,76 @@ const scopeLabels = {
   proof: "Proof",
 };
 
+const aiLabLabels = {
+  gameAudioUse: "Game audio use",
+  proof: "Proof",
+};
+
+const renderAiTags = (tags = []) =>
+  tags.map((tag) => `<span class="ai-tag">${tag}</span>`).join("");
+
+const renderAiDetails = (item) => `
+  <div class="ai-detail-list">
+    <div class="ai-detail-row">
+      <strong>${aiLabLabels.gameAudioUse}</strong>
+      <span>${item.gameAudioUse}</span>
+    </div>
+    <div class="ai-detail-row">
+      <strong>${aiLabLabels.proof}</strong>
+      <span>${item.proof}</span>
+    </div>
+  </div>
+`;
+
+const renderAiLab = () => {
+  const eyebrow = document.querySelector("#ai-lab-eyebrow");
+  const title = document.querySelector("#ai-lab-title");
+  const intro = document.querySelector("#ai-lab-intro");
+  const featureRoot = document.querySelector("#ai-lab-feature");
+  const logRoot = document.querySelector("#ai-log-list");
+  const aiLab = portfolio.aiLab;
+
+  if (!eyebrow || !title || !intro || !featureRoot || !logRoot || !aiLab) return;
+
+  const feature = aiLab.items.find((item) => item.featured) || aiLab.items[0];
+  const logs = aiLab.items.filter((item) => item !== feature);
+
+  eyebrow.textContent = aiLab.eyebrow;
+  title.textContent = aiLab.title;
+  intro.textContent = aiLab.intro;
+
+  featureRoot.innerHTML = `
+    <div>
+      <span class="ai-lab-type">${feature.type}</span>
+      <h3>${feature.title}</h3>
+      <p class="ai-lab-summary">${feature.summary}</p>
+      ${renderAiDetails(feature)}
+      <div class="ai-tag-list">${renderAiTags(feature.tags)}</div>
+    </div>
+    <a class="tag card-link ai-card-link" href="${feature.href}" target="_blank" rel="noreferrer">${feature.cta}</a>
+  `;
+
+  logRoot.innerHTML = logs
+    .map(
+      (item) => `
+        <article class="ai-log-card">
+          <div>
+            <div class="ai-log-top">
+              <span class="ai-log-type">${item.type}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p class="ai-log-summary">${item.summary}</p>
+            ${renderAiDetails(item)}
+            <div class="ai-tag-list">${renderAiTags(item.tags)}</div>
+          </div>
+          <a class="tag card-link ai-card-link" href="${item.href}" target="_blank" rel="noreferrer">${item.cta}</a>
+        </article>
+      `,
+    )
+    .join("");
+  refreshTextEditorTargets();
+};
+
 const renderReelNotes = () => {
   const list = document.querySelector("#reel-notes");
   list.innerHTML = portfolio.reelNotes
@@ -948,6 +1082,19 @@ const setupSecretTextEditor = () => {
           ".reel-note p",
           "#work .eyebrow",
           "#work-title",
+          "#ai-lab .eyebrow",
+          "#ai-lab-title",
+          "#ai-lab-intro",
+          ".ai-lab-feature h3",
+          ".ai-lab-feature p",
+          ".ai-lab-type",
+          ".ai-log-card h3",
+          ".ai-log-card p",
+          ".ai-log-type",
+          ".ai-detail-row strong",
+          ".ai-detail-row span",
+          ".ai-tag",
+          ".ai-card-link",
           "#practice .eyebrow",
           "#practice-title",
           "#work-intro span",
@@ -996,6 +1143,9 @@ const setupSecretTextEditor = () => {
       [".reel-caption", "reel:caption"],
       ["#work .eyebrow", "work:kicker"],
       ["#work-title", "work:heading"],
+      ["#ai-lab .eyebrow", "ai-lab:kicker"],
+      ["#ai-lab-title", "ai-lab:heading"],
+      ["#ai-lab-intro", "ai-lab:intro"],
       ["#practice .eyebrow", "practice:kicker"],
       ["#practice-title", "practice:heading"],
       [".contact h2 span:nth-child(1)", "contact:title:1"],
@@ -1020,7 +1170,7 @@ const setupSecretTextEditor = () => {
     }
 
     const section = node.closest("section")?.id || node.closest("header")?.className || node.closest("footer")?.className || "page";
-    const card = node.closest(".work-card, .practice-item, .reel-note, .contact-links a");
+    const card = node.closest(".work-card, .practice-item, .ai-lab-feature, .ai-log-card, .reel-note, .contact-links a");
     const cardIndex = card && card.parentElement ? [...card.parentElement.children].indexOf(card) : -1;
     const localIndex = card ? [...card.querySelectorAll("h3, p, span, dt, dd, strong, a")].indexOf(node) : index;
     const key = `${section}:${cardIndex}:${node.tagName.toLowerCase()}:${localIndex}`;
@@ -1287,6 +1437,7 @@ const setupSecretTextEditor = () => {
       fillFields();
       renderFocus();
       renderReelNotes();
+      renderAiLab();
       document.querySelector("#project-list").dataset.activeWork = "";
       renderProjects(document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game");
       renderPractice();
@@ -2063,7 +2214,7 @@ const setupCursorInteraction = () => {
   };
 
   const getInteractiveTarget = (node) =>
-    node instanceof Element ? node.closest(".work-card, .signal-panel") : null;
+    node instanceof Element ? node.closest(".work-card, .signal-panel, .ai-lab-feature, .ai-log-card") : null;
 
   const updateTilt = (event) => {
     const card = getInteractiveTarget(event.target);
@@ -2147,6 +2298,7 @@ fillFields();
 renderFocus();
 renderReelNotes();
 renderProjects();
+renderAiLab();
 renderPractice();
 renderLinks();
 setupSecretTextEditor();
