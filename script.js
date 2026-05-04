@@ -2295,6 +2295,23 @@ const setupLanguageToggle = () => {
   });
 };
 
+const setupFixedHeaderOffset = () => {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const syncHeaderHeight = () => {
+    document.documentElement.style.setProperty("--header-height", `${Math.ceil(header.offsetHeight)}px`);
+  };
+
+  syncHeaderHeight();
+  window.addEventListener("resize", syncHeaderHeight);
+
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(syncHeaderHeight);
+    observer.observe(header);
+  }
+};
+
 const setupMarqueeScroll = () => {
   const marquee = document.querySelector("#focus-list");
   if (!marquee) return;
@@ -3138,6 +3155,7 @@ setupSecretTextEditor();
 setupTheme();
 setupWorkTabs();
 setupLanguageToggle();
+setupFixedHeaderOffset();
 setupMarqueeScroll();
 setupAudioConsole();
 setupCursorInteraction();

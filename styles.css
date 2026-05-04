@@ -30,6 +30,7 @@
   --orbit-y-mid: 0px;
   --orbit-x-fast: 0px;
   --orbit-y-fast: 0px;
+  --header-height: 64px;
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   --radius: 16px;
   --radius-pill: 9999px;
@@ -79,12 +80,14 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 18px);
 }
 
 body {
   position: relative;
   overflow-x: hidden;
   margin: 0;
+  padding-top: var(--header-height);
   background:
     linear-gradient(180deg, rgba(255, 254, 250, 0.76), transparent 420px),
     radial-gradient(circle at 12% 10%, rgba(47, 157, 145, 0.13), transparent 30%),
@@ -155,9 +158,11 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
+  left: 0;
+  right: 0;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
