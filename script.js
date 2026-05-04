@@ -232,7 +232,7 @@ const portfolio = {
       period: "2020.12.16",
       type: "VENI RAIN",
       summary:
-        "초기 싱글 릴리즈입니다. 작사, 작곡, 편곡 협업, 믹싱/마스터링까지 이어진 음악 제작 경험을 게임 오디오 경력과 분리해 보여줍니다.",
+        "작사, 작곡, 편곡 협업, 믹싱/마스터링까지 직접 참여한 초기 싱글입니다. VENI RAIN/VENIRUS 체계를 처음 정립한 릴리즈입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=gLoUqPA4jJg",
       coverImage: "./assets/covers/raindrop.jpg",
@@ -249,7 +249,7 @@ const portfolio = {
       period: "2024.05.13",
       type: "Arthur · VENI RAIN",
       summary:
-        "Arthur와의 외부 협업 싱글입니다. 피처링 보컬, 공동 작곡, VENIRUS 편곡과 밴드 사운드 프로덕션을 함께 담았습니다.",
+        "Arthur와의 외부 협업 싱글입니다. 피처링 보컬, 공동 작곡, VENIRUS 편곡으로 밴드 사운드 프로덕션을 완성했습니다.",
       href: "https://www.youtube.com/watch?v=BgnCh1RIvo4",
       listenHref: "https://www.youtube.com/watch?v=BgnCh1RIvo4",
       coverImage: "./assets/covers/neon-romance.jpg",
@@ -266,7 +266,7 @@ const portfolio = {
       period: "2024.12.13",
       type: "VENI RAIN · VENIRUS",
       summary:
-        "최근 싱글 릴리즈입니다. Lyrics, Compose, Arrange, Artwork, Mixing, Mastering 태그가 모두 연결되어 음악 제작 전반의 역할을 확인할 수 있습니다.",
+        "작사, 작곡, 편곡, 아트워크, 믹싱/마스터링까지 단독으로 완결한 최근 싱글입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=sAp2zHu-kBo",
       cta: "Discography",
@@ -293,7 +293,7 @@ const portfolio = {
       period: "2024.01.22",
       type: "VENI RAIN · VENIRUS",
       summary:
-        "VENI RAIN과 VENIRUS의 EP 단위 작업입니다. 작사, 작곡, 편곡, 아트워크, 믹싱, 마스터링이 연결된 디스코그래피 릴리즈입니다.",
+        "작사부터 아트워크, 믹싱/마스터링까지 모두 담당한 EP입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=BKecGY-5h8Q",
       cta: "Discography",
@@ -304,7 +304,7 @@ const portfolio = {
       period: "2023.11.16",
       type: "VENIRUS",
       summary:
-        "VENIRUS 크레딧으로 참여한 EP입니다. 코러스, 아트워크, 믹싱/마스터링까지 음악 제작의 주변 작업도 함께 다뤘습니다.",
+        "VENIRUS 크레딧으로 참여한 EP입니다. 코러스, 아트워크, 믹싱/마스터링까지 프로덕션 전반을 담당했습니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=H8l2GJmKIP8",
       cta: "Discography",
@@ -337,7 +337,7 @@ const portfolio = {
       period: "2021.10.01",
       type: "VENI RAIN",
       summary:
-        "훈도시가 피처링한 싱글입니다. 작사, 작곡, 편곡, 아트워크, 믹싱/마스터링까지 음악 제작 전반의 태그가 연결되어 있습니다.",
+        "훈도시가 피처링한 싱글입니다. 작사, 작곡, 편곡, 아트워크, 믹싱/마스터링까지 직접 이어간 릴리즈입니다.",
       href: "https://www.youtube.com/watch?v=Ov4GDN3eKUg",
       listenHref: "https://www.youtube.com/watch?v=Ov4GDN3eKUg",
       coverImage: "./assets/covers/oao.jpg",
@@ -354,7 +354,7 @@ const portfolio = {
       period: "2020.09.16",
       type: "VENI RAIN",
       summary:
-        "Highway와 TMT로 구성된 싱글입니다. VENI RAIN의 작사/작곡, VENIRUS의 편곡과 믹싱/마스터링 크레딧을 함께 보여줍니다.",
+        "Highway와 TMT로 구성된 싱글입니다. VENI RAIN의 작사/작곡과 VENIRUS의 편곡, 믹싱/마스터링이 함께 맞물린 작업입니다.",
       href: "https://www.youtube.com/watch?v=x1OXs4Ud8TY",
       listenHref: "https://www.youtube.com/watch?v=x1OXs4Ud8TY",
       coverImage: "./assets/covers/highway.jpg",
@@ -371,7 +371,7 @@ const portfolio = {
       period: "2020.06.08",
       type: "VENI RAIN",
       summary:
-        "NEEDFIRE와 FREEZE TAG로 구성된 싱글입니다. VENIRUS 프로덕션을 전면에 둔 초기 릴리즈로, 작사/작곡/편곡 경험을 보여줍니다.",
+        "NEEDFIRE와 FREEZE TAG로 구성된 싱글입니다. VENIRUS 프로덕션을 전면에 둔 초기 작사/작곡/편곡 릴리즈입니다.",
       href: "https://www.youtube.com/watch?v=Cc1XFT9E96Y",
       listenHref: "https://www.youtube.com/watch?v=Cc1XFT9E96Y",
       coverImage: "./assets/covers/fire-water.jpg",
@@ -388,7 +388,7 @@ const portfolio = {
       period: "2020.02.26",
       type: "VENI RAIN",
       summary:
-        "좀비(FOUND ME), SIDEWALK, S.O.S로 구성된 초기 싱글입니다. VENI RAIN과 VENIRUS의 공동 제작 체계를 보여주는 작업입니다.",
+        "좀비(FOUND ME), SIDEWALK, S.O.S로 구성된 초기 싱글입니다. VENI RAIN과 VENIRUS의 공동 제작 체계를 쌓은 작업입니다.",
       href: "https://www.youtube.com/watch?v=KEXbC-JBRT4",
       listenHref: "https://www.youtube.com/watch?v=KEXbC-JBRT4",
       coverImage: "./assets/covers/found-me.jpg",
@@ -405,7 +405,7 @@ const portfolio = {
       period: "EP",
       type: "VENI RAIN · VENIRUS",
       summary:
-        "VENI RAIN과 VENIRUS의 EP입니다. 작사/작곡과 프로덕션 크레딧을 통해 음악 경력의 폭을 드러냅니다.",
+        "VENI RAIN과 VENIRUS 크레딧으로 함께 발표한 EP입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://music.youtube.com/playlist?list=PL0S3gU03wJzjf_YHggWxUAmoMQ6xBQucU",
       coverImage: "./assets/covers/forecast-640.jpg",
@@ -428,7 +428,7 @@ const portfolio = {
       period: "Prod.by",
       type: "스내키챈 · DJ Wreckx · VENIRUS",
       summary:
-        "스내키챈 작업에 VENIRUS 프로듀서 크레딧으로 참여한 외부 협업입니다. 개인 릴리즈 밖의 프로덕션 범위를 보여줍니다.",
+        "스내키챈 작업에 VENIRUS 프로듀서 크레딧으로 참여한 외부 협업입니다. 개인 릴리즈 밖에서도 프로덕션을 맡았습니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=WC28-lcyV6s",
       cta: "Discography",
@@ -449,7 +449,7 @@ const portfolio = {
       period: "Prod.by",
       type: "kumira · VENIRUS",
       summary:
-        "kumira의 싱글 작업에 프로덕션 크레딧으로 참여했습니다. 외부 보컬/래퍼와의 협업 경험을 보여줍니다.",
+        "kumira의 싱글 작업에 프로덕션 크레딧으로 참여했습니다. 외부 보컬/래퍼와 호흡을 맞춘 협업입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=Hh5tF0gvq4g",
       cta: "Discography",
@@ -470,7 +470,7 @@ const portfolio = {
       period: "Prod.by",
       type: "kumira · VENIRUS",
       summary:
-        "All produced by VENIRUS로 연결된 외부 프로덕션 작업입니다. 앨범/트랙 단위 제작 경험을 담고 있습니다.",
+        "앨범 전곡 프로덕션을 맡은 외부 협업입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://music.youtube.com/playlist?list=OLAK5uy_nCxov7KU6806wSy_BDRknr5ZpAVntIsBY",
       coverImage: "./assets/covers/kottonvill-640.jpg",
@@ -482,7 +482,7 @@ const portfolio = {
       period: "Prod.by & Feat.",
       type: "IndEgo Aid · VENI RAIN",
       summary:
-        "프로덕션과 피처링이 함께 연결된 협업입니다. 보컬 참여와 프로덕션 참여를 동시에 보여줍니다.",
+        "프로덕션과 피처링으로 동시에 참여한 협업입니다. 보컬과 사운드 메이킹을 함께 맡았습니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=SjDueooVpH0&list=PLsz52Sh1SHNbngvNFONW8Xlq7q0AbypIz",
       cta: "Discography",
@@ -493,7 +493,7 @@ const portfolio = {
       period: "Mixtape",
       type: "VENIRUS",
       summary:
-        "All Produced by VENIRUS로 정리된 믹스테이프입니다. 프로듀서로서의 연속 제작 경험을 담고 있습니다.",
+        "전곡 프로듀싱한 믹스테이프입니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://soundcloud.com/venirain/sets/paradox",
       coverImage: "./assets/covers/paradox.png",
@@ -505,7 +505,7 @@ const portfolio = {
       period: "Arr.by",
       type: "Cypher · VENIRUS",
       summary:
-        "Arranged by VENIRUS로 참여한 사이퍼 작업입니다. 작곡뿐 아니라 편곡자로서의 외부 협업 범위를 보여줍니다.",
+        "Arranged by VENIRUS로 참여한 사이퍼 작업입니다. 작곡뿐 아니라 편곡자로 외부 협업에 참여했습니다.",
       href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
       listenHref: "https://www.youtube.com/watch?v=bgQuMXl2L8Y",
       cta: "Discography",
@@ -521,7 +521,7 @@ const portfolio = {
     music: {
       eyebrow: "Music Discography",
       title: "VENI RAIN / VENIRUS 음악 작업",
-      text: "Discography에서 확인한 24개 음악 릴리즈와 프로덕션 작업을 모았습니다. 7년+ 경력은 게임 오디오 경력이 아니라 작사, 작곡, 보컬, 편곡, 믹싱/마스터링으로 이어온 음악 제작 경험입니다.",
+      text: "작사, 작곡, 보컬, 편곡, 믹싱/마스터링까지 직접 다룬 24개 릴리즈를 모았습니다. 게임 오디오와는 별개로 이어온 7년+ 음악 제작 경력입니다.",
     },
   },
   practice: [
