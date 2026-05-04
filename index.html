@@ -42,6 +42,8 @@
           "Game Audio",
           "Sound Design",
           "Interactive Music",
+          "Voice Direction",
+          "Audio Source Management",
           "OpenAI API",
           "AI-assisted Creation",
           "Voice Pipeline"
@@ -65,9 +67,9 @@
       </a>
       <nav class="nav" aria-label="주요 섹션">
         <a href="#reel">Reel</a>
+        <a href="#tech-audio">Tech Audio</a>
+        <a href="#sfx-breakdown">SFX Breakdown</a>
         <a href="#work">Work</a>
-        <a href="#ai-lab">AI Lab</a>
-        <a href="#practice">Strengths</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
@@ -81,7 +83,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="role-orbit" aria-label="빠른 이동 오브젝트">
-          <a class="role-token token-sound" href="#work" data-work-jump="game" data-orbit>Sound Designer</a>
+          <a class="role-token token-sound" href="#sfx-breakdown" data-orbit>Sound Designer</a>
           <a class="role-token token-audio" href="#console" data-orbit>Audio Implementer</a>
           <a
             class="symbol-token token-music"
@@ -91,7 +93,7 @@
             data-orbit
             >♪</a
           >
-          <a class="role-token token-field" href="#practice" data-orbit>Full-stack Audio</a>
+          <a class="role-token token-field" href="#tech-audio" data-orbit>Full-stack Audio</a>
           <a class="symbol-token token-reel" href="#reel" aria-label="데모릴 섹션으로 이동" data-orbit>✱</a>
           <a
             class="symbol-token token-down"
@@ -112,7 +114,7 @@
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#reel">데모릴 보기</a>
-            <a class="button secondary" href="#work">케이스 보기</a>
+            <a class="button secondary" href="#tech-audio">기술 케이스 보기</a>
           </div>
           <div class="hero-chips" id="hero-focus-list" aria-label="핵심 역량"></div>
         </div>
@@ -183,7 +185,7 @@
             <span class="label">Featured case</span>
             <strong>Guardian & Seeker</strong>
             <p>UE5.6 · Wwise · 전투 BGM · 발소리 · 오클루전 · UI 피드백</p>
-            <a href="#work">케이스 보기</a>
+            <a href="#tech-audio">기술 케이스 보기</a>
           </div>
         </aside>
       </section>
@@ -226,6 +228,26 @@
         </div>
       </section>
 
+      <section class="section tech-audio" id="tech-audio" aria-labelledby="tech-audio-title">
+        <div class="section-heading">
+          <p class="eyebrow" id="tech-audio-eyebrow">Technical Audio</p>
+          <h2 id="tech-audio-title">Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템</h2>
+        </div>
+        <div class="section-lead" id="tech-audio-lead"></div>
+        <div class="tech-matrix" id="tech-audio-list"></div>
+      </section>
+
+      <section class="section sfx-breakdown" id="sfx-breakdown" aria-labelledby="sfx-breakdown-title">
+        <div class="section-heading">
+          <p class="eyebrow" id="sfx-breakdown-eyebrow">SFX Breakdown</p>
+          <h2 id="sfx-breakdown-title">효과음 제작부터 인게임 검증까지 한 흐름으로 보여줍니다</h2>
+        </div>
+        <div class="sfx-layout">
+          <div class="sfx-process" id="sfx-process-list"></div>
+          <div class="sfx-example-grid" id="sfx-example-list"></div>
+        </div>
+      </section>
+
       <section class="section" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <p class="eyebrow">Selected Work</p>
@@ -243,29 +265,29 @@
         <div class="work-grid" id="project-list"></div>
       </section>
 
-      <section class="section ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
-        <div class="section-heading">
-          <p class="eyebrow" id="ai-lab-eyebrow">AI Lab</p>
-          <h2 id="ai-lab-title">
-            <span class="ai-lab-title-line">AI로 보이스와 개발 루프를</span>
-            <span class="ai-lab-title-line">빠르게 검증합니다</span>
-          </h2>
-        </div>
-        <div class="ai-lab-layout">
-          <article class="ai-lab-feature" id="ai-lab-feature" aria-label="대표 AI 워크플로"></article>
-          <div class="ai-lab-journal">
-            <p class="ai-lab-intro" id="ai-lab-intro"></p>
-            <div class="ai-log-list" id="ai-log-list"></div>
-          </div>
-        </div>
-      </section>
-
       <section class="section split" id="practice" aria-labelledby="practice-title">
         <div class="section-heading">
           <p class="eyebrow">Strengths</p>
           <h2 id="practice-title">제작부터 구현, QA까지 이어지는 워크플로</h2>
         </div>
         <div class="practice-list" id="practice-list"></div>
+      </section>
+
+      <section class="section ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
+        <div class="section-heading">
+          <p class="eyebrow" id="ai-lab-eyebrow">Voice Pipeline</p>
+          <h2 id="ai-lab-title">
+            <span class="ai-lab-title-line">보이스와 소스 리소스를</span>
+            <span class="ai-lab-title-line">목적에 맞게 관리합니다</span>
+          </h2>
+        </div>
+        <div class="ai-lab-layout">
+          <article class="ai-lab-feature" id="ai-lab-feature" aria-label="대표 보이스 파이프라인"></article>
+          <div class="ai-lab-journal">
+            <p class="ai-lab-intro" id="ai-lab-intro"></p>
+            <div class="ai-log-list" id="ai-log-list"></div>
+          </div>
+        </div>
       </section>
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">

@@ -36,6 +36,164 @@ const portfolio = {
       text: "299명 플레이테스트(평균 4.36/5) 피드백을 바탕으로 BGM 전환, 발소리, 오클루전, UI 피드백을 세밀하게 조정했습니다.",
     },
   ],
+  techAudio: {
+    eyebrow: "Technical Audio",
+    title: "Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템",
+    intro:
+      "채용공고에서 요구하는 엔진 구현, 미들웨어 설계, 디버깅, 협업 설명력을 Guardian & Seeker 사례 중심으로 먼저 보여줍니다.",
+    items: [
+      {
+        title: "Wwise System Design",
+        type: "Event / Switch / RTPC",
+        summary:
+          "전투 BGM 전환, UI 피드백, 몬스터/환경 사운드를 Event, Switch, RTPC, 컨테이너 구조로 나눠 관리했습니다.",
+        proof: "191개 오디오 에셋을 캐릭터, 몬스터, 환경, UI/System 단위로 분류",
+        breakdown: [
+          {
+            label: "Problem",
+            text: "전투, 탐색, UI, 몬스터 사운드가 동시에 재생될 때 무엇이 우선 들려야 하는지 정리해야 했습니다.",
+          },
+          {
+            label: "Wwise structure",
+            text: "Event, Switch, RTPC, Random Container를 역할별로 나누고 반복 재생되는 효과음에는 변형 폭을 줬습니다.",
+          },
+          {
+            label: "Before / after",
+            text: "단순 재생 중심 구조에서 상태와 거리, 이벤트 목적에 따라 반응하는 구조로 정리했습니다.",
+          },
+        ],
+      },
+      {
+        title: "UE5 Implementation",
+        type: "Blueprint / Anim Notify",
+        summary:
+          "Physical Material 기반 발소리, 애니메이션 타이밍, 블루프린트 이벤트를 연결해 실제 플레이 입력과 사운드를 맞췄습니다.",
+        proof: "UE5.6 프로젝트에서 Wwise Event와 인게임 상태를 직접 연결",
+        breakdown: [
+          {
+            label: "Connection",
+            text: "Anim Notify와 Blueprint 이벤트에서 Wwise Event를 호출해 움직임, 피격, UI 조작 타이밍을 맞췄습니다.",
+          },
+          {
+            label: "Surface logic",
+            text: "Physical Material 정보를 기준으로 발소리 후보를 나누고 지면 변화가 사운드에 반영되도록 설계했습니다.",
+          },
+          {
+            label: "Validation",
+            text: "실제 플레이 중 어긋나는 타이밍과 누락되는 이벤트를 찾아 Notify 위치와 호출 조건을 조정했습니다.",
+          },
+        ],
+      },
+      {
+        title: "Runtime Debugging",
+        type: "Occlusion / Collision",
+        summary:
+          "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise와 UE 콜리전/라인 트레이스 기준으로 점검했습니다.",
+        proof: "Occlusion, Diffraction, Transmission, Environmental Curve 조정 사례 보유",
+        breakdown: [
+          {
+            label: "Problem",
+            text: "벽 너머 몬스터 소리가 가까운 소리처럼 들려 위험 위치를 잘못 읽게 만드는 구간이 있었습니다.",
+          },
+          {
+            label: "Debug route",
+            text: "Wwise 오클루전 값, UE Collision, Line Trace, 문/벽 구조를 함께 보며 차폐가 걸리는 지점을 확인했습니다.",
+          },
+          {
+            label: "Result",
+            text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달감을 조정해 공간 정보를 더 명확하게 만들었습니다.",
+          },
+        ],
+      },
+      {
+        title: "Team-facing Decisions",
+        type: "Audio QA / Communication",
+        summary:
+          "플레이테스트 피드백을 사운드 우선순위, 믹스 밸런스, 시스템 수정 항목으로 번역해 팀과 공유했습니다.",
+        proof: "299명 체험, 평균 4.36/5 피드백 이후 BGM 전환과 UI 피드백 개선",
+        breakdown: [
+          {
+            label: "Feedback",
+            text: "플레이테스트에서 BGM 전환, UI 피드백, 발소리 인지, 공간감 관련 반응을 분리해 확인했습니다.",
+          },
+          {
+            label: "Decision",
+            text: "감상평을 그대로 반영하기보다 우선순위, 믹스, 시스템 조건 중 어디를 바꿀지 판단했습니다.",
+          },
+          {
+            label: "Team output",
+            text: "기획/프로그래밍과 공유할 수 있도록 문제 현상, 원인 후보, 수정 방향을 짧은 작업 단위로 정리했습니다.",
+          },
+        ],
+      },
+    ],
+  },
+  sfxBreakdown: {
+    eyebrow: "SFX Breakdown",
+    title: "효과음 제작부터 인게임 검증까지 한 흐름으로 보여줍니다",
+    process: [
+      {
+        step: "01",
+        title: "Sound Intent",
+        text: "캐릭터, 몬스터, UI, 환경별로 플레이어가 알아야 할 정보와 감정 톤을 먼저 정의합니다.",
+      },
+      {
+        step: "02",
+        title: "Source & Edit",
+        text: "라이브러리 소스, 직접 제작한 레이어, 음악 프로덕션 경험을 조합해 SFX를 편집하고 믹스합니다.",
+      },
+      {
+        step: "03",
+        title: "Middleware Setup",
+        text: "Wwise Random/Blend Container, Switch, RTPC, 볼륨/피치 변형으로 반복감을 줄이고 상태 변화를 만듭니다.",
+      },
+      {
+        step: "04",
+        title: "In-game QA",
+        text: "실제 플레이에서 묻히는 소리, 과한 피드백, 거리/차폐 오류를 잡아 우선순위와 밸런스를 조정합니다.",
+      },
+    ],
+    examples: [
+      {
+        title: "Footstep Kit",
+        meta: "Physical Material",
+        text: "지면 재질과 이동 상태에 맞춰 발소리 후보를 나누고 랜덤 재생으로 반복감을 줄입니다.",
+        deepDive: [
+          {
+            label: "Source",
+            text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나눕니다.",
+          },
+          {
+            label: "Layering",
+            text: "접지감, 마찰감, 장비감처럼 역할이 다른 레이어를 분리해 캐릭터 무게와 속도를 만듭니다.",
+          },
+          {
+            label: "Variation",
+            text: "Wwise Random Container에서 피치와 볼륨 변형을 주어 같은 발소리가 반복되는 느낌을 줄입니다.",
+          },
+          {
+            label: "In-game check",
+            text: "UE Physical Material과 Anim Notify 타이밍을 확인해 지면 변화와 발 접지 순간이 맞게 들리는지 검증합니다.",
+          },
+        ],
+      },
+      {
+        title: "Combat Hit",
+        meta: "Impact Layering",
+        text: "타격감, 위험 신호, 피격 확인을 분리해 전투 중에도 필요한 정보가 먼저 들리게 설계합니다.",
+      },
+      {
+        title: "Monster Cue",
+        meta: "Spatial Debug",
+        text: "몬스터 위치감과 차폐감을 조정해 벽 너머 위협과 실제 거리감을 구분하도록 만듭니다.",
+      },
+      {
+        title: "UI Feedback",
+        meta: "2D / Priority",
+        text: "전투와 BGM 위에서도 조작 성공, 선택, 경고 피드백이 짧고 명확하게 들리도록 다듬습니다.",
+      },
+    ],
+  },
   projects: [
     {
       title: "Guardian & Seeker",
@@ -172,23 +330,6 @@ const portfolio = {
         content: "비행 앨범 수록곡 초안 3곡: 탈선, ばらばら, 청춘예찬(VNRS remix)",
         implementation: "Unity C# 기반 탐험, 상호작용, 음악 트리거",
         proof: "Notion Credit: 프로젝트 리더, PM, 기획 / 사운드 디자이너, 개발",
-      },
-    },
-    {
-      title: "Lore Pocket",
-      period: "Prototype",
-      type: "OpenAI API / TTS",
-      summary:
-        "키워드 기반으로 캐릭터 페르소나, 대사, 음성을 생성하는 AI 캐릭터 보이스 생성 웹 플랫폼입니다. GPT-4o-mini 기반 JSON 구조화와 OpenAI TTS 연동으로 보이스 프리프로덕션 흐름을 실험했습니다.",
-      media: {
-        label: "Voice pipeline",
-        image: "./assets/game/lore-pocket.svg",
-      },
-      skills: ["OpenAI API", "TTS", "JSON", "Voice Pipeline"],
-      scope: {
-        content: "캐릭터 페르소나, 대사, TTS 보이스 생성",
-        implementation: "OpenAI API, JSON 구조화, 웹 기반 생성 파이프라인",
-        proof: "AI 기반 보이스 프리프로덕션 워크플로 실험",
       },
     },
   ],
@@ -525,67 +666,53 @@ const portfolio = {
     },
   },
   aiLab: {
-    eyebrow: "AI Lab / Research Log",
-    title: "AI로 보이스와 개발 루프를 빠르게 검증합니다",
-    titleLines: ["AI로 보이스와 개발 루프를", "빠르게 검증합니다"],
+    eyebrow: "Voice Pipeline / Source Management",
+    title: "보이스와 소스 리소스를 목적에 맞게 관리합니다",
+    titleLines: ["보이스와 소스 리소스를", "목적에 맞게 관리합니다"],
     intro:
-      "AI 코딩과 리서치를 캐릭터 보이스, 언리얼 구현, 사운드 QA에 바로 연결합니다.",
+      "싱어송라이터이자 프로듀서로 직접 녹음, 디렉팅, 편집, 믹싱한 경험을 게임 보이스 프리프로덕션과 대사 리소스 관리 관점으로 연결합니다.",
     items: [
       {
-        title: "Lore Pocket",
-        type: "OpenAI API / TTS Prototype",
+        title: "Recording-Based Source Management",
+        type: "Recording / Direction / Editing",
         summary:
-          "캐릭터 설정, 대사, 음성 후보를 JSON 흐름으로 묶어 빠르게 테스트하는 AI 보이스 프리프로덕션 실험입니다.",
+          "제 목소리와 아티스트 보컬을 직접 녹음, 편집, 믹싱하며 소스 품질이 최종 사운드 완성도에 미치는 영향을 체득했습니다.",
         gameAudioUse:
-          "대사 톤, 보이스 방향, 엔진 전달 포맷을 한 번에 검증합니다.",
+          "보이스 녹음 준비, 테이크 관리, 감정선에 맞는 디렉팅, 리소스 정리 기준을 게임 대사 제작에도 적용합니다.",
         proof:
-          "Persona-Dialogue-Voice-Pack 흐름과 JSON 검증 기준을 제작기로 정리했습니다.",
-        href: "https://raindrovvv.tistory.com/144",
-        cta: "Dev log",
+          "보컬 녹음 진행과 테이크 관리, 곡 감정선에 맞는 보컬 디렉션, EQ/Compression/Reverb/Delay 기반 편집과 믹싱 경험",
+        href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
+        cta: "Slides p.15",
         featured: true,
-        tags: ["OpenAI API", "TTS", "Persona JSON", "Voice Pipeline"],
+        tags: ["Recording", "Direction", "Take Management", "Editing/Mixing"],
       },
       {
-        title: "bkit.ai 개발 프레임워크 리서치",
-        type: "AI Dev Framework",
+        title: "Source-centered Production",
+        type: "Foley / Library / Source QA",
         summary:
-          "AI 에이전트가 기획-설계-구현-검증 루프를 어떻게 굴리는지 언리얼 관점에서 정리했습니다.",
+          "녹음 소스와 라이브러리 소스를 목적별로 정리하고, 프로젝트 상황에 맞게 자산화하는 제작 관점을 갖고 있습니다.",
         gameAudioUse:
-          "오디오 설계 문서와 QA 체크리스트를 반복 가능한 제작 루프로 관리합니다.",
+          "Foley, 보이스, 라이브러리 효과음을 역할별로 구분해 소스 선택, 편집, 믹스 기준을 세웁니다.",
         proof:
-          "1v4 구조 예시로 클래스 설계, GAS, QA 시나리오까지 연결해 분석했습니다.",
-        href: "https://raindrovvv.tistory.com/143",
-        cta: "Research note",
+          "직접 레코딩과 디렉팅 경험을 바탕으로 적합한 소스를 설계하고 선택하는 기준을 정리했습니다.",
+        href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
+        cta: "Slides",
         featured: false,
-        tags: ["AI Agents", "PDCA", "Unreal Workflow"],
+        tags: ["Foley Mindset", "Library Source", "Source Quality"],
       },
       {
-        title: "AI 자산화와 팀 워크플로",
-        type: "Workflow Research",
+        title: "Workflow Documentation",
+        type: "Audio QA / Team Knowledge",
         summary:
-          "노하우를 팀이 재사용할 프로세스와 기준으로 바꾸는 AI 자산화 관점을 정리했습니다.",
+          "녹음, 편집, 믹스, QA 기준을 팀이 재사용할 문서와 체크리스트로 바꾸는 흐름을 실험했습니다.",
         gameAudioUse:
-          "사운드 QA, 디버깅 순서, 믹스 기준을 팀원이 따라갈 기준표로 만듭니다.",
+          "보이스 리소스 네이밍, 테이크 선택, 수정 요청, 사운드 QA 기준을 반복 가능한 형태로 정리합니다.",
         proof:
           "성공 기준, 반복 테스트 환경, 전문가 디버깅 절차를 작업 기준으로 번역했습니다.",
         href: "https://raindrovvv.tistory.com/132",
         cta: "Read insight",
         featured: false,
-        tags: ["AI Assetization", "QA", "Team Knowledge"],
-      },
-      {
-        title: "Claude Dispatch와 위임형 AI",
-        type: "Agent Workflow",
-        summary:
-          "반복 작업을 AI에게 작게 위임해 구현 시간을 회수하는 관점을 정리했습니다.",
-        gameAudioUse:
-          "파일 정리, 문서 요약, 세션 이어받기 같은 루틴을 안전하게 넘깁니다.",
-        proof:
-          "안전한 위임 범위와 작은 작업부터 실험하는 기준을 정리했습니다.",
-        href: "https://raindrovvv.tistory.com/172",
-        cta: "Read note",
-        featured: false,
-        tags: ["Delegation", "Computer Use", "Automation"],
+        tags: ["Resource Management", "QA", "Team Knowledge"],
       },
     ],
   },
@@ -638,10 +765,39 @@ const TEXT_EDIT_STORAGE_KEY = "jungmin-portfolio-text-overrides-v1";
 let refreshTextEditorTargets = () => {};
 let activateWorkTab = () => {};
 
+const focusIconMap = {
+  Wwise: { label: "W", icon: "wwise" },
+  "Unreal Engine 5": { label: "U", icon: "unreal" },
+  "SFX Design": { label: "", icon: "wave" },
+  "Interactive BGM": { label: "♪", icon: "music" },
+  "Audio Debugging": { label: "◎", icon: "debug" },
+  "FL Studio": { label: "FL", icon: "fl" },
+  "C++ / Blueprint": { label: "C++", icon: "code" },
+  "Unity / C#": { label: "U", icon: "unity" },
+  "OpenAI API": { label: "AI", icon: "ai" },
+  "Git Collaboration": { label: "", icon: "git" },
+};
+
+const escapeFocusText = (value = "") =>
+  String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
 const renderFocus = () => {
   const fullList = document.querySelector("#focus-list");
   const heroList = document.querySelector("#hero-focus-list");
-  const tag = (item) => `<span class="tag">${item}</span>`;
+  const tag = (item) => {
+    const icon = focusIconMap[item] || { label: item.slice(0, 2), icon: "default" };
+    return `
+      <span class="tag focus-tag">
+        <span class="focus-icon focus-icon-${icon.icon}" aria-hidden="true">${escapeFocusText(icon.label)}</span>
+        <span class="focus-label">${escapeFocusText(item)}</span>
+      </span>
+    `;
+  };
   fullList.innerHTML = portfolio.focus.map(tag).join("");
   heroList.innerHTML = portfolio.focus.slice(0, 5).map(tag).join("");
 };
@@ -837,8 +993,8 @@ const scopeLabels = {
 };
 
 const aiLabLabels = {
-  gameAudioUse: "Game audio use",
-  proof: "Proof",
+  gameAudioUse: "Pipeline use",
+  proof: "Evidence",
 };
 
 const renderAiTags = (tags = []) =>
@@ -851,6 +1007,110 @@ const escapeHtml = (value = "") =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+
+const renderDisclosure = (items = [], { className = "", summary = "View breakdown" } = {}) => {
+  if (!items.length) return "";
+
+  return `
+    <details class="breakdown-panel ${className}">
+      <summary><span>${escapeHtml(summary)}</span></summary>
+      <dl class="breakdown-list">
+        ${items
+          .map(
+            (item) => `
+              <div class="breakdown-row">
+                <dt>${escapeHtml(item.label)}</dt>
+                <dd>${escapeHtml(item.text)}</dd>
+              </div>
+            `,
+          )
+          .join("")}
+      </dl>
+    </details>
+  `;
+};
+
+const renderTechAudio = () => {
+  const eyebrow = document.querySelector("#tech-audio-eyebrow");
+  const title = document.querySelector("#tech-audio-title");
+  const lead = document.querySelector("#tech-audio-lead");
+  const list = document.querySelector("#tech-audio-list");
+  const techAudio = portfolio.techAudio;
+
+  if (!eyebrow || !title || !lead || !list || !techAudio) return;
+
+  eyebrow.textContent = techAudio.eyebrow;
+  title.textContent = techAudio.title;
+  lead.innerHTML = `
+    <p>${escapeHtml(techAudio.intro)}</p>
+    <div class="tech-signal-row" aria-label="대표 기술 키워드">
+      ${["Wwise", "Unreal Engine 5", "Blueprint", "Anim Notify", "Occlusion", "Audio QA"]
+        .map((item) => `<span>${item}</span>`)
+        .join("")}
+    </div>
+  `;
+  list.innerHTML = techAudio.items
+    .map(
+      (item, index) => `
+        <article class="tech-card">
+          <span class="tech-card-index">${String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <span class="tech-card-type">${escapeHtml(item.type)}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.summary)}</p>
+          </div>
+          <div class="tech-proof">
+            <strong>Proof</strong>
+            <span>${escapeHtml(item.proof)}</span>
+          </div>
+          ${renderDisclosure(item.breakdown, { className: "tech-breakdown" })}
+        </article>
+      `,
+    )
+    .join("");
+  refreshTextEditorTargets();
+};
+
+const renderSfxBreakdown = () => {
+  const eyebrow = document.querySelector("#sfx-breakdown-eyebrow");
+  const title = document.querySelector("#sfx-breakdown-title");
+  const processRoot = document.querySelector("#sfx-process-list");
+  const exampleRoot = document.querySelector("#sfx-example-list");
+  const sfx = portfolio.sfxBreakdown;
+
+  if (!eyebrow || !title || !processRoot || !exampleRoot || !sfx) return;
+
+  eyebrow.textContent = sfx.eyebrow;
+  title.textContent = sfx.title;
+  processRoot.innerHTML = sfx.process
+    .map(
+      (item) => `
+        <article class="sfx-step">
+          <span>${escapeHtml(item.step)}</span>
+          <div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+  exampleRoot.innerHTML = sfx.examples
+    .map(
+      (item) => `
+        <article class="sfx-example${item.deepDive?.length ? " has-deep-dive" : ""}">
+          <span class="sfx-example-meta">${escapeHtml(item.meta)}</span>
+          <div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
+          </div>
+          ${renderDisclosure(item.deepDive, { className: "sfx-deep-dive", summary: "Open Footstep deep dive" })}
+        </article>
+      `,
+    )
+    .join("");
+  refreshTextEditorTargets();
+};
 
 const renderAiTitle = (aiLab) => {
   const lines = aiLab.titleLines?.length ? aiLab.titleLines : [aiLab.title];
@@ -1102,6 +1362,26 @@ const setupSecretTextEditor = () => {
           ".reel-caption",
           ".reel-note h3",
           ".reel-note p",
+          "#tech-audio .eyebrow",
+          "#tech-audio-title",
+          "#tech-audio-lead p",
+          ".tech-signal-row span",
+          ".tech-card h3",
+          ".tech-card p",
+          ".tech-card-type",
+          ".tech-proof strong",
+          ".tech-proof span",
+          ".breakdown-panel summary span",
+          ".breakdown-row dt",
+          ".breakdown-row dd",
+          "#sfx-breakdown .eyebrow",
+          "#sfx-breakdown-title",
+          ".sfx-step h3",
+          ".sfx-step p",
+          ".sfx-step span",
+          ".sfx-example h3",
+          ".sfx-example p",
+          ".sfx-example-meta",
           "#work .eyebrow",
           "#work-title",
           "#ai-lab .eyebrow",
@@ -1163,6 +1443,11 @@ const setupSecretTextEditor = () => {
       ["#reel-title", "reel:heading"],
       [".reel-kicker", "reel:kicker"],
       [".reel-caption", "reel:caption"],
+      ["#tech-audio .eyebrow", "tech-audio:kicker"],
+      ["#tech-audio-title", "tech-audio:heading"],
+      ["#tech-audio-lead p", "tech-audio:intro"],
+      ["#sfx-breakdown .eyebrow", "sfx-breakdown:kicker"],
+      ["#sfx-breakdown-title", "sfx-breakdown:heading"],
       ["#work .eyebrow", "work:kicker"],
       ["#work-title", "work:heading"],
       ["#ai-lab .eyebrow", "ai-lab:kicker"],
@@ -1192,7 +1477,9 @@ const setupSecretTextEditor = () => {
     }
 
     const section = node.closest("section")?.id || node.closest("header")?.className || node.closest("footer")?.className || "page";
-    const card = node.closest(".work-card, .practice-item, .ai-lab-feature, .ai-log-card, .reel-note, .contact-links a");
+    const card = node.closest(
+      ".work-card, .practice-item, .ai-lab-feature, .ai-log-card, .reel-note, .tech-card, .sfx-step, .sfx-example, .contact-links a",
+    );
     const cardIndex = card && card.parentElement ? [...card.parentElement.children].indexOf(card) : -1;
     const localIndex = card ? [...card.querySelectorAll("h3, p, span, dt, dd, strong, a")].indexOf(node) : index;
     const key = `${section}:${cardIndex}:${node.tagName.toLowerCase()}:${localIndex}`;
@@ -1459,6 +1746,8 @@ const setupSecretTextEditor = () => {
       fillFields();
       renderFocus();
       renderReelNotes();
+      renderTechAudio();
+      renderSfxBreakdown();
       renderAiLab();
       document.querySelector("#project-list").dataset.activeWork = "";
       renderProjects(document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game");
@@ -2236,7 +2525,9 @@ const setupCursorInteraction = () => {
   };
 
   const getInteractiveTarget = (node) =>
-    node instanceof Element ? node.closest(".work-card, .signal-panel, .ai-lab-feature, .ai-log-card") : null;
+    node instanceof Element
+      ? node.closest(".work-card, .signal-panel, .tech-card, .sfx-example, .ai-lab-feature, .ai-log-card")
+      : null;
 
   const updateTilt = (event) => {
     const card = getInteractiveTarget(event.target);
@@ -2319,6 +2610,8 @@ const setupLazyYouTubeEmbeds = () => {
 fillFields();
 renderFocus();
 renderReelNotes();
+renderTechAudio();
+renderSfxBreakdown();
 renderProjects();
 renderAiLab();
 renderPractice();
