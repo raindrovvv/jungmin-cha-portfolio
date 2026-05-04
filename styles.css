@@ -568,10 +568,39 @@ html.dark h1 {
 }
 
 .hero-title-name {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+  max-width: 100%;
   font-family: var(--display-font);
   font-size: 0.94em;
   font-weight: 300;
   letter-spacing: -1.4px;
+  text-shadow:
+    0 0 18px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 0 34px color-mix(in srgb, var(--accent-amber) 12%, transparent);
+}
+
+.hero-title-name::after {
+  content: "";
+  position: absolute;
+  inset: 8% -0.18em 5% -0.18em;
+  z-index: -1;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse at 48% 56%,
+      color-mix(in srgb, var(--accent) 24%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at 58% 46%,
+      color-mix(in srgb, var(--accent-amber) 14%, transparent),
+      transparent 68%
+    );
+  filter: blur(18px);
+  opacity: 0.74;
+  pointer-events: none;
 }
 
 .hero-title-role {
@@ -580,6 +609,20 @@ html.dark h1 {
   font-weight: 300;
   letter-spacing: -1.4px;
   white-space: nowrap;
+}
+
+html.dark .hero-title-name {
+  text-shadow:
+    0 0 14px rgba(30, 215, 96, 0.24),
+    0 0 34px rgba(30, 215, 96, 0.18),
+    0 0 56px rgba(255, 255, 255, 0.08);
+}
+
+html.dark .hero-title-name::after {
+  background:
+    radial-gradient(ellipse at 48% 56%, rgba(30, 215, 96, 0.28), transparent 70%),
+    radial-gradient(ellipse at 58% 46%, rgba(255, 255, 255, 0.1), transparent 66%);
+  opacity: 0.9;
 }
 
 h2 {
