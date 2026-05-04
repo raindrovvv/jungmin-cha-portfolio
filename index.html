@@ -66,11 +66,11 @@
         <span>Jungmin Cha</span>
       </a>
       <nav class="nav" aria-label="주요 섹션">
-        <a href="#reel" data-i18n="navReel">릴</a>
-        <a href="#tech-audio" data-i18n="navTech">기술 오디오</a>
-        <a href="#sfx-breakdown" data-i18n="navSfx">효과음 분석</a>
-        <a href="#work" data-i18n="navWork">작업</a>
-        <a href="#contact" data-i18n="navContact">연락</a>
+        <a href="#reel" data-i18n="navReel">Reel</a>
+        <a href="#tech-audio" data-i18n="navTech">Tech Audio</a>
+        <a href="#sfx-breakdown" data-i18n="navSfx">SFX Breakdown</a>
+        <a href="#work" data-i18n="navWork">Work</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       <div class="header-actions">
         <div class="language-toggle" role="group" aria-label="언어 전환">
@@ -80,15 +80,15 @@
         <button class="theme-toggle" type="button" aria-label="다크모드 전환" aria-pressed="false">
           <span aria-hidden="true">●</span>
         </button>
-        <a class="header-cta" href="mailto:vnrs97@gmail.com" data-i18n="email">이메일</a>
+        <a class="header-cta" href="mailto:vnrs97@gmail.com" data-i18n="email">Email</a>
       </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="role-orbit" aria-label="빠른 이동 오브젝트">
-          <a class="role-token token-sound" href="#sfx-breakdown" data-orbit data-i18n="orbitSound">사운드 디자인</a>
-          <a class="role-token token-audio" href="#console" data-orbit data-i18n="orbitAudio">오디오 구현</a>
+          <a class="role-token token-sound" href="#sfx-breakdown" data-orbit data-i18n="orbitSound">Sound Designer</a>
+          <a class="role-token token-audio" href="#console" data-orbit data-i18n="orbitAudio">Audio Implementer</a>
           <a
             class="symbol-token token-music"
             href="#work"
@@ -97,7 +97,7 @@
             data-orbit
             >♪</a
           >
-          <a class="role-token token-field" href="#tech-audio" data-orbit data-i18n="orbitField">설계부터 구현까지</a>
+          <a class="role-token token-field" href="#tech-audio" data-orbit data-i18n="orbitField">Design to Implementation</a>
           <a class="symbol-token token-reel" href="#reel" aria-label="데모릴 섹션으로 이동" data-orbit>✱</a>
           <a
             class="symbol-token token-down"
@@ -110,15 +110,15 @@
         <div class="hero-copy">
           <p class="eyebrow" data-field="role">Independent Builder</p>
           <h1 id="hero-title">
-            <span class="hero-title-name">차정민</span>
+            <span class="hero-title-name" data-field="name">차정민</span>
             <span class="hero-title-role">Game Audio Designer</span>
           </h1>
           <p class="lede" data-field="intro">
             Wwise와 Unreal Engine 5로 전투 BGM, SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#reel" data-i18n="heroPrimary">데모릴 보기</a>
-            <a class="button secondary" href="#tech-audio" data-i18n="heroSecondary">기술 케이스 보기</a>
+            <a class="button primary" href="#reel" data-i18n="heroPrimary">Watch reel</a>
+            <a class="button secondary" href="#tech-audio" data-i18n="heroSecondary">View tech cases</a>
           </div>
           <div class="hero-chips" id="hero-focus-list" aria-label="핵심 역량"></div>
         </div>
@@ -186,16 +186,16 @@
             </div>
           </div>
           <div class="featured-case">
-            <span class="label" data-i18n="featuredCase">대표 사례</span>
+            <span class="label" data-i18n="featuredCase">Featured case</span>
             <strong>Guardian & Seeker</strong>
-            <p>UE5.6 · Wwise · 전투 BGM · 발소리 · 오클루전 · UI 피드백</p>
-            <a href="#tech-audio" data-i18n="featuredCaseCta">기술 케이스 보기</a>
+            <p>UE5.6 · Wwise · Combat BGM · Footsteps · Occlusion · UI feedback</p>
+            <a href="#tech-audio" data-i18n="featuredCaseCta">View tech case</a>
           </div>
         </aside>
       </section>
 
       <section class="strip" aria-label="핵심 분야">
-        <span class="strip-label" data-i18n="toolchain">툴체인</span>
+        <span class="strip-label" data-i18n="toolchain">Toolchain</span>
         <div
           class="marquee"
           id="focus-list"
@@ -259,10 +259,10 @@
         </div>
         <div class="work-tabs" role="tablist" aria-label="작업 분류">
           <button class="work-tab is-active" type="button" role="tab" aria-selected="true" data-work-tab="game">
-            <span data-i18n="workTabGame">게임 오디오 / BGM</span>
+            <span data-i18n="workTabGame">Game Audio / BGM</span>
           </button>
           <button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="music">
-            <span data-i18n="workTabMusic">음악 디스코그래피</span>
+            <span data-i18n="workTabMusic">Music Discography</span>
           </button>
         </div>
         <div class="work-intro" id="work-intro" aria-live="polite"></div>
@@ -327,6 +327,6 @@
       <span>Stop audio</span>
     </button>
 
-    <script src="./script.js?v=20260504-language-toggle"></script>
+    <script src="./script.js?v=20260504-language-toggle-ui-fix"></script>
   </body>
 </html>

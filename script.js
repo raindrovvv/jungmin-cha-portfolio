@@ -1145,26 +1145,26 @@ const uiLocales = {
   ko: {
     htmlLang: "ko",
     title: "Jungmin Cha | Game Audio Designer",
-    navReel: "릴",
-    navTech: "기술 오디오",
-    navSfx: "효과음 분석",
-    navWork: "작업",
-    navContact: "연락",
-    email: "이메일",
-    orbitSound: "사운드 디자인",
-    orbitAudio: "오디오 구현",
-    orbitField: "설계부터 구현까지",
-    heroPrimary: "데모릴 보기",
-    heroSecondary: "기술 케이스 보기",
-    featuredCase: "대표 사례",
-    featuredCaseCta: "기술 케이스 보기",
-    toolchain: "툴체인",
+    navReel: "Reel",
+    navTech: "Tech Audio",
+    navSfx: "SFX Breakdown",
+    navWork: "Work",
+    navContact: "Contact",
+    email: "Email",
+    orbitSound: "Sound Designer",
+    orbitAudio: "Audio Implementer",
+    orbitField: "Design to Implementation",
+    heroPrimary: "Watch reel",
+    heroSecondary: "View tech cases",
+    featuredCase: "Featured case",
+    featuredCaseCta: "View tech case",
+    toolchain: "Toolchain",
     reelEyebrow: "데모릴",
     reelTitle: "Guardian & Seeker의 오디오 설계와 구현 과정을 담았습니다",
     workEyebrow: "주요 작업",
     workTitle: "플레이 안에서 작동한 사운드와 음악 작업",
-    workTabGame: "게임 오디오 / BGM",
-    workTabMusic: "음악 디스코그래피",
+    workTabGame: "Game Audio / BGM",
+    workTabMusic: "Music Discography",
     strengthsEyebrow: "강점",
     contactEyebrow: "연락",
     contactTitle1: "좋은 사운드는",
@@ -1173,12 +1173,12 @@ const uiLocales = {
     scopeLabels: { content: "내용", implementation: "구현", proof: "근거" },
     aiLabLabels: { gameAudioUse: "파이프라인 적용", proof: "근거" },
     proofLabel: "근거",
-    viewBreakdown: "상세 보기",
-    footstepDeepDive: "발소리 제작 흐름 보기",
-    cardFallbackCta: "자세히 보기",
-    listen: "듣기",
-    watch: "보기",
-    view: "보기",
+    viewBreakdown: "View breakdown",
+    footstepDeepDive: "Open footstep deep dive",
+    cardFallbackCta: "View detail",
+    listen: "Listen",
+    watch: "Watch",
+    view: "View",
     techKeywordsLabel: "대표 기술 키워드",
   },
   en: {
@@ -1245,7 +1245,7 @@ const fillFields = () => {
   document.title = uiCopy.title;
 };
 
-const TEXT_EDIT_STORAGE_KEY = "jungmin-portfolio-text-overrides-v1";
+const TEXT_EDIT_STORAGE_KEY = "jungmin-portfolio-text-overrides-v2";
 let refreshTextEditorTargets = () => {};
 let activateWorkTab = () => {};
 
@@ -2160,7 +2160,7 @@ const setupSecretTextEditor = () => {
     node.removeAttribute("aria-label");
   };
 
-  const syncEditableState = ({ applyStoredText = true } = {}) => {
+  const syncEditableState = ({ applyStoredText = editMode } = {}) => {
     const nodes = getTextNodes();
     if (applyStoredText) {
       applyOverrides(nodes);
@@ -2184,7 +2184,9 @@ const setupSecretTextEditor = () => {
   };
 
   refreshTextEditorTargets = syncEditableState;
-  applyOverrides();
+  if (editMode) {
+    applyOverrides();
+  }
 
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
