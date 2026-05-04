@@ -4062,7 +4062,8 @@ html.dark [data-text-editable="true"]:focus {
 
 @media (max-width: 380px) {
   .header-cta {
-    display: none;
+    display: inline-flex;
+    padding-inline: 12px;
   }
 
   .brand {
