@@ -68,7 +68,6 @@ const portfolioKo = {
         title: "UE5 연동 구현",
         type: "C++ / Blueprint / Anim Notify",
         featured: true,
-        badge: "Featured implementation",
         summary:
           "UGS_AudioComponentBase를 기반으로 몬스터/시커 오디오 컴포넌트를 분리하고, Physical Material 발소리와 애니메이션 타이밍, C++/Blueprint 이벤트를 실제 플레이 입력에 맞췄습니다.",
         proof: "GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, GS_UIAudioSystem.h 기반 Sound 폴더 구조",
@@ -825,7 +824,6 @@ const createEnglishPortfolio = () => {
         title: "UE5 Implementation",
         type: "C++ / Blueprint / Anim Notify",
         featured: true,
-        badge: "Featured implementation",
         summary:
           "I separated Monster/Seeker audio components around UGS_AudioComponentBase, then connected Physical Material footsteps, animation timing, and C++/Blueprint events to real player input.",
         proof: "Sound folder structure around GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, and GS_UIAudioSystem.h",
