@@ -2165,6 +2165,8 @@ html.dark .tech-audio {
 .sfx-example-meta {
   width: fit-content;
   max-width: 100%;
+  display: inline-flex;
+  align-items: center;
   padding: 6px 10px;
   border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
   border-radius: var(--radius-pill);
@@ -2173,6 +2175,7 @@ html.dark .tech-audio {
   font-size: 12px;
   font-weight: 700;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 html.dark .tech-signal-row span,
@@ -2240,13 +2243,18 @@ html.dark .tech-card.is-featured {
   display: inline-flex;
   align-items: center;
   min-height: 28px;
-  margin-bottom: 10px;
+  margin: 0 6px 10px 0;
   padding: 0 10px;
   border-radius: var(--radius-pill);
   color: var(--on-primary);
   background: var(--accent);
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
+}
+
+.tech-card-type {
+  margin: 0 6px 10px 0;
 }
 
 .tech-card:hover {
