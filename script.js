@@ -8,7 +8,7 @@ const portfolioKo = {
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "Wwise와 UE5 C++/Blueprint 사이에서 오디오가 실제 플레이 입력, 거리, 차폐, UI 피드백에 맞게 반응하도록 설계하고 검증합니다. 채용 또는 협업 문의는 이메일로 가장 빠르게 확인합니다.",
+    "Wwise와 UE5 C++/Blueprint 사이에서 오디오가 실제 플레이 입력, 거리, 차폐, UI 피드백에 맞게 반응하도록 설계하고 검증합니다.",
   footerName: "차정민 Game Audio Designer Portfolio",
   focus: [
     "Wwise",
@@ -745,7 +745,7 @@ const portfolioKo = {
     },
   ],
   links: [
-    { label: "Email for hiring", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
+    { label: "Email", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
     { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
     { label: "Wwise Blog", icon: "✎", href: "https://raindrovvv.tistory.com/tag/Wwise" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
@@ -775,7 +775,7 @@ const createEnglishPortfolio = () => {
     intro:
       "Game Audio Designer who codes with AI agents. I design sound for gameplay clarity and implement it end-to-end: Wwise architecture, UE5 Blueprint, Physical Material footsteps, runtime occlusion, until it works in the actual build.",
     contactNote:
-      "I design and verify audio behavior between Wwise and UE5 C++/Blueprint so player input, distance, occlusion, and UI feedback read correctly in the actual build. Email is the fastest route for hiring or collaboration.",
+      "I design and verify audio behavior between Wwise and UE5 C++/Blueprint so player input, distance, occlusion, and UI feedback read correctly in the actual build.",
     footerName: "Jungmin Cha Game Audio Designer Portfolio",
   });
 

@@ -2220,7 +2220,7 @@ html.dark .tech-card {
 }
 
 .tech-card.is-featured {
-  grid-column: span 2;
+  grid-column: auto;
   border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 52%),
@@ -2277,8 +2277,8 @@ html.dark .tech-card:hover {
 }
 
 .tech-card.is-featured h3 {
-  max-width: 760px;
-  font-size: clamp(36px, 3.8vw, 56px);
+  max-width: none;
+  font-size: clamp(28px, 2.5vw, 38px);
 }
 
 .tech-card p {
