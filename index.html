@@ -3,27 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jungmin Cha | Game Audio Designer</title>
+    <title>Jungmin Cha | Game Audio Designer who codes</title>
     <meta
       name="description"
-      content="Jungmin Cha Game Audio Designer 포트폴리오. Wwise, Unreal Engine 5, SFX, BGM, 인게임 오디오 구현."
+      content="Jungmin Cha Game Audio Designer 포트폴리오. Wwise, Unreal Engine 5, C++ / Blueprint, AI 에이전트 기반 인게임 오디오 구현."
     />
     <link rel="canonical" href="https://jungmin-cha-portfolio.pages.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Jungmin Cha Portfolio" />
-    <meta property="og:title" content="Jungmin Cha | Game Audio Designer" />
+    <meta property="og:title" content="Jungmin Cha | Game Audio Designer who codes" />
     <meta
       property="og:description"
-      content="Wwise와 Unreal Engine 5 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
+      content="Wwise, Unreal Engine 5, C++ / Blueprint 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
     />
     <meta property="og:url" content="https://jungmin-cha-portfolio.pages.dev/" />
     <meta property="og:image" content="https://jungmin-cha-portfolio.pages.dev/assets/game/guardian-seeker-poster.jpg" />
     <meta property="og:image:alt" content="Guardian & Seeker game audio portfolio preview" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Jungmin Cha | Game Audio Designer" />
+    <meta name="twitter:title" content="Jungmin Cha | Game Audio Designer who codes" />
     <meta
       name="twitter:description"
-      content="Wwise와 Unreal Engine 5 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
+      content="Wwise, Unreal Engine 5, C++ / Blueprint 기반 게임 오디오 구현, 데모릴, 프로젝트 케이스와 음악 작업을 정리한 포트폴리오."
     />
     <meta name="twitter:image" content="https://jungmin-cha-portfolio.pages.dev/assets/game/guardian-seeker-poster.jpg" />
     <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
@@ -34,11 +34,13 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Jungmin Cha",
-        "jobTitle": "Game Audio Designer",
+        "jobTitle": "Game Audio Designer who codes",
         "url": "https://jungmin-cha-portfolio.pages.dev/",
         "knowsAbout": [
           "Wwise",
           "Unreal Engine 5",
+          "C++",
+          "Blueprint",
           "Game Audio",
           "Sound Design",
           "Interactive Music",
@@ -46,7 +48,8 @@
           "Audio Source Management",
           "OpenAI API",
           "AI-assisted Creation",
-          "Voice Pipeline"
+          "AI Agent Workflow",
+          "Audio Programming"
         ]
       }
     </script>
@@ -112,6 +115,7 @@
           <h1 id="hero-title">
             <span class="hero-title-name" data-field="name">차정민</span>
             <span class="hero-title-role">Game Audio Designer</span>
+            <span class="hero-title-stack" data-i18n="heroStack">Wwise · Unreal Engine 5 · C++ / Blueprint</span>
           </h1>
           <p class="lede" data-field="intro">
             Wwise와 Unreal Engine 5로 전투 BGM, SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.
@@ -171,6 +175,7 @@
               <span id="console-volume">Distance 18m</span>
               <span id="console-cue">Cue UI</span>
             </div>
+            <p class="console-prompt" data-i18n="consolePrompt">Play audio to hear the Wwise logic in action.</p>
             <div class="console-actions hero-console-actions">
               <button
                 class="audio-transport"
@@ -188,7 +193,7 @@
           <div class="featured-case">
             <span class="label" data-i18n="featuredCase">Featured case</span>
             <strong>Guardian & Seeker</strong>
-            <p>UE5.6 · Wwise · Combat BGM · Footsteps · Occlusion · UI feedback</p>
+            <p>UE5.6 · Wwise · C++ / Blueprint · Combat BGM · Occlusion</p>
             <a href="#tech-audio" data-i18n="featuredCaseCta">View tech case</a>
           </div>
         </aside>
@@ -277,23 +282,6 @@
         <div class="practice-list" id="practice-list"></div>
       </section>
 
-      <section class="section ai-lab" id="ai-lab" aria-labelledby="ai-lab-title">
-        <div class="section-heading">
-          <p class="eyebrow" id="ai-lab-eyebrow">보이스 파이프라인</p>
-          <h2 id="ai-lab-title">
-            <span class="ai-lab-title-line">보이스와 소스 리소스를</span>
-            <span class="ai-lab-title-line">목적에 맞게 관리합니다</span>
-          </h2>
-        </div>
-        <div class="ai-lab-layout">
-          <article class="ai-lab-feature" id="ai-lab-feature" aria-label="대표 보이스 파이프라인"></article>
-          <div class="ai-lab-journal">
-            <p class="ai-lab-intro" id="ai-lab-intro"></p>
-            <div class="ai-log-list" id="ai-log-list"></div>
-          </div>
-        </div>
-      </section>
-
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div>
           <p class="eyebrow" data-i18n="contactEyebrow">연락</p>
@@ -313,7 +301,7 @@
 
     <footer class="footer">
       <span data-field="footerName">Personal Portfolio</span>
-      <span>Wwise · Unreal Engine 5 · SFX · Interactive Audio</span>
+      <span>Wwise · Unreal Engine 5 · C++ / Blueprint · Interactive Audio</span>
     </footer>
 
     <button

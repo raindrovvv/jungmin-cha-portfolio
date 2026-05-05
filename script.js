@@ -1,35 +1,36 @@
 const portfolioKo = {
   name: "차정민",
-  role: "Game Audio · Wwise · Unreal Engine 5",
+  role: "Game Audio · Wwise · UE5 · C++ / Blueprint",
   headline: "차정민 Game Audio Designer",
   intro:
-    "플레이어가 상황을 직관적으로 읽도록 사운드를 설계합니다. Wwise와 Unreal Engine 5로 전투 BGM 전환, 환경/캐릭터 SFX, UI 피드백을 구현하고 실제 플레이에서 들리는 방식까지 다듬습니다.",
+    "코드와 AI 에이전트를 활용하는 Game Audio Designer입니다. Wwise 구조, UE5 Blueprint, Physical Material 발소리, 런타임 오클루전까지 실제 빌드에서 작동할 때까지 설계하고 구현합니다.",
   years: "7년+",
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "전투의 흐름, 공간감, 피드백 타이밍이 플레이 안에서 자연스럽게 읽히도록 제작과 구현을 함께 다룹니다. 싱어송라이터로 쌓은 음악 프로덕션 경험은 BGM과 감정선 설계에 적용합니다.",
+    "Wwise와 UE5 C++/Blueprint 사이에서 오디오가 실제 플레이 입력, 거리, 차폐, UI 피드백에 맞게 반응하도록 설계하고 검증합니다. 채용 또는 협업 문의는 이메일로 가장 빠르게 확인합니다.",
   footerName: "차정민 Game Audio Designer Portfolio",
   focus: [
     "Wwise",
     "Unreal Engine 5",
-    "SFX Design",
+    "C++ / Blueprint",
     "Interactive BGM",
     "Audio Debugging",
     "FL Studio",
-    "C++ / Blueprint",
+    "AI Agent Workflow",
+    "SFX Design",
     "Unity / C#",
     "OpenAI API",
     "Git Collaboration",
   ],
   reelNotes: [
     {
-      title: "4v1 PvP 프로젝트의 실제 구현 사례",
-      text: "G-STAR 2025 출품 프로젝트에서 전투, 환경, UI 사운드를 Wwise로 직접 설계하고 적용했습니다.",
+      title: "C++ 오디오 컴포넌트가 있는 4v1 PvP 사례",
+      text: "Guardian & Seeker에서 UGS_AudioComponentBase, Monster/Seeker 오디오 컴포넌트, UI 오디오 시스템으로 Wwise와 UE5를 연결했습니다.",
     },
     {
-      title: "SFX 제작부터 Wwise·UE 적용까지",
-      text: "191개 오디오 에셋을 캐릭터, 몬스터, 환경, UI/System으로 나누고 Event, Switch, RTPC, Anim Notify 기반으로 연결했습니다.",
+      title: "Wwise·UE 적용부터 C++/Blueprint 로직까지",
+      text: "DistanceToPlayer, AttenuationMode, OcclusionDisable RTPC를 C++ UPROPERTY로 관리하고 Event, Switch, RTPC, Anim Notify를 실제 플레이 상태에 연결했습니다.",
     },
     {
       title: "플레이 테스트로 밸런싱과 QA 검증",
@@ -40,14 +41,14 @@ const portfolioKo = {
     eyebrow: "기술 오디오",
     title: "Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템",
     intro:
-      "Guardian & Seeker에서 Wwise 설계, UE5 구현, 오클루전 디버깅, 플레이테스트 피드백 반영까지 오디오 시스템 제작 흐름을 정리했습니다.",
+      "Guardian & Seeker에서 C++ 오디오 컴포넌트 설계, Wwise RTPC 연동, UE5 구현, 오클루전 디버깅, 플레이테스트 피드백 반영까지 이어지는 제작 흐름입니다.",
     items: [
       {
         title: "Wwise 시스템 설계",
         type: "Event / Switch / RTPC",
         summary:
-          "전투 BGM 전환, UI 피드백, 몬스터/환경 사운드를 Event, Switch, RTPC, 컨테이너 구조로 나눠 관리했습니다.",
-        proof: "191개 오디오 에셋을 캐릭터, 몬스터, 환경, UI/System 단위로 분류",
+          "전투 중 BGM, 몬스터, UI 피드백이 겹치는 상황에서 플레이어가 먼저 읽어야 할 신호를 기준으로 Event, Switch, RTPC, 컨테이너 구조를 나눴습니다.",
+        proof: "191개 오디오 에셋을 역할과 우선순위 기준으로 분류하고 Wwise 구조에 연결",
         breakdown: [
           {
             label: "문제",
@@ -65,22 +66,34 @@ const portfolioKo = {
       },
       {
         title: "UE5 연동 구현",
-        type: "Blueprint / Anim Notify",
+        type: "C++ / Blueprint / Anim Notify",
+        featured: true,
+        badge: "Featured implementation",
         summary:
-          "Physical Material 기반 발소리, 애니메이션 타이밍, 블루프린트 이벤트를 연결해 실제 플레이 입력과 사운드를 맞췄습니다.",
-        proof: "UE5.6 프로젝트에서 Wwise Event와 인게임 상태를 직접 적용",
+          "UGS_AudioComponentBase를 기반으로 몬스터/시커 오디오 컴포넌트를 분리하고, Physical Material 발소리와 애니메이션 타이밍, C++/Blueprint 이벤트를 실제 플레이 입력에 맞췄습니다.",
+        proof: "GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, GS_UIAudioSystem.h 기반 Sound 폴더 구조",
+        links: [
+          {
+            label: "View C++ audio class",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/main/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
+          },
+          {
+            label: "Sound folder",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+          },
+        ],
         breakdown: [
           {
             label: "연동",
-            text: "Anim Notify와 Blueprint 이벤트에서 Wwise Event를 호출해 움직임, 피격, UI 조작 타이밍을 맞췄습니다.",
+            text: "Anim Notify와 Blueprint 이벤트에서 Wwise Event를 호출하고, 필요한 사운드 상태 로직은 C++/Blueprint 기준으로 정리했습니다.",
           },
           {
             label: "재질 로직",
             text: "Physical Material 정보를 기준으로 발소리 후보를 나누고 지면 변화가 사운드에 반영되도록 설계했습니다.",
           },
           {
-            label: "검증",
-            text: "실제 플레이 중 어긋나는 타이밍과 누락되는 이벤트를 찾아 Notify 위치와 호출 조건을 조정했습니다.",
+            label: "AI 에이전트 활용",
+            text: "AI 에이전트를 코드 리뷰와 디버깅 파트너로 활용해 C++/Blueprint 로직의 조건, 호출 타이밍, 누락 이벤트를 빠르게 점검했습니다.",
           },
         ],
       },
@@ -196,7 +209,7 @@ const portfolioKo = {
       period: "G-STAR 2025",
       type: "UE5.6 / Wwise",
       summary:
-        "4v1 비대칭 PvP 액션 게임의 캐릭터, 몬스터, 환경, UI 사운드 디자인과 Wwise 구현 전반을 담당했습니다. 전투 BGM 전환, Physical Material 기반 발소리, 오클루전 시스템을 설계하고 플레이테스트를 통해 밸런싱과 QA까지 마무리했습니다.",
+        "4v1 비대칭 PvP 액션 게임의 캐릭터, 몬스터, 환경, UI 사운드 디자인과 Wwise/UE5 구현 전반을 담당했습니다. UGS_AudioComponentBase를 중심으로 몬스터/시커/UI 오디오 컴포넌트를 나누고, RTPC와 오클루전, Physical Material 발소리, 전투 BGM 전환을 실제 빌드에서 검증했습니다.",
       featured: true,
       href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
       media: {
@@ -211,11 +224,12 @@ const portfolioKo = {
         role: "Core audio case",
         side: "start",
       },
-      skills: ["Wwise", "UE5.6", "SFX", "Interactive BGM", "QA"],
+      skills: ["Wwise", "UE5.6", "C++ / Blueprint", "Interactive BGM", "QA"],
       scope: {
         content: "캐릭터, 몬스터, 환경, UI 사운드 / 전투 BGM",
-        implementation: "Wwise Event, Switch, RTPC, UE5 Blueprint, Anim Notify",
-        proof: "G-STAR 2025 출품, 299명 체험, 평균 4.36/5",
+        implementation: "UGS_AudioComponentBase, Wwise RTPC, UE5 C++ / Blueprint, Anim Notify",
+        proof: "G-STAR 2025 출품, 299명 체험, 평균 4.36/5 · Sound 폴더 C++ 클래스 직접 링크 제공",
+        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
       },
     },
     {
@@ -249,7 +263,7 @@ const portfolioKo = {
       period: "2025.04.18",
       type: "UE5 / Platform Fighter",
       summary:
-        "조선 말기 맵을 배경으로 한 멀티플레이 플랫폼 파이터 프로토타입입니다. Team Lead, PM, Creative Director로 참여하며 BGM 3트랙, SFX 40종, 믹싱, 캐릭터/맵/스킬 밸런스, HUD 레이아웃을 함께 설계했습니다.",
+        "조선 말기 맵을 배경으로 한 멀티플레이 플랫폼 파이터 프로토타입입니다. Team Lead, PM, Creative Director로 참여하며 BGM/SFX뿐 아니라 Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조처럼 게임플레이 C++ 구조에도 관여했습니다.",
       href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
       media: {
         label: "Gameplay demo",
@@ -258,11 +272,11 @@ const portfolioKo = {
         fallback: "./assets/game/joseon-knights.gif",
       },
       cta: "Demo video",
-      skills: ["Team Lead", "BGM 3 tracks", "SFX 40", "UE5", "PM"],
+      skills: ["UE5 C++", "Team Lead", "BGM 3 tracks", "SFX 40", "PM"],
       scope: {
         content: "한국 전통 모티프 기반 BGM, 전투 SFX, UI/캐릭터/맵 아이콘",
-        implementation: "Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조",
-        proof: "담당: Team Lead, PM, Creative Director · BGM 3트랙, SFX 40종",
+        implementation: "Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조, BGM/SFX 구현",
+        proof: "담당: Team Lead, PM, Creative Director · BGM 3트랙, SFX 40종 · UE5 C++ 게임플레이 구조 경험",
       },
     },
     {
@@ -662,49 +676,49 @@ const portfolioKo = {
     },
   },
   aiLab: {
-    eyebrow: "보이스 파이프라인 / 소스 관리",
-    title: "보이스와 소스 리소스를 목적에 맞게 관리합니다",
-    titleLines: ["보이스와 소스 리소스를", "목적에 맞게 관리합니다"],
+    eyebrow: "AI 에이전트 / 구현 워크플로",
+    title: "AI 에이전트를 구현 속도와 검증력으로 전환합니다",
+    titleLines: ["AI 에이전트를", "구현 속도와 검증력으로 전환합니다"],
     intro:
-      "싱어송라이터이자 프로듀서로 직접 녹음, 디렉팅, 편집, 믹싱한 경험을 게임 보이스 프리프로덕션과 대사 리소스 관리 기준으로 확장했습니다.",
+      "C++/Blueprint 사운드 로직을 직접 다루되, AI 에이전트를 코드 리뷰, 디버깅, 문서화 파트너로 활용해 구현 리스크를 더 빨리 찾는 방식으로 작업합니다.",
     items: [
       {
-        title: "Recording-Based Source Management",
-        type: "Recording / Direction / Editing",
+        title: "AI-assisted Implementation Review",
+        type: "C++ / Blueprint / Debugging",
         summary:
-          "제 목소리와 아티스트 보컬을 직접 녹음, 편집, 믹싱하며 소스 품질이 최종 사운드 완성도에 미치는 영향을 체득했습니다.",
+          "사운드 로직을 직접 구현한 뒤 AI 에이전트로 조건 분기, 호출 타이밍, 누락 가능성을 빠르게 재검토합니다.",
         gameAudioUse:
-          "보이스 녹음 준비, 테이크 관리, 감정선에 맞는 디렉팅, 리소스 정리 기준을 게임 대사 제작에도 적용합니다.",
+          "Wwise Event 호출, Physical Material 발소리, 오클루전 디버깅처럼 엔진 안에서 깨지기 쉬운 지점을 체크리스트화합니다.",
         proof:
-          "보컬 녹음 진행과 테이크 관리, 곡 감정선에 맞는 보컬 디렉션, EQ/Compression/Reverb/Delay 기반 편집과 믹싱 경험",
+          "C++/Blueprint 사운드 로직 구현과 AI 에이전트 기반 코드 검토, 디버깅 질문, QA 기준 정리",
         href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
         cta: "Slides p.15",
         featured: true,
-        tags: ["Recording", "Direction", "Take Management", "Editing/Mixing"],
+        tags: ["C++", "Blueprint", "AI Agent", "Debugging"],
       },
       {
-        title: "Source-centered Production",
-        type: "Foley / Library / Source QA",
+        title: "Prompt-to-Checklist QA",
+        type: "Audio QA / Test Cases",
         summary:
-          "녹음 소스와 라이브러리 소스를 목적별로 정리하고, 프로젝트 상황에 맞게 자산화하는 제작 관점을 갖고 있습니다.",
+          "플레이 중 들리는 문제를 AI 에이전트와 함께 원인 후보, 재현 조건, 수정 단위로 쪼개 팀이 바로 확인할 수 있게 정리합니다.",
         gameAudioUse:
-          "Foley, 보이스, 라이브러리 효과음을 역할별로 구분해 소스 선택, 편집, 믹스 기준을 세웁니다.",
+          "BGM 전환, UI 피드백, 발소리, 벽/문 차폐감 같은 감각 피드백을 테스트 가능한 오디오 QA 항목으로 바꿉니다.",
         proof:
-          "직접 레코딩과 디렉팅 경험을 바탕으로 적합한 소스를 설계하고 선택하는 기준을 정리했습니다.",
+          "299명 플레이테스트 이후 피드백을 우선순위, 믹스, 시스템 조건으로 분류",
         href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
         cta: "Slides",
         featured: false,
-        tags: ["Foley Mindset", "Library Source", "Source Quality"],
+        tags: ["QA", "Playtest", "Checklist"],
       },
       {
-        title: "Workflow Documentation",
-        type: "Audio QA / Team Knowledge",
+        title: "Source & Workflow Documentation",
+        type: "Source Management / Team Knowledge",
         summary:
-          "녹음, 편집, 믹스, QA 기준을 팀이 재사용할 문서와 체크리스트로 바꾸는 흐름을 실험했습니다.",
+          "AI 에이전트로 정리한 기준을 그대로 믿지 않고, 실제 플레이 검증 결과와 연결해 팀이 재사용할 문서로 정제합니다.",
         gameAudioUse:
-          "보이스 리소스 네이밍, 테이크 선택, 수정 요청, 사운드 QA 기준을 반복 가능한 형태로 정리합니다.",
+          "보이스/소스 네이밍, Wwise 구조, 수정 요청, 사운드 QA 기준을 반복 가능한 형태로 관리합니다.",
         proof:
-          "성공 기준, 반복 테스트 환경, 전문가 디버깅 절차를 작업 기준으로 번역했습니다.",
+          "성공 기준, 반복 테스트 환경, 전문가 디버깅 절차를 작업 기준으로 번역",
         href: "https://raindrovvv.tistory.com/132",
         cta: "Read insight",
         featured: false,
@@ -719,21 +733,21 @@ const portfolioKo = {
     },
     {
       title: "Implementation-ready workflow",
-      text: "FL Studio에서 소스를 만들고 Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 Blueprint, Anim Notify, 데이터 테이블에 적용합니다.",
+      text: "FL Studio에서 소스를 만들고 Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 C++/Blueprint, Anim Notify, 데이터 테이블에 적용합니다.",
     },
     {
       title: "Audio QA & polishing",
       text: "실제 플레이 테스트에서 묻히는 구간, 과한 피드백, 재생 오류, 공간감 문제를 확인하고 볼륨과 우선순위를 조정합니다.",
     },
     {
-      title: "Source-centered production",
-      text: "싱어송라이터이자 프로듀서로 보컬 녹음, 디렉팅, 편집, 믹싱을 직접 다루며 소스 퀄리티와 밸런스에 대한 기준을 게임 오디오에도 그대로 적용합니다.",
+      title: "AI-agent collaboration",
+      text: "AI 에이전트를 단순 대체재가 아니라 코드 검토, 디버깅 가설, QA 체크리스트를 빠르게 만드는 협업 도구로 활용합니다.",
     },
   ],
   links: [
-    { label: "Email", icon: "📧", href: "mailto:vnrs97@gmail.com" },
-    { label: "GitHub", icon: "⌘", href: "https://github.com/raindrovvv" },
-    { label: "Blog", icon: "✎", href: "https://raindrovvv.tistory.com" },
+    { label: "Email for hiring", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
+    { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound" },
+    { label: "Wwise Blog", icon: "✎", href: "https://raindrovvv.tistory.com/tag/Wwise" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
     { label: "Instagram", icon: "◎", href: "https://www.instagram.com/raindrovvv/" },
     {
@@ -756,23 +770,23 @@ const createEnglishPortfolio = () => {
 
   Object.assign(en, {
     name: "Jungmin Cha",
-    role: "Game Audio · Wwise · Unreal Engine 5",
+    role: "Game Audio · Wwise · UE5 · C++ / Blueprint",
     headline: "Jungmin Cha Game Audio Designer",
     intro:
-      "I design audio that helps players read combat, space, danger, and feedback intuitively. I build combat BGM transitions, environmental and character SFX, and UI feedback with Wwise and Unreal Engine 5, then refine how they land in play.",
+      "Game Audio Designer who codes with AI agents. I design sound for gameplay clarity and implement it end-to-end: Wwise architecture, UE5 Blueprint, Physical Material footsteps, runtime occlusion, until it works in the actual build.",
     contactNote:
-      "I handle both sound design and implementation so combat flow, spatial cues, and feedback timing read naturally in play. My singer-songwriter and production background informs BGM and emotional direction.",
+      "I design and verify audio behavior between Wwise and UE5 C++/Blueprint so player input, distance, occlusion, and UI feedback read correctly in the actual build. Email is the fastest route for hiring or collaboration.",
     footerName: "Jungmin Cha Game Audio Designer Portfolio",
   });
 
   en.reelNotes = [
     {
-      title: "A shipped-facing 4v1 PvP audio case",
-      text: "For a UE5 team project presented for G-STAR 2025, I designed and implemented combat, environment, and UI audio directly in Wwise.",
+      title: "A 4v1 PvP case with C++ audio components",
+      text: "In Guardian & Seeker, I connected Wwise and UE5 through UGS_AudioComponentBase, Monster/Seeker audio components, and a UI audio system.",
     },
     {
-      title: "From SFX production to Wwise and UE integration",
-      text: "I organized 191 audio assets across character, monster, environment, and UI/System categories, then connected them with Events, Switches, RTPCs, and Anim Notifies.",
+      title: "From Wwise/UE integration to C++/Blueprint logic",
+      text: "DistanceToPlayer, AttenuationMode, and OcclusionDisable RTPCs are managed through C++ UPROPERTY pointers, then connected to Events, Switches, RTPCs, and Anim Notifies.",
     },
     {
       title: "Balancing and QA through playtests",
@@ -784,14 +798,14 @@ const createEnglishPortfolio = () => {
     eyebrow: "Technical Audio",
     title: "Audio systems that work inside Wwise and UE5",
     intro:
-      "Guardian & Seeker brings together Wwise structure, UE5 implementation, occlusion debugging, and playtest-driven iteration in one concrete audio workflow.",
+      "Guardian & Seeker combines C++ audio component design, Wwise RTPC integration, UE5 implementation, occlusion debugging, and playtest-driven iteration in one concrete workflow.",
     items: [
       {
         title: "Wwise System Design",
         type: "Event / Switch / RTPC",
         summary:
-          "I separated combat BGM transitions, UI feedback, monster cues, and environment audio into Events, Switches, RTPCs, and container structures.",
-        proof: "191 audio assets categorized by character, monster, environment, and UI/System",
+          "In combat scenes where BGM, monster cues, and UI feedback overlap, I structured Events, Switches, RTPCs, and containers around the cues players needed to read first.",
+        proof: "191 audio assets categorized by role and priority, then connected into Wwise structures",
         breakdown: [
           {
             label: "Problem",
@@ -809,22 +823,34 @@ const createEnglishPortfolio = () => {
       },
       {
         title: "UE5 Implementation",
-        type: "Blueprint / Anim Notify",
+        type: "C++ / Blueprint / Anim Notify",
+        featured: true,
+        badge: "Featured implementation",
         summary:
-          "I connected Physical Material footsteps, animation timing, and Blueprint events so sound responded to actual player input.",
-        proof: "Wwise Events connected to in-game states inside a UE5.6 project",
+          "I separated Monster/Seeker audio components around UGS_AudioComponentBase, then connected Physical Material footsteps, animation timing, and C++/Blueprint events to real player input.",
+        proof: "Sound folder structure around GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, and GS_UIAudioSystem.h",
+        links: [
+          {
+            label: "View C++ audio class",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/main/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
+          },
+          {
+            label: "Sound folder",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+          },
+        ],
         breakdown: [
           {
             label: "Connection",
-            text: "Anim Notifies and Blueprint events call Wwise Events for movement, hit reactions, and UI timing.",
+            text: "Anim Notifies and Blueprint events call Wwise Events, with sound state logic organized around C++/Blueprint conditions where needed.",
           },
           {
             label: "Surface logic",
             text: "Footstep candidates are split by Physical Material so surface changes are reflected in sound.",
           },
           {
-            label: "Validation",
-            text: "I checked missing events and timing drift in play, then adjusted Notify positions and call conditions.",
+            label: "AI agent use",
+            text: "I used AI agents as code review and debugging partners to check C++/Blueprint conditions, call timing, and missing events faster.",
           },
         ],
       },
@@ -940,11 +966,13 @@ const createEnglishPortfolio = () => {
     {
       ...en.projects[0],
       summary:
-        "I handled character, monster, environment, and UI sound design plus Wwise implementation for a 4v1 asymmetrical PvP action game. I designed combat BGM transitions, Physical Material footsteps, and occlusion behavior, then refined balance and QA through playtests.",
+        "I handled character, monster, environment, and UI sound design plus Wwise/UE5 implementation for a 4v1 asymmetrical PvP action game. Around UGS_AudioComponentBase, I separated Monster/Seeker/UI audio components and verified RTPCs, occlusion, Physical Material footsteps, and combat BGM transitions in the actual build.",
+      skills: ["Wwise", "UE5.6", "C++ / Blueprint", "Interactive BGM", "QA"],
       scope: {
         content: "Character, monster, environment, UI audio / combat BGM",
-        implementation: "Wwise Events, Switches, RTPCs, UE5 Blueprint, Anim Notify",
-        proof: "G-STAR 2025 project, 299 players, 4.36/5 average rating",
+        implementation: "UGS_AudioComponentBase, Wwise RTPCs, UE5 C++ / Blueprint, Anim Notify",
+        proof: "G-STAR 2025 project, 299 players, 4.36/5 average rating · direct Sound folder link provided",
+        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
       },
     },
     {
@@ -960,11 +988,12 @@ const createEnglishPortfolio = () => {
     {
       ...en.projects[2],
       summary:
-        "A multiplayer platform fighter prototype set in late Joseon. As Team Lead, PM, and Creative Director, I created 3 BGM tracks and 40 SFX while also contributing to mix, balance, HUD layout, characters, maps, and skills.",
+        "A multiplayer platform fighter prototype set in late Joseon. As Team Lead, PM, and Creative Director, I handled BGM/SFX while also contributing to gameplay-side UE5 C++ structure such as Buff & StatComponent, DeathVolume, and support for three knight skill designs.",
+      skills: ["UE5 C++", "Team Lead", "BGM 3 tracks", "SFX 40", "PM"],
       scope: {
         content: "Traditional Korean-inspired BGM, combat SFX, UI/character/map icons",
-        implementation: "Buff & StatComponent, DeathVolume, support for three knight skill designs",
-        proof: "Role: Team Lead, PM, Creative Director · 3 BGM tracks, 40 SFX",
+        implementation: "Buff & StatComponent, DeathVolume, support for three knight skill designs, BGM/SFX implementation",
+        proof: "Role: Team Lead, PM, Creative Director · 3 BGM tracks, 40 SFX · UE5 C++ gameplay-structure experience",
       },
     },
     {
@@ -1058,49 +1087,49 @@ const createEnglishPortfolio = () => {
   };
 
   en.aiLab = {
-    eyebrow: "Voice Pipeline / Source Management",
-    title: "Managing voice and source assets with production intent",
-    titleLines: ["Managing voice and source assets", "with production intent"],
+    eyebrow: "AI Agents / Implementation Workflow",
+    title: "Turning AI agents into implementation speed and verification",
+    titleLines: ["Turning AI agents into", "implementation speed and verification"],
     intro:
-      "My recording, direction, editing, and mixing experience as a singer-songwriter and producer extends into game voice preproduction and dialogue resource management.",
+      "I still own the C++/Blueprint sound logic, but I use AI agents as review, debugging, and documentation partners to find implementation risks faster.",
     items: [
       {
-        title: "Recording-Based Source Management",
-        type: "Recording / Direction / Editing",
+        title: "AI-assisted Implementation Review",
+        type: "C++ / Blueprint / Debugging",
         summary:
-          "By recording, editing, and mixing my own voice and artist vocals, I learned how source quality shapes the final sound.",
+          "After implementing sound logic myself, I use AI agents to re-check branches, call timing, and missing-event risks.",
         gameAudioUse:
-          "I apply this to voice session preparation, take management, emotional direction, and resource organization for game dialogue.",
+          "Wwise Event calls, Physical Material footsteps, and occlusion debugging become explicit checklists for fragile engine-side behavior.",
         proof:
-          "Vocal recording, take management, emotion-based direction, and EQ/Compression/Reverb/Delay editing and mixing",
+          "C++/Blueprint sound logic implementation, AI-agent code review, debugging prompts, and QA criteria",
         href: en.aiLab.items[0].href,
         cta: "Slides p.15",
         featured: true,
-        tags: ["Recording", "Direction", "Take Management", "Editing/Mixing"],
+        tags: ["C++", "Blueprint", "AI Agent", "Debugging"],
       },
       {
-        title: "Source-centered Production",
-        type: "Foley / Library / Source QA",
+        title: "Prompt-to-Checklist QA",
+        type: "Audio QA / Test Cases",
         summary:
-          "I organize recorded and library sources by production purpose, then turn them into usable assets for the project context.",
+          "I turn in-play audio issues into likely causes, reproduction conditions, and small fix units the team can verify.",
         gameAudioUse:
-          "Foley, voice, and library SFX are separated by role so source choice, editing, and mix standards stay clear.",
+          "BGM transitions, UI feedback, footsteps, and wall/door obstruction feedback become testable audio QA items.",
         proof:
-          "Direct recording and direction experience informs how I design and choose suitable sources.",
+          "299-player playtest feedback categorized into priority, mix, and system-condition tasks",
         href: en.aiLab.items[1].href,
         cta: "Slides",
         featured: false,
-        tags: ["Foley Mindset", "Library Source", "Source Quality"],
+        tags: ["QA", "Playtest", "Checklist"],
       },
       {
-        title: "Workflow Documentation",
-        type: "Audio QA / Team Knowledge",
+        title: "Source & Workflow Documentation",
+        type: "Source Management / Team Knowledge",
         summary:
-          "I turn recording, editing, mix, and QA standards into reusable documents and checklists for the team.",
+          "I do not treat AI output as final; I refine it against playtest results and turn it into reusable team documentation.",
         gameAudioUse:
-          "Voice naming, take selection, revision requests, and sound QA standards are organized into repeatable workflows.",
+          "Voice/source naming, Wwise structure, revision requests, and sound QA standards are organized into repeatable workflows.",
         proof:
-          "Success criteria, repeatable test environments, and expert debugging steps translated into working standards.",
+          "Success criteria, repeatable test environments, and expert debugging steps translated into working standards",
         href: en.aiLab.items[2].href,
         cta: "Read insight",
         featured: false,
@@ -1116,15 +1145,15 @@ const createEnglishPortfolio = () => {
     },
     {
       title: "Implementation-ready workflow",
-      text: "I create sources in FL Studio, structure Wwise Events, Switches, RTPCs, and containers, then apply them through UE5 Blueprint, Anim Notify, and data tables.",
+      text: "I create sources in FL Studio, structure Wwise Events, Switches, RTPCs, and containers, then apply them through UE5 C++/Blueprint, Anim Notify, and data tables.",
     },
     {
       title: "Audio QA & polishing",
       text: "In playtests, I identify masked cues, excessive feedback, playback errors, and spatial issues, then tune volume and priority.",
     },
     {
-      title: "Source-centered production",
-      text: "As a singer-songwriter and producer, I directly handle vocal recording, direction, editing, and mixing, bringing source-quality standards into game audio.",
+      title: "AI-agent collaboration",
+      text: "I use AI agents as collaboration tools for code review, debugging hypotheses, and QA checklists, not as a substitute for implementation ownership.",
     },
   ];
 
@@ -1136,7 +1165,7 @@ const portfolioEn = createEnglishPortfolio();
 const uiLocales = {
   ko: {
     htmlLang: "ko",
-    title: "Jungmin Cha | Game Audio Designer",
+    title: "Jungmin Cha | Game Audio Designer who codes",
     navReel: "Reel",
     navTech: "Tech Audio",
     navSfx: "SFX Breakdown",
@@ -1146,11 +1175,19 @@ const uiLocales = {
     orbitSound: "Sound Designer",
     orbitAudio: "Audio Implementer",
     orbitField: "Design to Implementation",
+    heroStack: "Wwise · Unreal Engine 5 · C++ / Blueprint",
     heroPrimary: "Watch reel",
     heroSecondary: "View tech cases",
     featuredCase: "Featured case",
     featuredCaseCta: "View tech case",
     toolchain: "Toolchain",
+    consolePrompt: "Play audio to hear the Wwise logic in action.",
+    consoleStatusRunning: "Interactive audio reel · running",
+    consoleStatusStandby: "Press Play to hear Wwise logic",
+    consolePlay: "Play audio",
+    consolePause: "Pause audio",
+    consolePlayAria: "오디오 재생",
+    consolePauseAria: "오디오 일시정지",
     reelEyebrow: "데모릴",
     reelTitle: "Guardian & Seeker의 오디오 설계와 구현 과정을 담았습니다",
     workEyebrow: "주요 작업",
@@ -1159,10 +1196,10 @@ const uiLocales = {
     workTabMusic: "Music Discography",
     strengthsEyebrow: "강점",
     contactEyebrow: "연락",
-    contactTitle1: "좋은 사운드는",
-    contactTitle2: "플레이 안에서",
-    contactTitle3: "완성됩니다",
-    scopeLabels: { content: "내용", implementation: "구현", proof: "근거" },
+    contactTitle1: "엔진 안에서",
+    contactTitle2: "바로 검증하는",
+    contactTitle3: "오디오 구현자",
+    scopeLabels: { content: "내용", implementation: "구현", proof: "근거", code: "코드" },
     aiLabLabels: { gameAudioUse: "파이프라인 적용", proof: "근거" },
     proofLabel: "근거",
     viewBreakdown: "View breakdown",
@@ -1171,11 +1208,12 @@ const uiLocales = {
     listen: "Listen",
     watch: "Watch",
     view: "View",
+    viewCode: "코드 보기",
     techKeywordsLabel: "대표 기술 키워드",
   },
   en: {
     htmlLang: "en",
-    title: "Jungmin Cha | Game Audio Designer",
+    title: "Jungmin Cha | Game Audio Designer who codes",
     navReel: "Reel",
     navTech: "Tech Audio",
     navSfx: "SFX Breakdown",
@@ -1185,11 +1223,19 @@ const uiLocales = {
     orbitSound: "Sound Designer",
     orbitAudio: "Audio Implementer",
     orbitField: "Design to Implementation",
+    heroStack: "Wwise · Unreal Engine 5 · C++ / Blueprint",
     heroPrimary: "Watch reel",
     heroSecondary: "View tech cases",
     featuredCase: "Featured case",
     featuredCaseCta: "View tech case",
     toolchain: "Toolchain",
+    consolePrompt: "Play audio to hear the Wwise logic in action.",
+    consoleStatusRunning: "Interactive audio reel · running",
+    consoleStatusStandby: "Press Play to hear Wwise logic",
+    consolePlay: "Play audio",
+    consolePause: "Pause audio",
+    consolePlayAria: "Play audio",
+    consolePauseAria: "Pause audio",
     reelEyebrow: "Demo Reel",
     reelTitle: "Guardian & Seeker audio design and implementation in practice",
     workEyebrow: "Selected Work",
@@ -1198,10 +1244,10 @@ const uiLocales = {
     workTabMusic: "Music Discography",
     strengthsEyebrow: "Strengths",
     contactEyebrow: "Contact",
-    contactTitle1: "Good sound",
-    contactTitle2: "is completed",
-    contactTitle3: "inside play",
-    scopeLabels: { content: "Content", implementation: "Implementation", proof: "Evidence" },
+    contactTitle1: "Audio implementation",
+    contactTitle2: "verified",
+    contactTitle3: "inside the build",
+    scopeLabels: { content: "Content", implementation: "Implementation", proof: "Evidence", code: "Code" },
     aiLabLabels: { gameAudioUse: "Pipeline use", proof: "Evidence" },
     proofLabel: "Evidence",
     viewBreakdown: "View breakdown",
@@ -1210,6 +1256,7 @@ const uiLocales = {
     listen: "Listen",
     watch: "Watch",
     view: "View",
+    viewCode: "View code",
     techKeywordsLabel: "Core technical keywords",
   },
 };
@@ -1249,6 +1296,7 @@ const focusIconMap = {
   "Audio Debugging": { label: "◎", icon: "debug" },
   "FL Studio": { label: "FL", icon: "fl" },
   "C++ / Blueprint": { label: "C++", icon: "code" },
+  "AI Agent Workflow": { label: "AI", icon: "ai" },
   "Unity / C#": { label: "U", icon: "unity" },
   "OpenAI API": { label: "AI", icon: "ai" },
   "Git Collaboration": { label: "", icon: "git" },
@@ -1437,7 +1485,11 @@ const renderProjects = (activeTab = "game") => {
                 ? `<div class="scope-list">${Object.entries(project.scope)
                     .map(
                       ([key, value]) =>
-                        `<div class="scope-row"><strong>${uiCopy.scopeLabels[key] || key}</strong><span>${value}</span></div>`,
+                        `<div class="scope-row"><strong>${uiCopy.scopeLabels[key] || key}</strong><span>${
+                          key === "code"
+                            ? `<a class="scope-link" href="${value}" target="_blank" rel="noreferrer">${uiCopy.viewCode}</a>`
+                            : value
+                        }</span></div>`,
                     )
                     .join("")}</div>`
                 : ""
@@ -1495,6 +1547,21 @@ const renderDisclosure = (items = [], { className = "", summary = uiCopy.viewBre
   `;
 };
 
+const renderInlineLinks = (links = [], className = "") => {
+  if (!links.length) return "";
+
+  return `
+    <div class="inline-link-row ${className}">
+      ${links
+        .map(
+          (link) =>
+            `<a href="${escapeHtml(link.href)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
+        )
+        .join("")}
+    </div>
+  `;
+};
+
 const renderTechAudio = () => {
   const eyebrow = document.querySelector("#tech-audio-eyebrow");
   const title = document.querySelector("#tech-audio-title");
@@ -1509,7 +1576,7 @@ const renderTechAudio = () => {
   lead.innerHTML = `
     <p>${escapeHtml(techAudio.intro)}</p>
     <div class="tech-signal-row" aria-label="${uiCopy.techKeywordsLabel}">
-      ${["Wwise", "Unreal Engine 5", "Blueprint", "Anim Notify", "Occlusion", "Audio QA"]
+      ${["Wwise", "Unreal Engine 5", "C++ / Blueprint", "AI Agent Workflow", "Anim Notify", "Occlusion"]
         .map((item) => `<span>${item}</span>`)
         .join("")}
     </div>
@@ -1517,9 +1584,10 @@ const renderTechAudio = () => {
   list.innerHTML = techAudio.items
     .map(
       (item, index) => `
-        <article class="tech-card">
+        <article class="tech-card${item.featured ? " is-featured" : ""}">
           <span class="tech-card-index">${String(index + 1).padStart(2, "0")}</span>
           <div>
+            ${item.badge ? `<span class="tech-card-badge">${escapeHtml(item.badge)}</span>` : ""}
             <span class="tech-card-type">${escapeHtml(item.type)}</span>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.summary)}</p>
@@ -1528,6 +1596,7 @@ const renderTechAudio = () => {
             <strong>${uiCopy.proofLabel}</strong>
             <span>${escapeHtml(item.proof)}</span>
           </div>
+          ${renderInlineLinks(item.links, "tech-code-links")}
           ${renderDisclosure(item.breakdown, { className: "tech-breakdown" })}
         </article>
       `,
@@ -1689,8 +1758,11 @@ const renderLinks = () => {
   const list = document.querySelector("#contact-links");
   list.innerHTML = portfolio.links
     .map(
-      (link) =>
-        `<a href="${link.href}" target="_blank" rel="noreferrer"><span class="contact-icon" aria-hidden="true">${link.icon}</span><span>${link.label}</span></a>`,
+      (link) => {
+        const isMail = link.href.startsWith("mailto:");
+        const attrs = isMail ? "" : ` target="_blank" rel="noreferrer"`;
+        return `<a class="contact-link${link.primary ? " is-primary" : ""}" href="${link.href}"${attrs}><span class="contact-icon" aria-hidden="true">${link.icon}</span><span>${link.label}</span></a>`;
+      },
     )
     .join("");
   refreshTextEditorTargets();
@@ -1815,6 +1887,7 @@ const setupSecretTextEditor = () => {
           ".brand span:last-child",
           ".hero-title-name",
           ".hero-title-role",
+          ".hero-title-stack",
           "[data-field]",
           ".role-token",
           ".featured-case .label",
@@ -1896,6 +1969,7 @@ const setupSecretTextEditor = () => {
       [".brand span:last-child", "brand:name"],
       [".hero-title-name", "hero:name"],
       [".hero-title-role", "hero:role"],
+      [".hero-title-stack", "hero:stack"],
       [".featured-case .label", "featured:label"],
       [".featured-case strong", "featured:title"],
       [".featured-case p", "featured:summary"],
@@ -2534,6 +2608,7 @@ const setupAudioConsole = () => {
     const fragment = document.createDocumentFragment();
     for (let index = 0; index < waveformVisibleBars; index += 1) {
       const bar = document.createElement("span");
+      bar.style.setProperty("--bar-index", String(index));
       fragment.appendChild(bar);
     }
     fragment.appendChild(playhead);
@@ -2858,15 +2933,15 @@ const setupAudioConsole = () => {
     cueText.textContent = cueConfig[currentCue].spatial
       ? `Cue ${cueConfig[currentCue].label}`
       : `Cue ${cueConfig[currentCue].label} · 2D`;
-    statusText.textContent = isEnabled
-      ? "Interactive audio reel · running"
-      : "Interactive audio reel · standby";
+    statusText.textContent = isEnabled ? uiCopy.consoleStatusRunning : uiCopy.consoleStatusStandby;
     enableButton.setAttribute("aria-pressed", String(isEnabled));
-    enableButton.setAttribute("aria-label", isEnabled ? "오디오 일시정지" : "오디오 재생");
+    enableButton.setAttribute("aria-label", isEnabled ? uiCopy.consolePauseAria : uiCopy.consolePlayAria);
     const transportLabel = enableButton.querySelector(".transport-label");
     if (transportLabel) {
-      transportLabel.textContent = isEnabled ? "Pause audio" : "Play audio";
+      transportLabel.textContent = isEnabled ? uiCopy.consolePause : uiCopy.consolePlay;
     }
+    consoleRoot.classList.toggle("is-running", isEnabled);
+    consoleRoot.classList.toggle("is-standby", !isEnabled);
     if (floatingAudioControl) {
       floatingAudioControl.classList.toggle("is-visible", isEnabled);
       floatingAudioControl.setAttribute("aria-hidden", String(!isEnabled));
