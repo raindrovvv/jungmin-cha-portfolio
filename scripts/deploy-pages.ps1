@@ -24,8 +24,16 @@ if ($script.Content -match "Featured implementation") {
   throw "pages.dev still contains the removed featured badge text."
 }
 
+if ($script.Content -notmatch "플레이에 맞춰") {
+  throw "pages.dev script.js does not include the updated contact headline."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
+}
+
+if ($styles.Content -notmatch "@media \(max-width: 1100px\)") {
+  throw "pages.dev styles.css does not include the tablet contact layout rule."
 }
 
 Write-Host "Pages deploy verified: https://jungmin-cha-portfolio.pages.dev"

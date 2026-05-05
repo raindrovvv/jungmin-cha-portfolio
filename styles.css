@@ -3368,9 +3368,10 @@ html.dark .practice-item:hover {
 
 .contact {
   display: grid;
-  grid-template-columns: minmax(620px, 0.95fr) minmax(420px, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 56px);
   align-items: end;
+  min-width: 0;
 }
 
 .contact h2 {
@@ -3393,10 +3394,13 @@ html.dark .practice-item:hover {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .contact-links .contact-link.is-primary {
   flex: 1 1 100%;
+  max-width: 100%;
   min-height: 56px;
   padding-inline: 24px;
   border-color: var(--accent);
@@ -3415,6 +3419,18 @@ html.dark .contact-links .contact-link.is-primary {
   border-color: var(--accent);
   background: var(--accent);
   color: var(--on-primary);
+}
+
+@media (max-width: 1100px) {
+  .contact {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .contact-links {
+    justify-content: flex-start;
+    width: 100%;
+  }
 }
 
 .footer {
