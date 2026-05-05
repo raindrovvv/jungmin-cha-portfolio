@@ -73,11 +73,7 @@ const portfolioKo = {
         proof: "GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, GS_UIAudioSystem.h 기반 Sound 폴더 구조",
         links: [
           {
-            label: "View C++ audio class",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/Dev/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
-          },
-          {
-            label: "Sound folder",
+            label: "View implementation",
             href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
           },
         ],
@@ -829,11 +825,7 @@ const createEnglishPortfolio = () => {
         proof: "Sound folder structure around GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, and GS_UIAudioSystem.h",
         links: [
           {
-            label: "View C++ audio class",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/Dev/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
-          },
-          {
-            label: "Sound folder",
+            label: "View implementation",
             href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
           },
         ],

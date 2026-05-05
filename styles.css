@@ -390,8 +390,8 @@ main {
   grid-template-rows: auto 1fr;
   align-items: center;
   column-gap: clamp(28px, 5vw, 58px);
-  row-gap: clamp(10px, 2vh, 22px);
-  padding: clamp(40px, 7vh, 72px) clamp(18px, 6vw, 86px) 42px;
+  row-gap: clamp(8px, 1.4vh, 16px);
+  padding: clamp(30px, 5vh, 52px) clamp(18px, 6vw, 86px) 42px;
   max-width: calc(var(--max) + 172px);
   margin-inline: auto;
 }
@@ -399,7 +399,7 @@ main {
 .role-orbit {
   grid-area: orbit;
   position: relative;
-  min-height: clamp(104px, 12vh, 128px);
+  min-height: clamp(78px, 9vh, 96px);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
