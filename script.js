@@ -75,11 +75,11 @@ const portfolioKo = {
         links: [
           {
             label: "View C++ audio class",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/main/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/Dev/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
           },
           {
             label: "Sound folder",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
           },
         ],
         breakdown: [
@@ -229,7 +229,7 @@ const portfolioKo = {
         content: "캐릭터, 몬스터, 환경, UI 사운드 / 전투 BGM",
         implementation: "UGS_AudioComponentBase, Wwise RTPC, UE5 C++ / Blueprint, Anim Notify",
         proof: "G-STAR 2025 출품, 299명 체험, 평균 4.36/5 · Sound 폴더 C++ 클래스 직접 링크 제공",
-        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
       },
     },
     {
@@ -746,7 +746,7 @@ const portfolioKo = {
   ],
   links: [
     { label: "Email for hiring", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
-    { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound" },
+    { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
     { label: "Wwise Blog", icon: "✎", href: "https://raindrovvv.tistory.com/tag/Wwise" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
     { label: "Instagram", icon: "◎", href: "https://www.instagram.com/raindrovvv/" },
@@ -832,11 +832,11 @@ const createEnglishPortfolio = () => {
         links: [
           {
             label: "View C++ audio class",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/main/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/blob/Dev/Source/GAS/Public/Sound/GS_AudioComponentBase.h",
           },
           {
             label: "Sound folder",
-            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+            href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
           },
         ],
         breakdown: [
@@ -972,7 +972,7 @@ const createEnglishPortfolio = () => {
         content: "Character, monster, environment, UI audio / combat BGM",
         implementation: "UGS_AudioComponentBase, Wwise RTPCs, UE5 C++ / Blueprint, Anim Notify",
         proof: "G-STAR 2025 project, 299 players, 4.36/5 average rating · direct Sound folder link provided",
-        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound",
+        code: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
       },
     },
     {

@@ -21,7 +21,7 @@ Audio implementation highlights:
 
 Direct code path:
 
-https://github.com/raindrovvv/GuardianAndSeeker/tree/main/Source/GAS/Public/Sound
+https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound
 
 Portfolio:
 
