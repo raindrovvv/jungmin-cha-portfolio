@@ -2199,8 +2199,8 @@ html.dark .sfx-example-meta {
   --tilt-y: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 18px;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -2297,6 +2297,7 @@ html.dark .tech-card:hover {
 }
 
 .tech-proof {
+  margin-top: auto;
   display: grid;
   gap: 6px;
   padding-top: 16px;
