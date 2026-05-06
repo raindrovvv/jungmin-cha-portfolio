@@ -4,6 +4,10 @@
   --surface: #f1eee7;
   --surface-strong: #fffefa;
   --surface-muted: #ebe6dc;
+  --card-bg: #fffdf8;
+  --card-border: #d8ccbd;
+  --card-shadow: 0 10px 24px rgba(92, 70, 43, 0.07), 0 1px 0 rgba(255, 255, 255, 0.76) inset;
+  --card-shadow-hover: 0 16px 32px rgba(92, 70, 43, 0.11), 0 1px 0 rgba(255, 255, 255, 0.82) inset;
   --text: #141413;
   --body: #3d3d3a;
   --muted: #6c6a64;
@@ -58,6 +62,10 @@
   --surface: #181818;
   --surface-strong: #1f1f1f;
   --surface-muted: #252525;
+  --card-bg: var(--surface);
+  --card-border: transparent;
+  --card-shadow: none;
+  --card-shadow-hover: 0 8px 8px rgba(0, 0, 0, 0.3);
   --text: #ffffff;
   --body: #cbcbcb;
   --muted: #b3b3b3;
@@ -2225,11 +2233,12 @@ html.dark .sfx-example-meta {
   justify-content: flex-start;
   gap: 18px;
   padding: 22px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   background:
     linear-gradient(135deg, rgba(47, 157, 145, 0.1), rgba(184, 138, 74, 0.06) 58%, transparent 78%),
-    var(--surface-strong);
+    var(--card-bg);
+  box-shadow: var(--card-shadow);
   transform: perspective(1000px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   transition:
@@ -2251,7 +2260,7 @@ html.dark .tech-card {
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, transparent), transparent 52%),
     linear-gradient(160deg, color-mix(in srgb, var(--accent-amber) 14%, transparent), transparent 60%),
-    var(--surface-strong);
+    var(--card-bg);
 }
 
 html.dark .tech-card.is-featured {
@@ -2284,7 +2293,7 @@ html.dark .tech-card.is-featured {
   transform: perspective(1000px) translateY(-2px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   border-color: var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--card-shadow-hover);
 }
 
 html.dark .tech-card:hover {
@@ -2544,9 +2553,10 @@ html.dark .sfx-step {
   justify-content: space-between;
   gap: 18px;
   padding: 22px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  background: var(--surface-strong);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   transform: perspective(1000px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   transition:
@@ -2564,7 +2574,7 @@ html.dark .sfx-example {
   transform: perspective(1000px) translateY(-2px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   border-color: var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .sfx-example.has-deep-dive {
@@ -2572,7 +2582,7 @@ html.dark .sfx-example {
   min-height: auto;
   background:
     linear-gradient(135deg, rgba(47, 157, 145, 0.1), rgba(184, 138, 74, 0.05) 58%, transparent 80%),
-    var(--surface-strong);
+    var(--card-bg);
 }
 
 html.dark .sfx-example.has-deep-dive {
@@ -2717,10 +2727,10 @@ html.dark .work-intro {
   justify-content: space-between;
   gap: 24px;
   padding: 22px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  background: var(--surface-strong);
-  box-shadow: none;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   transform: perspective(1000px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   transition:
@@ -2746,7 +2756,7 @@ html.dark .work-card {
   transform: perspective(1000px) translateY(-2px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   border-color: var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--card-shadow-hover);
 }
 
 html.dark .work-card:hover {
@@ -2757,7 +2767,7 @@ html.dark .work-card:hover {
 .work-card.featured {
   grid-column: span 4;
   background: linear-gradient(135deg, rgba(47, 157, 145, 0.14), rgba(184, 138, 74, 0.08) 52%, transparent 72%),
-    var(--surface-strong);
+    var(--card-bg);
 }
 
 html.dark .work-card.featured {
@@ -3184,9 +3194,10 @@ html.dark .ai-lab {
   min-width: 0;
   --tilt-x: 0;
   --tilt-y: 0;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  background: var(--surface-strong);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   transform: perspective(1000px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   transition:
@@ -3207,7 +3218,7 @@ html.dark .ai-log-card {
   transform: perspective(1000px) translateY(-2px) rotateX(calc(var(--tilt-y) * -2deg))
     rotateY(calc(var(--tilt-x) * 2deg));
   border-color: var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--card-shadow-hover);
 }
 
 html.dark .ai-lab-feature:hover,
@@ -3406,9 +3417,10 @@ html.dark .activity-intro {
   gap: 15px;
   min-height: 410px;
   padding: 20px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  background: var(--surface-strong);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   transition:
     transform 160ms ease,
     border-color 160ms ease,
@@ -3426,7 +3438,7 @@ html.dark .activity-card {
 .activity-card:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--card-shadow-hover);
 }
 
 html.dark .activity-card:hover {
@@ -3556,12 +3568,14 @@ html.dark .split {
 
 .practice-item {
   padding: 24px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  background: var(--surface-strong);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
   transition:
     background 160ms ease,
-    transform 160ms ease;
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
 
 html.dark .practice-item {
@@ -3570,8 +3584,9 @@ html.dark .practice-item {
 }
 
 .practice-item:hover {
-  background: var(--surface-strong);
-  transform: none;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-1px);
 }
 
 html.dark .practice-item:hover {
