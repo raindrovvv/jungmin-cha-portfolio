@@ -50,6 +50,10 @@ if ($script.Content -notmatch "현장에서 검증한 제작 경험" -or $script
   throw "pages.dev script.js does not include the revised public activities headline."
 }
 
+if ($script.Content -notmatch "navActivities") {
+  throw "pages.dev script.js does not include the activities nav label."
+}
+
 if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언") {
   throw "pages.dev script.js does not include the filtered Smilegate activity link."
 }
