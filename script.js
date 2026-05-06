@@ -2725,10 +2725,21 @@ const setupActiveNav = () => {
 
   if (!sectionLinks.length) return;
 
+  let pendingActiveId = "";
+  let pendingActiveTimer = 0;
+
   const setActive = (targetId) => {
     sectionLinks.forEach(({ link, target }) => {
       link.classList.toggle("is-active", target.id === targetId);
     });
+  };
+
+  const holdActiveDuringScroll = (targetId) => {
+    pendingActiveId = targetId;
+    window.clearTimeout(pendingActiveTimer);
+    pendingActiveTimer = window.setTimeout(() => {
+      pendingActiveId = "";
+    }, 900);
   };
 
   const hashTarget = location.hash ? location.hash.slice(1) : "";
@@ -2739,7 +2750,10 @@ const setupActiveNav = () => {
   links.forEach((link) => {
     link.addEventListener("click", () => {
       const targetId = link.getAttribute("href")?.slice(1);
-      if (targetId) setActive(targetId);
+      if (targetId) {
+        setActive(targetId);
+        holdActiveDuringScroll(targetId);
+      }
     });
   });
 
@@ -2751,6 +2765,14 @@ const setupActiveNav = () => {
       const visibleEntries = entries
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (pendingActiveId) {
+        if (visibleEntries.some((entry) => entry.target.id === pendingActiveId)) {
+          setActive(pendingActiveId);
+          pendingActiveId = "";
+        }
+        return;
+      }
 
       if (visibleEntries[0]) {
         setActive(visibleEntries[0].target.id);

@@ -289,9 +289,9 @@ body.text-edit-mode .brand-mark {
 }
 
 .nav a {
+  position: relative;
   min-height: auto;
   padding: 4px 0;
-  border-bottom: 1px solid transparent;
   color: var(--muted);
   font-size: 15px;
   font-weight: 500;
@@ -300,11 +300,33 @@ body.text-edit-mode .brand-mark {
     background 160ms ease;
 }
 
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  opacity: 0;
+  transform: scaleX(0.55);
+  transform-origin: center;
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+}
+
 .nav a:hover,
 .nav a.is-active {
   color: var(--text);
   background: transparent;
-  border-color: var(--line-strong);
+}
+
+.nav a:hover::after,
+.nav a.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .header-cta {
@@ -348,7 +370,6 @@ html.dark .nav a {
 html.dark .nav a:hover,
 html.dark .nav a.is-active {
   color: var(--text);
-  border-color: var(--accent);
 }
 
 html.dark .theme-toggle {
