@@ -764,7 +764,7 @@ const portfolioKo = {
       },
       {
         title: "제 1회 스파르타 게임잼",
-        period: "Game Jam",
+        period: "2025.03.01-03",
         type: "Game Jam / Audio Art",
         summary:
           "3일 Unity 게임잼에서 스토리형 RPG의 분위기를 잡고, 직접 제작한 BGM/SFX와 AI 보조 아트 워크플로로 시청각 몰입도를 만들었습니다.",
@@ -1325,7 +1325,7 @@ const createEnglishPortfolio = () => {
       },
       {
         title: "1st Sparta Game Jam",
-        period: "Game Jam",
+        period: "2025.03.01-03",
         type: "Game Jam / Audio Art",
         summary:
           "In a three-day Unity game jam, I shaped the mood of a story-driven RPG through original BGM/SFX and an AI-assisted art workflow.",
