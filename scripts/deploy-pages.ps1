@@ -54,6 +54,10 @@ if ($script.Content -notmatch "navActivities") {
   throw "pages.dev script.js does not include the activities nav label."
 }
 
+if ($script.Content -notmatch 'navActivities: "Activities"') {
+  throw "pages.dev script.js does not keep the header activities nav label in English."
+}
+
 if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언") {
   throw "pages.dev script.js does not include the filtered Smilegate activity link."
 }

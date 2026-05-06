@@ -1377,7 +1377,7 @@ const uiLocales = {
     navTech: "Tech Audio",
     navSfx: "SFX Breakdown",
     navWork: "Work",
-    navActivities: "대외 활동",
+    navActivities: "Activities",
     navContact: "Contact",
     email: "Email",
     orbitSound: "Sound Designer",
