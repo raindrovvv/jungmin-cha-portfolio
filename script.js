@@ -734,6 +734,8 @@ const portfolioKo = {
         summary:
           "부산 BEXCO 현장 부스 운영과 플레이테스트를 통해 헤드폰 환경, 입력 문제, 관객 피드백을 실제 플레이 기준으로 점검했습니다.",
         proof: "2025.11.15-16 현장 운영, 첫날 169명 방문 기록, 플레이테스트 피드백 반영",
+        image: "./assets/activity/gstar-2025.png",
+        imageAlt: "G-STAR 2025 Guardian & Seeker 현장 부스",
         href: "https://raindrovvv.tistory.com/108",
         cta: "운영 기록",
         tags: ["Public Showcase", "Playtest", "Feedback"],
@@ -758,6 +760,8 @@ const portfolioKo = {
         summary:
           "Gemini API와 웹 배포 흐름을 활용해 짧은 시간 안에 인터랙티브 프로토타입과 데모 전략을 정리했습니다.",
         proof: "Gemini API, Vertex AI, Vercel 기반 프로토타이핑 회고",
+        image: "./assets/activity/gemini-3-seoul-hackathon.png",
+        imageAlt: "Gemini 3 서울 해커톤 대표 이미지",
         href: "https://raindrovvv.tistory.com/150",
         cta: "해커톤 회고",
         tags: ["Gemini API", "Vercel", "AI Workflow"],
@@ -769,6 +773,8 @@ const portfolioKo = {
         summary:
           "제한된 시간 안에서 게임 아이디어를 빠르게 좁히고 구현, 플레이 피드백, 발표까지 연결한 게임잼 경험입니다.",
         proof: "무박 3일 게임잼 환경에서 기획, 구현, 플레이파티 피드백까지 진행",
+        image: "./assets/activity/sparta-gamejam.png",
+        imageAlt: "제 1회 스파르타 게임잼 프로젝트 파멸의 서 키비주얼",
         href: "https://raindrovvv.tistory.com/42",
         cta: "게임잼 기록",
         tags: ["Game Jam", "Rapid Prototype", "Team Build"],
@@ -1287,6 +1293,8 @@ const createEnglishPortfolio = () => {
         summary:
           "I used the BEXCO booth and live playtest setting to check headphone conditions, input issues, audience feedback, and player-facing audio clarity.",
         proof: "Nov 15-16, 2025 booth operation, 169 first-day visitors, playtest feedback loop",
+        image: en.activities.items[0].image,
+        imageAlt: "G-STAR 2025 Guardian & Seeker booth",
         href: en.activities.items[0].href,
         cta: "Read recap",
         tags: ["Public Showcase", "Playtest", "Feedback"],
@@ -1311,6 +1319,8 @@ const createEnglishPortfolio = () => {
         summary:
           "I used Gemini API and web deployment workflows to turn an idea into an interactive prototype and demo strategy under hackathon constraints.",
         proof: "Gemini API, Vertex AI, and Vercel-based prototyping retrospective",
+        image: en.activities.items[2].image,
+        imageAlt: "Gemini 3 Seoul Hackathon key visual",
         href: en.activities.items[2].href,
         cta: "Read recap",
         tags: ["Gemini API", "Vercel", "AI Workflow"],
@@ -1322,6 +1332,8 @@ const createEnglishPortfolio = () => {
         summary:
           "I practiced narrowing a game idea quickly, implementing it, collecting play feedback, and presenting it inside a short jam format.",
         proof: "A no-sleep, three-day jam cycle from planning and implementation to play-party feedback",
+        image: en.activities.items[3].image,
+        imageAlt: "1st Sparta Game Jam project key visual",
         href: en.activities.items[3].href,
         cta: "Game jam note",
         tags: ["Game Jam", "Rapid Prototype", "Team Build"],
@@ -1947,7 +1959,12 @@ const renderActivities = () => {
   list.innerHTML = activities.items
     .map(
       (item) => `
-        <article class="activity-card">
+        <article class="activity-card${item.image ? " has-media" : ""}">
+          ${
+            item.image
+              ? `<img class="activity-media" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || "")}" loading="lazy" decoding="async" />`
+              : ""
+          }
           <div class="activity-card-top">
             <span>${escapeHtml(item.period)}</span>
             <span>${escapeHtml(item.type)}</span>

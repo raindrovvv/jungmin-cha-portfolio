@@ -3374,6 +3374,16 @@ html.dark .activity-card:hover {
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
 }
 
+.activity-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 6px;
+  background: var(--surface-muted);
+}
+
 .activity-card-top,
 .activity-tags,
 .activity-links {
