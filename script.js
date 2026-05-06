@@ -1024,7 +1024,7 @@ const createEnglishPortfolio = () => {
 
   const musicOverrides = {
     "[LP] 비행": {
-      title: "[LP] Flight",
+      title: "[LP] Flight Record",
       scope: {
         content: "Full-length album, music video, and release across Spotify / YouTube Music / Apple Music / Melon",
         implementation: "Lyrics/compose by VENI RAIN, arranged/mixed/mastered by VENIRUS",

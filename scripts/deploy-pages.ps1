@@ -36,7 +36,7 @@ if ($script.Content -notmatch "Twelve Knights of Joseon" -or $script.Content -no
   throw "pages.dev script.js does not include translated project titles."
 }
 
-if ($script.Content -notmatch "\[LP\] Flight" -or $script.Content -notmatch "Snacky Chan - Just a Number") {
+if ($script.Content -notmatch "\[LP\] Flight Record" -or $script.Content -notmatch "Snacky Chan - Just a Number") {
   throw "pages.dev script.js does not include translated music titles."
 }
 
