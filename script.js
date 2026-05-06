@@ -977,6 +977,7 @@ const createEnglishPortfolio = () => {
     },
     {
       ...en.projects[2],
+      title: "Twelve Knights of Joseon",
       summary:
         "A multiplayer platform fighter prototype set in late Joseon. As Team Lead, PM, and Creative Director, I handled BGM/SFX while also contributing to gameplay-side UE5 C++ structure such as Buff & StatComponent, DeathVolume, and support for three knight skill designs.",
       skills: ["UE5 C++", "Team Lead", "BGM 3 tracks", "SFX 40", "PM"],
@@ -998,6 +999,7 @@ const createEnglishPortfolio = () => {
     },
     {
       ...en.projects[4],
+      title: "Rainbow Guardian",
       summary:
         "A console text RPG about exploring eight themed maze towers. I handled concept, story, map systems, BGM arrangement, and SFX to give each floor a clear mood and emotional line.",
       scope: {

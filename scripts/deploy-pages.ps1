@@ -32,6 +32,10 @@ if ($script.Content -notmatch "From sound creation to implementation and QA") {
   throw "pages.dev script.js does not include the translated strengths headline."
 }
 
+if ($script.Content -notmatch "Twelve Knights of Joseon" -or $script.Content -notmatch "Rainbow Guardian") {
+  throw "pages.dev script.js does not include translated project titles."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
 }
