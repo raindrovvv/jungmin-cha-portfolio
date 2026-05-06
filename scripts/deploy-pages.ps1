@@ -44,6 +44,10 @@ if ($script.Content -notmatch "Public Activities" -or $script.Content -notmatch 
   throw "pages.dev script.js does not include the public activities section."
 }
 
+if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언") {
+  throw "pages.dev script.js does not include the filtered Smilegate activity link."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
 }

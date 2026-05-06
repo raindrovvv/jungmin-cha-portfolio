@@ -745,7 +745,7 @@ const portfolioKo = {
         summary:
           "핵심 재미를 빠르게 만들고 멘토링, 피드백 노트, 온라인 테스트 플레이를 통해 방향을 검증했습니다.",
         proof: "2025.08.09-09.13 활동 기록, 피드백 노트, 온라인 테스트 플레이",
-        href: "https://page.onstove.com/devlog/kr/list/139927?page=1&direction=LATEST",
+        href: "https://page.onstove.com/devlog/kr/search/ALL/가디언?searchType=CONTENTS&page=1&direction=LATEST",
         cta: "활동 기록",
         secondaryHref: "https://www.youtube.com/watch?v=4RKvebf9ySM",
         secondaryCta: "영상",
