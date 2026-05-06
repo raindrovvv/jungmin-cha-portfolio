@@ -3464,11 +3464,6 @@ html.dark .activity-card:hover {
   gap: 8px;
 }
 
-.activity-card-top {
-  min-height: 60px;
-  align-content: flex-start;
-}
-
 .activity-card-top span,
 .activity-tag {
   width: fit-content;
@@ -4340,10 +4335,6 @@ html.dark [data-text-editable="true"]:focus {
   .sfx-example {
     min-height: auto;
     padding: 18px;
-  }
-
-  .activity-card-top {
-    min-height: 0;
   }
 
   .activity-intro {
