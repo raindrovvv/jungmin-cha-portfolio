@@ -12,15 +12,43 @@ if ($LASTEXITCODE -ne 0) {
   throw "dist preparation failed."
 }
 
+$gifFallbacks = Get-ChildItem -Path ".\dist\assets\game" -Filter "*.gif" -File -ErrorAction SilentlyContinue
+if ($gifFallbacks) {
+  throw "dist still contains GIF fallbacks: $($gifFallbacks.Name -join ', ')"
+}
+
 npx wrangler pages deploy dist --project-name=jungmin-cha-portfolio
 if ($LASTEXITCODE -ne 0) {
   throw "Cloudflare Pages deploy failed."
 }
 
-$script = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/script.js" -UseBasicParsing
-$styles = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/styles.css" -UseBasicParsing
+$index = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/" -UseBasicParsing
 $activityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/gstar-2025.png" -UseBasicParsing
 $smilegateActivityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/smilegate-prototyping-challenge.png" -UseBasicParsing
+
+if ($index.Content -notmatch 'href="#activities"') {
+  throw "pages.dev index.html does not include the Activities nav link."
+}
+
+$scriptPathMatch = [regex]::Match($index.Content, '\./script\.js\?v=[a-f0-9]{12}')
+$stylesPathMatch = [regex]::Match($index.Content, '\./styles\.css\?v=[a-f0-9]{12}')
+
+if (-not $scriptPathMatch.Success -or -not $stylesPathMatch.Success) {
+  throw "pages.dev index.html does not include hashed script/style cache versions."
+}
+
+if ($index.Content -match "20260504-language-toggle-ui-fix") {
+  throw "pages.dev index.html still contains the old fixed script cache version."
+}
+
+$scriptPath = $scriptPathMatch.Value -replace '^\./', ''
+$stylesPath = $stylesPathMatch.Value -replace '^\./', ''
+$script = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/$scriptPath" -UseBasicParsing
+$styles = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/$stylesPath" -UseBasicParsing
+
+if ($script.Content -match "\.gif") {
+  throw "pages.dev script.js still references GIF fallbacks."
+}
 
 if ($script.Content -match "Featured implementation") {
   throw "pages.dev still contains the removed featured badge text."
@@ -56,6 +84,18 @@ if ($script.Content -notmatch "navActivities") {
 
 if ($script.Content -notmatch 'navActivities: "Activities"') {
   throw "pages.dev script.js does not keep the header activities nav label in English."
+}
+
+if ($script.Content -notmatch "showMoreMusic" -or $styles.Content -notmatch "work-more-button") {
+  throw "pages.dev does not include the music compression toggle."
+}
+
+if ($script.Content -notmatch "setupActiveNav" -or $styles.Content -notmatch "\.nav a\.is-active") {
+  throw "pages.dev does not include the active nav behavior."
+}
+
+if ($script.Content -notmatch "TEXT_EDIT_GATE_STORAGE_KEY") {
+  throw "pages.dev text editor gate is missing."
 }
 
 if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언") {

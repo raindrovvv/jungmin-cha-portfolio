@@ -300,7 +300,8 @@ body.text-edit-mode .brand-mark {
     background 160ms ease;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a.is-active {
   color: var(--text);
   background: transparent;
   border-color: var(--line-strong);
@@ -344,9 +345,10 @@ html.dark .nav a {
   font-weight: 400;
 }
 
-html.dark .nav a:hover {
+html.dark .nav a:hover,
+html.dark .nav a.is-active {
   color: var(--text);
-  border-color: transparent;
+  border-color: var(--accent);
 }
 
 html.dark .theme-toggle {
@@ -2810,6 +2812,43 @@ html.dark .connection-badge small {
   grid-column: span 2;
 }
 
+.work-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.work-more-button {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.work-more-button:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 46%, var(--line-strong));
+  color: var(--accent-active);
+  background: color-mix(in srgb, var(--accent-soft) 62%, transparent);
+}
+
+html.dark .work-more-button {
+  border-color: var(--line-strong);
+  color: var(--text);
+  background: var(--surface-strong);
+}
+
 .work-grid[data-active-work="music"] .work-card {
   gap: 20px;
   padding: 20px;
@@ -3755,6 +3794,42 @@ html.dark [data-text-editable="true"]:focus {
   .work-card.featured,
   .work-card:nth-child(2) {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 1040px) and (min-width: 621px) {
+  .site-header {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    padding-bottom: 10px;
+  }
+
+  .brand {
+    flex: 1 1 180px;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 2px 0 3px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    min-height: 32px;
   }
 }
 

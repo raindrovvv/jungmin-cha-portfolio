@@ -211,7 +211,6 @@ const portfolioKo = {
         label: "Main demo",
         href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
         image: "./assets/game/guardian-seeker.webp",
-        fallback: "./assets/game/guardian-seeker.gif",
       },
       cta: "Demo video",
       connection: {
@@ -238,7 +237,6 @@ const portfolioKo = {
         label: "Audio tech",
         href: "https://www.youtube.com/watch?v=dp_Kr3LQ6EE",
         image: "./assets/game/audio-debugging.webp",
-        fallback: "./assets/game/audio-debugging.gif",
       },
       cta: "Tech video",
       connection: {
@@ -264,7 +262,6 @@ const portfolioKo = {
         label: "Gameplay demo",
         href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
         image: "./assets/game/joseon-knights.webp",
-        fallback: "./assets/game/joseon-knights.gif",
       },
       cta: "Demo video",
       skills: ["UE5 C++", "Team Lead", "BGM 3 tracks", "SFX 40", "PM"],
@@ -285,7 +282,6 @@ const portfolioKo = {
         label: "Cinematic demo",
         href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
         image: "./assets/game/symbio.webp",
-        fallback: "./assets/game/symbio.gif",
       },
       cta: "Demo video",
       skills: ["BGM", "SFX", "UI/UX", "Level Design", "Cinematic"],
@@ -306,7 +302,6 @@ const portfolioKo = {
         label: "Console RPG demo",
         href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
         image: "./assets/game/rainbow-guardian.webp",
-        fallback: "./assets/game/rainbow-guardian.gif",
       },
       cta: "Demo video",
       skills: ["BGM", "SFX", "Story", "Map System", "Console RPG"],
@@ -327,7 +322,6 @@ const portfolioKo = {
         label: "Interactive media",
         href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
         image: "./assets/game/flight-record.webp",
-        fallback: "./assets/game/flight-record.gif",
       },
       cta: "Demo video",
       skills: ["Unity", "C#", "Interactive Media", "Album BGM"],
@@ -1418,6 +1412,8 @@ const uiLocales = {
     watch: "Watch",
     view: "View",
     viewCode: "코드 보기",
+    showMoreMusic: "음악 작업 더 보기",
+    showLessMusic: "음악 작업 접기",
     techKeywordsLabel: "대표 기술 키워드",
   },
   en: {
@@ -1468,6 +1464,8 @@ const uiLocales = {
     watch: "Watch",
     view: "View",
     viewCode: "View code",
+    showMoreMusic: "More music work",
+    showLessMusic: "Show fewer music works",
     techKeywordsLabel: "Core technical keywords",
   },
 };
@@ -1496,8 +1494,21 @@ const fillFields = () => {
 };
 
 const TEXT_EDIT_STORAGE_KEY = "jungmin-portfolio-text-overrides-v2";
+const TEXT_EDIT_GATE_STORAGE_KEY = "jungmin-portfolio-text-editor-enabled";
+const MUSIC_PREVIEW_LIMIT = 6;
 let refreshTextEditorTargets = () => {};
 let activateWorkTab = () => {};
+let showAllMusicProjects = false;
+
+const escapeHtml = (value = "") =>
+  String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+const escapeFocusText = escapeHtml;
 
 const focusIconMap = {
   Wwise: { label: "W", icon: "wwise" },
@@ -1512,14 +1523,6 @@ const focusIconMap = {
   "OpenAI API": { label: "AI", icon: "ai" },
   "Git Collaboration": { label: "", icon: "git" },
 };
-
-const escapeFocusText = (value = "") =>
-  String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
 
 const renderFocus = () => {
   const fullList = document.querySelector("#focus-list");
@@ -1540,10 +1543,12 @@ const renderFocus = () => {
 const renderWorkIntro = (activeTab) => {
   const intro = document.querySelector("#work-intro");
   const copy = portfolio.workTabs[activeTab];
+  if (!intro || !copy) return;
+
   intro.innerHTML = `
-    <span>${copy.eyebrow}</span>
-    <strong>${copy.title}</strong>
-    <p>${copy.text}</p>
+    <span>${escapeHtml(copy.eyebrow)}</span>
+    <strong>${escapeHtml(copy.title)}</strong>
+    <p>${escapeHtml(copy.text)}</p>
   `;
 };
 
@@ -1582,56 +1587,75 @@ const getProjectMedia = (project) => {
   const href = project.media.href || project.href || "";
   const youtubeId = getYouTubeId(href);
   const fallbackImage = youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : "";
-  const usesAnimatedPreview = /\.(gif|webp)$/i.test(project.media.image || "");
+  const mediaImage = project.media.image || fallbackImage;
+  const usesAnimatedPreview = /\.(gif|webp)$/i.test(mediaImage);
   const posterImage =
-    project.media.poster || project.media.image?.replace(/\.(gif|webp)$/i, "-poster.jpg") || fallbackImage;
-  const image = usesAnimatedPreview && prefersReducedMotion ? posterImage : project.media.image || fallbackImage;
+    project.media.poster || mediaImage.replace(/\.(gif|webp)$/i, "-poster.jpg") || fallbackImage;
+  const image = usesAnimatedPreview && prefersReducedMotion ? posterImage : mediaImage;
+  const fallback = image.toLowerCase().endsWith(".webp") && posterImage !== image ? posterImage : "";
 
   if (!image) return null;
 
   return {
     href,
     image,
-    fallback: prefersReducedMotion ? "" : project.media.fallback || "",
+    fallback,
     label: project.media.label || "Preview",
     isVideo: Boolean(youtubeId),
   };
 };
 
 const renderCoverMedia = (media) => {
-  const image = `<img class="cover-media" src="${media.image}" alt="" loading="lazy" decoding="async" />`;
+  const image = `<img class="cover-media" src="${escapeHtml(media.image)}" alt="" loading="lazy" decoding="async" />`;
 
   if (!media.fallback || !media.image.toLowerCase().endsWith(".webp")) {
     return image;
   }
 
   return `<picture>
-    <source srcset="${media.image}" type="image/webp" />
-    <img class="cover-media" src="${media.fallback}" alt="" loading="lazy" decoding="async" />
+    <source srcset="${escapeHtml(media.image)}" type="image/webp" />
+    <img class="cover-media" src="${escapeHtml(media.fallback)}" alt="" loading="lazy" decoding="async" />
   </picture>`;
 };
 
 const workViewCache = new Map();
 
+const renderWorkMoreToggle = (activeTab, totalCount) => {
+  const button = document.querySelector("#work-more-toggle");
+  if (!button) return;
+
+  const shouldShow = activeTab === "music" && totalCount > MUSIC_PREVIEW_LIMIT;
+  button.hidden = !shouldShow;
+  button.textContent = showAllMusicProjects ? uiCopy.showLessMusic : uiCopy.showMoreMusic;
+  button.setAttribute("aria-expanded", String(showAllMusicProjects));
+};
+
 const renderProjects = (activeTab = "game") => {
   const list = document.querySelector("#project-list");
-  const projects = activeTab === "music" ? portfolio.musicProjects : portfolio.projects;
+  if (!list) return;
+
+  const allProjects = activeTab === "music" ? portfolio.musicProjects : portfolio.projects;
+  const shouldLimitMusic = activeTab === "music" && !showAllMusicProjects;
+  const projects = shouldLimitMusic ? allProjects.slice(0, MUSIC_PREVIEW_LIMIT) : allProjects;
+  const cacheKey = `${activeTab}:${activeTab === "music" && showAllMusicProjects ? "all" : "preview"}`;
 
   renderWorkIntro(activeTab);
+  renderWorkMoreToggle(activeTab, allProjects.length);
 
-  if (list.dataset.activeWork === activeTab && list.childElementCount) {
+  if (list.dataset.workCacheKey === cacheKey && list.childElementCount) {
     refreshTextEditorTargets();
     return;
   }
 
-  if (list.dataset.activeWork && list.childNodes.length) {
+  if (list.dataset.workCacheKey && list.childNodes.length) {
     const currentView = document.createDocumentFragment();
     currentView.append(...list.childNodes);
-    workViewCache.set(list.dataset.activeWork, currentView);
+    workViewCache.set(list.dataset.workCacheKey, currentView);
   }
 
-  const cachedView = workViewCache.get(activeTab);
+  const cachedView = workViewCache.get(cacheKey);
   list.dataset.activeWork = activeTab;
+  list.dataset.workCacheKey = cacheKey;
 
   if (cachedView?.childNodes.length) {
     list.replaceChildren(cachedView);
@@ -1648,58 +1672,59 @@ const renderProjects = (activeTab = "game") => {
       const musicCover = hasMusicCover ? getCoverData(project, index) : null;
       const cardHref = isMusic && listenHref && !hasMusicCover ? listenHref : project.href;
       const cardCta = isMusic && listenHref && !hasMusicCover ? uiCopy.listen : project.cta || uiCopy.cardFallbackCta;
+      const connectionSide = project.connection?.side === "end" ? "end" : "start";
 
       return `
-        <article class="work-card${project.featured ? " featured" : ""}${project.connection ? ` linked-case linked-case-${project.connection.side}` : ""}">
+        <article class="work-card${project.featured ? " featured" : ""}${project.connection ? ` linked-case linked-case-${connectionSide}` : ""}">
           <div>
             ${
               hasMusicCover
-                ? `<div class="music-cover" style="${musicCover.style}">
-                    <img class="cover-media" src="${musicCover.image}" alt="" loading="lazy" decoding="async" />
-                    <a class="listen-button" href="${listenHref}" target="_blank" rel="noreferrer" aria-label="${project.title} ${uiCopy.listen}"><span aria-hidden="true">▶</span><span>${uiCopy.listen}</span></a>
+                ? `<div class="music-cover" style="${escapeHtml(musicCover.style)}">
+                    <img class="cover-media" src="${escapeHtml(musicCover.image)}" alt="" loading="lazy" decoding="async" />
+                    <a class="listen-button" href="${escapeHtml(listenHref)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${project.title} ${uiCopy.listen}`)}"><span aria-hidden="true">▶</span><span>${escapeHtml(uiCopy.listen)}</span></a>
                   </div>`
                 : ""
             }
             ${
               projectMedia
                 ? projectMedia.href
-                  ? `<a class="game-cover" href="${projectMedia.href}" target="_blank" rel="noreferrer" aria-label="${project.title} ${uiCopy.view}">
+                  ? `<a class="game-cover" href="${escapeHtml(projectMedia.href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${project.title} ${uiCopy.view}`)}">
                     ${renderCoverMedia(projectMedia)}
-                    <span class="media-label">${projectMedia.label}</span>
+                    <span class="media-label">${escapeHtml(projectMedia.label)}</span>
                     <span class="listen-button media-button">
-                      ${projectMedia.isVideo ? `<span aria-hidden="true">▶</span><span>${uiCopy.watch}</span>` : `<span aria-hidden="true">↗</span><span>${uiCopy.view}</span>`}
+                      ${projectMedia.isVideo ? `<span aria-hidden="true">▶</span><span>${escapeHtml(uiCopy.watch)}</span>` : `<span aria-hidden="true">↗</span><span>${escapeHtml(uiCopy.view)}</span>`}
                     </span>
                   </a>`
-                  : `<div class="game-cover" aria-label="${project.title} preview">
+                  : `<div class="game-cover" aria-label="${escapeHtml(`${project.title} preview`)}">
                     ${renderCoverMedia(projectMedia)}
-                    <span class="media-label">${projectMedia.label}</span>
+                    <span class="media-label">${escapeHtml(projectMedia.label)}</span>
                   </div>`
                 : ""
             }
             ${
               project.connection
-                ? `<div class="connection-badge" aria-label="${project.connection.label} ${project.connection.role}">
+                ? `<div class="connection-badge" aria-label="${escapeHtml(`${project.connection.label} ${project.connection.role}`)}">
                     <span class="connection-icon" aria-hidden="true">⌁</span>
-                    <span>${project.connection.label}</span>
-                    <small>${project.connection.role}</small>
+                    <span>${escapeHtml(project.connection.label)}</span>
+                    <small>${escapeHtml(project.connection.role)}</small>
                   </div>`
                 : ""
             }
             <div class="card-meta">
-              <span>${project.period}</span>
-              <span>${project.type}</span>
+              <span>${escapeHtml(project.period)}</span>
+              <span>${escapeHtml(project.type)}</span>
             </div>
-            <h3>${project.title}</h3>
-            <p class="card-summary">${project.summary}</p>
+            <h3>${escapeHtml(project.title)}</h3>
+            <p class="card-summary">${escapeHtml(project.summary)}</p>
             ${
               project.scope
                 ? `<div class="scope-list">${Object.entries(project.scope)
                     .map(
                       ([key, value]) =>
-                        `<div class="scope-row"><strong>${uiCopy.scopeLabels[key] || key}</strong><span>${
+                        `<div class="scope-row"><strong>${escapeHtml(uiCopy.scopeLabels[key] || key)}</strong><span>${
                           key === "code"
-                            ? `<a class="scope-link" href="${value}" target="_blank" rel="noreferrer">${uiCopy.viewCode}</a>`
-                            : value
+                            ? `<a class="scope-link" href="${escapeHtml(value)}" target="_blank" rel="noreferrer">${escapeHtml(uiCopy.viewCode)}</a>`
+                            : escapeHtml(value)
                         }</span></div>`,
                     )
                     .join("")}</div>`
@@ -1708,14 +1733,14 @@ const renderProjects = (activeTab = "game") => {
             ${
               project.skills
                 ? `<div class="skill-list">${project.skills
-                    .map((skill) => `<span class="skill-pill">${skill}</span>`)
+                    .map((skill) => `<span class="skill-pill">${escapeHtml(skill)}</span>`)
                     .join("")}</div>`
                 : ""
             }
           </div>
           ${
             cardHref
-              ? `<a class="tag card-link" href="${cardHref}" target="_blank" rel="noreferrer">${cardCta}</a>`
+              ? `<a class="tag card-link" href="${escapeHtml(cardHref)}" target="_blank" rel="noreferrer">${escapeHtml(cardCta)}</a>`
               : `<span class="tag">Case study</span>`
           }
         </article>
@@ -1726,15 +1751,7 @@ const renderProjects = (activeTab = "game") => {
 };
 
 const renderAiTags = (tags = []) =>
-  tags.map((tag) => `<span class="ai-tag">${tag}</span>`).join("");
-
-const escapeHtml = (value = "") =>
-  String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+  tags.map((tag) => `<span class="ai-tag">${escapeHtml(tag)}</span>`).join("");
 
 const renderDisclosure = (items = [], { className = "", summary = uiCopy.viewBreakdown } = {}) => {
   if (!items.length) return "";
@@ -1786,9 +1803,9 @@ const renderTechAudio = () => {
   title.textContent = techAudio.title;
   lead.innerHTML = `
     <p>${escapeHtml(techAudio.intro)}</p>
-    <div class="tech-signal-row" aria-label="${uiCopy.techKeywordsLabel}">
+    <div class="tech-signal-row" aria-label="${escapeHtml(uiCopy.techKeywordsLabel)}">
       ${["Wwise", "Unreal Engine 5", "C++ / Blueprint", "AI Agent Workflow", "Anim Notify", "Occlusion"]
-        .map((item) => `<span>${item}</span>`)
+        .map((item) => `<span>${escapeHtml(item)}</span>`)
         .join("")}
     </div>
   `;
@@ -1804,7 +1821,7 @@ const renderTechAudio = () => {
             <p>${escapeHtml(item.summary)}</p>
           </div>
           <div class="tech-proof">
-            <strong>${uiCopy.proofLabel}</strong>
+            <strong>${escapeHtml(uiCopy.proofLabel)}</strong>
             <span>${escapeHtml(item.proof)}</span>
           </div>
           ${renderInlineLinks(item.links, "tech-code-links")}
@@ -1874,8 +1891,8 @@ const renderAiDetails = (item, { showProof = false } = {}) => {
         .map(
           (detail) => `
             <div class="ai-detail-row">
-              <strong>${detail.label}</strong>
-              <span>${detail.value}</span>
+              <strong>${escapeHtml(detail.label)}</strong>
+              <span>${escapeHtml(detail.value)}</span>
             </div>
           `,
         )
@@ -1903,13 +1920,13 @@ const renderAiLab = () => {
 
   featureRoot.innerHTML = `
     <div>
-      <span class="ai-lab-type">${feature.type}</span>
-      <h3>${feature.title}</h3>
-      <p class="ai-lab-summary">${feature.summary}</p>
+      <span class="ai-lab-type">${escapeHtml(feature.type)}</span>
+      <h3>${escapeHtml(feature.title)}</h3>
+      <p class="ai-lab-summary">${escapeHtml(feature.summary)}</p>
       ${renderAiDetails(feature)}
       <div class="ai-tag-list">${renderAiTags(feature.tags)}</div>
     </div>
-    <a class="tag card-link ai-card-link" href="${feature.href}" target="_blank" rel="noreferrer">${feature.cta}</a>
+    <a class="tag card-link ai-card-link" href="${escapeHtml(feature.href)}" target="_blank" rel="noreferrer">${escapeHtml(feature.cta)}</a>
   `;
 
   logRoot.innerHTML = logs
@@ -1918,13 +1935,13 @@ const renderAiLab = () => {
         <article class="ai-log-card">
           <div>
             <div class="ai-log-top">
-              <span class="ai-log-type">${item.type}</span>
+              <span class="ai-log-type">${escapeHtml(item.type)}</span>
             </div>
-            <h3>${item.title}</h3>
-            <p class="ai-log-summary">${item.summary}</p>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p class="ai-log-summary">${escapeHtml(item.summary)}</p>
             <div class="ai-tag-list">${renderAiTags(item.tags)}</div>
           </div>
-          <a class="tag card-link ai-card-link" href="${item.href}" target="_blank" rel="noreferrer">${item.cta}</a>
+          <a class="tag card-link ai-card-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.cta)}</a>
         </article>
       `,
     )
@@ -1940,8 +1957,8 @@ const renderReelNotes = () => {
         <article class="reel-note">
           <span class="reel-note-index">${String(index + 1).padStart(2, "0")}</span>
           <div>
-            <h3>${note.title}</h3>
-            <p>${note.text}</p>
+            <h3>${escapeHtml(note.title)}</h3>
+            <p>${escapeHtml(note.text)}</p>
           </div>
         </article>
       `,
@@ -2005,8 +2022,8 @@ const renderPractice = () => {
     .map(
       (item) => `
         <article class="practice-item">
-          <h3>${item.title}</h3>
-          <p>${item.text}</p>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.text)}</p>
         </article>
       `,
     )
@@ -2021,14 +2038,45 @@ const renderLinks = () => {
       (link) => {
         const isMail = link.href.startsWith("mailto:");
         const attrs = isMail ? "" : ` target="_blank" rel="noreferrer"`;
-        return `<a class="contact-link${link.primary ? " is-primary" : ""}" href="${link.href}"${attrs}><span class="contact-icon" aria-hidden="true">${link.icon}</span><span>${link.label}</span></a>`;
+        return `<a class="contact-link${link.primary ? " is-primary" : ""}" href="${escapeHtml(link.href)}"${attrs}><span class="contact-icon" aria-hidden="true">${escapeHtml(link.icon)}</span><span>${escapeHtml(link.label)}</span></a>`;
       },
     )
     .join("");
   refreshTextEditorTargets();
 };
 
+const isTextEditorEnabled = () => {
+  const params = new URLSearchParams(window.location.search);
+  const editParam = params.get("edit");
+
+  if (editParam === "1") {
+    try {
+      localStorage.setItem(TEXT_EDIT_GATE_STORAGE_KEY, "1");
+    } catch {
+      // Storage can be unavailable in strict browser contexts.
+    }
+    return true;
+  }
+
+  if (editParam === "0") {
+    try {
+      localStorage.removeItem(TEXT_EDIT_GATE_STORAGE_KEY);
+    } catch {
+      // Storage can be unavailable in strict browser contexts.
+    }
+    return false;
+  }
+
+  try {
+    return localStorage.getItem(TEXT_EDIT_GATE_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+
 const setupSecretTextEditor = () => {
+  if (!isTextEditorEnabled()) return;
+
   const trigger = document.querySelector(".brand-mark");
   if (!trigger) return;
 
@@ -2564,6 +2612,7 @@ const setupSecretTextEditor = () => {
       renderSfxBreakdown();
       renderAiLab();
       document.querySelector("#project-list").dataset.activeWork = "";
+      document.querySelector("#project-list").dataset.workCacheKey = "";
       renderProjects(document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game");
       renderActivities();
       renderPractice();
@@ -2592,6 +2641,16 @@ const setupWorkTabs = () => {
   });
 };
 
+const setupWorkMoreToggle = () => {
+  const button = document.querySelector("#work-more-toggle");
+  if (!button) return;
+
+  button.addEventListener("click", () => {
+    showAllMusicProjects = !showAllMusicProjects;
+    renderProjects("music");
+  });
+};
+
 const renderAllContent = ({ activeTab = document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game" } = {}) => {
   fillFields();
   renderFocus();
@@ -2599,6 +2658,7 @@ const renderAllContent = ({ activeTab = document.querySelector("[data-work-tab].
   renderTechAudio();
   renderSfxBreakdown();
   document.querySelector("#project-list").dataset.activeWork = "";
+  document.querySelector("#project-list").dataset.workCacheKey = "";
   workViewCache.clear();
   activateWorkTab(activeTab);
   renderAiLab();
@@ -2651,6 +2711,58 @@ const setupFixedHeaderOffset = () => {
     const observer = new ResizeObserver(syncHeaderHeight);
     observer.observe(header);
   }
+};
+
+const setupActiveNav = () => {
+  const links = [...document.querySelectorAll(".nav a[href^='#']")];
+  const header = document.querySelector(".site-header");
+  const sectionLinks = links
+    .map((link) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      return target ? { link, target } : null;
+    })
+    .filter(Boolean);
+
+  if (!sectionLinks.length) return;
+
+  const setActive = (targetId) => {
+    sectionLinks.forEach(({ link, target }) => {
+      link.classList.toggle("is-active", target.id === targetId);
+    });
+  };
+
+  const hashTarget = location.hash ? location.hash.slice(1) : "";
+  if (sectionLinks.some(({ target }) => target.id === hashTarget)) {
+    setActive(hashTarget);
+  }
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetId = link.getAttribute("href")?.slice(1);
+      if (targetId) setActive(targetId);
+    });
+  });
+
+  if (!("IntersectionObserver" in window)) return;
+
+  const headerOffset = Math.max(0, Math.ceil(header?.offsetHeight || 64));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+      if (visibleEntries[0]) {
+        setActive(visibleEntries[0].target.id);
+      }
+    },
+    {
+      rootMargin: `-${headerOffset}px 0px -58% 0px`,
+      threshold: [0.05, 0.2, 0.45],
+    },
+  );
+
+  sectionLinks.forEach(({ target }) => observer.observe(target));
 };
 
 const setupMarqueeScroll = () => {
@@ -3497,8 +3609,10 @@ renderLinks();
 setupSecretTextEditor();
 setupTheme();
 setupWorkTabs();
+setupWorkMoreToggle();
 setupLanguageToggle();
 setupFixedHeaderOffset();
+setupActiveNav();
 setupMarqueeScroll();
 setupAudioConsole();
 setupCursorInteraction();
