@@ -40,6 +40,10 @@ if ($script.Content -notmatch "\[LP\] Flight Record" -or $script.Content -notmat
   throw "pages.dev script.js does not include translated music titles."
 }
 
+if ($script.Content -notmatch "Public Activities" -or $script.Content -notmatch "Smilegate Indie Game Prototyping Challenge") {
+  throw "pages.dev script.js does not include the public activities section."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
 }
@@ -50,6 +54,10 @@ if ($styles.Content -notmatch "@media \(max-width: 1180px\)") {
 
 if ($styles.Content -notmatch "@media \(max-width: 1100px\)") {
   throw "pages.dev styles.css does not include the tablet contact layout rule."
+}
+
+if ($styles.Content -notmatch "activity-grid") {
+  throw "pages.dev styles.css does not include the public activities layout."
 }
 
 Write-Host "Pages deploy verified: https://jungmin-cha-portfolio.pages.dev"

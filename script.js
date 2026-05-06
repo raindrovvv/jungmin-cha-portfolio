@@ -721,6 +721,60 @@ const portfolioKo = {
       },
     ],
   },
+  activities: {
+    eyebrow: "대외 활동",
+    title: "실전 검증과 빠른 프로토타이핑으로 쌓은 활동",
+    intro:
+      "출품, 해커톤, 프로토타이핑 챌린지, 게임잼처럼 제한된 환경에서 결과물을 만들고 피드백을 받은 기록입니다.",
+    items: [
+      {
+        title: "G-STAR 2025 Guardian & Seeker",
+        period: "2025.11",
+        type: "Public Showcase / Playtest",
+        summary:
+          "부산 BEXCO 현장 부스 운영과 플레이테스트를 통해 헤드폰 환경, 입력 문제, 관객 피드백을 실제 플레이 기준으로 점검했습니다.",
+        proof: "2025.11.15-16 현장 운영, 첫날 169명 방문 기록, 플레이테스트 피드백 반영",
+        href: "https://raindrovvv.tistory.com/108",
+        cta: "운영 기록",
+        tags: ["Public Showcase", "Playtest", "Feedback"],
+      },
+      {
+        title: "스마일게이트 인디게임 프로토타이핑 챌린지",
+        period: "2025.08-09",
+        type: "Prototype / Mentoring",
+        summary:
+          "핵심 재미를 빠르게 만들고 멘토링, 피드백 노트, 온라인 테스트 플레이를 통해 방향을 검증했습니다.",
+        proof: "2025.08.09-09.13 활동 기록, 피드백 노트, 온라인 테스트 플레이",
+        href: "https://page.onstove.com/devlog/kr/list/139927?page=1&direction=LATEST",
+        cta: "활동 기록",
+        secondaryHref: "https://www.youtube.com/watch?v=4RKvebf9ySM",
+        secondaryCta: "영상",
+        tags: ["Prototype", "Mentoring", "Test Play"],
+      },
+      {
+        title: "Gemini 3 서울 해커톤",
+        period: "2026.02",
+        type: "AI / Web Prototype",
+        summary:
+          "Gemini API와 웹 배포 흐름을 활용해 짧은 시간 안에 인터랙티브 프로토타입과 데모 전략을 정리했습니다.",
+        proof: "Gemini API, Vertex AI, Vercel 기반 프로토타이핑 회고",
+        href: "https://raindrovvv.tistory.com/150",
+        cta: "해커톤 회고",
+        tags: ["Gemini API", "Vercel", "AI Workflow"],
+      },
+      {
+        title: "제 1회 스파르타 게임잼",
+        period: "Game Jam",
+        type: "Rapid Game Making",
+        summary:
+          "제한된 시간 안에서 게임 아이디어를 빠르게 좁히고 구현, 플레이 피드백, 발표까지 연결한 게임잼 경험입니다.",
+        proof: "무박 3일 게임잼 환경에서 기획, 구현, 플레이파티 피드백까지 진행",
+        href: "https://raindrovvv.tistory.com/42",
+        cta: "게임잼 기록",
+        tags: ["Game Jam", "Rapid Prototype", "Team Build"],
+      },
+    ],
+  },
   practice: [
     {
       title: "Gameplay-first audio",
@@ -1216,6 +1270,61 @@ const createEnglishPortfolio = () => {
         cta: "Read insight",
         featured: false,
         tags: ["Resource Management", "QA", "Team Knowledge"],
+      },
+    ],
+  };
+
+  en.activities = {
+    eyebrow: "Public Activities",
+    title: "Field-tested work beyond the portfolio",
+    intro:
+      "External showcases, hackathons, prototyping challenges, and game jams where I built quickly, took feedback, and validated ideas in public or constrained settings.",
+    items: [
+      {
+        title: "G-STAR 2025 Guardian & Seeker",
+        period: "2025.11",
+        type: "Public Showcase / Playtest",
+        summary:
+          "I used the BEXCO booth and live playtest setting to check headphone conditions, input issues, audience feedback, and player-facing audio clarity.",
+        proof: "Nov 15-16, 2025 booth operation, 169 first-day visitors, playtest feedback loop",
+        href: en.activities.items[0].href,
+        cta: "Read recap",
+        tags: ["Public Showcase", "Playtest", "Feedback"],
+      },
+      {
+        title: "Smilegate Indie Game Prototyping Challenge",
+        period: "2025.08-09",
+        type: "Prototype / Mentoring",
+        summary:
+          "I validated a prototype through mentoring, feedback notes, and online test play around core fun and iteration speed.",
+        proof: "Aug 9-Sep 13, 2025 activity record, feedback notes, and online test play",
+        href: en.activities.items[1].href,
+        cta: "Activity log",
+        secondaryHref: en.activities.items[1].secondaryHref,
+        secondaryCta: "Video",
+        tags: ["Prototype", "Mentoring", "Test Play"],
+      },
+      {
+        title: "Gemini 3 Seoul Hackathon",
+        period: "2026.02",
+        type: "AI / Web Prototype",
+        summary:
+          "I used Gemini API and web deployment workflows to turn an idea into an interactive prototype and demo strategy under hackathon constraints.",
+        proof: "Gemini API, Vertex AI, and Vercel-based prototyping retrospective",
+        href: en.activities.items[2].href,
+        cta: "Read recap",
+        tags: ["Gemini API", "Vercel", "AI Workflow"],
+      },
+      {
+        title: "1st Sparta Game Jam",
+        period: "Game Jam",
+        type: "Rapid Game Making",
+        summary:
+          "I practiced narrowing a game idea quickly, implementing it, collecting play feedback, and presenting it inside a short jam format.",
+        proof: "A no-sleep, three-day jam cycle from planning and implementation to play-party feedback",
+        href: en.activities.items[3].href,
+        cta: "Game jam note",
+        tags: ["Game Jam", "Rapid Prototype", "Team Build"],
       },
     ],
   };
@@ -1823,6 +1932,50 @@ const renderReelNotes = () => {
   refreshTextEditorTargets();
 };
 
+const renderActivities = () => {
+  const eyebrow = document.querySelector("#activities-eyebrow");
+  const title = document.querySelector("#activities-title");
+  const intro = document.querySelector("#activities-intro");
+  const list = document.querySelector("#activity-list");
+  const activities = portfolio.activities;
+
+  if (!eyebrow || !title || !intro || !list || !activities) return;
+
+  eyebrow.textContent = activities.eyebrow;
+  title.textContent = activities.title;
+  intro.textContent = activities.intro;
+  list.innerHTML = activities.items
+    .map(
+      (item) => `
+        <article class="activity-card">
+          <div class="activity-card-top">
+            <span>${escapeHtml(item.period)}</span>
+            <span>${escapeHtml(item.type)}</span>
+          </div>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary)}</p>
+          <div class="activity-proof">
+            <strong>${escapeHtml(uiCopy.proofLabel)}</strong>
+            <span>${escapeHtml(item.proof)}</span>
+          </div>
+          <div class="activity-tags">
+            ${item.tags.map((tag) => `<span class="activity-tag">${escapeHtml(tag)}</span>`).join("")}
+          </div>
+          <div class="activity-links">
+            <a href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.cta)}</a>
+            ${
+              item.secondaryHref
+                ? `<a href="${escapeHtml(item.secondaryHref)}" target="_blank" rel="noreferrer">${escapeHtml(item.secondaryCta)}</a>`
+                : ""
+            }
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+  refreshTextEditorTargets();
+};
+
 const renderPractice = () => {
   const list = document.querySelector("#practice-list");
   list.innerHTML = portfolio.practice
@@ -2019,6 +2172,16 @@ const setupSecretTextEditor = () => {
           ".ai-detail-row span",
           ".ai-tag",
           ".ai-card-link",
+          "#activities .eyebrow",
+          "#activities-title",
+          "#activities-intro",
+          ".activity-card h3",
+          ".activity-card p",
+          ".activity-card-top span",
+          ".activity-proof strong",
+          ".activity-proof span",
+          ".activity-tag",
+          ".activity-links a",
           "#practice .eyebrow",
           "#practice-title",
           "#work-intro span",
@@ -2076,6 +2239,9 @@ const setupSecretTextEditor = () => {
       ["#ai-lab .eyebrow", "ai-lab:kicker"],
       ["#ai-lab-title", "ai-lab:heading"],
       ["#ai-lab-intro", "ai-lab:intro"],
+      ["#activities .eyebrow", "activities:kicker"],
+      ["#activities-title", "activities:heading"],
+      ["#activities-intro", "activities:intro"],
       ["#practice .eyebrow", "practice:kicker"],
       ["#practice-title", "practice:heading"],
       [".contact h2 span:nth-child(1)", "contact:title:1"],
@@ -2101,7 +2267,7 @@ const setupSecretTextEditor = () => {
 
     const section = node.closest("section")?.id || node.closest("header")?.className || node.closest("footer")?.className || "page";
     const card = node.closest(
-      ".work-card, .practice-item, .ai-lab-feature, .ai-log-card, .reel-note, .tech-card, .sfx-step, .sfx-example, .contact-links a",
+      ".work-card, .practice-item, .activity-card, .ai-lab-feature, .ai-log-card, .reel-note, .tech-card, .sfx-step, .sfx-example, .contact-links a",
     );
     const cardIndex = card && card.parentElement ? [...card.parentElement.children].indexOf(card) : -1;
     const localIndex = card ? [...card.querySelectorAll("h3, p, span, dt, dd, strong, a")].indexOf(node) : index;
@@ -2376,6 +2542,7 @@ const setupSecretTextEditor = () => {
       renderAiLab();
       document.querySelector("#project-list").dataset.activeWork = "";
       renderProjects(document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game");
+      renderActivities();
       renderPractice();
       renderLinks();
       restoreOriginalText();
@@ -2412,6 +2579,7 @@ const renderAllContent = ({ activeTab = document.querySelector("[data-work-tab].
   workViewCache.clear();
   activateWorkTab(activeTab);
   renderAiLab();
+  renderActivities();
   renderPractice();
   renderLinks();
 };
@@ -3300,6 +3468,7 @@ renderTechAudio();
 renderSfxBreakdown();
 renderProjects();
 renderAiLab();
+renderActivities();
 renderPractice();
 renderLinks();
 setupSecretTextEditor();
