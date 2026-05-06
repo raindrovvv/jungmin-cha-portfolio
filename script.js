@@ -769,6 +769,8 @@ const createEnglishPortfolio = () => {
     headline: "Jungmin Cha Game Audio Designer",
     intro:
       "Game Audio Designer who codes with AI agents. I design sound for gameplay clarity and implement it end-to-end: Wwise architecture, UE5 Blueprint, Physical Material footsteps, runtime occlusion, until it works in the actual build.",
+    years: "7+ yrs",
+    focusCount: "299 players",
     contactNote:
       "I design and verify audio behavior between Wwise and UE5 C++/Blueprint so player input, distance, occlusion, and UI feedback read correctly in the actual build.",
     footerName: "Jungmin Cha Game Audio Designer Portfolio",
@@ -1020,6 +1022,89 @@ const createEnglishPortfolio = () => {
     },
   ];
 
+  const musicOverrides = {
+    "[LP] 비행": {
+      title: "[LP] Flight",
+      scope: {
+        content: "Full-length album, music video, and release across Spotify / YouTube Music / Apple Music / Melon",
+        implementation: "Lyrics/compose by VENI RAIN, arranged/mixed/mastered by VENIRUS",
+        proof: "Executive Producer: Jungmin Cha / also contributed to editing, VFX, and color grading",
+      },
+    },
+    "[EP] Rainshower": {
+      scope: {
+        content: "Sonagi, Sober Up, Shut Down, DOMINO, Where you at, T.M.T Remix",
+        implementation: "Lyrics/composition: VENI RAIN; arrangement, mixing, and mastering: VENIRUS",
+        proof: "Released on Spotify, YouTube Music, Melon, Genie, Bugs, and FLO",
+      },
+    },
+    "[Single] RAINDROP": {
+      scope: {
+        content: "Sonagi",
+        implementation: "Lyrics: VENI RAIN; composition: VENI RAIN/HUNDOSHI; arrangement: VENIRUS/HUNDOSHI",
+        proof: "Executive Producer: VENI RAIN, VENIRUS / Mixing & mastering: VENIRUS",
+      },
+    },
+    "[Single] 잔": {
+      title: "[Single] Glass",
+      scope: {
+        content: "Single release including artwork",
+        implementation: "Production credited to VENI RAIN / VENIRUS",
+        proof: "Discography DB entry, released on 2024.12.13",
+      },
+    },
+    "[Prod. by] Sober - Romantic Refuge :: 밤": {
+      title: "[Prod. by] Sober - Romantic Refuge :: Night",
+    },
+    "[Single] OAO": {
+      scope: {
+        content: "OAO (Feat. HUNDOSHI)",
+        implementation: "Lyrics: VENI RAIN/HUNDOSHI; composition: VENI RAIN/HUNDOSHI/Miler/IOF",
+        proof: "Released on 2021.10.01 / available on Spotify, YouTube Music, Melon, and more",
+      },
+    },
+    "[Single] HIGHWAY": {
+      scope: {
+        content: "Highway / TMT (Too many thought) feat. Holynn",
+        implementation: "Lyrics: VENI RAIN; composition: VENI RAIN and collaborators; arrangement: VENIRUS",
+        proof: "Executive Producer: VENI RAIN, VENIRUS / Mixing & mastering: VENIRUS",
+      },
+    },
+    "[Single] FIRE & WATER": {
+      scope: {
+        content: "NEEDFIRE / FREEZE TAG (Feat. OoOo)",
+        implementation: "Lyrics: VENI RAIN; composition: VENIRUS and collaborators; arrangement: VENIRUS",
+        proof: "Released on 2020.06.08 / available on Spotify, Melon, Genie, Bugs, and FLO",
+      },
+    },
+    "[Single] FOUND ME": {
+      scope: {
+        content: "Zombie (FOUND ME), SIDEWALK, S.O.S",
+        implementation: "Lyrics: VENI RAIN; composition: VENIRUS/VENI RAIN; arrangement: VENIRUS",
+        proof: "Executive Producer: VENI RAIN, VENIRUS / Mixing & mastering: VENIRUS",
+      },
+    },
+    "[Prod.by] 스내키챈 - 숫자일 뿐": {
+      title: "[Prod.by] Snacky Chan - Just a Number",
+      type: "Snacky Chan · DJ Wreckx · VENIRUS",
+    },
+    "[Prod.by] kumira - 돌연변이": {
+      title: "[Prod.by] kumira - Mutant",
+    },
+    "[Prod.by] kumira - 위험해": {
+      title: "[Prod.by] kumira - Dangerous",
+    },
+    "[Prod.by] kumira - KottonVill : 다락방": {
+      title: "[Prod.by] kumira - KottonVill : Attic",
+    },
+    "[Prod.by & Feat.] IndEgo Aid - 자가격리패키지 : Comma": {
+      title: "[Prod.by & Feat.] IndEgo Aid - Self-Quarantine Package : Comma",
+    },
+    "[Arr.by] 서연고 사이퍼 CINDY": {
+      title: "[Arr.by] Seoyeongo Cypher CINDY",
+    },
+  };
+
   const musicSummaries = {
     "[LP] 비행":
       "A full-length album about nostalgia and journeys. As VENI RAIN, I wrote lyrics, composed, and performed vocals; as VENIRUS, I arranged, mixed, and mastered the record.",
@@ -1060,10 +1145,15 @@ const createEnglishPortfolio = () => {
     "[Mixtape] P V R V D V X": "A mixtape produced across all tracks.",
     "[Arr.by] 서연고 사이퍼 CINDY": "A cypher arrangement credited to VENIRUS, showing external work as an arranger as well as composer.",
   };
-  en.musicProjects = en.musicProjects.map((project) => ({
-    ...project,
-    summary: musicSummaries[project.title] || project.summary,
-  }));
+  en.musicProjects = en.musicProjects.map((project) => {
+    const override = musicOverrides[project.title] || {};
+    return {
+      ...project,
+      ...override,
+      summary: musicSummaries[project.title] || project.summary,
+      scope: override.scope || project.scope,
+    };
+  });
 
   en.workTabs = {
     game: {

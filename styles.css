@@ -3586,6 +3586,19 @@ html.dark [data-text-editable="true"]:focus {
   background: rgba(30, 215, 96, 0.1);
 }
 
+@media (max-width: 1180px) {
+  .tech-matrix,
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .work-card,
+  .work-card.featured,
+  .work-card:nth-child(2) {
+    grid-column: auto;
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     gap: 14px;

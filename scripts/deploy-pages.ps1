@@ -36,8 +36,16 @@ if ($script.Content -notmatch "Twelve Knights of Joseon" -or $script.Content -no
   throw "pages.dev script.js does not include translated project titles."
 }
 
+if ($script.Content -notmatch "\[LP\] Flight" -or $script.Content -notmatch "Snacky Chan - Just a Number") {
+  throw "pages.dev script.js does not include translated music titles."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
+}
+
+if ($styles.Content -notmatch "@media \(max-width: 1180px\)") {
+  throw "pages.dev styles.css does not include the medium-width card layout rule."
 }
 
 if ($styles.Content -notmatch "@media \(max-width: 1100px\)") {
