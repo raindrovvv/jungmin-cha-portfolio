@@ -723,9 +723,9 @@ const portfolioKo = {
   },
   activities: {
     eyebrow: "대외 활동",
-    title: "실전 검증과 빠른 프로토타이핑으로 쌓은 활동",
+    title: "현장에서 검증한 제작 경험",
     intro:
-      "전시, 챌린지, 해커톤, 게임잼에서 제한된 시간과 실제 플레이 환경을 겪으며 문제를 발견하고 다음 구현 기준으로 바꾼 기록입니다.",
+      "전시, 챌린지, 해커톤, 게임잼에서 제한된 시간 안에 만들고 실제 플레이어·멘토 피드백을 다음 오디오 구현, QA, 배포 판단으로 연결했습니다.",
     items: [
       {
         title: "G-STAR 2025 Guardian & Seeker",
@@ -1284,9 +1284,9 @@ const createEnglishPortfolio = () => {
 
   en.activities = {
     eyebrow: "Public Activities",
-    title: "Field-tested work beyond the portfolio",
+    title: "Production tested with real players",
     intro:
-      "External showcases and time-boxed builds where I turned live player feedback, technical friction, and deadline pressure into clearer implementation decisions.",
+      "Showcases, challenges, hackathons, and game jams where I built under deadlines, then turned player and mentor feedback into audio implementation, QA, and deployment decisions.",
     items: [
       {
         title: "G-STAR 2025 Guardian & Seeker",
