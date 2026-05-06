@@ -20,6 +20,7 @@ if ($LASTEXITCODE -ne 0) {
 $script = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/script.js" -UseBasicParsing
 $styles = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/styles.css" -UseBasicParsing
 $activityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/gstar-2025.png" -UseBasicParsing
+$smilegateActivityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/smilegate-prototyping-challenge.png" -UseBasicParsing
 
 if ($script.Content -match "Featured implementation") {
   throw "pages.dev still contains the removed featured badge text."
@@ -49,7 +50,7 @@ if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언")
   throw "pages.dev script.js does not include the filtered Smilegate activity link."
 }
 
-if ($script.Content -notmatch "assets/activity/gstar-2025.png" -or $script.Content -notmatch "assets/activity/gemini-3-seoul-hackathon.png" -or $script.Content -notmatch "assets/activity/sparta-gamejam.png") {
+if ($script.Content -notmatch "assets/activity/gstar-2025.png" -or $script.Content -notmatch "assets/activity/smilegate-prototyping-challenge.png" -or $script.Content -notmatch "assets/activity/gemini-3-seoul-hackathon.png" -or $script.Content -notmatch "assets/activity/sparta-gamejam.png") {
   throw "pages.dev script.js does not include the public activity images."
 }
 
@@ -73,7 +74,7 @@ if ($styles.Content -notmatch "activity-media") {
   throw "pages.dev styles.css does not include the public activity image layout."
 }
 
-if ($activityImage.RawContentLength -lt 1000) {
+if ($activityImage.RawContentLength -lt 1000 -or $smilegateActivityImage.RawContentLength -lt 1000) {
   throw "pages.dev public activity image asset is missing or too small."
 }
 
