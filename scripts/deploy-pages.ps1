@@ -28,6 +28,10 @@ if ($script.Content -notmatch "플레이에 맞춰") {
   throw "pages.dev script.js does not include the updated contact headline."
 }
 
+if ($script.Content -notmatch "From sound creation to implementation and QA") {
+  throw "pages.dev script.js does not include the translated strengths headline."
+}
+
 if ($styles.Content -notmatch "margin-top: auto") {
   throw "pages.dev styles.css does not include the tech card alignment rule."
 }
