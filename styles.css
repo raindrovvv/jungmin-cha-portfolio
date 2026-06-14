@@ -910,7 +910,7 @@ html.dark .signal-panel {
 }
 
 .signal-panel > div {
-  padding: 14px;
+  padding: 12px 14px;
   background: var(--surface-strong);
 }
 
@@ -1059,7 +1059,7 @@ html.dark .metric-row > div {
 
 .featured-case {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   border-top: 1px solid var(--line);
 }
 
@@ -1069,17 +1069,16 @@ html.dark .featured-case {
 
 .featured-case strong {
   font-family: var(--display-font);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.16;
 }
 
-
-
 .featured-case p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.58;
+  font-size: 13px;
+  line-height: 1.5;
   word-break: keep-all;
 }
 
@@ -1091,14 +1090,14 @@ html.dark .featured-case {
 
 .featured-case a {
   justify-self: start;
-  min-height: 34px;
+  min-height: 30px;
   display: inline-flex;
   align-items: center;
-  padding: 0 13px;
+  padding: 0 11px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-pill);
   color: var(--text);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   background: transparent;
 }
@@ -1633,6 +1632,12 @@ html.dark .console-prompt {
 .console-slider {
   display: grid;
   gap: 10px;
+}
+
+.console-sliders-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 .segmented-control,
@@ -4163,6 +4168,11 @@ html.dark [data-text-editable="true"]:focus {
   .audio-transport {
     flex: 0 0 auto;
     min-height: 36px;
+  }
+
+  .console-sliders-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .signal-panel .featured-case {
