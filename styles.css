@@ -1386,9 +1386,7 @@ html.dark .focus-icon {
   margin-inline: auto;
 }
 
-html.dark .section {
-  padding-block: clamp(56px, 7vw, 88px);
-}
+
 
 .reel-section {
   border-bottom: 1px solid var(--line);
