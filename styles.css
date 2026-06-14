@@ -2935,12 +2935,7 @@ html.dark .work-more-button {
   position: relative;
   max-width: 100%;
   min-height: 190px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  gap: 12px;
   margin: 0 0 18px;
-  padding: 14px;
   overflow: hidden;
   border-radius: calc(var(--radius) - 1px);
   background:
@@ -2983,6 +2978,13 @@ html.dark .work-more-button {
 
 .listen-button {
   position: relative;
+  z-index: 2;
+}
+
+.music-cover .listen-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
   z-index: 2;
 }
 
