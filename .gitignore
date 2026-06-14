@@ -2,3 +2,4 @@ preview-*.png
 .omx/
 dist/
 .wrangler/
+node_modules/

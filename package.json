@@ -1,0 +1,27 @@
+{
+  "name": "jungmin-cha-portfolio",
+  "version": "1.0.0",
+  "description": "Notion 포트폴리오와 Google Slides 내용을 바탕으로 채운 정적 포트폴리오 웹사이트입니다. 폰트는 Pretendard Variable을 사용합니다.",
+  "main": "script.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raindrovvv/jungmin-cha-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/raindrovvv/jungmin-cha-portfolio/issues"
+  },
+  "homepage": "https://github.com/raindrovvv/jungmin-cha-portfolio#readme",
+  "devDependencies": {
+    "wrangler": "^4.100.0"
+  }
+}
