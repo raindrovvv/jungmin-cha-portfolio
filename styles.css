@@ -379,16 +379,7 @@ html.dark .site-header {
   background: rgba(18, 18, 18, 0.92);
 }
 
-html.dark .nav a {
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 400;
-}
 
-html.dark .nav a:hover,
-html.dark .nav a.is-active {
-  color: var(--text);
-}
 
 html.dark .theme-toggle {
   border-color: var(--line-strong);
@@ -406,15 +397,7 @@ html.dark .language-button.is-active {
   background: var(--accent);
 }
 
-html.dark .header-cta {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--on-primary);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.16px;
-  text-transform: none;
-}
+
 
 main {
   overflow: hidden;
@@ -479,8 +462,6 @@ html.dark .symbol-token {
   color: var(--text);
   background: var(--surface-strong);
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-  font-size: clamp(15px, 1.4vw, 20px);
-  font-weight: 500;
 }
 
 .role-token:hover,
@@ -669,13 +650,7 @@ h1 {
   word-break: keep-all;
 }
 
-html.dark h1 {
-  max-width: 620px;
-  font-size: clamp(48px, 5.1vw, 74px);
-  font-weight: 300;
-  line-height: 0.96;
-  letter-spacing: -1.2px;
-}
+
 
 .hero-title-name,
 .hero-title-role,
@@ -768,11 +743,7 @@ h2 {
   word-spacing: -0.03em;
 }
 
-html.dark h2 {
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.72px;
-}
+
 
 h3 {
   margin: 0;
@@ -781,9 +752,7 @@ h3 {
   line-height: 1.35;
 }
 
-html.dark h3 {
-  font-weight: 500;
-}
+
 
 .lede {
   max-width: 640px;
@@ -796,8 +765,6 @@ html.dark h3 {
 
 html.dark .lede {
   color: var(--muted);
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 .hero-actions {
@@ -827,15 +794,7 @@ html.dark .lede {
   box-shadow: none;
 }
 
-html.dark .button,
-html.dark .contact-links a {
-  min-height: 40px;
-  border-radius: var(--radius-pill);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.16px;
-  text-transform: none;
-}
+
 
 html.dark .button.primary {
   border-color: var(--accent);
@@ -1091,11 +1050,7 @@ html.dark .metric-row > div {
   line-height: 1;
 }
 
-html.dark .metric {
-  font-family: var(--display-font);
-  font-size: clamp(30px, 3vw, 42px);
-  font-weight: 300;
-}
+
 
 .label {
   margin-top: 6px;
@@ -1120,11 +1075,7 @@ html.dark .featured-case {
   line-height: 1.16;
 }
 
-html.dark .featured-case strong {
-  font-family: var(--display-font);
-  font-size: 25px;
-  font-weight: 300;
-}
+
 
 .featured-case p {
   margin: 0;
@@ -1409,8 +1360,6 @@ html.dark .focus-icon {
 }
 
 html.dark .strip-label {
-  color: var(--muted);
-  font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.4px;
 }
@@ -2099,12 +2048,7 @@ html.dark .reel-embed {
   text-transform: uppercase;
 }
 
-html.dark .reel-kicker {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-}
+
 
 .reel-play {
   position: absolute;
@@ -2138,13 +2082,7 @@ html.dark .reel-play {
   letter-spacing: -0.36px;
 }
 
-html.dark .reel-caption {
-  font-family: var(--display-font);
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.36px;
-}
+
 
 .reel-notes {
   display: grid;
@@ -4138,12 +4076,7 @@ html.dark [data-text-editable="true"]:focus {
     letter-spacing: -0.72px;
   }
 
-  html.dark h1 {
-    max-width: 100%;
-    font-size: clamp(42px, 14vw, 58px);
-    line-height: 0.98;
-    letter-spacing: -0.72px;
-  }
+
 
   .hero-title-name {
     letter-spacing: -0.8px;
