@@ -1,0 +1,313 @@
+<article class="modal-article">
+  <div class="article-body">
+    <p class="article-intro">
+      This document records the implementation and troubleshooting process of the Wwise Audio Occlusion system in the [GAS] project. 
+      It addresses the issue of sound passing through walls and doors despite visual barriers, maximizing spatial awareness while preserving runtime performance.
+    </p>
+
+    <h2>1. Problem Definition</h2>
+    
+    <h3>1.1 Initial Situation</h3>
+    <p>
+      Although walls and doors visually separated spaces, sounds ignored these obstacles and played normally. 
+      Even when a player was inside a room, sounds from monsters behind walls played as if they were right next to the player, providing no sense of space.
+    </p>
+    
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_1.png" alt="Wwise Occlusion Initial Setup" loading="lazy" />
+      <span class="image-caption">Figure 1: Sounds failed to be blocked because obstacle checks were disabled even when spaces were divided.</span>
+    </div>
+
+    <h3>1.2 Requirements</h3>
+    <ul>
+      <li>Sounds behind walls/doors must be muffled and attenuated.</li>
+      <li>Applies to monsters, traps, and other players.</li>
+      <li>Must not significantly impact runtime performance.</li>
+      <li>Must support visual debugging.</li>
+    </ul>
+
+    <h2>2. Implementation Steps</h2>
+
+    <h3>2.1 [Step 1] Enabling Basic Occlusion Check</h3>
+    <p>
+      In the original codebase, occlusion checking was disabled for performance optimization.
+    </p>
+    <pre><code class="language-cpp">// Original code (disabled state)
+if (IsValid(AkComponent))
+{
+    AkComponent->OcclusionRefreshInterval = 0.0f; // Occlusion turned off
+}</code></pre>
+    <p>
+      I enabled this so that Wwise periodically performs raycasts to check for obstacles.
+    </p>
+    <pre><code class="language-cpp">// Modified code (GS_Monster.cpp, GS_TrapBase.cpp, GS_Player.cpp)
+if (IsValid(AkComponent))
+{
+    // Check occlusion state every 0.2 seconds (compromise between performance and responsiveness)
+    AkComponent->OcclusionRefreshInterval = 0.2f;
+}</code></pre>
+
+    <h3>2.2 [Step 2] Preventing Self-Occlusion</h3>
+    <p>
+      For the local player, the character's own mesh can block the camera (audio listener), causing the character's own sounds (like footsteps) to drop in volume suddenly. 
+      To prevent this self-occlusion, I disabled occlusion calculations for the locally controlled player.
+    </p>
+    <pre><code class="language-cpp">// GS_Player.cpp - BeginPlay
+void AGS_Player::BeginPlay()
+{
+    Super::BeginPlay();
+    
+    if (IsLocallyControlled())
+    {
+        // Local Player: Disable self-occlusion
+        if (AkComponent)
+        {
+            AkComponent->OcclusionRefreshInterval = 0.0f;
+        }
+    }
+    else
+    {
+        // Remote Players: Enable occlusion check for other players
+        if (AkComponent)
+        {
+            AkComponent->OcclusionRefreshInterval = 0.2f;
+        }
+    }
+}</code></pre>
+
+    <h3>2.3 [Step 3] Resolving Camera Audio Listener Conflicts</h3>
+    <p>
+      In a multiplayer environment, each Seeker character possessed a <code>CameraAudioListenerComponent</code>. 
+      This caused listener components on remote characters to activate simultaneously, breaking audio positioning. 
+      I resolved this by explicitly stopping and unregistering listener components on remote characters.
+    </p>
+    <pre><code class="language-cpp">// GS_Player.cpp - Disabling listener on remote players
+if (!IsLocallyControlled())
+{
+    // Completely deactivate and unregister remote player's audio listener
+    if (CameraAudioListenerComponent)
+    {
+        CameraAudioListenerComponent->Stop();
+        CameraAudioListenerComponent->Deactivate();
+        CameraAudioListenerComponent->UnregisterComponent();
+    }
+}</code></pre>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_2.png" alt="Deactivating Remote Player Listener Components" loading="lazy" />
+      <span class="image-caption">Figure 2: Deactivating listener components on remote players leaves only the local player's listener active.</span>
+    </div>
+
+    <h3>2.4 [Step 4] Wwise Project Configuration</h3>
+    <p>
+      When Unreal Engine sends the calculated occlusion value (0 to 1), Wwise decides "how much to attenuate volume and apply filters". 
+      In Wwise Authoring Tool, I set the Environmental Curves tab as follows:
+    </p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Setting Item</th>
+            <th>Recommended Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Occlusion Volume</strong></td>
+            <td>-15dB to -20dB</td>
+            <td>Volume attenuation when fully occluded (behind obstacles)</td>
+          </tr>
+          <tr>
+            <td><strong>Occlusion LPF</strong></td>
+            <td>30 to 50</td>
+            <td>Low-pass Filter strength to cut high frequencies for a muffled effect</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <blockquote>
+      <strong>Warning:</strong> If the end point of the Volume curve is set to Wwise's default of -200dB (complete silence), sounds will disappear entirely. 
+      Setting it to <strong>-15dB to -20dB</strong> ensures players can still hear muffled monster sounds through walls and doors to track their locations.
+    </blockquote>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_3.png" alt="Wwise Environmental Curves Configuration" loading="lazy" />
+      <span class="image-caption">Figure 3: Curve mapping of Occlusion Volume and LPF relationships in Wwise Environmental Curves.</span>
+    </div>
+
+    <h3>2.5 [Step 5] Individual Sound Settings</h3>
+    <p>
+      For the occlusion settings to take effect on sound sources, the <strong>Diffraction and Transmission</strong> checkbox in each sound's Positioning tab must be enabled to calculate wall penetration and diffraction.
+    </p>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_4.png" alt="Wwise Positioning Diffraction Setup" loading="lazy" />
+      <span class="image-caption">Figure 4: Enabling Diffraction and Transmission in the Positioning tab of a Wwise sound asset.</span>
+    </div>
+
+    <h3>2.6 [Step 6] Implementing a Debugging System</h3>
+    <p>
+      To visually verify that occlusion check lines are cast at correct coordinate points at runtime, I implemented a debug line system.
+    </p>
+    <pre><code class="language-cpp">// GS_AudioComponentBase.cpp - Declaring console variable
+static TAutoConsoleVariable&lt;int32&gt; CVarShowOcclusionRay(
+    TEXT("GS.Audio.ShowOcclusionRay"),
+    0,
+    TEXT("Show audio occlusion debug rays (0=Off, 1=On)"),
+    ECVF_Cheat
+);
+
+// Debug line drawing function
+void UGS_AudioComponentBase::DrawOcclusionDebug(
+    UWorld* World, 
+    const FVector& SoundLocation, 
+    const FVector& ListenerLocation, 
+    bool bIsOccluded)
+{
+    if (CVarShowOcclusionRay.GetValueOnGameThread() == 0) return;
+    
+    FColor LineColor = bIsOccluded ? FColor::Red : FColor::Green;
+    
+    DrawDebugLine(
+        World,
+        SoundLocation,
+        ListenerLocation,
+        LineColor,
+        false,      // Persistent
+        1.0f,       // Life time (1 second)
+        0,
+        2.0f        // Line thickness
+    );
+}</code></pre>
+    <ul>
+      <li><strong>Console Commands</strong>:
+        <ul>
+          <li>Enable: <code>GS.Audio.ShowOcclusionRay 1</code></li>
+          <li>Disable: <code>GS.Audio.ShowOcclusionRay 0</code></li>
+        </ul>
+      </li>
+      <li><strong>Debug Line Colors</strong>:
+        <ul>
+          <li><span style="color: #4CAF50; font-weight: bold;">Green</span>: No obstacles (sounds playing normally)</li>
+          <li><span style="color: #F44336; font-weight: bold;">Red</span>: Obstacle detected (Wwise occlusion filter applied)</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_5.png" alt="In-game Debug Ray Tracing" loading="lazy" />
+      <span class="image-caption">Figure 5: Red debug rays indicating blocked paths in actual gameplay.</span>
+    </div>
+
+    <h2>3. Wall/Door Collision Requirements</h2>
+    <p>
+      Wwise performs Line Traces between the sound source and listener (camera). Since it uses the <strong>Visibility</strong> channel, correct collision presets on walls and doors are mandatory.
+    </p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Setting Item</th>
+            <th>Required Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Collision Preset</strong></td>
+            <td>BlockAll or Custom Preset</td>
+          </tr>
+          <tr>
+            <td><strong>Visibility Channel</strong></td>
+            <td>Block (must be set to block raycasts)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_6.png" alt="Door Collision Presets" loading="lazy" />
+      <span class="image-caption">Figure 6: Blocking the Visibility channel in static mesh collision settings.</span>
+    </div>
+
+    <h2>4. Final Results</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Class Name</th>
+            <th>Occlusion Setup</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>AGS_Monster</strong></td>
+            <td>Enabled (0.2s check)</td>
+            <td>Applies occlusion to monster footsteps, attack calls, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>AGS_TrapBase</strong></td>
+            <td>Enabled (0.2s check)</td>
+            <td>Saw blades, active traps, mechanism sounds.</td>
+          </tr>
+          <tr>
+            <td><strong>AGS_Player (Remote)</strong></td>
+            <td>Enabled (0.2s check)</td>
+            <td>Applies occlusion to other player actions and footsteps.</td>
+          </tr>
+          <tr>
+            <td><strong>AGS_Player (Local)</strong></td>
+            <td><strong>Disabled</strong></td>
+            <td>Prevents volume dropping errors caused by local camera meshes.</td>
+          </tr>
+          <tr>
+            <td><strong>AGS_Door</strong></td>
+            <td>Enabled (0.2s check)</td>
+            <td>Applies occlusion based on opened/closed door states.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <h3>Key Benefits</h3>
+    <ul>
+      <li>Sounds behind walls attenuate smoothly and realistically.</li>
+      <li>LPF muffling enhances spatial awareness, allowing players to read threats intuitively.</li>
+      <li>Debug lines allow real-time validation during testing and QA.</li>
+      <li>Optimized check intervals (0.2 seconds) minimize CPU overhead.</li>
+    </ul>
+
+    <h2>5. Checklists & Debugging</h2>
+    <ul>
+      <li><strong>Wwise Checklist</strong>: 
+        <ul>
+          <li>Verify Project Settings → Environmental Curves has volume attenuation between <strong>-15dB and -20dB</strong> to prevent total mute.</li>
+          <li>Set Project Settings → Environmental Curves LPF value (30 to 50).</li>
+          <li>Ensure Diffraction/Transmission is checked at the Actor-Mixer level so child containers inherit the settings.</li>
+        </ul>
+      </li>
+      <li><strong>Unreal Checklist</strong>: 
+        <ul>
+          <li>Double-check if Visibility collision on static mesh assets (like doors and walls) is set to Block.</li>
+        </ul>
+      </li>
+      <li><strong>Debugging Methods</strong>: 
+        <ul>
+          <li>Execute <code>GS.Audio.ShowOcclusionRay 1</code> in console to see trace color feedbacks (Green: No obstacles / Red: Blocked).</li>
+          <li>Run Wwise Profiler to trace occlusion values and verify there are no voice drops.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_7.png" alt="In-game Occlusion Debug Ray Tracing Screen" loading="lazy" />
+      <span class="image-caption">Figure 7: In-game viewport showing active debug lines (DrawDebugLine) detecting obstacles based on the camera audio component location</span>
+    </div>
+    <div class="article-image-container">
+      <img src="./assets/articles/article_121_img_8.png" alt="In-game Multi-Object Occlusion Debug Screen" loading="lazy" />
+      <span class="image-caption">Figure 8: Final verification of occlusion parameter layout passing through multiple objects under debug mode</span>
+    </div>
+
+    <p class="article-outro">
+      <em>
+        The audio occlusion system in this project started from design requirement analysis, moved to engine-middleware integration, addressed edge cases (remote listener conflicts and self-occlusion), and concluded with real-time debug tools, demonstrating full technical ownership of the sound system.
+      </em>
+    </p>
+  </div>
+</article>

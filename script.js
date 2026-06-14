@@ -98,6 +98,12 @@ const portfolioKo = {
         summary:
           "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise와 UE 콜리전/라인 트레이스 기준으로 점검했습니다.",
         proof: "오클루전 디버깅 영상과 함께 차폐/거리감 조정 과정 기록",
+        links: [
+          {
+            label: "기술 아티클 읽기",
+            href: "occlusion-debugging-ko",
+          },
+        ],
         breakdown: [
           {
             label: "문제",
@@ -249,6 +255,7 @@ const portfolioKo = {
         content: "몬스터 위치감, 벽/문 너머 공간감 개선",
         implementation: "Wwise Occlusion, Diffraction, Transmission, UE Collision Debug",
         proof: "멀리 있는 소리와 차폐된 소리를 구분하도록 시스템 조정",
+        article: "occlusion-debugging-ko",
       },
     },
     {
@@ -908,6 +915,12 @@ const createEnglishPortfolio = () => {
         summary:
           "I checked monster distance, occlusion, and transmission through Wwise values and UE collision/line trace behavior.",
         proof: "Occlusion debugging video documents distance and obstruction tuning",
+        links: [
+          {
+            label: "Read tech article",
+            href: "occlusion-debugging-en",
+          },
+        ],
         breakdown: [
           {
             label: "Problem",
@@ -1031,6 +1044,7 @@ const createEnglishPortfolio = () => {
         content: "Monster position, wall/door obstruction, spatial clarity",
         implementation: "Wwise Occlusion, Diffraction, Transmission, UE Collision Debug",
         proof: "Adjusted system behavior so distant and obstructed sounds read differently",
+        article: "occlusion-debugging-en",
       },
     },
     {
@@ -1402,7 +1416,7 @@ const uiLocales = {
     contactTitle1: "플레이에 맞춰",
     contactTitle2: "반응하는 사운드를",
     contactTitle3: "함께 만듭니다",
-    scopeLabels: { content: "내용", implementation: "구현", proof: "근거", code: "코드" },
+    scopeLabels: { content: "내용", implementation: "구현", proof: "근거", code: "코드", article: "기술 아티클" },
     aiLabLabels: { gameAudioUse: "파이프라인 적용", proof: "근거" },
     proofLabel: "근거",
     viewBreakdown: "View breakdown",
@@ -1454,7 +1468,7 @@ const uiLocales = {
     contactTitle1: "Let’s build audio",
     contactTitle2: "that responds",
     contactTitle3: "in play",
-    scopeLabels: { content: "Content", implementation: "Implementation", proof: "Evidence", code: "Code" },
+    scopeLabels: { content: "Content", implementation: "Implementation", proof: "Evidence", code: "Code", article: "Technical Article" },
     aiLabLabels: { gameAudioUse: "Pipeline use", proof: "Evidence" },
     proofLabel: "Evidence",
     viewBreakdown: "View breakdown",
@@ -1724,6 +1738,8 @@ const renderProjects = (activeTab = "game") => {
                         `<div class="scope-row"><strong>${escapeHtml(uiCopy.scopeLabels[key] || key)}</strong><span>${
                           key === "code"
                             ? `<a class="scope-link" href="${escapeHtml(value)}" target="_blank" rel="noreferrer">${escapeHtml(uiCopy.viewCode)}</a>`
+                            : key === "article"
+                            ? `<a class="scope-link" href="${escapeHtml(value)}">${currentLanguage === 'ko' ? '기술 아티클 읽기' : 'Read Article'}</a>`
                             : escapeHtml(value)
                         }</span></div>`,
                     )
@@ -3043,11 +3059,16 @@ const setupAudioConsole = () => {
     const centerPosition = progress * peaks.length;
     const lookBehind = Math.floor(waveformVisibleBars * 0.42);
 
+    const occlusionGain = getOcclusionGain();
+    const distanceRatio = getRtpc().distance / 100;
+    const distanceGain = Math.max(0.2, 1 - distanceRatio * 0.78);
+    const totalVolumeGain = occlusionGain * distanceGain;
+
     meters.forEach((meter, index) => {
       const sourceLevel = readWaveformPeak(peaks, centerPosition - lookBehind + index);
       const distanceFromPlayhead = Math.abs(index - lookBehind);
       const focusLift = Math.max(0, 1 - distanceFromPlayhead / 7) * 5;
-      const level = Math.max(12, Math.min(94, sourceLevel + focusLift));
+      const level = Math.max(12, Math.min(94, (sourceLevel + focusLift) * totalVolumeGain));
       meter.style.setProperty("--level", `${level.toFixed(1)}%`);
       meter.classList.toggle("is-played", isEnabled && index <= lookBehind);
       meter.classList.toggle("is-current", isEnabled && distanceFromPlayhead <= 1);
@@ -3356,6 +3377,12 @@ const setupAudioConsole = () => {
       floatingAudioControl.setAttribute("aria-hidden", String(!isEnabled));
     }
 
+    const occlusionRatio = occlusion / 100;
+    const blurPx = occlusionRatio * 2.2;
+    if (meterRoot) {
+      meterRoot.style.setProperty("--waveform-blur", `${blurPx.toFixed(2)}px`);
+    }
+
     consoleRoot.style.setProperty("--meter-energy", config.energy.toFixed(2));
     renderWaveform(currentState);
     updateWaveformProgress();
@@ -3472,6 +3499,25 @@ const setupTheme = () => {
     const isDark = !document.documentElement.classList.contains("dark");
     applyTheme(isDark);
     localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (AudioContextClass) {
+        const ctx = new AudioContextClass();
+        const osc = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(isDark ? 880 : 1200, ctx.currentTime);
+        gainNode.gain.setValueAtTime(0.012, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
+        osc.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.12);
+      }
+    } catch (e) {
+      // Ignore context blocked errors
+    }
   });
 };
 
@@ -3557,6 +3603,11 @@ const setupCursorInteraction = () => {
       const y = (clientY - rect.top) / rect.height - 0.5;
       target.style.setProperty("--tilt-x", x.toFixed(3));
       target.style.setProperty("--tilt-y", y.toFixed(3));
+
+      const mouseX = clientX - rect.left;
+      const mouseY = clientY - rect.top;
+      target.style.setProperty("--mouse-x", `${mouseX.toFixed(1)}px`);
+      target.style.setProperty("--mouse-y", `${mouseY.toFixed(1)}px`);
     });
   };
 
@@ -3567,6 +3618,8 @@ const setupCursorInteraction = () => {
     if (latestTiltEvent?.card === card) latestTiltEvent = null;
     card.style.setProperty("--tilt-x", "0");
     card.style.setProperty("--tilt-y", "0");
+    card.style.setProperty("--mouse-x", "-9999px");
+    card.style.setProperty("--mouse-y", "-9999px");
   };
 
   window.addEventListener("pointermove", setRootCursor, { passive: true });
@@ -3618,6 +3671,109 @@ const setupLazyYouTubeEmbeds = () => {
   });
 };
 
+const openArticleModal = async (articleId, title) => {
+  const modal = document.querySelector("#portfolio-modal");
+  const modalTitle = document.querySelector("#modal-title");
+  const modalBody = document.querySelector("#modal-body");
+  
+  if (!modal || !modalTitle || !modalBody) return;
+
+  modalTitle.textContent = title;
+  modalBody.innerHTML = `<div style="display:flex; justify-content:center; padding: 40px;"><span style="opacity: 0.6;">Loading article...</span></div>`;
+  
+  modal.classList.add("is-active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  try {
+    let filePath = "";
+    if (articleId.startsWith("occlusion-debugging-")) {
+      filePath = `./articles/${articleId}.html`;
+    } else {
+      filePath = `./articles/article_${articleId}.html`;
+    }
+    
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error("Failed to load article");
+    const htmlContent = await response.text();
+    modalBody.innerHTML = htmlContent;
+  } catch (error) {
+    console.error(error);
+    modalBody.innerHTML = `<p style="color: red; text-align: center; padding: 20px;">${currentLanguage === 'ko' ? '아티클을 불러오는 중 오류가 발생했습니다.' : 'Failed to load article content.'}</p>`;
+  }
+};
+
+const setupModal = () => {
+  const modal = document.querySelector("#portfolio-modal");
+  const closeBtn = document.querySelector("#modal-close");
+  
+  if (!modal || !closeBtn) return;
+
+  const closeModal = () => {
+    modal.classList.remove("is-active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  };
+
+  closeBtn.addEventListener("click", closeModal);
+  
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-active")) {
+      closeModal();
+    }
+  });
+
+  // Intercept clicks on links that match Tistory or Occlusion articles
+  document.body.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    let articleId = null;
+    let articleTitle = "";
+
+    if (href.includes("raindrovvv.tistory.com/132")) {
+      articleId = "132";
+      articleTitle = currentLanguage === "ko" 
+        ? "배달의민족이 AI 자산화로 얻은 인사이트" 
+        : "Woowa Brothers AI Assetization Insights";
+    } else if (href.includes("raindrovvv.tistory.com/108")) {
+      articleId = "108";
+      articleTitle = currentLanguage === "ko" 
+        ? "[G-STAR 2025] 가디언 앤 시커 지스타 부스 운영기" 
+        : "[G-STAR 2025] Guardian & Seeker G-Star Booth Review";
+    } else if (href.includes("raindrovvv.tistory.com/150")) {
+      articleId = "150";
+      articleTitle = currentLanguage === "ko" 
+        ? "Gemini 3 서울 해커톤 회고" 
+        : "Gemini 3 Seoul Hackathon Review";
+    } else if (href.includes("raindrovvv.tistory.com/42")) {
+      articleId = "42";
+      articleTitle = currentLanguage === "ko" 
+        ? "제 1회 스파르타 게임잼 참여기" 
+        : "1st Sparta Game Jam Review";
+    } else if (href === "occlusion-debugging-ko" || href === "occlusion-debugging-en") {
+      articleId = href;
+      articleTitle = currentLanguage === "ko" 
+        ? "Wwise / UE5 런타임 오클루전 디버깅" 
+        : "Wwise / UE5 Runtime Occlusion Debugging";
+    }
+
+    if (articleId) {
+      e.preventDefault();
+      openArticleModal(articleId, articleTitle);
+    }
+  });
+};
+
 fillFields();
 renderFocus();
 renderReelNotes();
@@ -3640,3 +3796,4 @@ setupAudioConsole();
 setupCursorInteraction();
 setupOrbitLinks();
 setupLazyYouTubeEmbeds();
+setupModal();
