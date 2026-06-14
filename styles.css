@@ -113,7 +113,6 @@ html.dark body {
   background:
     linear-gradient(180deg, rgba(31, 31, 31, 0.88), transparent 360px),
     var(--bg);
-  letter-spacing: 0;
 }
 
 body,
@@ -1359,10 +1358,7 @@ html.dark .focus-icon {
   text-transform: uppercase;
 }
 
-html.dark .strip-label {
-  font-weight: 700;
-  letter-spacing: 1.4px;
-}
+
 
 .work-card .tag {
   align-self: flex-start;
