@@ -878,11 +878,6 @@ const portfolioKo = {
     { label: "Blog", icon: "✎", href: "https://raindrovvv.tistory.com/" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
     { label: "Instagram", icon: "◎", href: "https://www.instagram.com/raindrovvv/" },
-    {
-      label: "Notion",
-      icon: "◈",
-      href: "https://www.notion.so/raingem/Portfolio-b507bf5ce7334a40b5dabc2fce226300",
-    },
   ],
 };
 
