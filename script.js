@@ -1,64 +1,146 @@
 const portfolioKo = {
   name: "차정민",
-  role: "Game Audio · Wwise · UE5 · C++ / Blueprint",
-  headline: "차정민 Game Audio Designer",
+  role: "Game Sound Designer · Sound Design / Implementation / Debug",
+  headline: "차정민 Game Sound Designer",
   intro:
-    "코드와 AI 에이전트를 활용하는 Game Audio Designer입니다. Wwise 구조, UE5 Blueprint, Physical Material 발소리, 런타임 오클루전까지 실제 빌드에서 작동할 때까지 설계하고 구현합니다.",
+    "PC/콘솔 액션게임에서 전투, 이동, UI, 공간감이 플레이 중 또렷하게 느껴지도록 사운드를 설계하고 제작합니다. 필요한 경우 Wwise·UE5·Unity 안에서 구현과 디버깅, QA까지 직접 이어갑니다.",
   years: "7년+",
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "Wwise와 UE5 C++/Blueprint 사이에서 오디오가 실제 플레이 입력, 거리, 차폐, UI 피드백에 맞게 반응하도록 설계하고 검증합니다.",
-  footerName: "차정민 Game Audio Designer Portfolio",
+    "전투 리듬, 조작 피드백, 거리감과 차폐감이 소리로 먼저 읽히도록 설계하고, 필요한 경우 엔진 구현과 디버깅, QA까지 직접 이어갑니다.",
+  footerName: "차정민 Game Sound Designer Portfolio",
   focus: [
+    "Action Game Sound Design",
+    "Combat SFX",
+    "Audio Direction",
+    "In-game Implementation",
+    "Engine Tooling",
+    "MCP Tooling",
+    "Unity / C#",
     "Wwise",
     "Unreal Engine 5",
     "C++ / Blueprint",
-    "Interactive BGM",
-    "Audio Debugging",
+    "BGM Composition",
     "FL Studio",
-    "AI Agent Workflow",
-    "SFX Design",
-    "Unity / C#",
-    "OpenAI API",
-    "Git Collaboration",
+    "Source Editing",
+    "Asset Naming",
+    "Audio QA",
+    "Game Design Understanding",
   ],
+  selectedBgm: {
+    eyebrow: "선별 게임 오디오",
+    title: "전투 피드백과 공간감, SFX/BGM이 실제 플레이에서 들리는 방식을 정리했습니다",
+    items: [
+      {
+        title: "Guardian & Seeker",
+        context: "4v1 PvP 전투 사운드",
+        role: "Combat SFX/BGM direction / in-game transition / mix balance",
+        goal: "전투 진입, 추격 압박, 몬스터/시커/UI 피드백이 겹치는 상황에서도 위험 신호와 긴장도가 묻히지 않게 조정했습니다.",
+        implementation: "Wwise Event / Switch / RTPC, UE5 C++ / Blueprint, 191개 오디오 에셋, 299명 플레이테스트 QA",
+        proof: "G-STAR 2025 출품 · 평균 4.36/5 피드백을 반영해 조정",
+        href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
+      },
+      {
+        title: "조선 십이기사단",
+        context: "2D 액션/플랫폼 파이터",
+        role: "Combat SFX 40 / BGM 3 tracks / creative direction",
+        goal: "전통 모티프가 빠른 대전 흐름을 방해하지 않도록 전투 리듬과 캐릭터 톤을 분리했습니다.",
+        implementation: "UE5 프로젝트 내 BGM/SFX 적용, 전투/스킬 피드백과 함께 검증",
+        proof: "BGM 3곡 · SFX 40종 · Team Lead / PM / Creative Director",
+        href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
+      },
+      {
+        title: "SYMBIO",
+        context: "액션/TPS 시네마틱 톤",
+        role: "SFX/BGM production / cinematic audio direction",
+        goal: "폐쇄적인 연구소 세계관에 맞춰 공간감, 긴장감, 컷씬의 감정선을 일관된 톤으로 맞췄습니다.",
+        implementation: "UE5 gameplay scene and cinematic cutscene audio placement",
+        proof: "BGM/SFX, UI/UX, 레벨 디자인, 시네마틱 컷씬 담당",
+        href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
+      },
+      {
+        title: "레인보우 가디언",
+        context: "로그라이트형 테마 타워 RPG",
+        role: "Theme planning / BGM arrangement / SFX production",
+        goal: "텍스트 중심 플레이에서도 층별 성격이 들리도록 탐험, 전투, 상점, 제단의 분위기를 나눴습니다.",
+        implementation: "Console RPG flow에 맞춘 층별 BGM/SFX 구성",
+        proof: "8개 테마 타워 · 게임 콘셉트/스토리/BGM/SFX 담당",
+        href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
+      },
+      {
+        title: "Flight Record",
+        context: "앨범을 활용한 인터랙티브 미디어",
+        role: "Album track adaptation / Unity music trigger",
+        goal: "발매 음악의 정서를 탐험 동선에 맞춰 배치해 감상형 음악을 인터랙티브 경험으로 옮겼습니다.",
+        implementation: "Unity C# interaction and music trigger design",
+        proof: "비행 앨범 수록곡 초안 3곡 활용 · 프로젝트 리더 / PM",
+        href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
+      },
+    ],
+  },
+  roleFit: {
+    eyebrow: "인게임 사운드 디자인 경험",
+    title: "설계, 구현, 디버깅까지 플레이 안에서 검증한 경험",
+    items: [
+      {
+        requirement: "전투/캐릭터/몬스터 피드백",
+        evidence: "Guardian & Seeker에서 전투 진입, 추격, UI, 몬스터/시커 신호를 플레이 우선순위에 맞춰 설계",
+      },
+      {
+        requirement: "공간 연출과 차폐 디버깅",
+        evidence: "던전 앰비언스의 Spatial Audio Reverb, DistanceToPlayer/Occlusion RTPC, UE Collision/Line Trace로 공간감과 차폐감을 조정",
+      },
+      {
+        requirement: "Material 기반 SFX 적용",
+        evidence: "Physical Material 발소리 후보를 나누고 Anim Notify, C++/Blueprint 이벤트와 연결해 지면 변화가 들리도록 구성",
+      },
+      {
+        requirement: "소스 편집/리소스 구조화와 QA",
+        evidence: "보컬 녹음·테이크 관리, 소스 컷 편집·타이밍·레이어·믹싱 경험을 바탕으로 191개 오디오 에셋과 SFX 40종을 정리",
+      },
+      {
+        requirement: "BGM 제작과 협업 문서화",
+        evidence: "50+ 발매 트랙과 게임 BGM 제작 경험, 프로그래머 친화적인 오디오 에셋 네이밍/문서화 경험",
+      },
+    ],
+  },
   reelNotes: [
     {
-      title: "C++ 오디오 컴포넌트가 있는 4v1 PvP 사례",
+      title: "액션 전투 사운드를 검증한 4v1 PvP 사례",
       text: "Guardian & Seeker에서 UGS_AudioComponentBase, Monster/Seeker 오디오 컴포넌트, UI 오디오 시스템으로 Wwise와 UE5를 연결했습니다.",
     },
     {
       title: "Wwise·UE 적용부터 C++/Blueprint 로직까지",
-      text: "DistanceToPlayer, AttenuationMode, OcclusionDisable RTPC를 C++ UPROPERTY로 관리하고 Event, Switch, RTPC, Anim Notify를 실제 플레이 상태에 연결했습니다.",
+      text: "DistanceToPlayer, AttenuationMode, OcclusionDisable RTPC를 C++ UPROPERTY로 관리하고 Event, Switch, RTPC, Anim Notify를 플레이 상태에 맞춰 연결했습니다.",
     },
     {
-      title: "플레이 테스트로 밸런싱과 QA 검증",
+      title: "플레이 테스트로 사운드 우선순위와 QA 검증",
       text: "299명 플레이테스트(평균 4.36/5) 피드백을 바탕으로 BGM 전환, 발소리, 오클루전, UI 피드백을 세밀하게 조정했습니다.",
     },
   ],
   techAudio: {
-    eyebrow: "기술 오디오",
-    title: "Wwise와 UE5 안에서 실제로 작동하는 오디오 시스템",
+    eyebrow: "기술 오디오 / 인게임 적용",
+    title: "Wwise/UE5 구현에서 Unity 트리거까지 이어지는 오디오 시스템",
     intro:
-      "Guardian & Seeker에서 C++ 오디오 컴포넌트 설계, Wwise RTPC 연동, UE5 구현, 오클루전 디버깅, 플레이테스트 피드백 반영까지 이어지는 제작 흐름입니다.",
+      "Guardian & Seeker에서는 Wwise/UE5 오디오 구현과 디버깅을 맡았고, Flight Record에서는 Unity C# 음악 트리거와 상호작용을 설계했습니다.",
     items: [
       {
         title: "Wwise 시스템 설계",
         type: "Event / Switch / RTPC",
         summary:
-          "전투 중 BGM, 몬스터, UI 피드백이 겹치는 상황에서 플레이어가 먼저 읽어야 할 신호를 기준으로 Event, Switch, RTPC, 컨테이너 구조를 나눴습니다.",
+          "전투 중 BGM, 몬스터, UI 피드백이 겹칠 때 플레이어가 먼저 들어야 할 신호를 기준으로 Event, Switch, RTPC, 컨테이너 구조를 나눴습니다.",
         proof: "191개 오디오 에셋을 역할과 우선순위 기준으로 분류하고 Wwise 구조에 연결",
         breakdown: [
-          {
+      {
             label: "문제",
             text: "전투, 탐색, UI, 몬스터 사운드가 동시에 재생될 때 무엇이 우선 들려야 하는지 정리해야 했습니다.",
           },
-          {
+      {
             label: "Wwise 구조",
             text: "Event, Switch, RTPC, Random Container를 역할별로 나누고 반복 재생되는 효과음에는 변형 폭을 줬습니다.",
           },
-          {
+      {
             label: "개선 방향",
             text: "단순 재생 중심 구조에서 상태와 거리, 이벤트 목적에 따라 반응하는 구조로 정리했습니다.",
           },
@@ -69,24 +151,24 @@ const portfolioKo = {
         type: "C++ / Blueprint / Anim Notify",
         featured: true,
         summary:
-          "UGS_AudioComponentBase를 기반으로 몬스터/시커 오디오 컴포넌트를 분리하고, Physical Material 발소리와 애니메이션 타이밍, C++/Blueprint 이벤트를 실제 플레이 입력에 맞췄습니다.",
-        proof: "GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, GS_UIAudioSystem.h 기반 Sound 폴더 구조",
+          "UGS_AudioComponentBase 위에 몬스터/시커 오디오 컴포넌트를 나누고, Physical Material 발소리와 애니메이션 타이밍, C++/Blueprint 이벤트를 실제 플레이 입력에 맞췄습니다.",
+        proof: "GS_AudioComponentBase.h, GS_MonsterAudioComponent.h, GS_SeekerAudioComponent.h, GS_UIAudioSystem.h로 구성한 Sound 폴더 구조",
         links: [
-          {
+      {
             label: "View implementation",
             href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound",
           },
         ],
         breakdown: [
-          {
+      {
             label: "연동",
             text: "Anim Notify와 Blueprint 이벤트에서 Wwise Event를 호출하고, 필요한 사운드 상태 로직은 C++/Blueprint 기준으로 정리했습니다.",
           },
-          {
+      {
             label: "재질 로직",
             text: "Physical Material 정보를 기준으로 발소리 후보를 나누고 지면 변화가 사운드에 반영되도록 설계했습니다.",
           },
-          {
+      {
             label: "AI 에이전트 활용",
             text: "AI 에이전트를 코드 리뷰와 디버깅 파트너로 활용해 C++/Blueprint 로직의 조건, 호출 타이밍, 누락 이벤트를 빠르게 점검했습니다.",
           },
@@ -96,7 +178,7 @@ const portfolioKo = {
         title: "런타임 디버깅",
         type: "Occlusion / Collision",
         summary:
-          "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise와 UE 콜리전/라인 트레이스 기준으로 점검했습니다.",
+          "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise 값과 UE 콜리전/라인 트레이스로 점검했습니다.",
         proof: "오클루전 디버깅 영상과 함께 차폐/거리감 조정 과정 기록",
         links: [
           {
@@ -105,17 +187,17 @@ const portfolioKo = {
           },
         ],
         breakdown: [
-          {
+      {
             label: "문제",
-            text: "벽 너머 몬스터 소리가 가까운 소리처럼 들려 위험 위치를 잘못 읽게 만드는 구간이 있었습니다.",
+            text: "벽 너머 몬스터 소리가 너무 가깝게 들려 위험 위치를 헷갈리게 만드는 구간이 있었습니다.",
           },
-          {
+      {
             label: "점검 경로",
             text: "Wwise 오클루전 값, UE Collision, Line Trace, 문/벽 구조를 함께 보며 차폐가 걸리는 지점을 확인했습니다.",
           },
-          {
+      {
             label: "결과",
-            text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달감을 조정해 공간 정보를 더 명확하게 만들었습니다.",
+            text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달감을 조정해 거리감과 차폐감을 더 명확하게 만들었습니다.",
           },
         ],
       },
@@ -126,17 +208,17 @@ const portfolioKo = {
           "플레이테스트 피드백을 사운드 우선순위, 믹스 밸런스, 시스템 수정 항목으로 번역해 팀과 공유했습니다.",
         proof: "299명 체험, 평균 4.36/5 피드백 이후 BGM 전환과 UI 피드백 개선",
         breakdown: [
-          {
+      {
             label: "피드백",
             text: "플레이테스트에서 BGM 전환, UI 피드백, 발소리 인지, 공간감 관련 반응을 분리해 확인했습니다.",
           },
-          {
+      {
             label: "판단",
             text: "감상평을 그대로 반영하기보다 우선순위, 믹스, 시스템 조건 중 어디를 바꿀지 판단했습니다.",
           },
-          {
+      {
             label: "공유 방식",
-            text: "기획/프로그래밍과 공유할 수 있도록 문제 현상, 원인 후보, 수정 방향을 짧은 작업 단위로 정리했습니다.",
+            text: "프로그래머가 바로 확인할 수 있도록 문제 현상, 원인 후보, 수정 방향, 에셋 네이밍 기준을 짧은 작업 단위로 정리했습니다.",
           },
         ],
       },
@@ -149,12 +231,12 @@ const portfolioKo = {
       {
         step: "01",
         title: "사운드 목적 정의",
-        text: "캐릭터, 몬스터, UI, 환경별로 플레이어가 알아야 할 정보와 감정 톤을 먼저 정의합니다.",
+        text: "캐릭터, 몬스터, UI, 공간 연출별로 플레이어가 알아야 할 정보와 감정 톤을 먼저 정의합니다.",
       },
       {
         step: "02",
         title: "소스 선택과 편집",
-        text: "라이브러리 소스, 직접 제작한 레이어, 음악 프로덕션 경험을 조합해 SFX를 편집하고 믹스합니다.",
+        text: "보컬 녹음과 테이크 관리, 소스 컷 편집, 타이밍 정리, 레이어 구성, EQ/Compression/Reverb/Delay 믹싱 경험을 SFX 제작에 연결합니다.",
       },
       {
         step: "03",
@@ -173,15 +255,15 @@ const portfolioKo = {
         meta: "Physical Material",
         text: "지면 재질과 이동 상태에 맞춰 발소리 후보를 나누고 랜덤 재생으로 반복감을 줄입니다.",
         deepDive: [
-          {
+      {
             label: "소스",
-            text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나눕니다.",
+            text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나누고, 소스 품질과 밸런스를 먼저 확인합니다.",
           },
-          {
+      {
             label: "변형",
             text: "Wwise Random Container에서 피치와 볼륨 변형을 주어 같은 발소리가 반복되는 느낌을 줄입니다.",
           },
-          {
+      {
             label: "인게임 확인",
             text: "UE Physical Material과 Anim Notify 타이밍을 확인해 지면 변화와 발 접지 순간이 맞게 들리는지 검증합니다.",
           },
@@ -193,9 +275,14 @@ const portfolioKo = {
         text: "타격감, 위험 신호, 피격 확인을 분리해 전투 중에도 필요한 정보가 먼저 들리게 설계합니다.",
       },
       {
-        title: "몬스터 신호음",
-        meta: "Spatial Debug",
-        text: "몬스터 위치감과 차폐감을 조정해 벽 너머 위협과 실제 거리감을 구분하도록 만듭니다.",
+        title: "몬스터/시커 위치 신호",
+        meta: "Spatial / Occlusion",
+        text: "몬스터와 시커의 위치감, 차폐감, 거리감을 조정해 벽 너머 위협과 실제 거리를 구분하도록 만듭니다.",
+      },
+      {
+        title: "앰비언스 공간 연출",
+        meta: "Spatial Audio Reverb",
+        text: "던전 내부 바람 소리 같은 앰비언스에 공간 리버브를 적용해 폐쇄된 유적의 울림과 거리감을 만들었습니다.",
       },
       {
         title: "UI 피드백",
@@ -238,13 +325,13 @@ const portfolioKo = {
       type: "Occlusion / Spatial Audio",
       summary:
         "벽과 문 너머 몬스터 소리의 거리감과 차폐감을 실제 플레이 기준으로 교정한 오디오 디버깅 사례입니다. Wwise 오클루전, Environmental Curves, Diffraction / Transmission, UE 콜리전과 라인 트레이스를 함께 점검했습니다.",
-      href: "https://www.youtube.com/watch?v=dp_Kr3LQ6EE",
+      href: "https://raindrovvv.tistory.com/121",
       media: {
         label: "Audio tech",
-        href: "https://www.youtube.com/watch?v=dp_Kr3LQ6EE",
+        href: "https://raindrovvv.tistory.com/121",
         image: "./assets/game/audio-debugging.webp",
       },
-      cta: "Tech video",
+      cta: "Tech blog",
       connection: {
         label: "Same project",
         role: "Occlusion deep dive",
@@ -363,7 +450,7 @@ const portfolioKo = {
       type: "VENI RAIN",
       summary:
         "6곡으로 구성된 EP입니다. 전곡 작사/작곡에 참여하고 VENIRUS와 편곡, 믹싱/마스터링을 연결하며 음악 프로덕션의 기본기를 쌓았습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/a9de59606c034525b5c844b349e3527c?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=GAmkMyEuLd8",
       coverImage: "./assets/covers/rainshower.jpg",
       cta: "Discography",
@@ -379,8 +466,8 @@ const portfolioKo = {
       period: "2020.12.16",
       type: "VENI RAIN",
       summary:
-        "작사, 작곡, 편곡 협업, 믹싱/마스터링까지 직접 참여한 초기 싱글입니다. VENI RAIN/VENIRUS 체계를 처음 정립한 릴리즈입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+        "작사, 작곡, 편곡 협업, 믹싱/마스터링까지 직접 참여한 초기 싱글입니다. VENI RAIN과 VENIRUS의 공동 제작 흐름이 드러나는 릴리즈입니다.",
+      href: "https://www.notion.so/raingem/d433c3b5faeb4aa7803b1ff28f54469a?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=gLoUqPA4jJg",
       coverImage: "./assets/covers/raindrop.jpg",
       cta: "Discography",
@@ -396,7 +483,7 @@ const portfolioKo = {
       period: "2024.05.13",
       type: "Arthur · VENI RAIN",
       summary:
-        "Arthur와의 외부 협업 싱글입니다. 피처링 보컬, 공동 작곡, VENIRUS 편곡으로 밴드 사운드 프로덕션을 완성했습니다.",
+        "Arthur와의 외부 협업 싱글입니다. 피처링 보컬, 공동 작곡, VENIRUS 편곡으로 얼터너티브 R&B 사운드 프로덕션을 완성했습니다.",
       href: "https://www.youtube.com/watch?v=BgnCh1RIvo4",
       listenHref: "https://www.youtube.com/watch?v=BgnCh1RIvo4",
       coverImage: "./assets/covers/neon-romance.jpg",
@@ -414,7 +501,7 @@ const portfolioKo = {
       type: "VENI RAIN · VENIRUS",
       summary:
         "작사, 작곡, 편곡, 아트워크, 믹싱/마스터링까지 단독으로 완결한 최근 싱글입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/1a35e5b9c8bb80c7a2aee18c44140aab?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=sAp2zHu-kBo",
       cta: "Discography",
       skills: ["Lyrics", "Compose", "Arrange", "Artwork", "Mix/Master"],
@@ -430,7 +517,7 @@ const portfolioKo = {
       type: "Sober · VENIRUS",
       summary:
         "Sober의 EP Romantic Refuge 수록 작업입니다. VENIRUS가 작곡/프로덕션 크레딧으로 연결된 외부 아티스트 협업 사례입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/1a35e5b9c8bb80b091a8d317fe8a12d3?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=knAzWxn1vfE",
       cta: "Discography",
       skills: ["Compose", "Arrange", "Mixing", "VENIRUS"],
@@ -440,8 +527,8 @@ const portfolioKo = {
       period: "2024.01.22",
       type: "VENI RAIN · VENIRUS",
       summary:
-        "작사부터 아트워크, 믹싱/마스터링까지 모두 담당한 EP입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+        "VENI RAIN과 훈도시의 콜라보 EP입니다. 사이버펑크와 포스트 아포칼립스가 섞인 D-town 세계관을 바탕으로 Downtown Man과 Uptown Girl 캐릭터를 디자인하고 비주얼까지 제작했습니다.",
+      href: "https://www.notion.so/raingem/EP-Downtown-Man-809d6c5b10e84b42b545da2fcc82eb2a?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=BKecGY-5h8Q",
       cta: "Discography",
       skills: ["Lyrics", "Compose", "Arrange", "Artwork", "Mix/Master"],
@@ -451,8 +538,8 @@ const portfolioKo = {
       period: "2023.11.16",
       type: "VENIRUS",
       summary:
-        "VENIRUS 크레딧으로 참여한 EP입니다. 코러스, 아트워크, 믹싱/마스터링까지 프로덕션 전반을 담당했습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+        "VENIRUS 크레딧으로 Phonk 장르를 만들어본 EP입니다. 아트워크, 믹싱/마스터링까지 프로덕션 전반을 담당했습니다.",
+      href: "https://www.notion.so/raingem/1a35e5b9c8bb80978ab7d5245615f9ed?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=H8l2GJmKIP8",
       cta: "Discography",
       skills: ["Compose", "Arrange", "Artwork", "Mix/Master", "VENIRUS"],
@@ -463,7 +550,7 @@ const portfolioKo = {
       type: "VENI RAIN",
       summary:
         "VENI RAIN으로 작사/작곡에 참여한 EP입니다. 기존 싱글에서 이어진 음악적 색을 앨범 단위로 확장했습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/be69a5c7f8da4c06a1ddb06e55fc9519?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=7eK011nuAxE&list=OLAK5uy_mwYtC_iGh9SPncl6wwXlyd5XScJpdTPvA",
       cta: "Discography",
       skills: ["Lyrics", "Compose", "Arrange", "Artwork", "Mix/Master"],
@@ -474,7 +561,7 @@ const portfolioKo = {
       type: "VENI RAIN",
       summary:
         "VENI RAIN으로 작사/작곡에 참여한 싱글입니다. 보컬 중심 송라이팅과 프로덕션 감각이 드러나는 작업입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/10a7baa9042f44779f9f64f6460ac877?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=t2L2AJpRm7M&list=OLAK5uy_kD6qyzn7kBhpXPq3nL1qZrQIccj-z0FuI",
       cta: "Discography",
       skills: ["Lyrics", "Compose", "Arrange", "Artwork", "Mix/Master"],
@@ -549,11 +636,11 @@ const portfolioKo = {
     },
     {
       title: "[EP] FORECAST",
-      period: "EP",
+      period: "2020.08.12",
       type: "VENI RAIN · VENIRUS",
       summary:
         "VENI RAIN과 VENIRUS 크레딧으로 함께 발표한 EP입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/a354910350914cc8966ace30f0d42def?source=copy_link",
       listenHref: "https://music.youtube.com/playlist?list=PL0S3gU03wJzjf_YHggWxUAmoMQ6xBQucU",
       coverImage: "./assets/covers/forecast-640.jpg",
       cta: "Discography",
@@ -561,64 +648,64 @@ const portfolioKo = {
     },
     {
       title: "[Single] UNBERELLA",
-      period: "Single",
+      period: "2021.02.15",
       type: "VENI RAIN",
       summary:
         "VENI RAIN의 싱글/비주얼라이저 작업입니다. 음악과 영상이 함께 연결된 릴리즈로 정리했습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/defa757e865547779874643519f482b6?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=6mYuG9W2ZWU&list=OLAK5uy_nHnNIr4Vf7SqMRTIHeOkQvbiGjvL-6EkY",
       cta: "Discography",
       skills: ["Lyrics", "Compose", "Video", "VENI RAIN"],
     },
     {
       title: "[Prod.by] 스내키챈 - 숫자일 뿐",
-      period: "Prod.by",
+      period: "2017.04.04",
       type: "스내키챈 · DJ Wreckx · VENIRUS",
       summary:
         "스내키챈 작업에 VENIRUS 프로듀서 크레딧으로 참여한 외부 협업입니다. 개인 릴리즈 밖에서도 프로덕션을 맡았습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/6b0ee6d70edd40f2a7126f29cb01e3ac?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=WC28-lcyV6s",
       cta: "Discography",
       skills: ["Prod.by", "VENIRUS", "Collaboration"],
     },
     {
       title: "[Prod.by] kumira - 돌연변이",
-      period: "Prod.by",
+      period: "2018.08.29",
       type: "kumira · VENIRUS",
       summary: "kumira 작업에 VENIRUS 프로덕션/편곡 크레딧으로 참여한 외부 협업입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/e349699429ea4cacb6bb67a840b5a18a?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=jhthdbsLv4E",
       cta: "Discography",
       skills: ["Prod.by", "Arrange", "VENIRUS"],
     },
     {
       title: "[Prod.by] kumira - 위험해",
-      period: "Prod.by",
+      period: "2019.01.10",
       type: "kumira · VENIRUS",
       summary:
         "kumira의 싱글 작업에 프로덕션 크레딧으로 참여했습니다. 외부 보컬/래퍼와 호흡을 맞춘 협업입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/d40691e388b14245a0a6dbcf1fb8a887?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=Hh5tF0gvq4g",
       cta: "Discography",
       skills: ["Prod.by", "Collaboration", "VENIRUS"],
     },
     {
       title: "[Prod.by] Holmsted - Survive",
-      period: "Prod.by",
+      period: "2019.10.29",
       type: "Holmsted · VENIRUS",
       summary: "Holmsted의 작업에 VENIRUS 작곡/프로덕션 크레딧으로 참여한 외부 협업입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/3c58871fa15146cdb5668cbb0049b990?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=YQ5DRFveoRk",
       cta: "Discography",
       skills: ["Prod.by", "Compose", "VENIRUS"],
     },
     {
       title: "[Prod.by] kumira - KottonVill : 다락방",
-      period: "Prod.by",
+      period: "2019.03.12",
       type: "kumira · VENIRUS",
       summary:
         "앨범 전곡 프로덕션을 맡은 외부 협업입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/50a9e53196104247a1374461cf069b60?source=copy_link",
       listenHref: "https://music.youtube.com/playlist?list=OLAK5uy_nCxov7KU6806wSy_BDRknr5ZpAVntIsBY",
       coverImage: "./assets/covers/kottonvill-640.jpg",
       cta: "Discography",
@@ -626,22 +713,22 @@ const portfolioKo = {
     },
     {
       title: "[Prod.by & Feat.] IndEgo Aid - 자가격리패키지 : Comma",
-      period: "Prod.by & Feat.",
+      period: "2020.11.19",
       type: "IndEgo Aid · VENI RAIN",
       summary:
         "프로덕션과 피처링으로 동시에 참여한 협업입니다. 보컬과 사운드 메이킹을 함께 맡았습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/27d3e1209e2f45cab909044851d700dc?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=SjDueooVpH0&list=PLsz52Sh1SHNbngvNFONW8Xlq7q0AbypIz",
       cta: "Discography",
       skills: ["Prod.by", "Feature", "Collaboration"],
     },
     {
       title: "[Mixtape] P V R V D V X",
-      period: "Mixtape",
+      period: "2019.11.15",
       type: "VENIRUS",
       summary:
         "전곡 프로듀싱한 믹스테이프입니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/e8ad6d0fec3f49f3bb2e370ba603beb9?source=copy_link",
       listenHref: "https://soundcloud.com/venirain/sets/paradox",
       coverImage: "./assets/covers/paradox.png",
       cta: "Discography",
@@ -649,76 +736,61 @@ const portfolioKo = {
     },
     {
       title: "[Arr.by] 서연고 사이퍼 CINDY",
-      period: "Arr.by",
+      period: "2019.11.28",
       type: "Cypher · VENIRUS",
       summary:
         "Arranged by VENIRUS로 참여한 사이퍼 작업입니다. 작곡뿐 아니라 편곡자로 외부 협업에 참여했습니다.",
-      href: "https://www.notion.so/raingem/VENI-s-Discography-c1529c8e5386413089ac9264644d223c",
+      href: "https://www.notion.so/raingem/316b89045fb544de9000ca7793907bf3?source=copy_link",
       listenHref: "https://www.youtube.com/watch?v=bgQuMXl2L8Y",
       cta: "Discography",
       skills: ["Arr.by", "Arrangement", "VENIRUS"],
     },
   ],
   workTabs: {
-    game: {
-      eyebrow: "Game Audio / BGM",
-      title: "플레이 안에서 작동하는 사운드",
-      text: "Wwise와 Unreal Engine 5 기반 구현, 전투 BGM, 공간감, UI 피드백처럼 플레이어가 바로 알아차리는 작업을 모았습니다.",
-    },
     music: {
       eyebrow: "Music Discography",
-      title: "VENI RAIN / VENIRUS 음악 작업",
-      text: "작사, 작곡, 보컬, 편곡, 믹싱/마스터링까지 직접 다룬 24개 릴리즈를 모았습니다. 게임 오디오와는 별개로 이어온 7년+ 음악 제작 경력입니다.",
+      title: "50+ 발매 트랙으로 쌓은 작곡·편집·믹스/마스터",
+      text: "VENI RAIN / VENIRUS 명의의 50+ 발매 트랙과 7년+ 제작 경험으로 소스 편집, 레이어링, 믹싱/마스터링 감각을 보강합니다.",
     },
   },
   aiLab: {
-    eyebrow: "AI 에이전트 / 구현 워크플로",
-    title: "AI 에이전트를 구현 속도와 검증력으로 전환합니다",
-    titleLines: ["AI 에이전트를", "구현 속도와 검증력으로 전환합니다"],
+    eyebrow: "엔진 툴링 / 구현 워크플로",
+    title: "사운드 구현을 더 빠르게 확인하기 위해 엔진 도구도 직접 만듭니다",
+    titleLines: ["사운드 구현을", "더 빠르게 확인하기 위해", "엔진 도구도 직접 만듭니다"],
     intro:
-      "C++/Blueprint 사운드 로직을 직접 다루되, AI 에이전트를 코드 리뷰, 디버깅, 문서화 파트너로 활용해 구현 리스크를 더 빨리 찾는 방식으로 작업합니다.",
+      "사운드 제작을 중심에 두고, Unreal/Unity에서 반복되는 에셋 조회, 배치 확인, 로그 점검, 작업 기록을 로컬 MCP 도구와 AI 에이전트 연결로 더 빠르게 처리합니다.",
     items: [
       {
-        title: "AI-assisted Implementation Review",
-        type: "C++ / Blueprint / Debugging",
+        title: "UnrealAgent",
+        type: "Unreal Editor / MCP Bridge",
         summary:
-          "사운드 로직을 직접 구현한 뒤 AI 에이전트로 조건 분기, 호출 타이밍, 누락 가능성을 빠르게 재검토합니다.",
+          "Unreal Editor의 상태, Blueprint, Asset, Viewport, Output Log를 로컬 AI 에이전트와 연결하는 MCP 브리지를 제작했습니다.",
         gameAudioUse:
-          "Wwise Event 호출, Physical Material 발소리, 오클루전 디버깅처럼 엔진 안에서 깨지기 쉬운 지점을 체크리스트화합니다.",
+          "Blueprint 확인, Output Log 점검, Viewport 캡처, 에셋 조회처럼 사운드 구현 중 반복되는 확인 작업을 에디터 안에서 빠르게 처리할 수 있게 했습니다.",
         proof:
-          "C++/Blueprint 사운드 로직 구현과 AI 에이전트 기반 코드 검토, 디버깅 질문, QA 기준 정리",
-        href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
-        cta: "Slides p.15",
-        featured: true,
-        tags: ["C++", "Blueprint", "AI Agent", "Debugging"],
+          "0.1.0-alpha 공개 레포 · Unreal Editor 플러그인, 로컬 HTTP MCP 서버, stdio MCP 프록시, Codex/Claude/API Provider 지원",
+        image: "./assets/tooling/unreal-mcp.png",
+        imageAlt: "Unreal Editor 안에서 실행 중인 UnrealAgent 패널",
+        href: "https://github.com/raindrovvv/UnrealAgent",
+        cta: "GitHub",
+        featured: false,
+        tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
       },
       {
-        title: "Prompt-to-Checklist QA",
-        type: "Audio QA / Test Cases",
+        title: "UnityMCP",
+        type: "Unity Editor / Audio Placement Tools",
         summary:
-          "플레이 중 들리는 문제를 AI 에이전트와 함께 원인 후보, 재현 조건, 수정 단위로 쪼개 팀이 바로 확인할 수 있게 정리합니다.",
+          "Unity Editor를 로컬 AI 에이전트와 연결하는 MCP 서버를 제작하고, AudioClip/AudioSource 조회와 3D 사운드/BGM 배치 도구를 포함했습니다.",
         gameAudioUse:
-          "BGM 전환, UI 피드백, 발소리, 벽/문 차폐감 같은 감각 피드백을 테스트 가능한 오디오 QA 항목으로 바꿉니다.",
+          "AudioClip과 AudioSource 상태를 먼저 확인하고, 3D 사운드나 BGM AudioSource 배치를 적용 전 미리 검토할 수 있게 했습니다.",
         proof:
-          "299명 플레이테스트 이후 피드백을 우선순위, 믹스, 시스템 조건으로 분류",
-        href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1#slide=id.p1",
-        cta: "Slides",
+          "Unity 2022.3+ UPM 패키지 · Node.js stdio bridge · 기본 dryRun=true로 적용 전 확인 단계 유지",
+        image: "./assets/tooling/unity-mcp.png",
+        imageAlt: "Unity Editor 안에서 실행 중인 Unity MCP Agent Server 패널",
+        href: "https://github.com/raindrovvv/UnityMCP",
+        cta: "GitHub",
         featured: false,
-        tags: ["QA", "Playtest", "Checklist"],
-      },
-      {
-        title: "Source & Workflow Documentation",
-        type: "Source Management / Team Knowledge",
-        summary:
-          "AI 에이전트로 정리한 기준을 그대로 믿지 않고, 실제 플레이 검증 결과와 연결해 팀이 재사용할 문서로 정제합니다.",
-        gameAudioUse:
-          "보이스/소스 네이밍, Wwise 구조, 수정 요청, 사운드 QA 기준을 반복 가능한 형태로 관리합니다.",
-        proof:
-          "성공 기준, 반복 테스트 환경, 전문가 디버깅 절차를 작업 기준으로 번역",
-        href: "https://raindrovvv.tistory.com/132",
-        cta: "Read insight",
-        featured: false,
-        tags: ["Resource Management", "QA", "Team Knowledge"],
+        tags: ["Unity", "MCP", "C#", "Node.js", "AudioSource"],
       },
     ],
   },
@@ -746,19 +818,19 @@ const portfolioKo = {
         period: "2025.08-09",
         type: "Prototype / User Test",
         summary:
-          "5주 프로토타이핑 챌린지에서 멘토링과 테스트 피드백을 반복하며 전투 흐름, 조작 감각, 사운드/UX 반응을 빠르게 검증했습니다.",
-        proof: "2025.08.09-09.13 활동, 주차별 피드백 노트, 온라인 테스트 플레이",
+          "5주 프로토타이핑 챌린지에서 멘토링과 테스트 피드백을 받아 전투 흐름, 조작감, 사운드/UX 반응을 빠르게 검증했습니다.",
+        proof: "2025.08.09-09.13 활동, 주차별 피드백과 온라인 테스트 플레이",
         image: "./assets/activity/smilegate-prototyping-challenge.png",
-        imageAlt: "스마일게이트 인디게임 프로토타이핑 챌린지 플레이테스트 현장",
-        href: "https://page.onstove.com/devlog/kr/search/ALL/가디언?searchType=CONTENTS&page=1&direction=LATEST",
+        imageAlt: "스마일게이트 인디게임 프로토타이핑 챌린지 활동 이미지",
+        href: "https://raindrovvv.tistory.com/117",
         cta: "활동 기록",
-        secondaryHref: "https://www.youtube.com/watch?v=4RKvebf9ySM",
-        secondaryCta: "영상",
-        tags: ["Prototype Iteration", "Mentoring", "Test Play"],
+        secondaryHref: "https://raindrovvv.tistory.com/118",
+        secondaryCta: "테스트 회고",
+        tags: ["Prototype", "User Test", "Combat UX"],
       },
       {
-        title: "Gemini 3 서울 해커톤",
-        period: "2026.02",
+        title: "Gemini 3 Seoul Hackathon",
+        period: "2025.11",
         type: "AI / Deployment",
         summary:
           "400명 규모 선발 해커톤에서 Gemini API, Vertex AI, Vercel 배포를 다루며 AI 기반 웹 게임 데모를 마감 전까지 작동하게 만들었습니다.",
@@ -786,25 +858,27 @@ const portfolioKo = {
   },
   practice: [
     {
-      title: "Gameplay-first audio",
+      title: "플레이 기준 사운드 설계",
       text: "사운드를 분위기 장식이 아니라 플레이어가 상황, 거리, 위험, 인터랙션을 이해하는 정보로 설계합니다.",
     },
     {
-      title: "Implementation-ready workflow",
-      text: "FL Studio에서 소스를 만들고 Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 C++/Blueprint, Anim Notify, 데이터 테이블에 적용합니다.",
+      title: "소스 품질 중심 제작",
+      text: "FL Studio 기반 제작, 보컬 녹음/테이크 관리, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스 품질 관리에 연결합니다.",
     },
     {
-      title: "Audio QA & polishing",
-      text: "실제 플레이 테스트에서 묻히는 구간, 과한 피드백, 재생 오류, 공간감 문제를 확인하고 볼륨과 우선순위를 조정합니다.",
+      title: "구현까지 이어지는 워크플로",
+      text: "Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 C++/Blueprint, Anim Notify, 데이터 테이블에 적용하고 디버깅합니다.",
     },
     {
-      title: "AI-agent collaboration",
-      text: "AI 에이전트를 단순 대체재가 아니라 코드 검토, 디버깅 가설, QA 체크리스트를 빠르게 만드는 협업 도구로 활용합니다.",
+      title: "QA와 협업 문서화",
+      text: "플레이테스트에서 발견한 문제를 우선순위, 원인 후보, 수정 단위로 정리하고 네이밍/문서화 기준까지 팀과 공유합니다.",
     },
   ],
   links: [
     { label: "Email", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
     { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
+    { label: "UnrealAgent", icon: "UE", href: "https://github.com/raindrovvv/UnrealAgent" },
+    { label: "UnityMCP", icon: "U", href: "https://github.com/raindrovvv/UnityMCP" },
     { label: "Wwise Blog", icon: "✎", href: "https://raindrovvv.tistory.com/tag/Wwise" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
     { label: "Instagram", icon: "◎", href: "https://www.instagram.com/raindrovvv/" },
@@ -1239,116 +1313,43 @@ const createEnglishPortfolio = () => {
   };
 
   en.aiLab = {
-    eyebrow: "AI Agents / Implementation Workflow",
-    title: "Turning AI agents into implementation speed and verification",
-    titleLines: ["Turning AI agents into", "implementation speed and verification"],
+    eyebrow: "Engine Tooling / Implementation Workflow",
+    title: "I build engine tools to verify sound implementation faster",
+    titleLines: ["I build engine tools", "to verify sound implementation", "faster"],
     intro:
-      "I still own the C++/Blueprint sound logic, but I use AI agents as review, debugging, and documentation partners to find implementation risks faster.",
+      "Sound work stays first, while repeated Unreal/Unity asset lookup, placement checks, log review, and work notes are handled faster through local MCP tooling and AI-agent connections I built.",
     items: [
       {
-        title: "AI-assisted Implementation Review",
-        type: "C++ / Blueprint / Debugging",
+        title: "UnrealAgent",
+        type: "Unreal Editor / MCP Bridge",
         summary:
-          "After implementing sound logic myself, I use AI agents to re-check branches, call timing, and missing-event risks.",
+          "I built an MCP bridge that connects Unreal Editor state, Blueprint, assets, viewport capture, and Output Log workflows to local AI agents.",
         gameAudioUse:
-          "Wwise Event calls, Physical Material footsteps, and occlusion debugging become explicit checklists for fragile engine-side behavior.",
+          "It helps handle repeated Blueprint checks, Output Log review, viewport capture, and asset lookup while checking engine-side sound implementation.",
         proof:
-          "C++/Blueprint sound logic implementation, AI-agent code review, debugging prompts, and QA criteria",
-        href: en.aiLab.items[0].href,
-        cta: "Slides p.15",
-        featured: true,
-        tags: ["C++", "Blueprint", "AI Agent", "Debugging"],
-      },
-      {
-        title: "Prompt-to-Checklist QA",
-        type: "Audio QA / Test Cases",
-        summary:
-          "I turn in-play audio issues into likely causes, reproduction conditions, and small fix units the team can verify.",
-        gameAudioUse:
-          "BGM transitions, UI feedback, footsteps, and wall/door obstruction feedback become testable audio QA items.",
-        proof:
-          "299-player playtest feedback categorized into priority, mix, and system-condition tasks",
-        href: en.aiLab.items[1].href,
-        cta: "Slides",
+          "0.1.0-alpha public repo with Unreal Editor plugin, local HTTP MCP server, stdio MCP proxy, and Codex/Claude/API provider support",
+        image: "./assets/tooling/unreal-mcp.png",
+        imageAlt: "UnrealAgent panel running inside Unreal Editor",
+        href: "https://github.com/raindrovvv/UnrealAgent",
+        cta: "GitHub",
         featured: false,
-        tags: ["QA", "Playtest", "Checklist"],
+        tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
       },
       {
-        title: "Source & Workflow Documentation",
-        type: "Source Management / Team Knowledge",
+        title: "UnityMCP",
+        type: "Unity Editor / Audio Placement Tools",
         summary:
-          "I do not treat AI output as final; I refine it against playtest results and turn it into reusable team documentation.",
+          "I built an MCP server that connects Unity Editor to local AI agents and includes AudioClip/AudioSource lookup plus 3D sound and BGM placement tools.",
         gameAudioUse:
-          "Voice/source naming, Wwise structure, revision requests, and sound QA standards are organized into repeatable workflows.",
+          "AudioClip and AudioSource state can be inspected first, then 3D sound or BGM AudioSource placement can be reviewed before applying changes.",
         proof:
-          "Success criteria, repeatable test environments, and expert debugging steps translated into working standards",
-        href: en.aiLab.items[2].href,
-        cta: "Read insight",
+          "Unity 2022.3+ UPM package, Node.js stdio bridge, and dryRun=true defaults for a review step before editor changes",
+        image: "./assets/tooling/unity-mcp.png",
+        imageAlt: "Unity MCP Agent Server panel running inside Unity Editor",
+        href: "https://github.com/raindrovvv/UnityMCP",
+        cta: "GitHub",
         featured: false,
-        tags: ["Resource Management", "QA", "Team Knowledge"],
-      },
-    ],
-  };
-
-  en.activities = {
-    eyebrow: "Public Activities",
-    title: "Production tested with real players",
-    intro:
-      "Showcases, challenges, hackathons, and game jams where I built under deadlines, then turned player and mentor feedback into audio implementation, QA, and deployment decisions.",
-    items: [
-      {
-        title: "G-STAR 2025 Guardian & Seeker",
-        period: "2025.11",
-        type: "Public Showcase / Field QA",
-        summary:
-          "From a two-day BEXCO showcase with 299 visitors and a 4.36/5 survey result, I turned headset mix issues, input bugs, balance pain points, and tutorial behavior into an actionable backlog.",
-        proof: "Two-day BEXCO booth, 169 first-day visitors, 299 total visitors, 4.36/5 average feedback",
-        image: en.activities.items[0].image,
-        imageAlt: "G-STAR 2025 Guardian & Seeker booth",
-        href: en.activities.items[0].href,
-        cta: "Read recap",
-        tags: ["Field QA", "Player Feedback", "Audio Mix"],
-      },
-      {
-        title: "Smilegate Indie Game Prototyping Challenge",
-        period: "2025.08-09",
-        type: "Prototype / User Test",
-        summary:
-          "Across a five-week prototyping challenge, I used mentoring and test feedback to validate combat flow, control feel, and sound/UX response quickly.",
-        proof: "Aug 9-Sep 13, 2025 activity, weekly feedback notes, and online test play",
-        image: en.activities.items[1].image,
-        imageAlt: "Smilegate Indie Game Prototyping Challenge playtest",
-        href: en.activities.items[1].href,
-        cta: "Activity log",
-        secondaryHref: en.activities.items[1].secondaryHref,
-        secondaryCta: "Video",
-        tags: ["Prototype Iteration", "Mentoring", "Test Play"],
-      },
-      {
-        title: "Gemini 3 Seoul Hackathon",
-        period: "2026.02",
-        type: "AI / Deployment",
-        summary:
-          "In a selective hackathon of about 400 participants, I used Gemini API, Vertex AI, and Vercel to get an AI-powered web game demo working before the deadline.",
-        proof: "Retrospective notes on about 1,500 applicants, 400 selected participants, Gemini API image generation, and Vercel/Git troubleshooting",
-        image: en.activities.items[2].image,
-        imageAlt: "Gemini 3 Seoul Hackathon key visual",
-        href: en.activities.items[2].href,
-        cta: "Read recap",
-        tags: ["AI Prototype", "Deployment", "Demo"],
-      },
-      {
-        title: "1st Sparta Game Jam",
-        period: "2025.03.01-03",
-        type: "Audio Art",
-        summary:
-          "In a three-day Unity game jam, I shaped the mood of a story-driven RPG through original BGM/SFX and an AI-assisted art workflow.",
-        proof: "Original BGM/SFX plus an art pipeline from concept setting to prompting, curation, and paintover",
-        image: en.activities.items[3].image,
-        imageAlt: "1st Sparta Game Jam project key visual",
-        href: en.activities.items[3].href,
-        cta: "Game jam note",
-        tags: ["Unity Game Jam", "BGM/SFX", "AI Art Workflow"],
+        tags: ["Unity", "MCP", "C#", "Node.js", "AudioSource"],
       },
     ],
   };
@@ -1359,43 +1360,44 @@ const createEnglishPortfolio = () => {
       text: "I design sound as information that helps players understand state, distance, danger, and interaction, rather than as decoration.",
     },
     {
+      title: "Source-quality production",
+      text: "I connect FL Studio production, vocal recording/take management, source cutting, timing cleanup, layering, and mixing to SFX source-quality control.",
+    },
+    {
       title: "Implementation-ready workflow",
-      text: "I create sources in FL Studio, structure Wwise Events, Switches, RTPCs, and containers, then apply them through UE5 C++/Blueprint, Anim Notify, and data tables.",
+      text: "I structure Wwise Events, Switches, RTPCs, and containers, then apply and debug them through UE5 C++/Blueprint, Anim Notify, and data tables.",
     },
     {
-      title: "Audio QA & polishing",
-      text: "In playtests, I identify masked cues, excessive feedback, playback errors, and spatial issues, then tune volume and priority.",
-    },
-    {
-      title: "AI-agent collaboration",
-      text: "I use AI agents as collaboration tools for code review, debugging hypotheses, and QA checklists, not as a substitute for implementation ownership.",
+      title: "Audio QA & collaboration",
+      text: "I turn playtest issues into priorities, likely causes, fix units, and team-facing naming/documentation standards.",
     },
   ];
 
   return en;
 };
-
 const portfolioEn = createEnglishPortfolio();
 
 const uiLocales = {
   ko: {
     htmlLang: "ko",
-    title: "Jungmin Cha | Game Audio Designer who codes",
+    title: "Jungmin Cha | Game Sound Designer",
     navReel: "Reel",
+    navBgm: "Game Audio",
+    navFit: "Role Fit",
     navTech: "Tech Audio",
     navSfx: "SFX Breakdown",
-    navWork: "Work",
+    navWork: "Discography",
     navActivities: "Activities",
     navContact: "Contact",
     email: "Email",
     orbitSound: "Sound Designer",
-    orbitAudio: "Audio Implementer",
-    orbitField: "Design to Implementation",
-    heroStack: "Wwise · Unreal Engine 5 · C++ / Blueprint",
-    heroPrimary: "Watch reel",
-    heroSecondary: "View tech cases",
+    orbitAudio: "SFX + BGM",
+    orbitField: "Unity / Wwise / UE5",
+    heroStack: "Sound Design · Implementation · Debug · QA",
+    heroPrimary: "Watch audio reel",
+    heroSecondary: "View game audio cases",
     featuredCase: "Featured case",
-    featuredCaseCta: "View tech case",
+    featuredCaseCta: "View audio case",
     toolchain: "Toolchain",
     consolePrompt: "Play audio to hear the Wwise logic in action.",
     consoleStatusRunning: "Interactive audio reel · running",
@@ -1405,19 +1407,17 @@ const uiLocales = {
     consolePlayAria: "오디오 재생",
     consolePauseAria: "오디오 일시정지",
     reelEyebrow: "데모릴",
-    reelTitle: "Guardian & Seeker의 오디오 설계와 구현 과정을 담았습니다",
-    workEyebrow: "주요 작업",
-    workTitle: "플레이 안에서 작동한 사운드와 음악 작업",
-    workTabGame: "Game Audio / BGM",
-    workTabMusic: "Music Discography",
+    reelTitle: "액션게임 사운드가 플레이 안에서 설계되고 검증되는 과정을 담았습니다",
+    workEyebrow: "음악 디스코그래피",
+    workTitle: "작곡, 편곡, 믹싱/마스터링까지 이어진 릴리즈 작업",
     strengthsEyebrow: "강점",
-    practiceTitle: "제작부터 구현, QA까지 이어지는 워크플로",
+    practiceTitle: "소스 제작부터 구현, 디버깅, QA까지 이어지는 워크플로",
     contactEyebrow: "연락",
     contactTitle1: "플레이에 맞춰",
     contactTitle2: "반응하는 사운드를",
     contactTitle3: "함께 만듭니다",
     scopeLabels: { content: "내용", implementation: "구현", proof: "근거", code: "코드", article: "기술 아티클" },
-    aiLabLabels: { gameAudioUse: "파이프라인 적용", proof: "근거" },
+    aiLabLabels: { gameAudioUse: "활용 방식", proof: "구현 근거" },
     proofLabel: "근거",
     viewBreakdown: "View breakdown",
     footstepDeepDive: "Open footstep deep dive",
@@ -1432,22 +1432,24 @@ const uiLocales = {
   },
   en: {
     htmlLang: "en",
-    title: "Jungmin Cha | Game Audio Designer who codes",
+    title: "Jungmin Cha | Game Sound Designer",
     navReel: "Reel",
+    navBgm: "Game Audio",
+    navFit: "Role Fit",
     navTech: "Tech Audio",
     navSfx: "SFX Breakdown",
-    navWork: "Work",
+    navWork: "Discography",
     navActivities: "Activities",
     navContact: "Contact",
     email: "Email",
     orbitSound: "Sound Designer",
-    orbitAudio: "Audio Implementer",
-    orbitField: "Design to Implementation",
-    heroStack: "Wwise · Unreal Engine 5 · C++ / Blueprint",
-    heroPrimary: "Watch reel",
-    heroSecondary: "View tech cases",
+    orbitAudio: "SFX + BGM",
+    orbitField: "Unity / Wwise / UE5",
+    heroStack: "Sound Design · Implementation · Debug · QA",
+    heroPrimary: "Watch audio reel",
+    heroSecondary: "View game audio cases",
     featuredCase: "Featured case",
-    featuredCaseCta: "View tech case",
+    featuredCaseCta: "View audio case",
     toolchain: "Toolchain",
     consolePrompt: "Play audio to hear the Wwise logic in action.",
     consoleStatusRunning: "Interactive audio reel · running",
@@ -1457,13 +1459,11 @@ const uiLocales = {
     consolePlayAria: "Play audio",
     consolePauseAria: "Pause audio",
     reelEyebrow: "Demo Reel",
-    reelTitle: "Guardian & Seeker audio design and implementation in practice",
-    workEyebrow: "Selected Work",
-    workTitle: "Sound and music work built for play",
-    workTabGame: "Game Audio / BGM",
-    workTabMusic: "Music Discography",
+    reelTitle: "Action-game audio design and QA inside playable builds",
+    workEyebrow: "Music Discography",
+    workTitle: "Released work across composition, arrangement, mix and master",
     strengthsEyebrow: "Strengths",
-    practiceTitle: "From sound creation to implementation and QA",
+    practiceTitle: "From source production to implementation, debugging, and QA",
     contactEyebrow: "Contact",
     contactTitle1: "Let’s build audio",
     contactTitle2: "that responds",
@@ -1584,6 +1584,17 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
 const getListenHref = (project) => project.listenHref || (project.cta === "Listen" ? project.href : "");
 
+const getProjectPeriodTime = (project) => {
+  const match = String(project.period || "").match(/^(\d{4})(?:\.(\d{1,2}))?(?:\.(\d{1,2}))?/);
+  if (!match) return 0;
+
+  const [, year, month = "1", day = "1"] = match;
+  return Date.UTC(Number(year), Number(month) - 1, Number(day));
+};
+
+const sortProjectsByRecentPeriod = (projects) =>
+  [...projects].sort((a, b) => getProjectPeriodTime(b) - getProjectPeriodTime(a));
+
 const getCoverData = (project, index) => {
   const [from, to] = coverPalettes[index % coverPalettes.length];
   const youtubeId = getYouTubeId(project.coverImage || getListenHref(project));
@@ -1644,14 +1655,15 @@ const renderWorkMoreToggle = (activeTab, totalCount) => {
   button.setAttribute("aria-expanded", String(showAllMusicProjects));
 };
 
-const renderProjects = (activeTab = "game") => {
+const renderProjects = (activeTab = "music") => {
   const list = document.querySelector("#project-list");
   if (!list) return;
 
-  const allProjects = activeTab === "music" ? portfolio.musicProjects : portfolio.projects;
-  const shouldLimitMusic = activeTab === "music" && !showAllMusicProjects;
+  activeTab = "music";
+  const allProjects = sortProjectsByRecentPeriod(portfolio.musicProjects);
+  const shouldLimitMusic = !showAllMusicProjects;
   const projects = shouldLimitMusic ? allProjects.slice(0, MUSIC_PREVIEW_LIMIT) : allProjects;
-  const cacheKey = `${activeTab}:${activeTab === "music" && showAllMusicProjects ? "all" : "preview"}`;
+  const cacheKey = `music:${showAllMusicProjects ? "all" : "preview"}`;
 
   renderWorkIntro(activeTab);
   renderWorkMoreToggle(activeTab, allProjects.length);
@@ -1806,6 +1818,84 @@ const renderInlineLinks = (links = [], className = "") => {
   `;
 };
 
+const selectedBgmMedia = {
+  "Guardian & Seeker": { image: "./assets/game/guardian-seeker.webp", label: "Guardian & Seeker gameplay" },
+  "조선 십이기사단": { image: "./assets/game/joseon-knights.webp", label: "조선 십이기사단 gameplay" },
+  "Twelve Knights of Joseon": { image: "./assets/game/joseon-knights.webp", label: "Twelve Knights of Joseon gameplay" },
+  "SYMBIO": { image: "./assets/game/symbio.webp", label: "SYMBIO gameplay" },
+  "레인보우 가디언": { image: "./assets/game/rainbow-guardian.webp", label: "레인보우 가디언 gameplay" },
+  "Rainbow Guardian": { image: "./assets/game/rainbow-guardian.webp", label: "Rainbow Guardian gameplay" },
+  "Flight Record": { image: "./assets/game/flight-record.webp", label: "Flight Record interactive media" },
+};
+
+const getSelectedBgmMedia = (item) => item.image ? { image: item.image, label: item.imageAlt || item.title } : selectedBgmMedia[item.title];
+const renderSelectedBgm = () => {
+  const eyebrow = document.querySelector("#selected-bgm-eyebrow");
+  const title = document.querySelector("#selected-bgm-title");
+  const list = document.querySelector("#selected-bgm-list");
+  const section = portfolio.selectedBgm;
+
+  if (!eyebrow || !title || !list || !section) return;
+
+  eyebrow.textContent = section.eyebrow;
+  title.textContent = section.title;
+  list.innerHTML = section.items
+    .map((item, index) => {
+      const media = getSelectedBgmMedia(item);
+
+      return `
+        <article class="bgm-card${index === 0 ? " is-featured" : ""}">
+          ${
+            media
+              ? `<a class="bgm-media" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${item.title} ${uiCopy.watch}`)}">
+                  <img src="${escapeHtml(media.image)}" alt="${escapeHtml(media.label)}" loading="lazy" decoding="async" />
+                  <span>${escapeHtml(uiCopy.watch)}</span>
+                </a>`
+              : ""
+          }
+          <div class="bgm-card-top">
+            <span>${String(index + 1).padStart(2, "0")}</span>
+            <span>${escapeHtml(item.context)}</span>
+          </div>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.goal)}</p>
+          <div class="bgm-detail-list">
+            <div class="bgm-detail-row"><strong>Role</strong><span>${escapeHtml(item.role)}</span></div>
+            <div class="bgm-detail-row"><strong>Implementation</strong><span>${escapeHtml(item.implementation)}</span></div>
+            <div class="bgm-detail-row"><strong>${escapeHtml(uiCopy.proofLabel)}</strong><span>${escapeHtml(item.proof)}</span></div>
+          </div>
+          <a class="tag card-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(uiCopy.watch)}</a>
+        </article>
+      `;
+    })
+    .join("");
+  refreshTextEditorTargets();
+};
+const renderRoleFit = () => {
+  const eyebrow = document.querySelector("#role-fit-eyebrow");
+  const title = document.querySelector("#role-fit-title");
+  const list = document.querySelector("#role-fit-list");
+  const section = portfolio.roleFit;
+
+  if (!eyebrow || !title || !list || !section) return;
+
+  eyebrow.textContent = section.eyebrow;
+  title.textContent = section.title;
+  list.innerHTML = section.items
+    .map(
+      (item, index) => `
+        <article class="fit-card">
+          <span class="fit-card-index">${String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h3>${escapeHtml(item.requirement)}</h3>
+            <p>${escapeHtml(item.evidence)}</p>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+  refreshTextEditorTargets();
+};
 const renderTechAudio = () => {
   const eyebrow = document.querySelector("#tech-audio-eyebrow");
   const title = document.querySelector("#tech-audio-title");
@@ -1820,7 +1910,7 @@ const renderTechAudio = () => {
   lead.innerHTML = `
     <p>${escapeHtml(techAudio.intro)}</p>
     <div class="tech-signal-row" aria-label="${escapeHtml(uiCopy.techKeywordsLabel)}">
-      ${["Wwise", "Unreal Engine 5", "C++ / Blueprint", "AI Agent Workflow", "Anim Notify", "Occlusion"]
+      ${["Wwise", "Unreal Engine 5", "C++ / Blueprint", "Physical Material", "Anim Notify", "Occlusion"]
         .map((item) => `<span>${escapeHtml(item)}</span>`)
         .join("")}
     </div>
@@ -1927,34 +2017,29 @@ const renderAiLab = () => {
 
   if (!eyebrow || !title || !intro || !featureRoot || !logRoot || !aiLab) return;
 
-  const feature = aiLab.items.find((item) => item.featured) || aiLab.items[0];
-  const logs = aiLab.items.filter((item) => item !== feature);
-
   eyebrow.textContent = aiLab.eyebrow;
   title.innerHTML = renderAiTitle(aiLab);
   intro.textContent = aiLab.intro;
+  featureRoot.innerHTML = "";
 
-  featureRoot.innerHTML = `
-    <div>
-      <span class="ai-lab-type">${escapeHtml(feature.type)}</span>
-      <h3>${escapeHtml(feature.title)}</h3>
-      <p class="ai-lab-summary">${escapeHtml(feature.summary)}</p>
-      ${renderAiDetails(feature)}
-      <div class="ai-tag-list">${renderAiTags(feature.tags)}</div>
-    </div>
-    <a class="tag card-link ai-card-link" href="${escapeHtml(feature.href)}" target="_blank" rel="noreferrer">${escapeHtml(feature.cta)}</a>
-  `;
-
-  logRoot.innerHTML = logs
+  logRoot.innerHTML = aiLab.items
     .map(
       (item) => `
-        <article class="ai-log-card">
+        <article class="ai-log-card ai-tool-card">
           <div>
+            ${
+              item.image
+                ? `<a class="ai-tool-media" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${item.title} ${item.cta}`)}">
+                    <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" decoding="async" />
+                  </a>`
+                : ""
+            }
             <div class="ai-log-top">
               <span class="ai-log-type">${escapeHtml(item.type)}</span>
             </div>
             <h3>${escapeHtml(item.title)}</h3>
             <p class="ai-log-summary">${escapeHtml(item.summary)}</p>
+            ${renderAiDetails(item, { showProof: true })}
             <div class="ai-tag-list">${renderAiTags(item.tags)}</div>
           </div>
           <a class="tag card-link ai-card-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.cta)}</a>
@@ -1964,7 +2049,6 @@ const renderAiLab = () => {
     .join("");
   refreshTextEditorTargets();
 };
-
 const renderReelNotes = () => {
   const list = document.querySelector("#reel-notes");
   list.innerHTML = portfolio.reelNotes
@@ -2148,7 +2232,7 @@ const setupSecretTextEditor = () => {
   const replaceHistoryOverrides = (value) => {
     try {
       history.replaceState(
-        {
+      {
           ...(history.state && typeof history.state === "object" ? history.state : {}),
           [TEXT_EDIT_STORAGE_KEY]: value,
         },
@@ -2624,12 +2708,14 @@ const setupSecretTextEditor = () => {
       fillFields();
       renderFocus();
       renderReelNotes();
+      renderSelectedBgm();
+      renderRoleFit();
       renderTechAudio();
       renderSfxBreakdown();
       renderAiLab();
       document.querySelector("#project-list").dataset.activeWork = "";
       document.querySelector("#project-list").dataset.workCacheKey = "";
-      renderProjects(document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game");
+      renderProjects("music");
       renderActivities();
       renderPractice();
       renderLinks();
@@ -2640,21 +2726,7 @@ const setupSecretTextEditor = () => {
 };
 
 const setupWorkTabs = () => {
-  activateWorkTab = (activeTab = "game") => {
-    document.querySelectorAll("[data-work-tab]").forEach((item) => {
-      const isActive = item.dataset.workTab === activeTab;
-      item.classList.toggle("is-active", isActive);
-      item.setAttribute("aria-selected", String(isActive));
-    });
-
-    renderProjects(activeTab);
-  };
-
-  document.querySelectorAll("[data-work-tab]").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      activateWorkTab(tab.dataset.workTab);
-    });
-  });
+  activateWorkTab = () => renderProjects("music");
 };
 
 const setupWorkMoreToggle = () => {
@@ -2667,16 +2739,18 @@ const setupWorkMoreToggle = () => {
   });
 };
 
-const renderAllContent = ({ activeTab = document.querySelector("[data-work-tab].is-active")?.dataset.workTab || "game" } = {}) => {
+const renderAllContent = () => {
   fillFields();
   renderFocus();
   renderReelNotes();
+  renderSelectedBgm();
+  renderRoleFit();
   renderTechAudio();
   renderSfxBreakdown();
   document.querySelector("#project-list").dataset.activeWork = "";
   document.querySelector("#project-list").dataset.workCacheKey = "";
   workViewCache.clear();
-  activateWorkTab(activeTab);
+  renderProjects("music");
   renderAiLab();
   renderActivities();
   renderPractice();
@@ -3639,7 +3713,7 @@ const setupOrbitLinks = () => {
       if (!link.dataset.workJump) return;
       event.preventDefault();
 
-      activateWorkTab(link.dataset.workJump);
+      activateWorkTab();
       document.querySelector("#work")?.scrollIntoView({ behavior: "smooth", block: "start" });
       history.replaceState(history.state, document.title, "#work");
     });
@@ -3777,9 +3851,11 @@ const setupModal = () => {
 fillFields();
 renderFocus();
 renderReelNotes();
+renderSelectedBgm();
+renderRoleFit();
 renderTechAudio();
 renderSfxBreakdown();
-renderProjects();
+renderProjects("music");
 renderAiLab();
 renderActivities();
 renderPractice();
