@@ -3,7 +3,7 @@ const portfolioKo = {
   role: "Game Sound Designer · Sound Design / Implementation / Debug",
   headline: "차정민 Game Sound Designer",
   intro:
-    "PC/콘솔 액션게임에서 전투, 이동, UI, 공간감이 플레이 중 또렷하게 느껴지도록 사운드를 설계하고 제작합니다. 필요한 경우 Wwise·UE5·Unity 안에서 구현과 디버깅, QA까지 직접 이어갑니다.",
+    "PC/콘솔 액션게임에서 전투, 이동, UI, 공간감이 플레이 중 또렷하게 느껴지도록 사운드를 설계하고 제작합니다. Wwise·UE5·Unity 안에서 구현과 디버깅, QA까지 작업합니다.",
   years: "7년+",
   focusCount: "299명",
   source: "4.36/5",
@@ -30,7 +30,7 @@ const portfolioKo = {
   ],
   selectedBgm: {
     eyebrow: "선별 게임 오디오",
-    title: "전투 피드백과 공간감, SFX/BGM이 실제 플레이에서 들리는 방식을 정리했습니다",
+    title: "전투 피드백과 공간감, SFX/BGM를 어떻게 구현했는지 정리했습니다",
     items: [
       {
         title: "Guardian & Seeker",
@@ -121,7 +121,7 @@ const portfolioKo = {
   ],
   techAudio: {
     eyebrow: "기술 오디오 / 인게임 적용",
-    title: "Wwise/UE5 구현에서 Unity 트리거까지 이어지는 오디오 시스템",
+    title: "Wwise/UE5 구현에서\nUnity 까지 이어지는 오디오 시스템",
     intro:
       "Guardian & Seeker에서는 Wwise/UE5 오디오 구현과 디버깅을 맡았고, Flight Record에서는 Unity C# 음악 트리거와 상호작용을 설계했습니다.",
     items: [
@@ -226,7 +226,7 @@ const portfolioKo = {
   },
   sfxBreakdown: {
     eyebrow: "효과음 브레이크다운",
-    title: "효과음 제작부터 인게임 검증까지 한 흐름으로 정리했습니다",
+    title: "효과음 제작부터 인게임 검증까지!",
     process: [
       {
         step: "01",
@@ -240,13 +240,13 @@ const portfolioKo = {
       },
       {
         step: "03",
-        title: "미들웨어 설정",
-        text: "Wwise Random/Blend Container, Switch, RTPC, 볼륨/피치 변형으로 반복감을 줄이고 상태 변화를 만듭니다.",
+        title: "레이어 구성",
+        text: "임팩트, 질감, 잔향처럼 역할이 다른 레이어를 나누고 필요한 정보가 먼저 들리도록 밸런스를 잡습니다.",
       },
       {
         step: "04",
-        title: "인게임 QA",
-        text: "실제 플레이에서 묻히는 소리, 과한 피드백, 거리/차폐 오류를 잡아 우선순위와 밸런스를 조정합니다.",
+        title: "반복감 조정",
+        text: "짧은 효과음이 반복 재생될 때 어색하지 않도록 길이, 타이밍, 피치, 볼륨 변화를 먼저 설계합니다.",
       },
     ],
     examples: [
@@ -261,11 +261,11 @@ const portfolioKo = {
           },
       {
             label: "변형",
-            text: "Wwise Random Container에서 피치와 볼륨 변형을 주어 같은 발소리가 반복되는 느낌을 줄입니다.",
+            text: "피치와 볼륨 변형 폭을 정해 같은 발소리가 기계적으로 반복되는 느낌을 줄입니다.",
           },
       {
-            label: "인게임 확인",
-            text: "UE Physical Material과 Anim Notify 타이밍을 확인해 지면 변화와 발 접지 순간이 맞게 들리는지 검증합니다.",
+            label: "타이밍",
+            text: "지면 변화와 발 접지 순간에 맞도록 소스 길이와 어택 타이밍을 정리합니다.",
           },
         ],
       },
@@ -749,8 +749,8 @@ const portfolioKo = {
   workTabs: {
     music: {
       eyebrow: "Music Discography",
-      title: "50+ 발매 트랙으로 쌓은 작곡·편집·믹스/마스터",
-      text: "VENI RAIN / VENIRUS 명의의 50+ 발매 트랙과 7년+ 제작 경험으로 소스 편집, 레이어링, 믹싱/마스터링 감각을 보강합니다.",
+      title: "차곡차곡 쌓아 온 50+ 트랙",
+      text: "VENI RAIN / VENIRUS 이라는 이름으로 50+ 발매 트랙과 7년+ 제작 경험으로 소스 편집, 레이어링, 믹싱/마스터링 경험을 쌓았습니다.",
     },
   },
   aiLab: {
@@ -798,15 +798,15 @@ const portfolioKo = {
     eyebrow: "대외 활동",
     title: "현장에서 검증한 제작 경험",
     intro:
-      "전시, 챌린지, 해커톤, 게임잼에서 제한된 시간 안에 만들고 실제 플레이어·멘토 피드백을 다음 오디오 구현, QA, 배포 판단으로 연결했습니다.",
+      "아래와 같은 대외활동에서 제한된 시간 안에 만들고, 플레이어·멘토 피드백을 다음 구현, QA 판단으로 연결했습니다.",
     items: [
       {
         title: "G-STAR 2025 Guardian & Seeker",
         period: "2025.11",
         type: "Public Showcase / Field QA",
         summary:
-          "299명 현장 플레이와 4.36/5 설문을 바탕으로 헤드폰 믹스, 입력 버그, 밸런스, 튜토리얼 UX를 다음 수정 과제로 정리했습니다.",
-        proof: "BEXCO 2일 부스 운영, 첫날 169명·총 299명 방문, 평균 4.36/5 피드백",
+          "현장 플레이 관찰과 설문 피드백을 바탕으로 헤드폰 믹스, 입력 버그, 밸런스, 튜토리얼 UX를 다음 수정 과제로 정리했습니다.",
+        proof: "BEXCO 2일 부스 운영 · 현장 플레이 관찰, 설문 피드백, 개선 항목 정리",
         image: "./assets/activity/gstar-2025.png",
         imageAlt: "G-STAR 2025 Guardian & Seeker 현장 부스",
         href: "https://raindrovvv.tistory.com/108",
@@ -858,20 +858,16 @@ const portfolioKo = {
   },
   practice: [
     {
-      title: "플레이 기준 사운드 설계",
-      text: "사운드를 분위기 장식이 아니라 플레이어가 상황, 거리, 위험, 인터랙션을 이해하는 정보로 설계합니다.",
+      title: "플레이 기준",
+      text: "사운드를 장식이 아니라 플레이어가 상황, 거리, 위험, 인터랙션을 이해하는 정보로 설계합니다.",
     },
     {
-      title: "소스 품질 중심 제작",
-      text: "FL Studio 기반 제작, 보컬 녹음/테이크 관리, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스 품질 관리에 연결합니다.",
+      title: "소스 품질",
+      text: "녹음, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스의 밀도와 선명도로 연결합니다.",
     },
     {
-      title: "구현까지 이어지는 워크플로",
-      text: "Wwise Event, Switch, RTPC, 컨테이너 구조를 정리한 뒤 UE5 C++/Blueprint, Anim Notify, 데이터 테이블에 적용하고 디버깅합니다.",
-    },
-    {
-      title: "QA와 협업 문서화",
-      text: "플레이테스트에서 발견한 문제를 우선순위, 원인 후보, 수정 단위로 정리하고 네이밍/문서화 기준까지 팀과 공유합니다.",
+      title: "공유 가능한 정리",
+      text: "문제 현상, 원인 후보, 수정 방향, 에셋 네이밍 기준을 팀이 바로 확인할 수 있는 단위로 정리합니다.",
     },
   ],
   links: [
@@ -879,7 +875,7 @@ const portfolioKo = {
     { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
     { label: "UnrealAgent", icon: "UE", href: "https://github.com/raindrovvv/UnrealAgent" },
     { label: "UnityMCP", icon: "U", href: "https://github.com/raindrovvv/UnityMCP" },
-    { label: "Wwise Blog", icon: "✎", href: "https://raindrovvv.tistory.com/tag/Wwise" },
+    { label: "Blog", icon: "✎", href: "https://raindrovvv.tistory.com/" },
     { label: "SoundCloud", icon: "☁", href: "https://soundcloud.com/venirain" },
     { label: "Instagram", icon: "◎", href: "https://www.instagram.com/raindrovvv/" },
     {
@@ -1046,17 +1042,17 @@ const createEnglishPortfolio = () => {
       {
         step: "02",
         title: "Source & Edit",
-        text: "I combine library sources, custom layers, and music production experience to edit and mix SFX.",
+        text: "I combine library sources, custom layers, and music production experience to shape SFX source quality.",
       },
       {
         step: "03",
-        title: "Middleware Setup",
-        text: "Random/Blend Containers, Switches, RTPCs, and pitch/volume variation reduce repetition and support state changes.",
+        title: "Layer Design",
+        text: "I separate impact, texture, tail, and feedback layers so the most important cue reads first.",
       },
       {
         step: "04",
-        title: "In-game QA",
-        text: "I tune priority and balance by checking masked sounds, excessive feedback, and distance/occlusion issues in play.",
+        title: "Variation",
+        text: "I plan length, timing, pitch, and volume variation before repeated short sounds become fatiguing.",
       },
     ],
     examples: [
@@ -1071,11 +1067,11 @@ const createEnglishPortfolio = () => {
           },
           {
             label: "Variation",
-            text: "Pitch and volume variation in Wwise Random Containers reduces repeated-footstep fatigue.",
+            text: "Pitch and volume variation reduce repeated-footstep fatigue.",
           },
           {
-            label: "In-game check",
-            text: "Physical Material and Anim Notify timing are checked against surface changes and foot contact.",
+            label: "Timing",
+            text: "Source length and attack timing are prepared around surface changes and foot contact.",
           },
         ],
       },
@@ -1356,20 +1352,16 @@ const createEnglishPortfolio = () => {
 
   en.practice = [
     {
-      title: "Gameplay-first audio",
-      text: "I design sound as information that helps players understand state, distance, danger, and interaction, rather than as decoration.",
+      title: "Gameplay-first",
+      text: "I design sound as information that helps players understand state, distance, danger, and interaction.",
     },
     {
-      title: "Source-quality production",
-      text: "I connect FL Studio production, vocal recording/take management, source cutting, timing cleanup, layering, and mixing to SFX source-quality control.",
+      title: "Source quality",
+      text: "I connect recording, source cutting, timing cleanup, layering, and mixing to dense, readable SFX sources.",
     },
     {
-      title: "Implementation-ready workflow",
-      text: "I structure Wwise Events, Switches, RTPCs, and containers, then apply and debug them through UE5 C++/Blueprint, Anim Notify, and data tables.",
-    },
-    {
-      title: "Audio QA & collaboration",
-      text: "I turn playtest issues into priorities, likely causes, fix units, and team-facing naming/documentation standards.",
+      title: "Team-readable notes",
+      text: "I organize issues, likely causes, fix direction, and asset naming into units the team can act on.",
     },
   ];
 
@@ -1411,7 +1403,7 @@ const uiLocales = {
     workEyebrow: "음악 디스코그래피",
     workTitle: "작곡, 편곡, 믹싱/마스터링까지 이어진 릴리즈 작업",
     strengthsEyebrow: "강점",
-    practiceTitle: "소스 제작부터 구현, 디버깅, QA까지 이어지는 워크플로",
+    practiceTitle: "작업 원칙",
     contactEyebrow: "연락",
     contactTitle1: "플레이에 맞춰",
     contactTitle2: "반응하는 사운드를",
@@ -1463,7 +1455,7 @@ const uiLocales = {
     workEyebrow: "Music Discography",
     workTitle: "Released work across composition, arrangement, mix and master",
     strengthsEyebrow: "Strengths",
-    practiceTitle: "From source production to implementation, debugging, and QA",
+    practiceTitle: "Working principles",
     contactEyebrow: "Contact",
     contactTitle1: "Let’s build audio",
     contactTitle2: "that responds",
@@ -2817,11 +2809,57 @@ const setupActiveNav = () => {
 
   let pendingActiveId = "";
   let pendingActiveTimer = 0;
+  let activeFrame = 0;
+
+  const getProbeY = () => Math.max(96, Math.ceil(header?.getBoundingClientRect().height || 64) + 72);
 
   const setActive = (targetId) => {
     sectionLinks.forEach(({ link, target }) => {
-      link.classList.toggle("is-active", target.id === targetId);
+      const isActive = target.id === targetId;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
     });
+  };
+
+  const getCurrentSectionId = () => {
+    const probeY = getProbeY();
+    const current = sectionLinks.find(({ target }) => {
+      const rect = target.getBoundingClientRect();
+      return rect.top <= probeY && rect.bottom > probeY;
+    });
+
+    if (current) return current.target.id;
+
+    const previous = [...sectionLinks]
+      .reverse()
+      .find(({ target }) => target.getBoundingClientRect().top <= probeY);
+
+    return previous?.target.id || sectionLinks[0].target.id;
+  };
+
+  const updateActive = () => {
+    activeFrame = 0;
+    const currentId = getCurrentSectionId();
+
+    if (pendingActiveId) {
+      if (currentId === pendingActiveId) {
+        pendingActiveId = "";
+      } else {
+        setActive(pendingActiveId);
+        return;
+      }
+    }
+
+    setActive(currentId);
+  };
+
+  const requestActiveUpdate = () => {
+    if (activeFrame) return;
+    activeFrame = window.requestAnimationFrame(updateActive);
   };
 
   const holdActiveDuringScroll = (targetId) => {
@@ -2829,12 +2867,16 @@ const setupActiveNav = () => {
     window.clearTimeout(pendingActiveTimer);
     pendingActiveTimer = window.setTimeout(() => {
       pendingActiveId = "";
+      requestActiveUpdate();
     }, 900);
   };
 
   const hashTarget = location.hash ? location.hash.slice(1) : "";
   if (sectionLinks.some(({ target }) => target.id === hashTarget)) {
     setActive(hashTarget);
+    holdActiveDuringScroll(hashTarget);
+  } else {
+    updateActive();
   }
 
   links.forEach((link) => {
@@ -2847,34 +2889,10 @@ const setupActiveNav = () => {
     });
   });
 
-  if (!("IntersectionObserver" in window)) return;
-
-  const headerOffset = Math.max(0, Math.ceil(header?.offsetHeight || 64));
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntries = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-      if (pendingActiveId) {
-        if (visibleEntries.some((entry) => entry.target.id === pendingActiveId)) {
-          setActive(pendingActiveId);
-          pendingActiveId = "";
-        }
-        return;
-      }
-
-      if (visibleEntries[0]) {
-        setActive(visibleEntries[0].target.id);
-      }
-    },
-    {
-      rootMargin: `-${headerOffset}px 0px -58% 0px`,
-      threshold: [0.05, 0.2, 0.45],
-    },
-  );
-
-  sectionLinks.forEach(({ target }) => observer.observe(target));
+  window.addEventListener("scroll", requestActiveUpdate, { passive: true });
+  window.addEventListener("resize", requestActiveUpdate);
+  window.addEventListener("hashchange", requestActiveUpdate);
+  window.setTimeout(requestActiveUpdate, 120);
 };
 
 const setupMarqueeScroll = () => {
