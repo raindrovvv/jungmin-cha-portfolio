@@ -883,11 +883,6 @@ const portfolioKo = {
       icon: "◈",
       href: "https://www.notion.so/raingem/Portfolio-b507bf5ce7334a40b5dabc2fce226300",
     },
-    {
-      label: "Slides",
-      icon: "▣",
-      href: "https://docs.google.com/presentation/d/1Jmfm_5ZRj9EfSarHVeVsUaEku4qlAIsZJJmyfgGs5ZM/edit?slide=id.p1",
-    },
   ],
 };
 
@@ -2811,7 +2806,11 @@ const setupActiveNav = () => {
   let pendingActiveTimer = 0;
   let activeFrame = 0;
 
-  const getProbeY = () => Math.max(96, Math.ceil(header?.getBoundingClientRect().height || 64) + 72);
+  const getProbeY = () => {
+    const headerProbe = Math.ceil(header?.getBoundingClientRect().height || 64) + 72;
+    const readingProbe = window.innerHeight * 0.45;
+    return Math.max(96, Math.min(readingProbe, headerProbe + 320));
+  };
 
   const setActive = (targetId) => {
     sectionLinks.forEach(({ link, target }) => {
