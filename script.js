@@ -3,12 +3,12 @@ const portfolioKo = {
   role: "Game Sound Designer · Sound Design / Implementation / Debug",
   headline: "차정민 Game Sound Designer",
   intro:
-    "PC/콘솔 액션게임에서 전투, 이동, UI, 공간감이 플레이 중 또렷하게 느껴지도록 사운드를 설계하고 제작합니다. Wwise·UE5·Unity 안에서 구현과 디버깅, QA까지 작업합니다.",
+    "PC/콘솔 액션게임에서 전투, 이동, UI, 공간감이 플레이 중 또렷하게 읽히도록 사운드를 설계하고 제작합니다. Wwise·UE5·Unity에서 구현, 디버깅, QA까지 이어갑니다.",
   years: "7년+",
   focusCount: "299명",
   source: "4.36/5",
   contactNote:
-    "전투 리듬, 조작 피드백, 거리감과 차폐감이 소리로 먼저 읽히도록 설계하고, 필요한 경우 엔진 구현과 디버깅, QA까지 직접 이어갑니다.",
+    "전투 리듬, 조작 피드백, 거리감과 차폐감이 먼저 들리도록 설계하고, 필요한 경우 엔진 구현과 디버깅, QA까지 이어갑니다.",
   footerName: "차정민 Game Sound Designer Portfolio",
   focus: [
     "Action Game Sound Design",
@@ -30,50 +30,50 @@ const portfolioKo = {
   ],
   selectedBgm: {
     eyebrow: "선별 게임 오디오",
-    title: "전투 피드백과 공간감, SFX/BGM를 어떻게 구현했는지 정리했습니다",
+    title: "전투 피드백, 공간감, SFX/BGM 구현 과정을 정리했습니다",
     items: [
       {
         title: "Guardian & Seeker",
         context: "4v1 PvP 전투 사운드",
-        role: "Combat SFX/BGM direction / in-game transition / mix balance",
-        goal: "전투 진입, 추격 압박, 몬스터/시커/UI 피드백이 겹치는 상황에서도 위험 신호와 긴장도가 묻히지 않게 조정했습니다.",
-        implementation: "Wwise Event / Switch / RTPC, UE5 C++ / Blueprint, 191개 오디오 에셋, 299명 플레이테스트 QA",
-        proof: "G-STAR 2025 출품 · 평균 4.36/5 피드백을 반영해 조정",
+        role: "전투 SFX/BGM 디렉션 / 인게임 전환 / 믹스 밸런스",
+        goal: "전투 진입, 추격 압박, 몬스터·시커·UI 피드백이 겹쳐도 위험 신호와 긴장도가 묻히지 않도록 조정했습니다.",
+        implementation: "Wwise Event/Switch/RTPC와 UE5 C++/Blueprint로 191개 오디오 에셋을 연결하고, 299명 플레이테스트 기준으로 QA했습니다.",
+        proof: "G-STAR 2025 출품 · 평균 4.36/5 피드백 반영",
         href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
       },
       {
         title: "조선 십이기사단",
         context: "2D 액션/플랫폼 파이터",
-        role: "Combat SFX 40 / BGM 3 tracks / creative direction",
-        goal: "전통 모티프가 빠른 대전 흐름을 방해하지 않도록 전투 리듬과 캐릭터 톤을 분리했습니다.",
-        implementation: "UE5 프로젝트 내 BGM/SFX 적용, 전투/스킬 피드백과 함께 검증",
-        proof: "BGM 3곡 · SFX 40종 · Team Lead / PM / Creative Director",
+        role: "전투 SFX 40종 / BGM 3곡 / 크리에이티브 디렉션",
+        goal: "한국적 세계관에 맞춘 사운드 콘셉트를 잡고, 빠른 대전 흐름 안에서도 전투와 UI 피드백이 또렷하게 읽히도록 설계했습니다.",
+        implementation: "판소리·북 계열 UI 피드백, 캐릭터 발소리, 전투 타격음, 배경 앰비언스, 국악+EDM/trap BGM을 UE5 프로젝트에 적용",
+        proof: "BGM 3곡 · SFX 40종 · 팀 리드 / PM / 크리에이티브 디렉터",
         href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
       },
       {
         title: "SYMBIO",
-        context: "액션/TPS 시네마틱 톤",
-        role: "SFX/BGM production / cinematic audio direction",
-        goal: "폐쇄적인 연구소 세계관에 맞춰 공간감, 긴장감, 컷씬의 감정선을 일관된 톤으로 맞췄습니다.",
-        implementation: "UE5 gameplay scene and cinematic cutscene audio placement",
+        context: "TPS/FPS 액션 서바이벌",
+        role: "BGM/SFX 제작 / 시네마틱 오디오 디렉션",
+        goal: "내면의 괴물과 갈등하는 군인의 생존기를 바탕으로, 긴장감 있는 전투 톤과 폐쇄된 연구소 공간감을 사운드로 구현했습니다.",
+        implementation: "실내 잔향이 반영된 총기음, 재질 기반 발소리, Formant Modulation 괴물 보이스, Rock/Ambience 기반 BGM 구성",
         proof: "BGM/SFX, UI/UX, 레벨 디자인, 시네마틱 컷씬 담당",
         href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
       },
       {
         title: "레인보우 가디언",
         context: "로그라이트형 테마 타워 RPG",
-        role: "Theme planning / BGM arrangement / SFX production",
-        goal: "텍스트 중심 플레이에서도 층별 성격이 들리도록 탐험, 전투, 상점, 제단의 분위기를 나눴습니다.",
-        implementation: "Console RPG flow에 맞춘 층별 BGM/SFX 구성",
+        role: "테마 기획 / BGM 편곡 / SFX 제작",
+        goal: "텍스트 중심 플레이에서도 층마다 성격이 들리도록 탐험, 전투, 상점, 제단의 분위기를 구분했습니다.",
+        implementation: "콘솔 RPG 흐름에 맞춘 층별 BGM/SFX 구성",
         proof: "8개 테마 타워 · 게임 콘셉트/스토리/BGM/SFX 담당",
         href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
       },
       {
         title: "Flight Record",
         context: "앨범을 활용한 인터랙티브 미디어",
-        role: "Album track adaptation / Unity music trigger",
-        goal: "발매 음악의 정서를 탐험 동선에 맞춰 배치해 감상형 음악을 인터랙티브 경험으로 옮겼습니다.",
-        implementation: "Unity C# interaction and music trigger design",
+        role: "앨범 트랙 각색 / Unity 음악 트리거",
+        goal: "사용자 행동이 곧 음악 경험이 되도록, 직접 제작한 앨범 음악을 움직임과 공간 이동에 맞춰 반응하게 구성했습니다.",
+        implementation: "Unity C# 음악 트리거, 오디오 리액티브 오브젝트, 인게임 볼륨 밸런싱, 레벨 시퀀스 기반 오디오 전개 설계",
         proof: "비행 앨범 수록곡 초안 3곡 활용 · 프로젝트 리더 / PM",
         href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
       },
@@ -81,68 +81,68 @@ const portfolioKo = {
   },
   roleFit: {
     eyebrow: "인게임 사운드 디자인 경험",
-    title: "설계, 구현, 디버깅까지 플레이 안에서 검증한 경험",
+    title: "설계부터 구현, 디버깅까지 플레이 안에서 검증했습니다",
     items: [
       {
         requirement: "전투/캐릭터/몬스터 피드백",
-        evidence: "Guardian & Seeker에서 전투 진입, 추격, UI, 몬스터/시커 신호를 플레이 우선순위에 맞춰 설계",
+        evidence: "Guardian & Seeker에서 전투 진입, 추격 상황, UI 조작, 몬스터/시커 경고음이 동시에 들릴 때 먼저 들려야 할 신호의 우선순위를 정했습니다.",
       },
       {
         requirement: "공간 연출과 차폐 디버깅",
-        evidence: "던전 앰비언스의 Spatial Audio Reverb, DistanceToPlayer/Occlusion RTPC, UE Collision/Line Trace로 공간감과 차폐감을 조정",
+        evidence: "던전 앰비언스의 Spatial Audio Reverb, DistanceToPlayer/Occlusion RTPC, UE Collision/Line Trace로 거리감과 차폐감을 조정",
       },
       {
-        requirement: "Material 기반 SFX 적용",
-        evidence: "Physical Material 발소리 후보를 나누고 Anim Notify, C++/Blueprint 이벤트와 연결해 지면 변화가 들리도록 구성",
+        requirement: "Physical Material 기반 SFX 적용",
+        evidence: "Physical Material로 흙, 돌, 금속 같은 지면 성질을 나누고, 캐릭터 발이 닿는 Anim Notify 시점에 지면별 발소리가 재생되도록 C++/Blueprint 이벤트와 연결했습니다.",
       },
       {
         requirement: "소스 편집/리소스 구조화와 QA",
-        evidence: "보컬 녹음·테이크 관리, 소스 컷 편집·타이밍·레이어·믹싱 경험을 바탕으로 191개 오디오 에셋과 SFX 40종을 정리",
+        evidence: "보컬 녹음·테이크 관리, 소스 컷 편집·타이밍·레이어·믹싱 경험을 바탕으로 191개 오디오 에셋과 SFX 40종을 구조화",
       },
       {
         requirement: "BGM 제작과 협업 문서화",
-        evidence: "50+ 발매 트랙과 게임 BGM 제작 경험, 프로그래머 친화적인 오디오 에셋 네이밍/문서화 경험",
+        evidence: "50+ 발매 트랙과 게임 BGM 제작 경험, 프로그래머가 바로 확인할 수 있는 오디오 에셋 네이밍/문서화 경험",
       },
     ],
   },
   reelNotes: [
     {
-      title: "액션 전투 사운드를 검증한 4v1 PvP 사례",
-      text: "Guardian & Seeker에서 UGS_AudioComponentBase, Monster/Seeker 오디오 컴포넌트, UI 오디오 시스템으로 Wwise와 UE5를 연결했습니다.",
+      title: "4v1 PvP 전투에서 검증한 액션 사운드",
+      text: "Guardian & Seeker에서 UGS_AudioComponentBase, Monster/Seeker 오디오 컴포넌트, UI 오디오 시스템을 통해 Wwise와 UE5를 연결했습니다.",
     },
     {
-      title: "Wwise·UE 적용부터 C++/Blueprint 로직까지",
+      title: "Wwise·UE 적용과 C++/Blueprint 로직",
       text: "DistanceToPlayer, AttenuationMode, OcclusionDisable RTPC를 C++ UPROPERTY로 관리하고 Event, Switch, RTPC, Anim Notify를 플레이 상태에 맞춰 연결했습니다.",
     },
     {
       title: "플레이 테스트로 사운드 우선순위와 QA 검증",
-      text: "299명 플레이테스트(평균 4.36/5) 피드백을 바탕으로 BGM 전환, 발소리, 오클루전, UI 피드백을 세밀하게 조정했습니다.",
+      text: "299명 플레이테스트(평균 4.36/5) 피드백을 바탕으로 BGM 전환, 발소리, 오클루전, UI 피드백을 다시 조정했습니다.",
     },
   ],
   techAudio: {
     eyebrow: "기술 오디오 / 인게임 적용",
-    title: "Wwise/UE5 구현에서\nUnity 까지 이어지는 오디오 시스템",
+    title: "Wwise/UE5 구현에서\nUnity까지 이어지는 오디오 시스템",
     intro:
-      "Guardian & Seeker에서는 Wwise/UE5 오디오 구현과 디버깅을 맡았고, Flight Record에서는 Unity C# 음악 트리거와 상호작용을 설계했습니다.",
+      "Guardian & Seeker에서는 Wwise/UE5 오디오 구현과 디버깅을 담당했고, Flight Record에서는 Unity C# 음악 트리거와 상호작용을 설계했습니다.",
     items: [
       {
         title: "Wwise 시스템 설계",
         type: "Event / Switch / RTPC",
         summary:
-          "전투 중 BGM, 몬스터, UI 피드백이 겹칠 때 플레이어가 먼저 들어야 할 신호를 기준으로 Event, Switch, RTPC, 컨테이너 구조를 나눴습니다.",
+          "전투 중 BGM, 몬스터, UI 피드백이 겹칠 때 플레이어가 먼저 읽어야 할 신호를 기준으로 Event, Switch, RTPC, 컨테이너 구조를 나눴습니다.",
         proof: "191개 오디오 에셋을 역할과 우선순위 기준으로 분류하고 Wwise 구조에 연결",
         breakdown: [
       {
             label: "문제",
-            text: "전투, 탐색, UI, 몬스터 사운드가 동시에 재생될 때 무엇이 우선 들려야 하는지 정리해야 했습니다.",
+            text: "전투, 탐색, UI, 몬스터 사운드가 동시에 재생될 때 어떤 신호가 먼저 들려야 하는지 정리해야 했습니다.",
           },
       {
             label: "Wwise 구조",
-            text: "Event, Switch, RTPC, Random Container를 역할별로 나누고 반복 재생되는 효과음에는 변형 폭을 줬습니다.",
+            text: "Event, Switch, RTPC, Random Container를 역할별로 나누고 반복되는 효과음에는 피치와 볼륨 변형 폭을 줬습니다.",
           },
       {
             label: "개선 방향",
-            text: "단순 재생 중심 구조에서 상태와 거리, 이벤트 목적에 따라 반응하는 구조로 정리했습니다.",
+            text: "단순 재생이 아니라 상태, 거리, 이벤트 목적에 따라 반응하는 구조로 정리했습니다.",
           },
         ],
       },
@@ -170,7 +170,7 @@ const portfolioKo = {
           },
       {
             label: "AI 에이전트 활용",
-            text: "AI 에이전트를 코드 리뷰와 디버깅 파트너로 활용해 C++/Blueprint 로직의 조건, 호출 타이밍, 누락 이벤트를 빠르게 점검했습니다.",
+            text: "AI 에이전트를 코드 리뷰와 디버깅에 활용해 C++/Blueprint 로직의 조건, 호출 타이밍, 누락 이벤트를 점검했습니다.",
           },
         ],
       },
@@ -178,7 +178,7 @@ const portfolioKo = {
         title: "런타임 디버깅",
         type: "Occlusion / Collision",
         summary:
-          "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달감을 Wwise 값과 UE 콜리전/라인 트레이스로 점검했습니다.",
+          "벽과 문 너머 몬스터 소리의 차폐감, 거리감, 전달 정도를 Wwise 값과 UE 콜리전/라인 트레이스로 점검했습니다.",
         proof: "오클루전 디버깅 영상과 함께 차폐/거리감 조정 과정 기록",
         links: [
           {
@@ -197,7 +197,7 @@ const portfolioKo = {
           },
       {
             label: "결과",
-            text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달감을 조정해 거리감과 차폐감을 더 명확하게 만들었습니다.",
+            text: "멀리 있는 소리와 막힌 소리가 구분되도록 필터, 볼륨, 전달 정도를 조정해 거리감과 차폐감을 더 명확하게 만들었습니다.",
           },
         ],
       },
@@ -214,7 +214,7 @@ const portfolioKo = {
           },
       {
             label: "판단",
-            text: "감상평을 그대로 반영하기보다 우선순위, 믹스, 시스템 조건 중 어디를 바꿀지 판단했습니다.",
+            text: "피드백을 그대로 옮기기보다 우선순위, 믹스, 시스템 조건 중 무엇을 바꿀지 판단했습니다.",
           },
       {
             label: "공유 방식",
@@ -246,7 +246,7 @@ const portfolioKo = {
       {
         step: "04",
         title: "반복감 조정",
-        text: "짧은 효과음이 반복 재생될 때 어색하지 않도록 길이, 타이밍, 피치, 볼륨 변화를 먼저 설계합니다.",
+        text: "짧은 효과음이 반복될 때 어색하지 않도록 길이, 타이밍, 피치, 볼륨 변화를 먼저 설계합니다.",
       },
     ],
     examples: [
@@ -282,12 +282,12 @@ const portfolioKo = {
       {
         title: "앰비언스 공간 연출",
         meta: "Spatial Audio Reverb",
-        text: "던전 내부 바람 소리 같은 앰비언스에 공간 리버브를 적용해 폐쇄된 유적의 울림과 거리감을 만들었습니다.",
+        text: "던전 내부 바람 소리 같은 앰비언스에 공간 리버브를 적용해 폐쇄된 유적의 울림과 거리감을 만듭니다.",
       },
       {
         title: "UI 피드백",
         meta: "2D / Priority",
-        text: "전투와 BGM 위에서도 조작 성공, 선택, 경고 피드백이 짧고 명확하게 들리도록 다듬습니다.",
+        text: "전투와 BGM 위에서도 조작 성공, 선택, 경고 피드백이 짧고 명확하게 들리도록 정리합니다.",
       },
     ],
   },
@@ -324,7 +324,7 @@ const portfolioKo = {
       period: "Troubleshooting",
       type: "Occlusion / Spatial Audio",
       summary:
-        "벽과 문 너머 몬스터 소리의 거리감과 차폐감을 실제 플레이 기준으로 교정한 오디오 디버깅 사례입니다. Wwise 오클루전, Environmental Curves, Diffraction / Transmission, UE 콜리전과 라인 트레이스를 함께 점검했습니다.",
+        "벽과 문 너머 몬스터 소리의 거리감과 차폐감을 실제 플레이 기준으로 조정한 오디오 디버깅 사례입니다. Wwise 오클루전, Environmental Curves, Diffraction / Transmission, UE 콜리전과 라인 트레이스를 함께 점검했습니다.",
       href: "https://raindrovvv.tistory.com/121",
       media: {
         label: "Audio tech",
@@ -350,7 +350,7 @@ const portfolioKo = {
       period: "2025.04.18",
       type: "UE5 / Platform Fighter",
       summary:
-        "조선 말기 맵을 배경으로 한 멀티플레이 플랫폼 파이터 프로토타입입니다. Team Lead, PM, Creative Director로 참여하며 BGM/SFX뿐 아니라 Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조처럼 게임플레이 C++ 구조에도 관여했습니다.",
+        "조선 말기 맵을 배경으로 한 멀티플레이 플랫폼 파이터 프로토타입입니다. 팀 리드, PM, 크리에이티브 디렉터로 참여하며 BGM/SFX뿐 아니라 Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조 등 게임플레이 C++ 구조에도 관여했습니다.",
       href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
       media: {
         label: "Gameplay demo",
@@ -362,7 +362,7 @@ const portfolioKo = {
       scope: {
         content: "한국 전통 모티프 기반 BGM, 전투 SFX, UI/캐릭터/맵 아이콘",
         implementation: "Buff & StatComponent, DeathVolume, Knight 3종 스킬 설계 보조, BGM/SFX 구현",
-        proof: "담당: Team Lead, PM, Creative Director · BGM 3트랙, SFX 40종 · UE5 C++ 게임플레이 구조 경험",
+        proof: "담당: 팀 리드, PM, 크리에이티브 디렉터 · BGM 3트랙, SFX 40종 · UE5 C++ 게임플레이 구조 경험",
       },
     },
     {
@@ -390,7 +390,7 @@ const portfolioKo = {
       period: "2025.01.16",
       type: "Text RPG / Console",
       summary:
-        "8가지 콘셉트의 미로형 타워를 탐험하는 콘솔 텍스트 RPG입니다. 게임 콘셉트와 스토리, 맵 시스템, BGM 작편곡, 효과음 제작을 맡아 층마다 뚜렷한 분위기와 감정선을 만들었습니다.",
+        "8개 콘셉트의 미로형 타워를 탐험하는 콘솔 텍스트 RPG입니다. 게임 콘셉트와 스토리, 맵 시스템, BGM 작편곡, 효과음 제작을 맡아 층마다 다른 분위기와 감정선을 만들었습니다.",
       href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
       media: {
         label: "Console RPG demo",
@@ -750,15 +750,15 @@ const portfolioKo = {
     music: {
       eyebrow: "Music Discography",
       title: "차곡차곡 쌓아 온 50+ 트랙",
-      text: "VENI RAIN / VENIRUS 이라는 이름으로 50+ 발매 트랙과 7년+ 제작 경험으로 소스 편집, 레이어링, 믹싱/마스터링 경험을 쌓았습니다.",
+      text: "VENI RAIN / VENIRUS 이라는 이름으로 50+ 트랙을 발매하며 7년+ 동안 소스 편집, 레이어링, 믹싱/마스터링 경험을 쌓았습니다.",
     },
   },
   aiLab: {
     eyebrow: "엔진 툴링 / 구현 워크플로",
-    title: "사운드 구현을 더 빠르게 확인하기 위해 엔진 도구도 직접 만듭니다",
-    titleLines: ["사운드 구현을", "더 빠르게 확인하기 위해", "엔진 도구도 직접 만듭니다"],
+    title: "사운드 구현을 더 빠르게 확인하려고 엔진 도구도 직접 만듭니다",
+    titleLines: ["사운드 구현을", "더 빠르게 확인하려고", "엔진 도구도 직접 만듭니다"],
     intro:
-      "사운드 제작을 중심에 두고, Unreal/Unity에서 반복되는 에셋 조회, 배치 확인, 로그 점검, 작업 기록을 로컬 MCP 도구와 AI 에이전트 연결로 더 빠르게 처리합니다.",
+      "사운드 제작을 중심에 두고, Unreal/Unity에서 반복되는 에셋 조회, 배치 확인, 로그 점검, 작업 기록을 로컬 MCP 도구와 AI 에이전트 연결로 줄입니다.",
     items: [
       {
         title: "UnrealAgent",
@@ -766,7 +766,7 @@ const portfolioKo = {
         summary:
           "Unreal Editor의 상태, Blueprint, Asset, Viewport, Output Log를 로컬 AI 에이전트와 연결하는 MCP 브리지를 제작했습니다.",
         gameAudioUse:
-          "Blueprint 확인, Output Log 점검, Viewport 캡처, 에셋 조회처럼 사운드 구현 중 반복되는 확인 작업을 에디터 안에서 빠르게 처리할 수 있게 했습니다.",
+          "Blueprint 확인, Output Log 점검, Viewport 캡처, 에셋 조회처럼 사운드 구현 중 반복되는 확인 작업을 에디터 안에서 처리할 수 있게 했습니다.",
         proof:
           "0.1.0-alpha 공개 레포 · Unreal Editor 플러그인, 로컬 HTTP MCP 서버, stdio MCP 프록시, Codex/Claude/API Provider 지원",
         image: "./assets/tooling/unreal-mcp.png",
@@ -782,7 +782,7 @@ const portfolioKo = {
         summary:
           "Unity Editor를 로컬 AI 에이전트와 연결하는 MCP 서버를 제작하고, AudioClip/AudioSource 조회와 3D 사운드/BGM 배치 도구를 포함했습니다.",
         gameAudioUse:
-          "AudioClip과 AudioSource 상태를 먼저 확인하고, 3D 사운드나 BGM AudioSource 배치를 적용 전 미리 검토할 수 있게 했습니다.",
+          "AudioClip과 AudioSource 상태를 먼저 확인하고, 3D 사운드나 BGM AudioSource 배치를 적용 전에 검토할 수 있게 했습니다.",
         proof:
           "Unity 2022.3+ UPM 패키지 · Node.js stdio bridge · 기본 dryRun=true로 적용 전 확인 단계 유지",
         image: "./assets/tooling/unity-mcp.png",
@@ -798,7 +798,7 @@ const portfolioKo = {
     eyebrow: "대외 활동",
     title: "현장에서 검증한 제작 경험",
     intro:
-      "아래와 같은 대외활동에서 제한된 시간 안에 만들고, 플레이어·멘토 피드백을 다음 구현, QA 판단으로 연결했습니다.",
+      "아래와 같은 대외활동에서 제한된 시간 안에 만들고, 플레이어·멘토 피드백을 다음 구현과 QA 판단으로 연결했습니다.",
     items: [
       {
         title: "G-STAR 2025 Guardian & Seeker",
@@ -833,7 +833,7 @@ const portfolioKo = {
         period: "2025.11",
         type: "AI / Deployment",
         summary:
-          "400명 규모 선발 해커톤에서 Gemini API, Vertex AI, Vercel 배포를 다루며 AI 기반 웹 게임 데모를 마감 전까지 작동하게 만들었습니다.",
+          "400명 규모 선발 해커톤에서 Gemini API, Vertex AI, Vercel 배포를 다루며 AI 기반 웹 게임 데모를 마감 전까지 작동 가능한 상태로 만들었습니다.",
         proof: "회고 기준 약 1,500명 신청·400여 명 선발, Gemini API 이미지 생성, Vercel/Git 연동 문제 해결",
         image: "./assets/activity/gemini-3-seoul-hackathon.png",
         imageAlt: "Gemini 3 서울 해커톤 대표 이미지",
@@ -846,7 +846,7 @@ const portfolioKo = {
         period: "2025.03.01-03",
         type: "Audio Art",
         summary:
-          "3일 Unity 게임잼에서 스토리형 RPG의 분위기를 잡고, 직접 제작한 BGM/SFX와 AI 보조 아트 워크플로로 시청각 몰입도를 만들었습니다.",
+          "3일 Unity 게임잼에서 스토리형 RPG의 분위기를 잡고, 직접 제작한 BGM/SFX와 AI 보조 아트 워크플로로 시청각 몰입감을 만들었습니다.",
         proof: "BGM/SFX 직접 제작, 컨셉 설정→프롬프팅→큐레이션→추가 페인팅 기반 아트 파이프라인",
         image: "./assets/activity/sparta-gamejam.png",
         imageAlt: "제 1회 스파르타 게임잼 프로젝트 파멸의 서 키비주얼",
@@ -859,11 +859,11 @@ const portfolioKo = {
   practice: [
     {
       title: "플레이 기준",
-      text: "사운드를 장식이 아니라 플레이어가 상황, 거리, 위험, 인터랙션을 이해하는 정보로 설계합니다.",
+      text: "사운드를 장식이 아니라 플레이어가 상황, 거리, 위험, 상호작용을 이해하는 정보로 설계합니다.",
     },
     {
       title: "소스 품질",
-      text: "녹음, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스의 밀도와 선명도로 연결합니다.",
+      text: "녹음, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스의 밀도와 선명도에 연결합니다.",
     },
     {
       title: "공유 가능한 정리",
@@ -899,6 +899,84 @@ const createEnglishPortfolio = () => {
     footerName: "Jungmin Cha Game Audio Designer Portfolio",
   });
 
+  en.selectedBgm = {
+    eyebrow: "Selected Game Audio",
+    title: "Combat feedback, spatial audio, and SFX/BGM implementation cases",
+    items: [
+      {
+        title: "Guardian & Seeker",
+        context: "4v1 PvP combat audio",
+        role: "Combat SFX/BGM direction / in-game transitions / mix balance",
+        goal: "I tuned combat entry, chase pressure, monster, seeker, and UI feedback so danger cues and tension stayed readable when sounds overlapped.",
+        implementation: "191 audio assets connected through Wwise Event/Switch/RTPC and UE5 C++/Blueprint, then QA-tested with 299 players.",
+        proof: "G-STAR 2025 showcase · 4.36/5 average feedback reflected in follow-up tuning",
+        href: "https://www.youtube.com/watch?v=d7xon5fv-kg",
+      },
+      {
+        title: "조선 십이기사단",
+        context: "2D action / platform fighter",
+        role: "40 combat SFX / 3 BGM tracks / creative direction",
+        goal: "I designed the sound concept around a Korean-inspired world and kept combat/UI feedback readable inside fast platform-fighter matches.",
+        implementation: "Pansori- and drum-based UI clicks/transitions, character footsteps, combat hits, ambience, and Korean traditional music fused with EDM/trap BGM applied in UE5.",
+        proof: "3 BGM tracks · 40 SFX · Team Lead / PM / Creative Director",
+        href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
+      },
+      {
+        title: "SYMBIO",
+        context: "TPS/FPS action survival",
+        role: "BGM/SFX production / cinematic audio direction",
+        goal: "For a soldier survival prototype built around conflict with an inner monster, I shaped tense combat and a closed-lab sense of space through audio.",
+        implementation: "Indoor-reverb gun SFX, material-based footsteps, Formant Modulation creature voice design, and Rock/Ambience-based dark-tone BGM.",
+        proof: "Role: BGM/SFX, UI/UX, level design, cinematic cutscenes",
+        href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
+      },
+      {
+        title: "레인보우 가디언",
+        context: "Roguelite-themed tower RPG",
+        role: "Theme planning / BGM arrangement / SFX production",
+        goal: "I separated exploration, combat, shop, and altar moods so each floor had a distinct identity even in text-first play.",
+        implementation: "Floor-based BGM/SFX structure for console RPG flow",
+        proof: "8 themed towers · game concept/story/BGM/SFX",
+        href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
+      },
+      {
+        title: "Flight Record",
+        context: "Interactive media based on an album",
+        role: "Album track adaptation / Unity music trigger",
+        goal: "I connected self-produced album music to player movement so user actions could become the music experience.",
+        implementation: "Unity C# music triggers, audio-reactive objects, in-game volume/mix tuning, and level-sequence audio flow design.",
+        proof: "Used 3 draft tracks from the album Flight · Project Lead / PM",
+        href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
+      },
+    ],
+  };
+
+  en.roleFit = {
+    eyebrow: "In-game Sound Design Fit",
+    title: "Design, implementation, and debugging verified in play",
+    items: [
+      {
+        requirement: "Combat / character / monster feedback",
+        evidence: "In Guardian & Seeker, I set priorities for combat entry, chase pressure, UI actions, and monster/seeker warning cues when they play at the same time.",
+      },
+      {
+        requirement: "Spatial direction and occlusion debugging",
+        evidence: "Dungeon ambience, Spatial Audio Reverb, DistanceToPlayer/Occlusion RTPCs, UE Collision, and Line Trace were used to tune distance and obstruction.",
+      },
+      {
+        requirement: "Physical Material-based SFX",
+        evidence: "Physical Materials separate surface types such as dirt, stone, and metal, then Anim Notify timing triggers the matching footstep through C++/Blueprint events when the character's foot lands.",
+      },
+      {
+        requirement: "Source editing, asset structure, and QA",
+        evidence: "Recording, take management, source cutting, timing, layering, and mixing experience informed 191 audio assets and 40 SFX.",
+      },
+      {
+        requirement: "BGM production and team-facing documentation",
+        evidence: "50+ released tracks, game BGM production, and audio asset naming/documentation that programmers can quickly verify.",
+      },
+    ],
+  };
   en.reelNotes = [
     {
       title: "A 4v1 PvP case with C++ audio components",
@@ -961,7 +1039,7 @@ const createEnglishPortfolio = () => {
           },
           {
             label: "Surface logic",
-            text: "Footstep candidates are split by Physical Material so surface changes are reflected in sound.",
+            text: "Physical Material separates surfaces, and the matching footstep plays when the character foot contact is triggered.",
           },
           {
             label: "AI agent use",
@@ -1049,7 +1127,7 @@ const createEnglishPortfolio = () => {
       {
         title: "Footstep Kit",
         meta: "Physical Material",
-        text: "Footstep candidates are organized by surface and movement state, with randomized playback to reduce repetition.",
+        text: "Footstep sources are organized by surface and movement state, with randomized playback to reduce repetition.",
         deepDive: [
           {
             label: "Source",
@@ -1389,7 +1467,7 @@ const uiLocales = {
     consolePlayAria: "오디오 재생",
     consolePauseAria: "오디오 일시정지",
     reelEyebrow: "데모릴",
-    reelTitle: "액션게임 사운드가 플레이 안에서 설계되고 검증되는 과정을 담았습니다",
+    reelTitle: "액션게임 사운드를 플레이 안에서 설계하고 검증한 과정",
     workEyebrow: "음악 디스코그래피",
     workTitle: "작곡, 편곡, 믹싱/마스터링까지 이어진 릴리즈 작업",
     strengthsEyebrow: "강점",
