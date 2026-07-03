@@ -225,69 +225,54 @@ const portfolioKo = {
     ],
   },
   sfxBreakdown: {
-    eyebrow: "효과음 브레이크다운",
-    title: "효과음 제작부터 인게임 검증까지!",
+    eyebrow: "SFX 제작 방식",
+    title: "소스 선택과 레이어링 중심으로 정리했습니다",
     process: [
       {
         step: "01",
-        title: "사운드 목적 정의",
-        text: "캐릭터, 몬스터, UI, 공간 연출별로 플레이어가 알아야 할 정보와 감정 톤을 먼저 정의합니다.",
+        title: "목적 정의",
+        text: "효과음마다 플레이어가 알아야 할 정보, 감정 톤, 화면에서 먼저 들려야 할 우선순위를 정합니다.",
       },
       {
         step: "02",
-        title: "소스 선택과 편집",
-        text: "보컬 녹음과 테이크 관리, 소스 컷 편집, 타이밍 정리, 레이어 구성, EQ/Compression/Reverb/Delay 믹싱 경험을 SFX 제작에 연결합니다.",
+        title: "소스 편집",
+        text: "라이브러리 소스와 직접 편집한 짧은 소스를 고르고, 컷 편집·타이밍·어택을 먼저 정리합니다.",
       },
       {
         step: "03",
-        title: "레이어 구성",
-        text: "임팩트, 질감, 잔향처럼 역할이 다른 레이어를 나누고 필요한 정보가 먼저 들리도록 밸런스를 잡습니다.",
-      },
-      {
-        step: "04",
-        title: "반복감 조정",
-        text: "짧은 효과음이 반복될 때 어색하지 않도록 길이, 타이밍, 피치, 볼륨 변화를 먼저 설계합니다.",
+        title: "레이어와 반복감",
+        text: "임팩트, 질감, 잔향 레이어를 나누고 피치·볼륨 변형으로 반복되는 소리가 기계적으로 들리지 않게 만듭니다.",
       },
     ],
     examples: [
       {
         title: "발소리 키트",
         meta: "Physical Material",
-        text: "지면 재질과 이동 상태에 맞춰 발소리 후보를 나누고 랜덤 재생으로 반복감을 줄입니다.",
+        text: "흙, 돌, 금속처럼 지면 성질별로 소스를 나누고, 발 접지 타이밍에 맞는 짧은 소스를 준비합니다.",
         deepDive: [
-      {
+          {
             label: "소스",
-            text: "재질별로 어울리는 라이브러리 소스와 직접 편집한 짧은 소스를 후보군으로 나누고, 소스 품질과 밸런스를 먼저 확인합니다.",
+            text: "재질별 후보군을 나누고 소스 품질, 길이, 어택 타이밍을 먼저 확인합니다.",
           },
-      {
+          {
             label: "변형",
-            text: "피치와 볼륨 변형 폭을 정해 같은 발소리가 기계적으로 반복되는 느낌을 줄입니다.",
+            text: "피치와 볼륨 변형 폭을 정해 같은 발소리가 반복되는 느낌을 줄입니다.",
           },
-      {
-            label: "타이밍",
-            text: "지면 변화와 발 접지 순간에 맞도록 소스 길이와 어택 타이밍을 정리합니다.",
+          {
+            label: "적용 기준",
+            text: "엔진 적용과 지면 판정 설명은 Role Fit과 Tech Audio에서 분리해 다룹니다.",
           },
         ],
       },
       {
         title: "전투 타격음",
         meta: "Impact Layering",
-        text: "타격감, 위험 신호, 피격 확인을 분리해 전투 중에도 필요한 정보가 먼저 들리게 설계합니다.",
-      },
-      {
-        title: "몬스터/시커 위치 신호",
-        meta: "Spatial / Occlusion",
-        text: "몬스터와 시커의 위치감, 차폐감, 거리감을 조정해 벽 너머 위협과 실제 거리를 구분하도록 만듭니다.",
-      },
-      {
-        title: "앰비언스 공간 연출",
-        meta: "Spatial Audio Reverb",
-        text: "던전 내부 바람 소리 같은 앰비언스에 공간 리버브를 적용해 폐쇄된 유적의 울림과 거리감을 만듭니다.",
+        text: "타격감, 위험 신호, 피격 확인 레이어를 분리해 전투 중 필요한 정보가 먼저 들리게 만듭니다.",
       },
       {
         title: "UI 피드백",
         meta: "2D / Priority",
-        text: "전투와 BGM 위에서도 조작 성공, 선택, 경고 피드백이 짧고 명확하게 들리도록 정리합니다.",
+        text: "선택, 전환, 경고 피드백은 짧고 선명하게 정리해 전투와 BGM 위에서도 묻히지 않게 만듭니다.",
       },
     ],
   },
@@ -795,10 +780,10 @@ const portfolioKo = {
     ],
   },
   activities: {
-    eyebrow: "대외 활동",
-    title: "현장에서 검증한 제작 경험",
+    eyebrow: "외부 피드백",
+    title: "현장에서 받은 피드백을 다음 수정으로 연결했습니다",
     intro:
-      "아래와 같은 대외활동에서 제한된 시간 안에 만들고, 플레이어·멘토 피드백을 다음 구현과 QA 판단으로 연결했습니다.",
+      "전시와 테스트에서 실제 플레이를 관찰하고, 사운드·조작·UX 피드백을 다음 구현과 QA 판단으로 정리한 사례만 남겼습니다.",
     items: [
       {
         title: "G-STAR 2025 Guardian & Seeker",
@@ -806,7 +791,7 @@ const portfolioKo = {
         type: "Public Showcase / Field QA",
         summary:
           "현장 플레이 관찰과 설문 피드백을 바탕으로 헤드폰 믹스, 입력 버그, 밸런스, 튜토리얼 UX를 다음 수정 과제로 정리했습니다.",
-        proof: "BEXCO 2일 부스 운영 · 현장 플레이 관찰, 설문 피드백, 개선 항목 정리",
+        proof: "BEXCO 2일 부스 운영 · 현장 플레이 관찰 · 설문 피드백 정리",
         image: "./assets/activity/gstar-2025.png",
         imageAlt: "G-STAR 2025 Guardian & Seeker 현장 부스",
         href: "https://raindrovvv.tistory.com/108",
@@ -818,8 +803,8 @@ const portfolioKo = {
         period: "2025.08-09",
         type: "Prototype / User Test",
         summary:
-          "5주 프로토타이핑 챌린지에서 멘토링과 테스트 피드백을 받아 전투 흐름, 조작감, 사운드/UX 반응을 빠르게 검증했습니다.",
-        proof: "2025.08.09-09.13 활동, 주차별 피드백과 온라인 테스트 플레이",
+          "5주 프로토타이핑 과정에서 멘토링과 테스트 피드백을 받아 전투 흐름, 조작감, 사운드/UX 반응을 빠르게 검증했습니다.",
+        proof: "주차별 멘토 피드백 · 온라인 테스트 플레이 · 개선 항목 기록",
         image: "./assets/activity/smilegate-prototyping-challenge.png",
         imageAlt: "스마일게이트 인디게임 프로토타이핑 챌린지 활동 이미지",
         href: "https://raindrovvv.tistory.com/117",
@@ -828,48 +813,8 @@ const portfolioKo = {
         secondaryCta: "테스트 회고",
         tags: ["Prototype", "User Test", "Combat UX"],
       },
-      {
-        title: "Gemini 3 Seoul Hackathon",
-        period: "2025.11",
-        type: "AI / Deployment",
-        summary:
-          "400명 규모 선발 해커톤에서 Gemini API, Vertex AI, Vercel 배포를 다루며 AI 기반 웹 게임 데모를 마감 전까지 작동 가능한 상태로 만들었습니다.",
-        proof: "회고 기준 약 1,500명 신청·400여 명 선발, Gemini API 이미지 생성, Vercel/Git 연동 문제 해결",
-        image: "./assets/activity/gemini-3-seoul-hackathon.png",
-        imageAlt: "Gemini 3 서울 해커톤 대표 이미지",
-        href: "https://raindrovvv.tistory.com/150",
-        cta: "해커톤 회고",
-        tags: ["AI Prototype", "Deployment", "Demo"],
-      },
-      {
-        title: "제 1회 스파르타 게임잼",
-        period: "2025.03.01-03",
-        type: "Audio Art",
-        summary:
-          "3일 Unity 게임잼에서 스토리형 RPG의 분위기를 잡고, 직접 제작한 BGM/SFX와 AI 보조 아트 워크플로로 시청각 몰입감을 만들었습니다.",
-        proof: "BGM/SFX 직접 제작, 컨셉 설정→프롬프팅→큐레이션→추가 페인팅 기반 아트 파이프라인",
-        image: "./assets/activity/sparta-gamejam.png",
-        imageAlt: "제 1회 스파르타 게임잼 프로젝트 파멸의 서 키비주얼",
-        href: "https://raindrovvv.tistory.com/42",
-        cta: "게임잼 기록",
-        tags: ["Unity Game Jam", "BGM/SFX", "AI Art Workflow"],
-      },
     ],
   },
-  practice: [
-    {
-      title: "플레이 기준",
-      text: "사운드를 장식이 아니라 플레이어가 상황, 거리, 위험, 상호작용을 이해하는 정보로 설계합니다.",
-    },
-    {
-      title: "소스 품질",
-      text: "녹음, 컷 편집, 타이밍 정리, 레이어링과 믹싱 경험을 효과음 소스의 밀도와 선명도에 연결합니다.",
-    },
-    {
-      title: "공유 가능한 정리",
-      text: "문제 현상, 원인 후보, 수정 방향, 에셋 네이밍 기준을 팀이 바로 확인할 수 있는 단위로 정리합니다.",
-    },
-  ],
   links: [
     { label: "Email", icon: "📧", href: "mailto:vnrs97@gmail.com", primary: true },
     { label: "Guardian C++", icon: "⌘", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
@@ -1099,64 +1044,91 @@ const createEnglishPortfolio = () => {
   };
 
   en.sfxBreakdown = {
-    eyebrow: "SFX Breakdown",
-    title: "From SFX production to in-game validation",
+    eyebrow: "SFX Production",
+    title: "Source choice and layering, kept separate from implementation",
     process: [
       {
         step: "01",
-        title: "Sound Intent",
-        text: "I define what the player needs to understand and what emotional tone each character, monster, UI, or environment cue should carry.",
+        title: "Intent",
+        text: "I define the player-facing information, emotional tone, and cue priority before editing sources.",
       },
       {
         step: "02",
-        title: "Source & Edit",
-        text: "I combine library sources, custom layers, and music production experience to shape SFX source quality.",
+        title: "Source Edit",
+        text: "I choose library or edited short sources, then clean up cuts, timing, and attack shape.",
       },
       {
         step: "03",
-        title: "Layer Design",
-        text: "I separate impact, texture, tail, and feedback layers so the most important cue reads first.",
-      },
-      {
-        step: "04",
-        title: "Variation",
-        text: "I plan length, timing, pitch, and volume variation before repeated short sounds become fatiguing.",
+        title: "Layering",
+        text: "Impact, texture, and tail layers are separated, with pitch and volume variation for repeated sounds.",
       },
     ],
     examples: [
       {
         title: "Footstep Kit",
         meta: "Physical Material",
-        text: "Footstep sources are organized by surface and movement state, with randomized playback to reduce repetition.",
+        text: "Sources are grouped by surface type such as dirt, stone, and metal, then prepared around foot-contact timing.",
         deepDive: [
           {
             label: "Source",
-            text: "Library and edited short sources are grouped by material.",
+            text: "Surface-based source groups are checked for length, quality, and attack timing.",
           },
           {
             label: "Variation",
-            text: "Pitch and volume variation reduce repeated-footstep fatigue.",
+            text: "Pitch and volume ranges reduce repeated-footstep fatigue.",
           },
           {
-            label: "Timing",
-            text: "Source length and attack timing are prepared around surface changes and foot contact.",
+            label: "Boundary",
+            text: "Engine-side surface logic is covered in Role Fit and Tech Audio, not repeated here.",
           },
         ],
       },
       {
         title: "Combat Hit",
         meta: "Impact Layering",
-        text: "Hit confirmation, danger signal, and impact weight are separated so the right information reads in combat.",
-      },
-      {
-        title: "Monster Cue",
-        meta: "Spatial Debug",
-        text: "Monster position and obstruction are tuned so threats behind walls read differently from nearby threats.",
+        text: "Impact weight, danger signal, and hit confirmation are separated so combat feedback reads first.",
       },
       {
         title: "UI Feedback",
         meta: "2D / Priority",
-        text: "Selection, warning, and success cues are kept short and clear over combat and BGM.",
+        text: "Selection, transition, and warning cues stay short and clear over combat and BGM.",
+      },
+    ],
+  };
+
+  en.activities = {
+    eyebrow: "External Feedback",
+    title: "Field feedback turned into the next fix list",
+    intro:
+      "Only the clearest player-facing validation cases stay here: public play, user tests, and the follow-up QA decisions they produced.",
+    items: [
+      {
+        title: "G-STAR 2025 Guardian & Seeker",
+        period: "2025.11",
+        type: "Public Showcase / Field QA",
+        summary:
+          "I turned booth observations and survey feedback into follow-up items for headphone mix, input bugs, balance, and tutorial UX.",
+        proof: "2-day BEXCO booth operation · player observation · survey feedback notes",
+        image: "./assets/activity/gstar-2025.png",
+        imageAlt: "Guardian & Seeker booth at G-STAR 2025",
+        href: "https://raindrovvv.tistory.com/108",
+        cta: "Showcase note",
+        tags: ["Field QA", "Player Feedback", "Audio Mix"],
+      },
+      {
+        title: "Smilegate Indie Game Prototyping Challenge",
+        period: "2025.08-09",
+        type: "Prototype / User Test",
+        summary:
+          "Across a five-week prototype cycle, mentor and test feedback helped verify combat flow, controls, sound response, and UX decisions.",
+        proof: "Weekly mentor feedback · online test play · documented improvement list",
+        image: "./assets/activity/smilegate-prototyping-challenge.png",
+        imageAlt: "Smilegate Indie Game Prototyping Challenge activity image",
+        href: "https://raindrovvv.tistory.com/117",
+        cta: "Activity note",
+        secondaryHref: "https://raindrovvv.tistory.com/118",
+        secondaryCta: "Test review",
+        tags: ["Prototype", "User Test", "Combat UX"],
       },
     ],
   };
@@ -1418,21 +1390,6 @@ const createEnglishPortfolio = () => {
     ],
   };
 
-  en.practice = [
-    {
-      title: "Gameplay-first",
-      text: "I design sound as information that helps players understand state, distance, danger, and interaction.",
-    },
-    {
-      title: "Source quality",
-      text: "I connect recording, source cutting, timing cleanup, layering, and mixing to dense, readable SFX sources.",
-    },
-    {
-      title: "Team-readable notes",
-      text: "I organize issues, likely causes, fix direction, and asset naming into units the team can act on.",
-    },
-  ];
-
   return en;
 };
 const portfolioEn = createEnglishPortfolio();
@@ -1445,7 +1402,6 @@ const uiLocales = {
     navBgm: "Game Audio",
     navFit: "Role Fit",
     navTech: "Tech Audio",
-    navSfx: "SFX Breakdown",
     navWork: "Discography",
     navActivities: "Activities",
     navContact: "Contact",
@@ -1470,8 +1426,6 @@ const uiLocales = {
     reelTitle: "액션게임 사운드를 플레이 안에서 설계하고 검증한 과정",
     workEyebrow: "음악 디스코그래피",
     workTitle: "작곡, 편곡, 믹싱/마스터링까지 이어진 릴리즈 작업",
-    strengthsEyebrow: "강점",
-    practiceTitle: "작업 원칙",
     contactEyebrow: "연락",
     contactTitle1: "플레이에 맞춰",
     contactTitle2: "반응하는 사운드를",
@@ -1497,7 +1451,6 @@ const uiLocales = {
     navBgm: "Game Audio",
     navFit: "Role Fit",
     navTech: "Tech Audio",
-    navSfx: "SFX Breakdown",
     navWork: "Discography",
     navActivities: "Activities",
     navContact: "Contact",
@@ -1522,8 +1475,6 @@ const uiLocales = {
     reelTitle: "Action-game audio design and QA inside playable builds",
     workEyebrow: "Music Discography",
     workTitle: "Released work across composition, arrangement, mix and master",
-    strengthsEyebrow: "Strengths",
-    practiceTitle: "Working principles",
     contactEyebrow: "Contact",
     contactTitle1: "Let’s build audio",
     contactTitle2: "that responds",
@@ -2176,21 +2127,6 @@ const renderActivities = () => {
   refreshTextEditorTargets();
 };
 
-const renderPractice = () => {
-  const list = document.querySelector("#practice-list");
-  list.innerHTML = portfolio.practice
-    .map(
-      (item) => `
-        <article class="practice-item">
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.text)}</p>
-        </article>
-      `,
-    )
-    .join("");
-  refreshTextEditorTargets();
-};
-
 const renderLinks = () => {
   const list = document.querySelector("#contact-links");
   list.innerHTML = portfolio.links
@@ -2413,8 +2349,6 @@ const setupSecretTextEditor = () => {
           ".activity-proof span",
           ".activity-tag",
           ".activity-links a",
-          "#practice .eyebrow",
-          "#practice-title",
           "#work-intro span",
           "#work-intro strong",
           "#work-intro p",
@@ -2425,8 +2359,6 @@ const setupSecretTextEditor = () => {
           ".scope-list dt",
           ".scope-list dd",
           ".skill-pill",
-          ".practice-item h3",
-          ".practice-item p",
           ".contact h2 span",
           ".contact p",
           ".contact-links a span:last-child",
@@ -2473,8 +2405,6 @@ const setupSecretTextEditor = () => {
       ["#activities .eyebrow", "activities:kicker"],
       ["#activities-title", "activities:heading"],
       ["#activities-intro", "activities:intro"],
-      ["#practice .eyebrow", "practice:kicker"],
-      ["#practice-title", "practice:heading"],
       [".contact h2 span:nth-child(1)", "contact:title:1"],
       [".contact h2 span:nth-child(2)", "contact:title:2"],
       [".contact h2 span:nth-child(3)", "contact:title:3"],
@@ -2498,7 +2428,7 @@ const setupSecretTextEditor = () => {
 
     const section = node.closest("section")?.id || node.closest("header")?.className || node.closest("footer")?.className || "page";
     const card = node.closest(
-      ".work-card, .practice-item, .activity-card, .ai-lab-feature, .ai-log-card, .reel-note, .tech-card, .sfx-step, .sfx-example, .contact-links a",
+      ".work-card, .activity-card, .ai-lab-feature, .ai-log-card, .reel-note, .tech-card, .sfx-step, .sfx-example, .contact-links a",
     );
     const cardIndex = card && card.parentElement ? [...card.parentElement.children].indexOf(card) : -1;
     const localIndex = card ? [...card.querySelectorAll("h3, p, span, dt, dd, strong, a")].indexOf(node) : index;
@@ -2777,7 +2707,6 @@ const setupSecretTextEditor = () => {
       document.querySelector("#project-list").dataset.workCacheKey = "";
       renderProjects("music");
       renderActivities();
-      renderPractice();
       renderLinks();
       restoreOriginalText();
       setEditMode(true);
@@ -2813,7 +2742,6 @@ const renderAllContent = () => {
   renderProjects("music");
   renderAiLab();
   renderActivities();
-  renderPractice();
   renderLinks();
 };
 
@@ -3913,18 +3841,7 @@ const setupModal = () => {
       articleId = "108";
       articleTitle = currentLanguage === "ko" 
         ? "[G-STAR 2025] 가디언 앤 시커 지스타 부스 운영기" 
-        : "[G-STAR 2025] Guardian & Seeker G-Star Booth Review";
-    } else if (href.includes("raindrovvv.tistory.com/150")) {
-      articleId = "150";
-      articleTitle = currentLanguage === "ko" 
-        ? "Gemini 3 서울 해커톤 회고" 
-        : "Gemini 3 Seoul Hackathon Review";
-    } else if (href.includes("raindrovvv.tistory.com/42")) {
-      articleId = "42";
-      articleTitle = currentLanguage === "ko" 
-        ? "제 1회 스파르타 게임잼 참여기" 
-        : "1st Sparta Game Jam Review";
-    } else if (href === "occlusion-debugging-ko" || href === "occlusion-debugging-en") {
+        : "[G-STAR 2025] Guardian & Seeker G-Star Booth Review";} else if (href === "occlusion-debugging-ko" || href === "occlusion-debugging-en") {
       articleId = href;
       articleTitle = currentLanguage === "ko" 
         ? "Wwise / UE5 런타임 오클루전 디버깅" 
@@ -3948,7 +3865,6 @@ renderSfxBreakdown();
 renderProjects("music");
 renderAiLab();
 renderActivities();
-renderPractice();
 renderLinks();
 setupSecretTextEditor();
 setupTheme();

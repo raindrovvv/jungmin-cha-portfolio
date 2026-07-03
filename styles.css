@@ -3086,7 +3086,6 @@ html.dark .game-cover {
 
 .card-meta,
 .card-summary,
-.practice-item p,
 .contact p,
 .footer {
   color: var(--muted);
@@ -3432,9 +3431,10 @@ html.dark .activity-intro {
 }
 
 .activity-grid {
+  width: min(100%, 840px);
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .activity-card {
@@ -3569,67 +3569,6 @@ html.dark .activity-links a {
   background: color-mix(in srgb, var(--surface-muted) 78%, var(--accent) 9%);
 }
 
-.split {
-  display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(24px, 5vw, 70px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--surface);
-  max-width: none;
-  padding-inline: max(clamp(18px, 6vw, 86px), calc((100vw - var(--max)) / 2));
-}
-
-.split h2 {
-  font-size: clamp(34px, 3.5vw, 48px);
-  line-height: 1.12;
-}
-
-html.dark .split {
-  border-color: #000000;
-  background: #0f0f0f;
-}
-
-.practice-list {
-  display: grid;
-  gap: 16px;
-  border: 0;
-  border-radius: 0;
-  overflow: visible;
-}
-
-.practice-item {
-  padding: 24px;
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition:
-    background 160ms ease,
-    transform 160ms ease,
-    box-shadow 160ms ease;
-}
-
-html.dark .practice-item {
-  border: 0;
-  background: var(--surface);
-}
-
-.practice-item:hover {
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(-1px);
-}
-
-html.dark .practice-item:hover {
-  background: var(--surface-strong);
-}
-
-.practice-item p {
-  margin: 8px 0 0;
-  line-height: 1.6;
-  word-break: keep-all;
-}
 
 .contact {
   display: grid;
@@ -4136,7 +4075,6 @@ html.dark .role-fit {
   }
 
   .hero,
-  .split,
   .contact,
   .reel-layout,
   .sfx-layout,
@@ -4374,13 +4312,15 @@ html.dark h1 {
 
   .hero-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    max-width: 420px;
     margin-top: 22px;
   }
 
   .hero-actions .button {
     width: 100%;
-    padding-inline: 10px;
+    padding-inline: 16px;
+    text-align: center;
   }
 
   .hero-chips {
@@ -4719,18 +4659,6 @@ html.dark h1 {
     gap: 3px;
   }
 
-  .split {
-    padding-inline: 14px;
-  }
-
-  .split h2 {
-    font-size: clamp(30px, 8.7vw, 38px);
-  }
-
-  .practice-item {
-    padding: 18px;
-  }
-
   .contact {
     gap: 24px;
   }
@@ -4820,9 +4748,7 @@ html.dark h1 {
   .ai-log-card,
   .ai-log-card:hover,
   .activity-card,
-  .activity-card:hover,
-  .practice-item,
-  .practice-item:hover {
+  .activity-card:hover {
     transition: none;
     transform: none;
   }
