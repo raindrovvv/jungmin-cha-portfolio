@@ -63,9 +63,9 @@
   --surface-strong: #1f1f1f;
   --surface-muted: #252525;
   --card-bg: var(--surface);
-  --card-border: transparent;
+  --card-border: #2a2a2a;
   --card-shadow: none;
-  --card-shadow-hover: 0 8px 8px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 18px rgba(0, 0, 0, 0.28);
   --text: #ffffff;
   --body: #cbcbcb;
   --muted: #b3b3b3;
@@ -78,7 +78,7 @@
   --accent-soft: #1f1f1f;
   --on-primary: #000000;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --radius: 8px;
+  --radius: 12px;
 }
 
 * {
@@ -131,7 +131,7 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.64;
+  opacity: 0.28;
   background:
     linear-gradient(
       90deg,
@@ -149,11 +149,11 @@ body::before {
 }
 
 body.cursor-idle::before {
-  opacity: 0.22;
+  opacity: 0.08;
 }
 
 html.dark body::before {
-  opacity: 0.26;
+  opacity: 0.12;
   background:
     linear-gradient(
       90deg,
@@ -735,12 +735,12 @@ html.dark .hero-title-name::after {
 h2 {
   max-width: 720px;
   margin: 0;
-  font-family: var(--display-font);
+  font-family: var(--body-font);
   font-size: clamp(34px, 4.2vw, 58px);
-  font-weight: 300;
-  line-height: 1.08;
-  letter-spacing: -0.72px;
-  word-spacing: -0.03em;
+  font-weight: 720;
+  line-height: 1.14;
+  letter-spacing: -0.58px;
+  word-spacing: 0;
 }
 #tech-audio-title {
   white-space: pre-line;
@@ -754,8 +754,8 @@ h2 {
   #ai-lab-title,
   #work-title {
     font-size: 40px;
-    line-height: 1.12;
-    letter-spacing: -0.32px;
+    line-height: 1.18;
+    letter-spacing: -0.42px;
   }
 }
 
@@ -1397,7 +1397,7 @@ html.dark .focus-icon {
 }
 
 .section {
-  padding: clamp(72px, 9vw, 96px) clamp(18px, 6vw, 86px);
+  padding: clamp(68px, 8vw, 88px) clamp(18px, 6vw, 86px);
   max-width: calc(var(--max) + 172px);
   margin-inline: auto;
 }
@@ -2237,7 +2237,7 @@ html.dark .sfx-example-meta {
 }
 
 html.dark .tech-card {
-  border: 0;
+  border: 1px solid var(--card-border);
   background:
     linear-gradient(135deg, rgba(30, 215, 96, 0.12), transparent 48%),
     var(--surface);
@@ -2501,7 +2501,7 @@ html.dark .sfx-breakdown {
 }
 
 html.dark .sfx-step {
-  border: 0;
+  border: 1px solid var(--card-border);
   background: var(--surface);
 }
 
@@ -2558,7 +2558,7 @@ html.dark .sfx-step {
 }
 
 html.dark .sfx-example {
-  border: 0;
+  border: 1px solid var(--card-border);
   background: var(--surface);
 }
 
@@ -2741,7 +2741,7 @@ html.dark .work-intro {
 }
 
 html.dark .work-card {
-  border: 0;
+  border: 1px solid var(--card-border);
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: none;
@@ -3217,7 +3217,7 @@ html.dark .ai-lab {
 
 html.dark .ai-lab-feature,
 html.dark .ai-log-card {
-  border: 0;
+  border: 1px solid var(--card-border);
   background: var(--surface);
 }
 
@@ -3431,19 +3431,19 @@ html.dark .activity-intro {
 }
 
 .activity-grid {
-  width: min(100%, 840px);
+  width: min(100%, var(--max));
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 18px;
 }
 
 .activity-card {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  min-height: 410px;
-  padding: 20px;
+  gap: 14px;
+  min-height: 360px;
+  padding: 22px;
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   background: var(--card-bg);
@@ -3456,7 +3456,7 @@ html.dark .activity-intro {
 }
 
 html.dark .activity-card {
-  border: 0;
+  border: 1px solid var(--card-border);
   background:
     linear-gradient(135deg, rgba(30, 215, 96, 0.09), transparent 42%),
     var(--surface);
@@ -3816,7 +3816,7 @@ html.dark [data-text-editable="true"]:focus {
 
 html.dark .bgm-card,
 html.dark .fit-card {
-  border: 0;
+  border: 1px solid var(--card-border);
   background: var(--surface);
 }
 
