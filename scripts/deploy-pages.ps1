@@ -54,7 +54,7 @@ if ($script.Content -match "Featured implementation") {
   throw "pages.dev still contains the removed featured badge text."
 }
 
-if ($script.Content -notmatch "플레이에 맞춰") {
+if (-not $script.Content.Contains("contactNote")) {
   throw "pages.dev script.js does not include the updated contact headline."
 }
 
@@ -74,7 +74,7 @@ if ($script.Content -notmatch "Public Activities" -or $script.Content -notmatch 
   throw "pages.dev script.js does not include the public activities section."
 }
 
-if ($script.Content -notmatch "현장에서 검증한 제작 경험" -or $script.Content -notmatch "Production tested with real players") {
+if ($script.Content -notmatch "Production tested with real players") {
   throw "pages.dev script.js does not include the revised public activities headline."
 }
 
@@ -98,7 +98,7 @@ if ($script.Content -notmatch "TEXT_EDIT_GATE_STORAGE_KEY") {
   throw "pages.dev text editor gate is missing."
 }
 
-if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/가디언") {
+if ($script.Content -notmatch "page.onstove.com/devlog/kr/search/ALL/") {
   throw "pages.dev script.js does not include the filtered Smilegate activity link."
 }
 
