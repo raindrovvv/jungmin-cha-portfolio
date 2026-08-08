@@ -26,8 +26,8 @@ $index = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/" -UseB
 $activityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/gstar-2025.png" -UseBasicParsing
 $smilegateActivityImage = Invoke-WebRequest -Uri "https://jungmin-cha-portfolio.pages.dev/assets/activity/smilegate-prototyping-challenge.png" -UseBasicParsing
 
-if ($index.Content -notmatch 'href="#activities"') {
-  throw "pages.dev index.html does not include the Activities nav link."
+if ($index.Content -notmatch 'id="activities"') {
+  throw "pages.dev index.html does not include the Activities section."
 }
 
 $scriptPathMatch = [regex]::Match($index.Content, '\./script\.js\?v=[a-f0-9]{12}')

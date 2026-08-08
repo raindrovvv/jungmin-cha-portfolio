@@ -1579,11 +1579,11 @@ const renderWorkIntro = (activeTab) => {
 
 const coverPalettes = [
   ["#f4c5a8", "#a8c8e8"],
-  ["#a7e5d3", "#c8b8e0"],
+  ["#dceeff", "#c8b8e0"],
   ["#e8b8c4", "#f0efed"],
   ["#a8c8e8", "#292524"],
   ["#d6d3d1", "#777169"],
-  ["#1ed760", "#1f1f1f"],
+  ["#2997ff", "#1f1f1f"],
 ];
 
 const getYouTubeId = (url = "") => {
