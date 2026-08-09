@@ -179,6 +179,8 @@ section { scroll-margin-top: calc(var(--header-h) + 24px); }
 .statement { max-width: 820px; font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 3.2rem); font-weight: 700; letter-spacing: -.065em; line-height: 1.14; }
 .statement em { color: var(--lime); font-style: normal; }
 .statement-note { margin-top: 40px; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+.statement-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 24px; color: var(--lime); font-size: .9rem; font-weight: 700; text-underline-offset: 5px; }
+.statement-link:hover { color: var(--text); text-decoration: underline; }
 
 /* Builds */
 .builds-section { padding-bottom: 136px; }
@@ -451,6 +453,7 @@ body.light .visual-unity .visual-caption { color: rgba(245, 245, 247, .66); }
   .statement-section { padding: 80px 0 100px; }
   .statement { font-size: 2rem; line-height: 1.28; }
   .statement-note { margin-top: 28px; }
+  .statement-link { margin-top: 18px; }
   .section-heading-row { align-items: start; flex-direction: column; gap: 24px; margin-bottom: 30px; }
   .filter-group { justify-content: start; }
   .project-grid { grid-template-columns: 1fr; gap: 18px; }
