@@ -441,6 +441,19 @@ locales.en.questOperations = "I kept the real-time screen while reducing unneces
 locales.en.questResultLabel = "Result";
 locales.en.questResult = "I connected planning, DB, UI, external APIs, deployment, and operations. Repeating the cycle of asking, fixing, and checking completed the learning product.";
 
+// Final Korean copy pass: keep the visible case studies concrete and easy to scan.
+locales.ko.lawgateProblemLabel = "문제";
+locales.ko.lawgateResult = "PDF·HWP 문서에서 쟁점을 찾고, 공식 근거를 다시 확인하며, 일반 사용자도 결과를 이해할 수 있는 법률 문서 검토 제품으로 완성했습니다.";
+locales.ko.caseProblemLabel = "문제";
+locales.ko.caseProblem = "복잡하고 긴 문서를 누구나 읽고 이해하며, 필요한 다음 행동까지 판단할 수 있게 하고 싶었습니다.";
+locales.ko.casePlan = "모든 Agent가 같은 문서를 반복해서 읽으면 토큰과 시간이 낭비됩니다. Intake Agent가 먼저 문서를 읽고, Summary·Risk·Cost·Timeline Agent가 같은 근거를 나눠 동시에 분석하도록 구성했습니다.";
+locales.ko.caseResult = "Cerebras API로 여러 Agent를 동시에 실행하고, 핵심·위험·비용·일정과 원문 근거를 함께 보여주는 문서 분석 제품으로 완성했습니다.";
+locales.ko.unrealProblemLabel = "문제";
+locales.ko.unityProblemLabel = "문제";
+locales.ko.unityProblem = "자연어로 명령한 Scene·Asset·Material·Lighting·Audio·Character·Animation 작업이 Unity Editor의 실제 결과로 이어져야 했습니다.";
+locales.ko.unityMcp = "Unity Editor의 상태를 파악하고 AI가 작업할 수 있도록 MCP 도구로 만들었습니다. Agent가 씬을 읽고 필요한 명령을 고를 수 있게 한 것입니다.";
+locales.ko.questProblemLabel = "문제";
+
 const LANG_KEY = "jungmin-builder-language";
 const THEME_KEY = "jungmin-builder-theme-v2";
 const currentLang = localStorage.getItem(LANG_KEY) === "en" ? "en" : "ko";

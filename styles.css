@@ -41,10 +41,10 @@ body.light {
   --text: #1d1d1f;
   --text-soft: #48484a;
   --muted: #6e6e73;
-  --muted-2: #86868b;
+  --muted-2: #5f5f66;
   --line: rgba(29, 29, 31, .09);
   --line-strong: rgba(29, 29, 31, .16);
-  --lime: #1fb0a2;
+  --lime: #0e7c72;
   --lime-soft: rgba(31, 176, 162, .14);
   --brand-mark-start: #57c9be;
   --brand-mark-end: #139b90;
@@ -85,15 +85,7 @@ body.light .site-noise { opacity: 0; }
 .section-inner, .nav-inner { width: min(var(--max), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
 section { scroll-margin-top: calc(var(--header-h) + 24px); }
 
-/* The portfolio introduces the person before the process so the first scroll
-   explains who is building these products before showing how they are made. */
-main { display: flex; flex-direction: column; }
-main > .hero-section { order: 1; }
-main > #about { order: 2; }
-main > .statement-section { order: 3; }
-main > #builds { order: 4; }
-main > #workflow { order: 5; }
-main > #contact { order: 6; }
+/* Keep the reading order in the DOM and on screen identical. */
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 20; height: var(--header-h); border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent); background: color-mix(in srgb, var(--bg) 74%, transparent); backdrop-filter: blur(22px) saturate(130%); }
@@ -128,6 +120,7 @@ main > #contact { order: 6; }
 .btn { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 12px; padding: 0 20px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .86rem; font-weight: 600; letter-spacing: -.02em; }
 .btn span { font-size: 1rem; }
 .btn-primary { border-color: var(--lime); background: var(--lime); color: #101215; }
+body.light .btn-primary { border-color: #1fb0a2; background: #1fb0a2; color: #101215; }
 .btn-primary:hover { background: #dbff8e; box-shadow: 0 0 26px rgba(200,241,105,.2); transform: translateY(-2px); }
 .btn-ghost { color: var(--text-soft); }
 .btn-ghost:hover { border-color: var(--lime); color: var(--lime); transform: translateY(-2px); }
@@ -213,7 +206,7 @@ main > #contact { order: 6; }
 .project-gallery-trigger:focus-visible { outline: 2px solid var(--lime); outline-offset: -5px; }
 .project-thumb { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 320ms ease; }
 .project-gallery-trigger:hover .project-thumb { transform: scale(1.035); }
-.gallery-hint { position: absolute; right: 20px; bottom: 18px; z-index: 1; color: #fff; font-family: "Paperlogy", sans-serif; font-size: .6rem; letter-spacing: .06em; }
+.gallery-hint { position: absolute; right: 20px; bottom: 18px; z-index: 1; padding: 6px 10px; border-radius: 999px; background: rgba(14, 17, 21, .68); backdrop-filter: blur(4px); color: #fff; font-family: "Paperlogy", sans-serif; font-size: .75rem; letter-spacing: .02em; line-height: 1.2; }
 .visual-caption { position: absolute; right: 20px; bottom: 18px; z-index: 2; color: rgba(255,255,255,.62); font-size: .64rem; letter-spacing: .06em; }
 .visual-lawgate { display: grid; place-items: center; background: #202630; color: #f1f3ef; }
 .visual-lawgate::before { position: absolute; inset: 18px; border: 1px solid rgba(200,241,105,.22); content: ""; }
@@ -290,7 +283,7 @@ img.engine-logo-unity { width: 104px !important; height: 104px !important; }
 .project-case-details[open] summary::after { content: "－"; }
 .project-case-details summary:focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; border-radius: 3px; }
 .project-case-details summary:hover { border-color: var(--lime); background: color-mix(in srgb, var(--lime) 18%, var(--surface)); color: var(--text); transform: translateY(-1px); }
-.project-card-featured .project-case-details summary { min-height: 48px; padding: 12px 17px; font-size: .9rem; box-shadow: 0 6px 18px color-mix(in srgb, var(--lime) 12%, transparent); }
+.project-card-featured .project-case-details summary { min-height: 52px; padding: 13px 19px; font-size: .96rem; box-shadow: 0 6px 18px color-mix(in srgb, var(--lime) 12%, transparent); }
 .project-case-content { padding-top: 18px; }
 .project-case-kicker { min-height: 0 !important; margin: 0 0 8px !important; color: var(--lime) !important; font-family: var(--font-text); font-size: .62rem !important; letter-spacing: .08em; }
 .project-case-content h4 { max-width: 440px; margin: 0; font-family: var(--font-display); font-size: clamp(1.55rem, 3vw, 2.45rem); letter-spacing: -.06em; line-height: 1.05; }
