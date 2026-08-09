@@ -1,0 +1,10 @@
+.git
+.wrangler
+.tmp
+.omx
+.omc
+.claude
+docs
+.assetsignore
+.cfignore
+wrangler.toml

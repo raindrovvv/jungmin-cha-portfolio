@@ -1,0 +1,7 @@
+name = "jungmin-cha-ai-builder"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+# Cloudflare Pages static site deployment
+# Run: npx wrangler pages deploy . --project-name=jungmin-cha-ai-builder
+# Or connect this repo to Cloudflare Pages dashboard for auto-deploy on push
