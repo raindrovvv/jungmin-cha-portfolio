@@ -269,12 +269,13 @@ img.engine-logo-unity { width: 104px !important; height: 104px !important; }
 
 /* Expandable project history: keep cards concise until a visitor asks for the reasoning. */
 .project-case-details { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
-.project-case-details summary { display: flex; width: fit-content; cursor: pointer; list-style: none; color: var(--lime); font-family: var(--font-text); font-size: .74rem; }
+.project-case-details summary { display: inline-flex; min-height: 44px; align-items: center; width: fit-content; cursor: pointer; list-style: none; padding: 10px 14px; border: 1px solid color-mix(in srgb, var(--lime) 52%, var(--line-strong)); border-radius: 999px; background: color-mix(in srgb, var(--lime) 10%, var(--surface)); color: var(--lime); font-family: var(--font-text); font-size: .84rem; font-weight: 700; letter-spacing: -.01em; transition: color var(--ease), background-color var(--ease), border-color var(--ease), transform var(--ease); }
 .project-case-details summary::-webkit-details-marker { display: none; }
 .project-case-details summary::after { margin-left: 8px; content: "＋"; font-family: var(--font-text); }
 .project-case-details[open] summary::after { content: "－"; }
 .project-case-details summary:focus-visible { outline: 2px solid var(--lime); outline-offset: 5px; border-radius: 3px; }
-.project-case-details summary:hover { color: var(--text); }
+.project-case-details summary:hover { border-color: var(--lime); background: color-mix(in srgb, var(--lime) 18%, var(--surface)); color: var(--text); transform: translateY(-1px); }
+.project-card-featured .project-case-details summary { min-height: 48px; padding: 12px 17px; font-size: .9rem; box-shadow: 0 6px 18px color-mix(in srgb, var(--lime) 12%, transparent); }
 .project-case-content { padding-top: 18px; }
 .project-case-kicker { min-height: 0 !important; margin: 0 0 8px !important; color: var(--lime) !important; font-family: var(--font-text); font-size: .62rem !important; letter-spacing: .08em; }
 .project-case-content h4 { max-width: 440px; margin: 0; font-family: var(--font-display); font-size: clamp(1.55rem, 3vw, 2.45rem); letter-spacing: -.06em; line-height: 1.05; }
