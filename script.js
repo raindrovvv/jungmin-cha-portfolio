@@ -2,7 +2,7 @@ const locales = {
   ko: {
     pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
     pageDesc: "Jungmin Cha의 포트폴리오. AI 에이전트와 함께 문제를 정의하고, 도구와 검증 구조를 설계해 실제 제품을 만드는 AI Native Builder입니다.",
-    navBuilds: "작업", navWorkflow: "만드는 방식", navAbout: "소개", navBlog: "블로그 ↗",
+    navBuilds: "작업", navWorkflow: "만드는 방식", navAbout: "소개", navBlog: "블로그 ↗", navGithub: "GitHub ↗",
     heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DESIGNER",
     heroTitleOne: "AI가 일할 구조를", heroTitleTwo: "만들어냅니다.",
     heroDesc: "문제를 정의하고, AI가 쓸 도구와 기준을 설계합니다.\n검증과 배포까지 이어지는 Agentic Coding으로\n제품을 완성합니다.",
@@ -46,7 +46,7 @@ const locales = {
   en: {
     pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
     pageDesc: "The portfolio of Jungmin Cha, an AI Native Builder who defines problems, designs agent tools and verification structures, and ships real products.",
-    navBuilds: "Builds", navWorkflow: "How I build", navAbout: "About", navBlog: "Blog ↗",
+    navBuilds: "Builds", navWorkflow: "How I build", navAbout: "About", navBlog: "Blog ↗", navGithub: "GitHub ↗",
     heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DESIGNER", heroTitleOne: "Build the structure", heroTitleTwo: "that makes anything.",
     heroDesc: "I define the problem and set the tools and standards AI needs.\nThen I use Agentic Coding to verify, ship,\nand complete the product.",
     heroCta: "See the builds ↓", heroContact: "Start a conversation ↗",
