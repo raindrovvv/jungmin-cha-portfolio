@@ -1,7 +1,7 @@
 const locales = {
   ko: {
-    pageTitle: "Jungmin Cha — Agentic Coding Developer",
-    pageDesc: "AI 에이전트와 함께 문제를 구조화하고, 도구와 검증 루프를 설계해 실제 제품까지 완성하는 차정민의 포트폴리오",
+    pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
+    pageDesc: "Jungmin Cha의 포트폴리오. AI 에이전트와 함께 문제를 정의하고, 도구와 검증 구조를 설계해 실제 제품을 만드는 AI Native Builder입니다.",
     navBuilds: "작업", navWorkflow: "만드는 방식", navAbout: "소개",
     heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DESIGNER",
     heroTitleOne: "AI가 일할 구조를", heroTitleTwo: "만들어냅니다.",
@@ -17,7 +17,7 @@ const locales = {
     lawgateDesc: "법률 문제를 쟁점 분해, 멀티에이전트 검토, 공식 근거 재검증까지 연결한 워크벤치 제품.",
     cerebrasDesc: "복잡한 PDF를 여러 AI 에이전트가 분석해 핵심·위험·비용·일정을 쉽게 설명하는 문서 이해 제품.",
     lawgateQuestion: "더 좋은 답보다, 근거가 부족한 답을 어떻게 막을까?",
-    viewHistory: "만드는 과정 보기 ↓",
+    viewHistory: "만드는 과정 보기 ↓", projectQuestionLabel: "처음 던진 질문",
     collaborationLabel: "함께 만든 사람",
     caseStudyHistory: "Agentic history 보기 ↘", caseDetailLabel: "AGENTIC CODING HISTORY", closeHistory: "닫기",
     lawgateCaseTitle: "Agentic Coding history\nLawGate", lawgateCaseIntro: "Codex와 함께 법률 문서 검토 워크벤치를 처음부터 제품으로 만들며, 질문·제약·검증 루프를 쌓았습니다.", lawgateCaseQuestionLabel: "첫 질문", lawgateCaseQuestion: "“더 좋은 답을 만드는 것보다, 근거 없는 답변을 어떻게 차단할까?”", lawgateCaseWhy: "법률 제품에서는 그럴듯한 문장보다 출처와 검증 경계가 먼저라고 판단했습니다. 그래서 챗봇이 아니라 근거를 확인하고 다음 행동으로 연결하는 워크벤치를 목표로 잡았습니다.", lawgateProblemLabel: "Problem", lawgateProblem: "PDF·HWP 문서에서 쟁점을 찾고, 근거 없는 주장과 과장된 법률 조언을 막으면서도 일반 사용자가 결과를 이해할 수 있어야 했습니다.", lawgateStartLabel: "Start small", lawgateStart: "처음에는 정적 HTML·CSS·JS와 Node 서버로 핵심 검증 흐름을 빠르게 확인했습니다. 이후 필요성이 확인된 기능만 Codex CLI, RAG, Neo4j, 법령 API, PDF 처리로 확장했습니다.", lawgateFailureLabel: "Failure → Question", lawgateFailure: "PDF 33개·약 921MB 처리 지연, Windows spawn EPERM, Codex rate limit, 캐시 부재, 느린 판사 worker, 어려운 문장, 내부 경로 노출을 각각 원인을 묻는 질문으로 바꿨습니다.", lawgatePlanLabel: "Agent Plan", lawgatePlan: "질문 분해 → PDF·HWP intake → 로컬 TF-IDF RAG → 공식 법령 검색 → 원고·피고·판사 worker → 인용 검증과 증거 매트릭스로 이어지는 흐름을 설계했습니다.", lawgateContractLabel: "Agent contract", lawgateContract: "역할별 프롬프트, 한국 민사소송 실무 기준, JSON Schema, 증거 원장과 입증 공백을 분리해 Agent가 일할 업무 환경과 출력 계약을 만들었습니다.", lawgateProductLabel: "Product loop", lawgateProduct: "PDF hash 캐시, 배치 분할, 중간 digest, incremental review, 빠른 모드·정밀 모드, 4단계 litigation worker, 세션 저장, 일반인용·변호사용 PDF export로 실제 업무 흐름을 닫았습니다. 개발 기록에는 prompt 7개와 schema 4개가 남아 있습니다.", lawgateResultLabel: "Result", lawgateResult: "AI에게 코드를 대신 쓰게 한 것이 아니라, 문제를 정의하고 질문·제약·출력 계약을 설계한 뒤 실행 결과를 보고 다음 질문을 던지며 법률 문서 검토 제품을 완성했습니다.",
@@ -44,8 +44,8 @@ const locales = {
     contactEyebrow: "함께 만들 프로젝트", contactTitle: "함께 만들어요", footerLine: "AI 빌더 · 제품 제작자"
   },
   en: {
-    pageTitle: "Jungmin Cha — Agentic Coding Developer",
-    pageDesc: "Jungmin Cha structures problems, connects tools, and ships real products with AI agents and verification loops.",
+    pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
+    pageDesc: "The portfolio of Jungmin Cha, an AI Native Builder who defines problems, designs agent tools and verification structures, and ships real products.",
     navBuilds: "Builds", navWorkflow: "How I build", navAbout: "About",
     heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DESIGNER", heroTitleOne: "Build the structure", heroTitleTwo: "that makes anything.",
     heroDesc: "I define the problem and set the tools and standards AI needs.\nThen I use Agentic Coding to verify, ship,\nand complete the product.",
@@ -61,7 +61,7 @@ const locales = {
     cerebrasDesc: "A document intelligence product where multiple AI agents explain the key points, risks, costs, and deadlines in complex PDFs.",
     lawgateQuestion: "How do we block an answer when the evidence is not strong enough?",
     viewHistory: "See how it was made ↓",
-    collaborationLabel: "Built with",
+    collaborationLabel: "Built with", projectQuestionLabel: "First question",
     caseStudyHistory: "View Agentic history ↘", caseDetailLabel: "AGENTIC CODING HISTORY", closeHistory: "Close",
     lawgateCaseTitle: "Agentic Coding history\nLawGate", lawgateCaseIntro: "With Codex, I built a legal document review workbench from the first prototype to a usable product by keeping the questions, constraints, and verification loops visible.", lawgateCaseQuestionLabel: "First question", lawgateCaseQuestion: "“Instead of making a better answer, how do we block an answer without enough evidence?”", lawgateCaseWhy: "For a legal product, sources and verification boundaries matter before polished language. I aimed for a workbench that checks evidence and leads to the next action, not a generic chatbot.", lawgateProblemLabel: "Problem", lawgateProblem: "Find issues in PDF and HWP documents, block unsupported claims and overconfident legal advice, and still make the result understandable to a general user.", lawgateStartLabel: "Start small", lawgateStart: "I first used static HTML, CSS, JavaScript, and a Node server to validate the core evidence flow. Only after that did I add Codex CLI, RAG, Neo4j, legal-source APIs, and PDF processing.", lawgateFailureLabel: "Failure → Question", lawgateFailure: "I turned slow processing of 33 PDFs totaling about 921MB, Windows spawn EPERM, Codex rate limits, missing cache, slow judge workers, difficult language, and leaked internal paths into questions about their causes.", lawgatePlanLabel: "Agent Plan", lawgatePlan: "Question breakdown → PDF/HWP intake → local TF-IDF RAG → official legal-source search → plaintiff, defendant, and judge workers → citation checks and an evidence matrix.", lawgateContractLabel: "Agent contract", lawgateContract: "I separated role prompts, Korean civil-litigation practice, JSON Schema, evidence ledger, and proof gaps into a working environment and output contract for each Agent.", lawgateProductLabel: "Product loop", lawgateProduct: "PDF-hash cache, batch splitting, intermediate digests, incremental review, fast and precise modes, four-stage litigation workers, session storage, and separate public/attorney PDF exports closed the real workflow. The development record includes seven prompts and four schemas.", lawgateResultLabel: "Result", lawgateResult: "I did not ask AI to write the code for me. I defined the problem, designed the questions, constraints, and output contracts, then used each run to ask the next question and finish a legal document review product.",
     rufDesc: "A site translating a dance brand's energy and movement into a web experience.",
@@ -187,7 +187,7 @@ locales.en.unrealResultLabel = "Result";
 locales.en.unrealResult = "I went beyond building games with AI and built an Agent Tool Layer that reads, controls, and verifies work inside Unreal Editor.";
 locales.ko.unityCaseTitle = "Agentic Coding history\nUnity MCP";
 locales.ko.unityCaseQuestionLabel = "핵심 질문";
-locales.ko.unityCaseQuestion = "“Unity Editor 작업을 자연어로 호출하면서도, Agent의 변경을 안전하게 검증하려면 어떻게 해야 할까?”";
+locales.ko.unityCaseQuestion = "“자연어로 Unity Editor를 조작하고, Agent의 변경을 안전하게 검증하려면 어떻게 해야 할까?”";
 locales.ko.unityCaseWhy = "Unity 개발을 AI에게 맡기는 데서 끝나지 않고, Scene과 Asset을 읽고 필요한 Editor 도구를 호출하며 변경 전후를 확인하는 MCP를 만들고 싶었습니다.";
 locales.ko.unityProblemLabel = "문제";
 locales.ko.unityProblem = "자연어로 요청한 Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을\nUnity Editor에서 실제 결과로 이어지게 했습니다.";
@@ -382,7 +382,7 @@ locales.en.unrealFailure = "When MCP discovery failed, I checked tools/list dire
 locales.en.unrealResultLabel = "Result";
 locales.en.unrealResult = "I went beyond building games with AI and built the tool layer that lets an AI read, operate, and check Unreal Editor.";
 
-locales.ko.unityCaseQuestion = "“Unity Editor를 자연어로 움직이면서도, Agent의 변경을 안전하게 확인하려면 어떻게 해야 할까?”";
+locales.ko.unityCaseQuestion = "“자연어로 Unity Editor를 조작하고, Agent의 변경을 안전하게 검증하려면 어떻게 해야 할까?”";
 locales.ko.unityCaseWhy = "Unity 작업을 AI에게 맡기는 것만으로는 부족했습니다. Agent가 Scene과 Asset을 읽고, 필요한 도구를 부르고, 바뀐 상태를 확인해야 실제 작업이 된다고 봤습니다.";
 locales.ko.unityProblem = "자연어로 요청한 Scene·Asset·Material·Lighting·Audio·Character·Animation 작업이 Unity Editor의 실제 결과로 이어져야 했습니다.";
 locales.ko.unityMcpLabel = "Unity MCP";
@@ -495,6 +495,72 @@ function initProjectNumbers() {
   document.querySelectorAll(".project-card .project-meta span:last-child").forEach((number, index) => {
     number.textContent = String(index + 1).padStart(2, "0");
   });
+}
+
+function initProjectQuestions() {
+  const questionKeys = [
+    "lawgateQuestion",
+    "caseStudyQuestion",
+    "rufCaseQuestion",
+    "loreCaseQuestion",
+    "questCaseQuestion",
+    "unrealCaseQuestion",
+    "unityCaseQuestion"
+  ];
+
+  document.querySelectorAll("#builds .project-card").forEach((card, index) => {
+    const details = card.querySelector(".project-case-details");
+    const body = card.querySelector(".project-body");
+    const questionKey = questionKeys[index];
+    if (!details || !body || !questionKey) return;
+
+    const existing = body.querySelector(".project-decision");
+    if (existing) {
+      existing.querySelector("span")?.setAttribute("data-i18n", "projectQuestionLabel");
+      return;
+    }
+
+    const decision = document.createElement("div");
+    decision.className = "project-decision";
+
+    const label = document.createElement("span");
+    label.dataset.i18n = "projectQuestionLabel";
+
+    const question = document.createElement("b");
+    question.dataset.i18n = questionKey;
+
+    decision.append(label, question);
+    const anchor = body.querySelector(".project-collaborator") || details;
+    body.insertBefore(decision, anchor);
+  });
+}
+
+function initHeroTilt() {
+  const console = document.querySelector(".hero-console");
+  const supportsTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!console || !supportsTilt || reducedMotion) return;
+
+  let frame = 0;
+  let nextTilt = { x: 0, y: 0 };
+  const applyTilt = () => {
+    frame = 0;
+    console.style.setProperty("--hero-tilt-x", `${nextTilt.x.toFixed(2)}deg`);
+    console.style.setProperty("--hero-tilt-y", `${nextTilt.y.toFixed(2)}deg`);
+  };
+  const reset = () => {
+    nextTilt = { x: 0, y: 0 };
+    if (!frame) frame = requestAnimationFrame(applyTilt);
+  };
+
+  console.addEventListener("pointermove", (event) => {
+    const rect = console.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width * 2 - 1;
+    const y = (event.clientY - rect.top) / rect.height * 2 - 1;
+    nextTilt = { x: y * -1.6, y: x * 1.6 };
+    if (!frame) frame = requestAnimationFrame(applyTilt);
+  });
+  console.addEventListener("pointerleave", reset);
 }
 
 function initSmoothScroll() {
@@ -724,6 +790,8 @@ function initContactCopy() {
 
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme(activeTheme);
+  initProjectQuestions();
+  initHeroTilt();
   applyLanguage(activeLang);
   document.getElementById("langToggle")?.addEventListener("click", () => {
     activeLang = activeLang === "ko" ? "en" : "ko";
