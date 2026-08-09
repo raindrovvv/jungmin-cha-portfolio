@@ -85,6 +85,16 @@ body.light .site-noise { opacity: 0; }
 .section-inner, .nav-inner { width: min(var(--max), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
 section { scroll-margin-top: calc(var(--header-h) + 24px); }
 
+/* The portfolio introduces the person before the process so the first scroll
+   explains who is building these products before showing how they are made. */
+main { display: flex; flex-direction: column; }
+main > .hero-section { order: 1; }
+main > #about { order: 2; }
+main > .statement-section { order: 3; }
+main > #builds { order: 4; }
+main > #workflow { order: 5; }
+main > #contact { order: 6; }
+
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 20; height: var(--header-h); border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent); background: color-mix(in srgb, var(--bg) 74%, transparent); backdrop-filter: blur(22px) saturate(130%); }
 .nav-inner { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 24px; }
