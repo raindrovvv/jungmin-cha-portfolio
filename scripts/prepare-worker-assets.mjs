@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const dist = join(root, "dist");
-const entries = ["index.html", "styles.css", "script.js", "programmer", "assets", "articles", "_headers"];
+const entries = ["index.html", "styles.css", "script.js", "programmer", "audio", "assets", "articles", "_headers"];
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
