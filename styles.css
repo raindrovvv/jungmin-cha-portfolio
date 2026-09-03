@@ -204,6 +204,32 @@ a {
   gap: 8px;
 }
 
+.role-switch {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  font-size: 12px;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.role-switch::after {
+  margin-left: 8px;
+  color: var(--accent);
+  content: "↗";
+}
+
+.role-switch:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+  transform: translateY(-1px);
+}
+
 .language-toggle {
   display: inline-flex;
   align-items: center;
