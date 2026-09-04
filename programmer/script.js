@@ -94,6 +94,7 @@ const portfolio = {
       agentMedia: "UNREAL EDITOR / MCP",
       guardianMedia: "GUARDIAN & SEEKER / UE5",
       watchGameplay: "게임플레이 보기",
+      guardianMediaDisclaimer: "※ 프로젝트 당시 비주얼·사운드 아트 관련 시스템까지 직접 구현한 범위를 설명하기 위해 ‘테크니컬 아트’라고 표현했습니다.",
       agentLink: "View UnrealAgent on GitHub ↗",
       debugOpen: "Open evidence",
       toolingLink: "View repository ↗",
@@ -372,7 +373,8 @@ const createEnglishPortfolio = () => {
     agentMedia: "UNREAL EDITOR / MCP",
     guardianMedia: "GUARDIAN & SEEKER / UE5",
     watchGameplay: "Watch gameplay",
-    agentLink: "View UnrealAgent on GitHub ↗",
+    guardianMediaDisclaimer: "※ “Technical Art” describes my implementation of the visual and sound systems during the project—not an art-director title.",
+      agentLink: "View UnrealAgent on GitHub ↗",
     debugOpen: "Open evidence",
     toolingLink: "View repository ↗",
     audioLearn: "See original audio portfolio ↗",
@@ -552,19 +554,19 @@ const renderGuardian = () => {
   const item = copy.guardian;
   const gameplayLink = item.links.find((link) => link.label.toLowerCase().includes("gameplay")) || item.links[0];
   node.innerHTML = `
-    <a class="case-visual" href="${escapeHtml(gameplayLink.href)}" target="_blank" rel="noreferrer" data-reveal>
-      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" loading="lazy" decoding="async" />
-      <span class="media-badge">${escapeHtml(copy.strings.watchGameplay)} ↗</span>
-    </a>
+    <div class="case-visual-wrap" data-reveal>
+      <a class="case-visual" href="${escapeHtml(gameplayLink.href)}" target="_blank" rel="noreferrer">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt)}" loading="lazy" decoding="async" />
+        <span class="media-badge">${escapeHtml(copy.strings.watchGameplay)} ↗</span>
+      </a>
+      <p class="media-disclaimer">${escapeHtml(copy.strings.guardianMediaDisclaimer)}</p>
+    </div>
     <div class="case-main" data-reveal>
       <p class="case-label">${escapeHtml(item.label)}</p>
       <h3>${escapeHtml(item.title)}</h3>
       ${paragraphs(item.summary, "case-summary")}
       <div class="case-links">${item.links
         .map((link) => `<a class="text-link" href="${escapeHtml(link.href)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`)
-        .join("")}</div>
-      <div class="system-flow" aria-label="구현 흐름">${item.flow
-        .map(([label, value]) => `<div class="flow-node"><small>${escapeHtml(label)}</small><strong>${escapeHtml(value)}</strong></div>`)
         .join("")}</div>
     </div>
     `;
