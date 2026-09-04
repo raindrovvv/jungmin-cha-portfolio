@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const root = process.cwd();
@@ -34,14 +34,6 @@ await writeFile(
   index
     .replace(/\.\/styles\.css(?:\?v=[^"']*)?/g, withVersion("./styles.css", stylesVersion))
     .replace(/\.\/script\.js(?:\?v=[^"']*)?/g, withVersion("./script.js", scriptVersion)),
-);
-
-const gameAssetsDir = join(dist, "assets", "game");
-const gameAssets = await readdir(gameAssetsDir, { withFileTypes: true });
-await Promise.all(
-  gameAssets
-    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".gif"))
-    .map((entry) => rm(join(gameAssetsDir, entry.name), { force: true })),
 );
 
 console.log(`Prepared dist with styles ${stylesVersion} and script ${scriptVersion}.`);

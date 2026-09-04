@@ -42,10 +42,8 @@
         <span>Jungmin Cha</span>
       </a>
       <nav class="nav" aria-label="주요 섹션">
-        <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#guardian" data-i18n="navGuardian">Guardian</a>
-        <a href="#unreal-agent" data-i18n="navAgent">UnrealAgent</a>
-        <a href="#debugging" data-i18n="navDebugging">Debugging</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#tooling" data-i18n="navTooling">Tooling</a>
         <a href="#activities" data-i18n="navActivities">Activities</a>
         <a href="#audio" data-i18n="navAudio">Game Audio</a>
@@ -69,11 +67,11 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-gridline" aria-hidden="true"></div>
         <div class="role-orbit" aria-label="빠른 이동 오브젝트">
-          <a class="role-token token-role" href="#projects" data-i18n="orbitRole">C++ Gameplay</a>
+          <a class="role-token token-role" href="#guardian" data-i18n="orbitRole">C++ Gameplay</a>
           <a class="role-token token-gameplay" href="#guardian" data-i18n="orbitGameplay">Gameplay / Systems</a>
           <span class="symbol-token token-signal" aria-hidden="true">✱</span>
           <a class="role-token token-tooling" href="#tooling" data-i18n="orbitTooling">Editor Tooling</a>
-          <a class="role-token token-debug" href="#debugging" data-i18n="orbitDebug">Debug / Verify</a>
+          <a class="role-token token-debug" href="#guardian" data-i18n="orbitDebug">Debug / Verify</a>
           <span class="symbol-token token-down" aria-hidden="true">↓</span>
         </div>
         <div class="hero-copy">
@@ -87,7 +85,7 @@
             게임엔진에서 C++와 Blueprint로 게임플레이와 오디오 시스템을 구현합니다. Wwise와 MCP를 활용해 기능을 빠르게 검증하고, 문제를 재현해 엔진과 미들웨어의 동작을 단계별로 추적합니다.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#projects" data-i18n="heroPrimary">View programming projects</a>
+            <a class="button primary" href="#guardian" data-i18n="heroPrimary">View programming projects</a>
             <a class="button secondary" href="https://github.com/raindrovvv" target="_blank" rel="noreferrer" data-i18n="heroSecondary">Open GitHub</a>
           </div>
           <div class="hero-tags" id="hero-tags" aria-label="핵심 역량"></div>
@@ -103,54 +101,64 @@
 
       </section>
 
+      <section class="section guardian-project-section" id="guardian" aria-labelledby="guardian-project-title">
+        <div class="section-heading guardian-project-heading">
+          <div>
+            <p class="eyebrow" data-i18n="guardianProjectEyebrow">02 / MAIN PROJECT</p>
+            <h2 id="guardian-project-title" data-i18n="guardianProjectTitle">Guardian &amp; Seeker</h2>
+          </div>
+          <p class="section-note" data-i18n="guardianProjectNote">하나의 프로젝트 안에서 맡은 범위, 구현 결과, 문제 해결 과정을 이어서 보여줍니다.</p>
+        </div>
+
+        <div class="project-chapter contribution-chapter" id="contribution" aria-labelledby="contribution-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="contributionEyebrow">CONTRIBUTION</p>
+              <h2 id="contribution-title" data-i18n="contributionHeading">Guardian &amp; Seeker에서 맡은 범위와 결과</h2>
+            </div>
+            <p class="section-note" data-i18n="contributionNote">4v1 비대칭 PvP 게임의 플레이, UI, 사운드, 개발 도구를 함께 만들었습니다.</p>
+          </div>
+          <div class="contribution-content" id="contribution-content"></div>
+        </div>
+
+        <div class="project-chapter case-chapter" id="guardian-implementation" aria-labelledby="guardian-title">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="eyebrow" data-i18n="guardianEyebrow">IMPLEMENTATION</p>
+              <h2 id="guardian-title" data-i18n="guardianHeading">UE5 C++ 기반 플레이 피드백 시스템 구현</h2>
+            </div>
+            <span class="section-index">CASE 01</span>
+          </div>
+          <div class="case-layout has-case-visual" id="guardian-content"></div>
+        </div>
+
+        <div class="project-chapter debugging-chapter" id="debugging" aria-labelledby="debugging-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="debuggingEyebrow">DEBUGGING</p>
+              <h2 id="debugging-title" data-i18n="debuggingHeading">증상을 재현하고 원인 경로를 좁혔습니다</h2>
+            </div>
+            <p class="section-note" data-i18n="debuggingNote">로그, 콜리전, 미들웨어 값을 같은 사건의 증거로 묶어 확인합니다.</p>
+          </div>
+          <div class="debug-grid" id="debugging-content"></div>
+        </div>
+      </section>
+
       <section class="section project-section" id="projects" aria-labelledby="projects-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow" data-i18n="projectsEyebrow">01 / PROGRAMMING PROJECTS</p>
-            <h2 id="projects-title" data-i18n="projectsTitle">문제를 쪼개고, 런타임에서 확인한 프로젝트</h2>
+            <p class="eyebrow" data-i18n="projectsEyebrow">01 / SUB PROJECTS</p>
+            <h2 id="projects-title" data-i18n="projectsTitle">메인 프로젝트에서 확장한 서브 프로젝트</h2>
           </div>
-          <p class="section-note" data-i18n="projectsNote">직무에 가까운 순서로 핵심 구현과 검증 지점을 연결했습니다.</p>
+          <p class="section-note" data-i18n="projectsNote">툴링·디버깅·검증 사례를 별도 프로젝트로 정리했습니다.</p>
         </div>
         <div class="project-map" id="project-map"></div>
-      </section>
-
-      <section class="section case-section" id="guardian" aria-labelledby="guardian-title">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow" data-i18n="guardianEyebrow">02 / GUARDIAN &amp; SEEKER</p>
-            <h2 id="guardian-title" data-i18n="guardianHeading">UE5 C++ 기반 플레이 피드백 시스템 구현</h2>
-          </div>
-          <span class="section-index">CASE 01</span>
-        </div>
-        <div class="case-layout" id="guardian-content"></div>
-      </section>
-
-      <section class="section case-section agent-section" id="unreal-agent" aria-labelledby="agent-title">
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="eyebrow" data-i18n="agentEyebrow">03 / UNREALAGENT</p>
-            <h2 id="agent-title" data-i18n="agentHeading">에디터와 로컬 AI를 연결한 MCP 브리지</h2>
-          </div>
-          <span class="section-index">CASE 02</span>
-        </div>
-        <div class="agent-layout" id="agent-content"></div>
-      </section>
-
-      <section class="section debugging-section" id="debugging" aria-labelledby="debugging-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" data-i18n="debuggingEyebrow">04 / DEBUGGING CASES</p>
-            <h2 id="debugging-title" data-i18n="debuggingHeading">증상을 재현하고 원인 경로를 좁혔습니다</h2>
-          </div>
-          <p class="section-note" data-i18n="debuggingNote">로그, 콜리전, 미들웨어 값을 같은 사건의 증거로 묶어 확인합니다.</p>
-        </div>
-        <div class="debug-grid" id="debugging-content"></div>
       </section>
 
       <section class="section tooling-section" id="tooling" aria-labelledby="tooling-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow" data-i18n="toolingEyebrow">05 / UNITYMCP &amp; BUILD MONITOR</p>
+            <p class="eyebrow" data-i18n="toolingEyebrow">05 / EDITOR TOOLING &amp; BUILD MONITOR</p>
             <h2 id="tooling-title" data-i18n="toolingHeading">적용 전에 확인하고, 적용 후에 다시 빌드합니다</h2>
           </div>
           <p class="section-note" data-i18n="toolingNote">자동화의 목표를 ‘대신 작성’이 아니라 ‘검증 가능한 작업 단위’로 두었습니다.</p>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">GAS Build Monitor</title>
+  <desc id="desc">Guardian and Seeker build status dashboard with progress, build result and Discord Slack webhook notifications.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07080d"/>
+      <stop offset="1" stop-color="#10131c"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22c8ff"/>
+      <stop offset="1" stop-color="#0e9ee8"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity=".2" fill="#253246"><circle cx="120" cy="250" r="2"/><circle cx="1390" cy="690" r="2"/><circle cx="300" cy="790" r="2"/><circle cx="1480" cy="150" r="2"/></g>
+  <g font-family="Inter,Arial,sans-serif" fill="#f5f7fb">
+    <rect x="120" y="72" width="56" height="56" rx="14" fill="url(#cyan)" filter="url(#glow)"/>
+    <path d="M148 85l-9 17h8l-5 17 18-21h-9l6-13z" fill="#fff"/>
+    <text x="198" y="98" font-size="28" font-weight="800">GAS Build Monitor</text>
+    <text x="198" y="123" font-size="15" fill="#66bde8">Guardian and Seeker Compilation Status</text>
+    <rect x="1280" y="80" width="190" height="42" rx="21" fill="#062b1d" stroke="#18a765"/>
+    <circle cx="1305" cy="101" r="6" fill="#22c77b"/><text x="1320" y="107" font-size="16" font-weight="800" fill="#2ce184">SUCCEEDED</text>
+  </g>
+  <g transform="translate(120 170)">
+    <rect width="340" height="390" rx="24" fill="#0e111a" stroke="#26303d"/>
+    <circle cx="170" cy="170" r="122" fill="none" stroke="#162534" stroke-width="16"/>
+    <circle cx="170" cy="170" r="122" fill="none" stroke="url(#cyan)" stroke-width="16" stroke-linecap="round" stroke-dasharray="766" stroke-dashoffset="0" transform="rotate(-90 170 170)"/>
+    <text x="170" y="180" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="48" font-weight="800" fill="#f7f8fb">100%</text>
+    <text x="170" y="207" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#9da8b8">PROGRESS</text>
+    <rect x="28" y="330" width="284" height="8" rx="4" fill="#17212d"/><rect x="28" y="330" width="284" height="8" rx="4" fill="url(#cyan)"/>
+  </g>
+  <g transform="translate(500 170)" font-family="Inter,Arial,sans-serif">
+    <rect width="980" height="100" rx="22" fill="#10151e" stroke="#26303d"/>
+    <rect x="28" y="25" width="52" height="52" rx="14" fill="#101e2d" stroke="#28394b"/><text x="54" y="59" text-anchor="middle" font-size="25" fill="#1ce4ef">⌘</text>
+    <text x="105" y="45" font-size="14" fill="#9da8b8">CURRENTLY COMPILING FILE</text><text x="105" y="70" font-size="20" font-weight="800" fill="#f5f7fb">Build complete.</text>
+    <g transform="translate(0 120)">
+      <rect width="470" height="88" rx="22" fill="#0e111a" stroke="#26303d"/><rect x="24" y="22" width="42" height="42" rx="11" fill="#192431"/><text x="45" y="50" text-anchor="middle" font-size="21" fill="#c8d5e4">▰</text><text x="90" y="39" font-size="14" fill="#9da8b8">Build Stage</text><text x="90" y="65" font-size="20" font-weight="800">Succeeded</text>
+      <rect x="500" width="480" height="88" rx="22" fill="#0e111a" stroke="#26303d"/><rect x="524" y="22" width="42" height="42" rx="11" fill="#112238"/><text x="545" y="51" text-anchor="middle" font-size="20" fill="#5baeff">◷</text><text x="590" y="39" font-size="14" fill="#9da8b8">Elapsed Time</text><text x="590" y="65" font-size="20" font-weight="800">00:02:05</text>
+    </g>
+    <g transform="translate(0 230)">
+      <rect width="470" height="88" rx="22" fill="#0e111a" stroke="#26303d"/><rect x="24" y="22" width="42" height="42" rx="11" fill="#0b2c31"/><text x="45" y="50" text-anchor="middle" font-size="20" fill="#20e0e0">♧</text><text x="90" y="39" font-size="14" fill="#9da8b8">Completed Actions</text><text x="90" y="65" font-size="20" font-weight="800">1/1</text>
+      <rect x="500" width="480" height="88" rx="22" fill="#0e111a" stroke="#26303d"/><rect x="524" y="22" width="42" height="42" rx="11" fill="#0d2b21"/><text x="545" y="51" text-anchor="middle" font-size="20" fill="#39df94">⑂</text><text x="590" y="39" font-size="14" fill="#9da8b8">Git Revision</text><text x="590" y="64" font-size="19" font-weight="800">Feature/Sound_V2 @</text><text x="590" y="84" font-size="16" font-weight="700">783af72d0 dirty</text>
+    </g>
+    <g transform="translate(0 340)">
+      <rect width="470" height="72" rx="20" fill="#0e111a" stroke="#26303d"/><text x="24" y="29" font-size="14" fill="#9da8b8">↻  RECENT BUILDS</text><text x="24" y="54" font-size="14" font-weight="800" fill="#21d88a">SUCCEEDED</text><text x="300" y="54" font-size="13" fill="#9da8b8">00:01:43 / 1 actions</text>
+      <rect x="500" width="480" height="72" rx="20" fill="#0e111a" stroke="#26303d"/><text x="524" y="29" font-size="14" fill="#9da8b8">◉  SLOW FILES</text><text x="524" y="54" font-size="14" fill="#9da8b8">No timing data yet.</text>
+    </g>
+    <g transform="translate(0 435)">
+      <rect width="980" height="160" rx="22" fill="#0e111a" stroke="#26303d"/><text x="24" y="31" font-size="14" fill="#9da8b8">♟  WEBHOOK NOTIFICATIONS</text><text x="24" y="59" font-size="13" font-weight="700" fill="#9da8b8">Discord Webhook URL</text><rect x="24" y="70" width="700" height="34" rx="8" fill="#080a10" stroke="#1f2b39"/><text x="38" y="92" font-size="13" fill="#687586">https://discord.com/api/webhooks/...</text><text x="760" y="92" font-size="13" fill="#9da8b8">□ Discord enabled</text><text x="24" y="130" font-size="13" font-weight="700" fill="#9da8b8">Slack Webhook URL</text><rect x="24" y="140" width="700" height="34" rx="8" fill="#080a10" stroke="#1f2b39"/><text x="38" y="162" font-size="13" fill="#687586">https://hooks.slack.com/services/...</text><text x="760" y="162" font-size="13" fill="#9da8b8">□ Slack enabled</text>
+    </g>
+  </g>
+</svg>
