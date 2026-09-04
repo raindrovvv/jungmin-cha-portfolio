@@ -447,7 +447,8 @@ portfolio.en = createEnglishPortfolio();
 const LANGUAGE_KEY = "jungmin-programmer-language";
 const THEME_KEY = "jungmin-programmer-theme";
 let currentLanguage = localStorage.getItem(LANGUAGE_KEY) === "en" ? "en" : "ko";
-let currentTheme = localStorage.getItem(THEME_KEY) || "dark";
+// New visitors start in the brighter light theme; returning visitors keep their saved preference.
+let currentTheme = localStorage.getItem(THEME_KEY) || "light";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
