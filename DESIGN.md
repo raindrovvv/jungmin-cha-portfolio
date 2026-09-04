@@ -3,7 +3,7 @@
 ## Source of truth
 - Status: Active
 - Last refreshed: 2026-09-05
-- Primary product surfaces: Programmer portfolio (Main, Sub, Tooling, Activities, Audio, Discography, Contact)
+- Primary product surfaces: Programmer portfolio (Main, Sub, Tooling, Activities, Audio, Contact)
 - Evidence reviewed: `programmer/index.html`, `programmer/script.js`, `programmer/styles.css`, portfolio assets, current browser capture
 
 ## Brand
@@ -22,7 +22,7 @@
 - Key contexts of use: recruiter scan, portfolio review, interview preparation
 
 ## Information architecture
-- Primary navigation: Main → Sub → Tooling → Activities → Game Audio → Discography → Contact
+- Primary navigation: Main → Sub → Tooling → Activities → Game Audio → Contact
 - Core routes/screens: single-page anchored sections under `/programmer/`
 - Content hierarchy: section promise → evidence → implementation detail → external proof
 
@@ -41,7 +41,7 @@
 
 ## Components
 - Existing components to reuse: section headings, metrics, evidence lists, project map cards, media frames
-- New/changed components: contribution evidence presented as an editorial split with divider-led area rows
+- New/changed components: the Main Project contribution begins with a single cinematic case-study panel—one primary metric, supporting metrics, and a compact project dossier; Tooling and Activities use image-led cards, while Audio stays an open divider-led layout
 - Variants and states: responsive single-column layout, hover/focus links, reduced-motion fallback
 - Token/component ownership: `programmer/styles.css` owns layout tokens; `programmer/script.js` owns content/rendering
 
@@ -54,7 +54,7 @@
 
 ## Responsive behavior
 - Supported breakpoints/devices: desktop, tablet, mobile; existing 720px/980px adaptations
-- Layout adaptations: editorial columns collapse; area rows become one column; media remains fluid
+- Layout adaptations: editorial columns collapse; area rows become one column; media remains fluid; the mobile header stays on one compact row with a horizontally scrollable nav
 - Touch/hover differences: pointer-following decoration hidden on coarse pointers
 
 ## Interaction states

@@ -31,21 +31,21 @@ const portfolio = {
         "게임엔진에서 C++와 Blueprint로 게임플레이와 오디오 시스템을 구현합니다.\nWwise와 MCP를 활용해 기능을 빠르게 검증하고, 문제를 재현해 엔진과 미들웨어의 동작을 단계별로 추적합니다.",
       heroPrimary: "View programming projects",
       heroSecondary: "Open GitHub",
-      projectsEyebrow: "01 / SUB PROJECTS",
+      projectsEyebrow: "02 / SUB PROJECTS",
       projectsTitle: "Sub Project",
       projectsNote: "툴링·디버깅·검증 사례를 별도 프로젝트로 정리했습니다.",
-      guardianProjectEyebrow: "02 / MAIN PROJECT",
+      guardianProjectEyebrow: "01 / MAIN PROJECT",
       guardianProjectTitle: "Main Project",
       guardianProjectNote: "하나의 프로젝트 안에서 맡은 범위, 구현 결과, 문제 해결 과정을 이어서 보여줍니다.",
       contributionEyebrow: "CONTRIBUTION",
       contributionHeading: "Guardian & Seeker에서 맡은 범위와 결과",
       contributionNote: "4v1 비대칭 PvP 게임의 플레이, UI, 사운드, 개발 도구를 함께 만들었습니다.",
       contributionMetricCommits: "커밋 수 (병합 제외)",
-      contributionMetricShare: "전체 1,923개 커밋 중",
-      contributionMetricFiles: "코어 코드 변경 파일",
+      contributionMetricShare: "전체 1,923개 중",
+      contributionMetricFiles: "코어 코드 파일",
       contributionMetricRecent: "6월 이후 추가 커밋",
       contributionEvidence: "2025.05–2026.09 · Guardian & Seeker Git history · Source/GAS + Config + Legacy/GameFeatures",
-      contributionStrength: "기획과 창작 의지를 구현 단위로 쪼개고, AI에게 맡길 범위와 검증 경계를 정해 빠르게 결과로 연결했습니다.",
+      contributionStrength: "기획과 창작 아이디어를 구현 단위로 나누고, AI를 활용할 범위와 직접 검증할 지점을 구분해 빠르게 결과를 만들었습니다.",
       contributionAreasTitle: "이 프로젝트에서 직접 다룬 영역",
       contributionAreasNote: "커밋 기록을 작업 영역별로 나눴습니다.",
       contributionAreaGameplay: "게임플레이",
@@ -77,9 +77,9 @@ const portfolio = {
       discographyEyebrow: "06 / DISCOGRAPHY",
       discographyHeading: "긴 호흡으로 결과를 다듬어 온 기록",
       audioPortfolioLink: "Game Sound Designer portfolio ↗",
-      contactEyebrow: "09 / CONTACT",
+      contactEyebrow: "06 / CONTACT",
       contactHeading: "플레이어가 느끼는 문제를\n시스템의 언어로 풀어냅니다.",
-      contactBody: "게임플레이 프로그래밍, 에디터 툴링, 런타임 디버깅이 만나는 지점에서 기여할 수 있습니다.\n구현 범위와 검증 방법을 함께 이야기하고 싶다면 연락 주세요.",
+      contactBody: "게임플레이 시스템 구현, 에디터 툴링, 런타임 디버깅 경험을 바탕으로 팀의 개발 과정을 빠르게 이해하고 검증 가능한 결과를 만드는 데 기여하겠습니다.",
       contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
       footerName: "차정민 · Game Programmer",
@@ -151,10 +151,12 @@ const portfolio = {
         number: "05",
         status: "AI PROJECT",
         title: "AI Gunslinger",
-        summary: "아이디어와 창작 의지를 AI 도구로 빠르게 프로토타입으로 연결한 최신 프로젝트입니다.",
+        summary: "AI API를 게임 루프에 연결해 플레이어의 선택과 시스템 반응을 빠르게 검증한 최신 프로젝트입니다.",
+        image: "../assets/game/ai-gunslinger.jpg",
+        imageAlt: "AI Gunslinger duel scene",
         href: "https://ai-gunslinger.vercel.app",
         secondaryHref: "https://github.com/raindrovvv/AI_GunSlinger",
-        tags: ["AI-assisted", "Prototype", "Web"],
+        tags: ["AI API", "Prototype", "Web"],
       },
     ],
     contribution: {
@@ -312,10 +314,10 @@ const createEnglishPortfolio = () => {
     heroIntro: "I build gameplay and audio systems with C++ and Blueprint in a game engine.\nI use Wwise and MCP to validate features quickly, reproduce failures, and trace engine and middleware behavior one step at a time.",
     heroPrimary: "View programming projects",
     heroSecondary: "Open GitHub",
-    projectsEyebrow: "01 / SUB PROJECTS",
+    projectsEyebrow: "02 / SUB PROJECTS",
     projectsTitle: "Sub Project",
     projectsNote: "Additional game, audio, and AI projects that show how I turn ideas into playable results.",
-    guardianProjectEyebrow: "02 / MAIN PROJECT",
+    guardianProjectEyebrow: "01 / MAIN PROJECT",
     guardianProjectTitle: "Main Project",
     guardianProjectNote: "One project, shown as a continuous story of scope, implementation, and problem solving.",
     contributionEyebrow: "CONTRIBUTION",
@@ -341,11 +343,11 @@ const createEnglishPortfolio = () => {
     contributionHeading: "My scope and outcomes in Guardian & Seeker",
     contributionNote: "A 4v1 asymmetric PvP game spanning gameplay, UI, sound, and development tools.",
     contributionMetricCommits: "commits (merge excluded)",
-    contributionMetricShare: "of 1,923 scoped commits",
-    contributionMetricFiles: "core code files changed",
+    contributionMetricShare: "of 1,923 total",
+    contributionMetricFiles: "core code files",
     contributionMetricRecent: "added since June",
     contributionEvidence: "2025.05–2026.09 · Guardian & Seeker Git history · Source/GAS + Config + Legacy/GameFeatures",
-    contributionStrength: "I break a product or creative idea into buildable units, decide what AI should accelerate, and keep the verification boundary explicit.",
+    contributionStrength: "I turn product and creative ideas into buildable units, use AI where it helps, and verify the parts that matter in the final build.",
     contributionAreasTitle: "Areas I directly worked across",
     contributionAreasNote: "I grouped the commit record into practical work areas.",
     contributionAreaGameplay: "Gameplay",
@@ -356,9 +358,9 @@ const createEnglishPortfolio = () => {
     contributionAreaAudioDetail: "Sound hooks, hit response, footsteps, effects",
     contributionAreaTools: "Development Tools / AI",
     contributionAreaToolsDetail: "Editor tools, automation, workflow checks",
-    contactEyebrow: "10 / CONTACT",
+    contactEyebrow: "06 / CONTACT",
     contactHeading: "I translate player-facing problems\ninto system language.",
-    contactBody: "I can contribute where gameplay programming, editor tooling, and runtime debugging meet.\nIf you want to talk about implementation scope and how to verify it, I would be glad to connect.",
+    contactBody: "I bring gameplay systems, editor tooling, and runtime debugging experience to help a team understand complex work quickly and ship verifiable features.",
     contactEmail: "Send an email",
     contactGithub: "Open GitHub",
     footerName: "Jungmin Cha · Game Programmer",
@@ -385,7 +387,7 @@ const createEnglishPortfolio = () => {
     { id: "projects", number: "02", status: "GAME PROJECT", title: "SYMBIO", summary: "An action-survival project built around tense combat and the atmosphere of a sealed research facility.", image: "../assets/game/symbio.webp", imageAlt: "SYMBIO gameplay", href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8", tags: ["UE5", "BGM / SFX", "Cinematic"] },
     { id: "projects", number: "03", status: "GAME PROJECT", title: "Rainbow Guardian", summary: "A themed tower RPG that gives exploration, combat, shops, and shrines distinct identities through sound.", image: "../assets/game/rainbow-guardian.webp", imageAlt: "Rainbow Guardian gameplay", href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw", tags: ["RPG", "BGM", "SFX"] },
     { id: "projects", number: "04", status: "INTERACTIVE MEDIA", title: "Flight Record", summary: "An interactive media piece connecting album music and movement so user actions become part of the listening experience.", image: "../assets/game/flight-record.webp", imageAlt: "Flight Record interactive media", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s", tags: ["Unity", "Interactive Audio", "Direction"] },
-    { id: "projects", number: "05", status: "AI PROJECT", title: "AI Gunslinger", summary: "A recent project turning an idea into a playable prototype quickly with AI-assisted creation tools.", href: "https://ai-gunslinger.vercel.app", secondaryHref: "https://github.com/raindrovvv/AI_GunSlinger", tags: ["AI-assisted", "Prototype", "Web"] },
+    { id: "projects", number: "05", status: "AI PROJECT", title: "AI Gunslinger", summary: "A recent project connecting an AI API to the game loop to quickly validate player choices and system responses.", image: "../assets/game/ai-gunslinger.jpg", imageAlt: "AI Gunslinger duel scene", href: "https://ai-gunslinger.vercel.app", secondaryHref: "https://github.com/raindrovvv/AI_GunSlinger", tags: ["AI API", "Prototype", "Web"] },
   ];
   en.guardian = {
     label: "CORE PROJECT / 4v1 ASYMMETRIC PVP",
@@ -518,15 +520,9 @@ const renderContribution = () => {
   const label = (key) => copy.strings[key] || key;
   node.innerHTML = `
     <div class="contribution-top" data-reveal>
-      <div class="contribution-top-main">
-        <div class="contribution-metrics">${item.metrics
-          .map(([value, key]) => `<div class="contribution-metric"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label(key))}</span></div>`)
-          .join("")}</div>
-        <div class="contribution-story">
-          <p>${escapeHtml(label(item.strength))}</p>
-          <small>${escapeHtml(label(item.evidence))}</small>
-        </div>
-      </div>
+      <div class="contribution-metrics">${item.metrics
+        .map(([value, key], index) => `<div class="contribution-metric ${index === 0 ? "is-primary" : ""}"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label(key))}</span></div>`)
+        .join("")}</div>
       <div class="contribution-project-evidence">
         <div class="contribution-evidence-head"><strong>${escapeHtml(project.title)}</strong><span>${escapeHtml(project.label)}</span></div>
         <div class="contribution-evidence-list">${project.evidence
@@ -536,6 +532,10 @@ const renderContribution = () => {
         <div class="contribution-evidence-metrics">${project.metrics
           .map(([value, text]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(text)}</span></div>`)
           .join("")}</div>
+      </div>
+      <div class="contribution-story">
+        <p>${escapeHtml(label(item.strength))}</p>
+        <small>${escapeHtml(label(item.evidence))}</small>
       </div>
     </div>
     <div class="contribution-areas" data-reveal>
@@ -793,12 +793,37 @@ const setupAiCursor = () => {
   let targetY = window.innerHeight / 2;
   let currentX = targetX;
   let currentY = targetY;
+  let idleTimer;
+  let idleStartedAt = 0;
+  let isIdle = false;
   let frame;
+
+  const IDLE_DELAY = 3000;
+  const ORBIT_RADIUS = 24;
+  const ORBIT_PERIOD = 7000;
+
+  const clearIdleTimer = () => {
+    if (idleTimer) window.clearTimeout(idleTimer);
+    idleTimer = undefined;
+  };
+
+  const scheduleIdle = () => {
+    clearIdleTimer();
+    idleTimer = window.setTimeout(() => {
+      isIdle = true;
+      idleStartedAt = performance.now();
+      cursor.classList.add("is-idle");
+    }, IDLE_DELAY);
+  };
 
   const move = (event) => {
     targetX = event.clientX;
     targetY = event.clientY;
+    isIdle = false;
+    idleStartedAt = 0;
+    cursor.classList.remove("is-idle");
     cursor.classList.add("is-visible");
+    scheduleIdle();
   };
 
   const updateHoverState = (event) => {
@@ -806,10 +831,26 @@ const setupAiCursor = () => {
   };
 
   const tick = () => {
-    currentX += (targetX - currentX) * 0.16;
-    currentY += (targetY - currentY) * 0.16;
-    cursor.style.setProperty("--cursor-x", `${currentX}px`);
-    cursor.style.setProperty("--cursor-y", `${currentY}px`);
+    let renderX = currentX;
+    let renderY = currentY;
+
+    if (isIdle) {
+      const elapsed = performance.now() - idleStartedAt;
+      const radius = ORBIT_RADIUS * Math.min(1, elapsed / 900);
+      const angle = (elapsed / ORBIT_PERIOD) * Math.PI * 2 - Math.PI / 2;
+      renderX = targetX + Math.cos(angle) * radius;
+      renderY = targetY + Math.sin(angle) * radius;
+      currentX = renderX;
+      currentY = renderY;
+    } else {
+      currentX += (targetX - currentX) * 0.16;
+      currentY += (targetY - currentY) * 0.16;
+      renderX = currentX;
+      renderY = currentY;
+    }
+
+    cursor.style.setProperty("--cursor-x", `${renderX}px`);
+    cursor.style.setProperty("--cursor-y", `${renderY}px`);
     frame = window.requestAnimationFrame(tick);
   };
 
@@ -818,6 +859,7 @@ const setupAiCursor = () => {
   frame = window.requestAnimationFrame(tick);
   window.addEventListener("pagehide", () => {
     window.cancelAnimationFrame(frame);
+    clearIdleTimer();
     window.removeEventListener("pointermove", move);
   }, { once: true });
 };
