@@ -181,7 +181,7 @@ const portfolio = {
     guardian: {
       label: "CORE PROJECT / 4v1 ASYMMETRIC PVP",
       title: "Guardian & Seeker",
-      image: "../assets/game/guardian-seeker.gif",
+      image: "../assets/game/guardian-seeker.webp",
       imageAlt: "Guardian & Seeker gameplay and Wwise implementation capture",
       summary:
         "Guardian & Seeker는 UE5와 Wwise로 제작한 4v1 비대칭 PvP 액션 게임입니다.\n\n게임플레이 및 오디오 시스템 구현 담당으로 참여하여 역할별 Audio Component 구조, Wwise Event·Switch·RTPC 연동, Physical Material 기반 발소리, BGM State 전환, UE Collision·Line Trace 기반 오클루전 시스템을 구현했습니다.\n\n단순한 사운드 에셋 제작에 그치지 않고 C++·Blueprint·Wwise가 유기적으로 연결되는 런타임 구조를 설계했으며, 지속적인 플레이테스트와 디버깅을 통해 검증했습니다.",
@@ -249,7 +249,7 @@ const portfolio = {
       {
         number: "C",
         title: "포탈 VFX 최적화와 블루프린트 계층 구조 개선",
-        image: "../assets/game/vfx-optimization.gif",
+        image: "../assets/game/vfx-optimization-poster.jpg",
         imageAlt: "포탈 VFX 거리 컬링 및 블루프린트 계층 구조 최적화 동작 장면",
         summary:
           "원거리 포탈 파티클을 최적화하기 위해 공용 최적화 컴포넌트를 붙였다가 에디터 프리뷰 원점이 틀어지고 부모 컴포넌트 상속으로 인해 필수 돌 문(StoneDoor) 에셋까지 컬링되어 소실되던 문제를 구조적으로 해결했습니다.",
@@ -479,7 +479,7 @@ const createEnglishPortfolio = () => {
   en.guardian = {
     label: "CORE PROJECT / 4v1 ASYMMETRIC PVP",
     title: "Guardian & Seeker",
-    image: "../assets/game/guardian-seeker.gif",
+    image: "../assets/game/guardian-seeker.webp",
     imageAlt: "Guardian & Seeker gameplay and Wwise implementation capture",
     summary: "Guardian & Seeker is a 4v1 asymmetric PvP action game built with UE5 and Wwise.\n\nAs the gameplay builder and audio systems owner, I implemented role-based Audio Components, Wwise Event/Switch/RTPC integration, Physical Material footsteps, BGM state transitions, and UE Collision/Line Trace occlusion.\n\nI did not stop at asset production: I designed the runtime boundary between C++, Blueprint, and Wwise, then verified the result through playtests and debugging.",
     links: [
@@ -529,7 +529,7 @@ const createEnglishPortfolio = () => {
     {
       number: "C",
       title: "Portal VFX Optimization & BP Hierarchy",
-      image: "../assets/game/vfx-optimization.gif",
+      image: "../assets/game/vfx-optimization-poster.jpg",
       imageAlt: "Portal VFX distance culling and blueprint hierarchy optimization in action",
       summary: "I resolved editor preview origin collapse and unwanted child asset culling caused by parent PrimitiveComponent inheritance during portal VFX optimization.",
       evidence:
