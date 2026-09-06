@@ -76,7 +76,7 @@ body {
     radial-gradient(circle at 88% 18%, rgba(90, 200, 250, 0.08), transparent 26rem),
     var(--bg);
   font-family: var(--body-font);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   letter-spacing: 0.01em;
   text-rendering: optimizeLegibility;
@@ -692,7 +692,7 @@ html[data-theme="light"] .symbol-token:hover {
   max-width: 650px;
   margin: 22px 0 0;
   color: var(--body);
-  font-size: clamp(17px, 1.5vw, 20px);
+  font-size: clamp(19px, 1.65vw, 22px);
   line-height: 1.78;
   word-break: keep-all;
   white-space: pre-line;
@@ -858,7 +858,7 @@ h3 {
   max-width: 640px;
   margin: 0 0 4px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   text-align: right;
   word-break: keep-all;
@@ -975,7 +975,7 @@ h3 {
 .project-map-card .project-map-desc {
   margin: 13px 0 0;
   color: var(--muted);
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.65;
   word-break: keep-all;
 }
@@ -1041,7 +1041,7 @@ h3 {
 .contribution-metric.is-primary strong { font-size: clamp(52px, 5.6vw, 80px); }
 .contribution-metric.is-primary span { color: var(--body); font-weight: 700; }
 .contribution-story { display: grid; grid-area: story; grid-template-columns: 1fr; gap: 12px; align-items: start; padding: 0; border-top: 0; border-bottom: 0; }
-.contribution-story p { max-width: 640px; margin: 0; color: var(--text); font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.5; word-break: keep-all; }
+.contribution-story p { max-width: 640px; margin: 0; color: var(--text); font-family: var(--display); font-size: 20px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.5; word-break: keep-all; }
 .contribution-story small { display: block; margin: 0; color: var(--muted-soft); font: 10px/1.55 "SFMono-Regular", Consolas, monospace; text-align: left; }
 .contribution-areas { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .contribution-areas-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
@@ -1051,7 +1051,7 @@ h3 {
 .contribution-area { min-height: 0; padding: 16px 0 18px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
 .contribution-area > span { color: var(--accent); font: 10px "SFMono-Regular", Consolas, monospace; }
 .contribution-area strong { display: block; margin-top: 12px; font-size: 15px; }
-.contribution-area p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.contribution-area p { margin: 7px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .contribution-project-evidence { grid-area: evidence; align-self: stretch; padding: 0 0 0 28px; border: 0; border-left: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); border-radius: 0; background: transparent; }
 .contribution-top .contribution-project-evidence { min-width: 0; }
 .contribution-evidence-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
@@ -1061,7 +1061,7 @@ h3 {
 .contribution-top .contribution-evidence-list { grid-template-columns: 1fr; }
 .contribution-evidence-list div { display: grid; gap: 5px; }
 .contribution-evidence-list strong { color: var(--accent); font-size: 10px; }
-.contribution-evidence-list span { color: var(--body); font-size: 12px; line-height: 1.5; }
+.contribution-evidence-list span { color: var(--body); font-size: 14px; line-height: 1.5; }
 .contribution-evidence-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .contribution-evidence-metrics div,
 .contribution-evidence-metrics a {
@@ -1139,7 +1139,7 @@ h3 {
   max-width: 700px;
   margin: 24px 0 0;
   color: var(--body);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.82;
   word-break: keep-all;
 }
@@ -1167,7 +1167,7 @@ h3 {
   position: relative;
   padding-left: 13px;
   color: var(--body);
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.45;
   word-break: keep-all;
 }
@@ -1564,7 +1564,7 @@ html[data-theme="light"] .debug-card:hover .debug-case-icon {
 .audio-card > p {
   margin: 13px 0 0;
   color: var(--body);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.65;
   word-break: keep-all;
 }
@@ -1626,7 +1626,7 @@ html[data-theme="light"] .debug-card:hover .debug-case-icon {
 
 .debug-evidence-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.02em;
   padding: 2px 7px;
@@ -1649,8 +1649,8 @@ html[data-theme="light"] .debug-card:hover .debug-case-icon {
 .debug-evidence-text {
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.7;
   word-break: keep-all;
 }
 
@@ -1658,8 +1658,8 @@ html[data-theme="light"] .debug-card:hover .debug-case-icon {
   position: relative;
   margin: 8px 0 0;
   padding-left: 14px;
-  font-size: 12.5px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.7;
   color: var(--muted);
   word-break: keep-all;
 }
@@ -1689,7 +1689,7 @@ html[data-theme="light"] .debug-card:hover .debug-case-icon {
   gap: 4px;
   margin-top: 2px;
   color: var(--accent);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   transition: color var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
@@ -1819,7 +1819,7 @@ html[data-theme="light"] .tool-card:hover .tool-doodle {
 
 .tool-card:not(.featured) > div > p {
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: 15.5px;
   line-height: 1.55;
 }
 
@@ -2111,7 +2111,7 @@ html[data-theme="light"] .tool-card:hover .tool-doodle {
   max-width: 620px;
   margin: 20px 0 0;
   color: var(--body);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   word-break: keep-all;
   white-space: pre-line;
@@ -2885,7 +2885,7 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
   .contribution-story p,
   .case-summary,
   .agent-summary {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -2934,7 +2934,7 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
   line-height: 1.25;
   min-height: calc(1.25em * 2);
 }
-.activity-card p { margin:0; color:var(--muted); line-height:1.65; }
+.activity-card p { margin:0; color:var(--muted); font-size:16px; line-height:1.65; }
 .activity-card .compact-tags { margin-top: auto; padding-top: 16px; }
 .activity-secondary {
   display: inline-flex;
@@ -3146,6 +3146,7 @@ html[data-theme="light"] .scroll-top-btn:hover {
   body {
     padding-top: 0;
     background: var(--bg) !important;
+    font-size: 13px;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
@@ -3181,10 +3182,13 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   .hero {
     position: relative;
-    min-height: 168mm;
-    height: auto;
+    min-height: 0;
+    height: 178mm;
+    max-height: 178mm;
     padding: 0;
-    overflow: visible !important;
+    overflow: hidden !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
     break-after: page;
     page-break-after: always;
   }
@@ -3193,14 +3197,52 @@ html[data-theme="light"] .scroll-top-btn:hover {
     max-width: 52%;
   }
 
+  .hero-kicker {
+    margin-bottom: 8px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-stack {
+    font-size: 16px;
+  }
+
+  .hero-intro {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .hero-actions {
+    margin-top: 10px;
+  }
+
+  .hero-tags {
+    margin-top: 8px;
+  }
+
+  .role-proof {
+    margin-top: 10px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .role-proof > div {
+    padding: 8px 10px 10px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
   .hero-art {
-    top: 4mm;
+    top: 2mm;
     right: 0;
-    bottom: 4mm;
+    bottom: 2mm;
     width: 46%;
     height: auto;
     opacity: 1;
-    overflow: visible !important;
+    overflow: hidden !important;
     border-radius: 0;
     mask-image: none !important;
     -webkit-mask-image: none !important;
@@ -3218,10 +3260,6 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   html[data-theme="light"] .hero-art img {
     mix-blend-mode: multiply !important;
-  }
-
-  .hero h1 {
-    font-size: 42px;
   }
 
   .section {
@@ -3556,8 +3594,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
     grid-row: 3;
     min-height: 0;
     margin: 0;
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 12.5px;
+    line-height: 1.4;
   }
 
   .debug-card details {
@@ -3573,8 +3611,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .debug-evidence-body {
-    font-size: 9.5px;
-    line-height: 1.32;
+    font-size: 11px;
+    line-height: 1.38;
   }
 
   .debug-evidence-block {
@@ -3583,8 +3621,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   .debug-evidence-text,
   .debug-evidence-item {
-    font-size: 9.5px;
-    line-height: 1.32;
+    font-size: 11px;
+    line-height: 1.38;
   }
 
   .debug-card .debug-link {
