@@ -1,0 +1,7 @@
+Create a polished editorial hero image for a Korean game sound designer portfolio slide.
+
+Scene: an abstract action-game play history desk, not tied to any real franchise. A game controller, keyboard, small console memory-card-like objects, subtle audio waveform monitors, DAW timeline shapes, and cinematic impact sound rings around a stylized sword-and-shield clash silhouette. Include hints of soulslike action, platform stealth exploration, hack-and-slash loot, and esports teamwork as generic visual motifs only.
+
+Style: premium recruitment portfolio, clean dramatic lighting, deep charcoal background, teal and warm amber accents, crisp realistic bitmap, subtle depth of field, high contrast, professional slide hero visual.
+
+Important constraints: no logos, no readable text, no UI labels, no copyrighted characters, no recognizable game covers, no brand names, no distorted lettering.

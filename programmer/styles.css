@@ -469,6 +469,22 @@ main {
   white-space: nowrap;
 }
 
+.proof-doodle {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin-top: 6px;
+  object-fit: contain;
+  opacity: 0.18;
+  filter: invert(1);
+}
+
+html[data-theme="light"] .proof-doodle {
+  filter: invert(0.1) sepia(1) saturate(3) hue-rotate(185deg) brightness(0.45);
+  opacity: 0.22;
+}
+
+
 .role-orbit {
   grid-area: orbit;
   position: relative;
@@ -756,11 +772,32 @@ html[data-theme="light"] .symbol-token:hover {
 }
 
 .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 12px;
   color: var(--accent);
   font-size: 11px;
   font-weight: 800;
 }
+
+/* ── Doodle Icon Eyebrow Decoration (duma-icons MIT) ── */
+.eyebrow-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: invert(1);
+  transition: opacity 220ms ease, filter 220ms ease;
+}
+
+html[data-theme="light"] .eyebrow-icon {
+  filter: invert(0.1) sepia(1) saturate(3) hue-rotate(185deg) brightness(0.45);
+  opacity: 0.6;
+}
+
 
 h2,
 h3,
@@ -791,6 +828,32 @@ h3 {
   line-height: 1.3;
   text-wrap: balance;
 }
+
+/* ── Doodle underline on section h2 ── */
+.section-heading h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 72px;
+  height: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='6' viewBox='0 0 72 6'%3E%3Cpath d='M1 3.5 C8 1, 16 5, 24 3 S40 1, 48 3.5 S60 5.5, 71 2.5' stroke='%232997ff' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 72px 6px;
+  opacity: 0.7;
+}
+
+html[data-theme="light"] .section-heading h2::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='6' viewBox='0 0 72 6'%3E%3Cpath d='M1 3.5 C8 1, 16 5, 24 3 S40 1, 48 3.5 S60 5.5, 71 2.5' stroke='%230071e3' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
 
 .section-note {
   flex: 0 1 640px;

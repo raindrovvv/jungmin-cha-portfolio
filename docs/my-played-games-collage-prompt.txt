@@ -1,0 +1,20 @@
+Create a polished 16:9 portfolio illustration representing one person's lifelong game play history.
+
+The image should feel like a curated memory wall of games they played, but every element must be original and non-infringing. Do not include any real game logos, title text, UI, readable words, copyrighted characters, or recognizable cover art.
+
+Core visual motifs:
+- Center: an original armored melee champion with a huge sword and round shield, suggesting long-term mastery of a simple, direct frontline fighter in a competitive team game. Do not resemble any existing champion.
+- Left foreground: dark gothic hack-and-slash dungeon loot motifs: glowing weapons, spell impacts, crusader-style shield, demon-hunter-like dual crossbows, potion light, treasure sparks. Generic only.
+- Left background: classic RTS battlefield motifs: tiny space marines, alien silhouettes, fantasy hero units, build-grid structures, isometric strategic map lights. Generic only.
+- Right foreground: soulslike action mood: rain, moonlit ruins, massive boss silhouette, dodge trail, sword clash impact ring. Generic only.
+- Right background: playful PS2-era stealth platformer exploration: rooftop silhouettes, collectible glass bottles, safe-vault puzzle shapes, blue night city. Generic only, no existing characters.
+- Bottom band: survival/co-op wilderness campfire, hand-drawn science-machine-like contraption, farming valley hint, and hero roster silhouettes for team shooters. Generic only.
+
+Style:
+Premium game sound designer portfolio hero art. Cinematic but readable. Rich detail, crisp bitmap, professional editorial composition, deep charcoal and midnight blue base, warm amber impact highlights, teal UI-like accents, subtle audio waveform arcs and sound-design motifs integrated into the scene.
+
+Mood:
+Nostalgic, analytical, action-focused, personal but polished. It should communicate "I played many genres deeply and observe combat feedback, timing, exploration loops, sound cues, and reward feedback."
+
+Composition:
+Horizontal 1536x1024 image, enough negative space near the top-left for slide text overlay, no readable text anywhere.

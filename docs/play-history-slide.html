@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gameplay History Slide</title>
+  <style>
+    :root {
+      --ink: #16181d;
+      --muted: #676d78;
+      --line: #d9dde5;
+      --panel: #f7f8fb;
+      --violet: #4c35a8;
+      --teal: #0c8f96;
+      --amber: #c98620;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #e9ebf1;
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Segoe UI", Arial, sans-serif;
+    }
+
+    .slide {
+      width: 1600px;
+      height: 900px;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 24px 80px rgba(21, 24, 32, 0.18);
+    }
+
+    .hero {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 250px;
+      background:
+        linear-gradient(90deg, rgba(20, 21, 28, 0.92), rgba(31, 30, 47, 0.72) 50%, rgba(18, 20, 26, 0.2)),
+        radial-gradient(circle at 76% 38%, rgba(12, 143, 150, 0.3), transparent 32%),
+        radial-gradient(circle at 88% 22%, rgba(201, 134, 32, 0.24), transparent 26%),
+        #171923;
+    }
+
+    .hero-art {
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-image);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.36;
+      filter: saturate(0.95);
+    }
+
+    .hero-content {
+      position: relative;
+      padding: 46px 68px;
+      color: white;
+      max-width: 1060px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-weight: 700;
+      color: #c9d5ff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 56px;
+      line-height: 1.05;
+      letter-spacing: 0;
+      font-weight: 850;
+    }
+
+    .summary {
+      margin: 18px 0 0;
+      font-size: 24px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 950px;
+    }
+
+    .content {
+      position: absolute;
+      inset: 250px 0 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      padding: 38px 68px 50px;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      color: var(--violet);
+      font-size: 24px;
+      font-weight: 850;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.38;
+    }
+
+    th {
+      background: #f0f2f8;
+      color: #3a4150;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    td {
+      font-size: 17px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .title-cell {
+      font-weight: 800;
+    }
+
+    .time {
+      color: var(--teal);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef7f8;
+      color: #087880;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card,
+    .note {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p,
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .metric {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--amber);
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .diablo-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .keyword {
+      padding: 6px 10px;
+      border: 1px solid #cfd6e3;
+      border-radius: 999px;
+      color: #38404e;
+      background: white;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .footer {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      color: #7b808b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main class="slide" style="--hero-image: url('generated/play-history-hero-63404757-01.png');">
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Gameplay History for Action Game Sound Design</p>
+        <h1>액션 전투 피드백과 반복 플레이 감각을 중심으로 쌓은 게임 경험</h1>
+        <p class="summary">소울라이크/액션 콘솔, 핵앤슬래시, RTS, 팀 기반 PvP를 폭넓게 플레이하며 타격감, 피격 신호, 스킬 사운드 큐, 보상 피드백을 관찰했습니다.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div>
+        <h2 class="section-title">핵심 관련 타이틀</h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 29%;">타이틀</th>
+              <th style="width: 17%;">플레이타임</th>
+              <th>직무 관련 코멘트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="title-cell">Skul: The Hero Slayer</td>
+              <td class="time">11.8h<br />Steam</td>
+              <td><span class="tag">2D 액션 로그라이트</span><br />스컬 교체, 회피, 보스 패턴에 따른 전투 리듬과 타격 피드백을 중심으로 플레이.</td>
+            </tr>
+            <tr>
+              <td class="title-cell">Elden Ring Nightreign</td>
+              <td class="time">7.4h<br />Steam</td>
+              <td><span class="tag">소울라이크 액션</span><br />위험 신호, 협동 전투, 보스 패턴 인지와 공간 기반 사운드 큐에 관심을 두고 플레이.</td>
+            </tr>
+            <tr>
+              <td class="title-cell">Sly Cooper 1-3</td>
+              <td class="time">장기 플레이<br />PS2</td>
+              <td><span class="tag">콘솔 액션/탐색</span><br />힌트병을 빠짐없이 수집할 정도로 탐색/수집 루프와 스테이지 피드백에 몰입.</td>
+            </tr>
+            <tr>
+              <td class="title-cell">Diablo III</td>
+              <td class="time">74h+<br />Battle.net</td>
+              <td><span class="tag">핵앤슬래시</span><br />클래스별 스킬 타격감, 루트 보상음, 반복 전투 피로도와 피드백 밀도를 경험.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside>
+        <h2 class="section-title">장기 플레이 지표</h2>
+        <div class="cards">
+          <article class="card">
+            <span class="metric">1,000,000+</span>
+            <strong>League of Legends - Garen 숙련도</strong>
+            <p>정확한 누적 시간은 확인 불가. 단일 챔피언 반복 플레이를 통해 근접 전투 타이밍, 스킬 피드백, 한타 상황 인지 경험을 축적.</p>
+          </article>
+          <article class="card">
+            <span class="metric">74h+</span>
+            <strong>Diablo III 클래스 플레이</strong>
+            <ul class="diablo-list">
+              <li>성전사 31h / 악마사냥꾼 33h</li>
+              <li>부두술사 6h / 야만용사 3h / 마법사 1h</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="note">
+          <h2 class="section-title" style="margin-bottom: 10px;">추가 플레이 경험</h2>
+          <p>StarCraft, StarCraft II, Warcraft III, Diablo II/IV, Overwatch, Prototype, Black & White, Heroes of Might and Magic, Don't Starve Together 등. 기록이 없는 타이틀은 기억 기반으로 별도 표기.</p>
+          <div class="keywords">
+            <span class="keyword">타격감</span>
+            <span class="keyword">피격 피드백</span>
+            <span class="keyword">보스 패턴 인지</span>
+            <span class="keyword">스킬 사운드 큐</span>
+            <span class="keyword">UI/보상음</span>
+            <span class="keyword">환경음과 긴장감</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <span>제출 자료: 게임 플레이 이력 요약</span>
+      <span>플레이타임 근거: Steam/Battle.net/인게임 프로필/기억 기반 구분</span>
+    </footer>
+  </main>
+</body>
+</html>
+

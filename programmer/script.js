@@ -897,7 +897,7 @@ const renderContact = () => {
   const copy = activeCopy();
   node.innerHTML = `
     <div class="contact-copy" data-reveal>
-      <p class="eyebrow">${escapeHtml(copy.strings.contactEyebrow)}</p>
+      <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/send.svg" alt="" aria-hidden="true"><span>${escapeHtml(copy.strings.contactEyebrow)}</span></p>
       <h2>${escapeHtml(copy.strings.contactHeading)}</h2>
       <p>${escapeHtml(copy.strings.contactBody)}</p>
     </div>

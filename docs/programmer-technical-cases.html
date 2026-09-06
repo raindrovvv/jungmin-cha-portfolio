@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Programmer · Technical Cases</title>
+  <style>
+    :root { --bg:#0d1015; --panel:#171c24; --line:#2a3442; --text:#f4f7fb; --muted:#aeb9c7; --blue:#42a5ff; --cyan:#67e3e0; --amber:#ffc56d; }
+    * { box-sizing:border-box; }
+    html { scroll-snap-type:y mandatory; background:#05070a; }
+    body { margin:0; color:var(--text); background:var(--bg); font-family:"Paperlogy","Pretendard","Noto Sans KR",Arial,sans-serif; }
+    .slide { width:min(1600px,100vw); min-height:900px; height:100vh; max-height:900px; margin:0 auto; padding:66px 88px; display:flex; flex-direction:column; justify-content:space-between; scroll-snap-align:start; position:relative; overflow:hidden; background:radial-gradient(circle at 92% 14%,#153149 0,transparent 33%),var(--bg); }
+    .slide::after { position:absolute; inset:0; content:""; pointer-events:none; background:linear-gradient(90deg,transparent 0 49.9%,rgba(255,255,255,.035) 50%,transparent 50.1%),linear-gradient(0deg,transparent 0 49.9%,rgba(255,255,255,.035) 50%,transparent 50.1%); background-size:160px 160px; mask-image:linear-gradient(135deg,transparent,#000 28%,#000 72%,transparent); }
+    .top,.content,.foot { position:relative; z-index:1; }
+    .top { display:flex; justify-content:space-between; align-items:flex-start; }
+    .eyebrow { margin:0 0 14px; color:var(--blue); font:700 15px/1.2 ui-monospace,Consolas,monospace; letter-spacing:.14em; }
+    .index { color:var(--muted); font:600 14px ui-monospace,Consolas,monospace; }
+    h1 { margin:0; max-width:1060px; font-size:clamp(42px,5vw,78px); line-height:1.02; letter-spacing:-.055em; }
+    .lede { max-width:930px; margin:24px 0 0; color:var(--muted); font-size:22px; line-height:1.55; white-space:pre-line; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .panel { padding:26px 28px; border:1px solid var(--line); border-radius:16px; background:color-mix(in srgb,var(--panel) 92%,transparent); }
+    .panel h2 { margin:0 0 18px; font-size:24px; letter-spacing:-.03em; }
+    .panel h2 span { color:var(--blue); }
+    ul { list-style:none; padding:0; margin:0; }
+    li { position:relative; padding:0 0 10px 18px; color:var(--muted); font-size:17px; line-height:1.45; }
+    li::before { position:absolute; left:0; top:.58em; width:6px; height:6px; border-radius:50%; content:""; background:var(--cyan); }
+    .metric-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:18px; }
+    .metric { padding:14px; border-top:1px solid var(--line); }
+    .metric strong { display:block; color:var(--blue); font-size:30px; }
+    .metric span { color:var(--muted); font-size:12px; }
+    .note { margin:20px 0 0; padding:15px 18px; border-left:3px solid var(--amber); color:#e4d0a9; font-size:14px; line-height:1.5; }
+    .case-list { display:grid; gap:12px; }
+    .case { padding:18px 20px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+    .case strong { display:block; margin-bottom:6px; color:var(--text); font-size:17px; }
+    .case span { color:var(--muted); font-size:15px; line-height:1.5; }
+    code { display:block; margin-top:10px; padding:13px; overflow:auto; border-radius:8px; color:#bfe2ff; background:#0a0e14; font:13px/1.5 ui-monospace,Consolas,monospace; }
+    .pipeline { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:18px; }
+    .step { padding:15px 10px; text-align:center; border:1px solid var(--line); border-radius:10px; color:var(--muted); font-size:14px; }
+    .step b { display:block; margin-bottom:5px; color:var(--blue); font-size:11px; }
+    .foot { display:flex; justify-content:space-between; color:#788594; font:12px ui-monospace,Consolas,monospace; }
+    @media print { html { scroll-snap-type:none; } .slide { page-break-after:always; width:1600px; height:900px; } }
+    @media (max-width:900px) { .slide { min-height:100vh; max-height:none; height:auto; padding:36px 24px; gap:28px; } .grid,.metric-row { grid-template-columns:1fr 1fr; } .pipeline { grid-template-columns:1fr; } .lede { font-size:18px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide">
+      <div class="top"><div><p class="eyebrow">01 / RUNTIME STABILITY &amp; PERFORMANCE</p><h1>보이는 기능을<br />반복 가능한 상태로 바꿨습니다</h1><p class="lede">프로파일링과 로그를 기준으로 런타임 안정성과 성능 병목을 분리해 확인했습니다.</p></div><span class="index">GAME PROGRAMMER / CASE 01</span></div>
+      <div class="content"><div class="grid"><article class="panel"><h2><span>01</span> 문제와 원인</h2><ul><li><b>UI</b> RemoveFromParent 호출로 UMG 계층 경고 발생</li><li><b>Audio</b> 에셋 누락과 빈 스킬 슬롯에서 오류 로그 반복</li><li><b>World</b> TActorIterator·GetAllActorsOfClass 반복 호출로 전체 탐색</li><li><b>Root cause</b> Raw Pointer, 방어 로그 부족, 매번 O(N) 순회</li></ul></article><article class="panel"><h2><span>02</span> 구조 개선</h2><ul><li>TObjectPtr + UPROPERTY로 GC 추적 구조 적용</li><li>TWeakObjectPtr + IsValid 기반 안전성 확보</li><li>WorldSubsystem Actor Registry와 스킬 소유자 캐싱 도입</li><li>로그 레벨을 Error에서 Warning·Verbose로 조정</li></ul></article></div><div class="metric-row"><div class="metric"><strong>25 → 32</strong><span>평균 FPS · 약 29% 향상</span></div><div class="metric"><strong>40 → 30ms</strong><span>Frame Time</span></div><div class="metric"><strong>37 → 28ms</strong><span>GPU Time</span></div><div class="metric"><strong>130만 → 90만</strong><span>Primitives</span></div></div><p class="note">프로파일링 결과는 개선 전후의 테스트 조건을 기준으로 비교했습니다. Draw Time은 증가해 추가 분석 대상으로 남겼습니다.</p></div>
+      <div class="foot"><span>차정민 · Game Programmer</span><span>Performance / Memory / Runtime</span></div>
+    </section>
+    <section class="slide">
+      <div class="top"><div><p class="eyebrow">02 / DEBUGGING CASE</p><h1>From Symptom<br />to Structure</h1><p class="lede">증상 재현 → 로그 확인 → 호출 경로 추적 → 구조 수정 → 다시 빌드·실행</p></div><span class="index">GAME PROGRAMMER / CASE 02</span></div>
+      <div class="content"><div class="case-list"><article class="case"><strong>사례 A · UI 경고</strong><span>UWidgetComponent가 관리하는 위젯에 RemoveFromParent()를 직접 호출해 부모 계층 경고 발생<br />→ 수동 제거 대신 컴포넌트의 생명주기에 정리 책임 위임</span></article><article class="case"><strong>사례 B · 런타임 사운드 오류</strong><span>Blueprint에 사운드 에셋이 할당되지 않은 상태에서 C++ 호출<br />→ nullptr 방어 코드와 액터 이름을 포함한 구체적인 Warning 로그 추가</span><code>if (SoundEvent) { PostEvent(SoundEvent, this, 0, Callback); }<br />else { UE_LOG(LogTemp, Warning, TEXT("[TrapBase] SoundEvent is None for %s"), *GetName()); }</code></article></div><div class="pipeline"><div class="step"><b>01</b>증상 재현</div><div class="step"><b>02</b>로그 확인</div><div class="step"><b>03</b>호출 경로 추적</div><div class="step"><b>04</b>구조 수정</div><div class="step"><b>05</b>재빌드·실행</div></div><p class="note">기능이 동작하는 것처럼 보이는 상태와, 안전하게 반복 실행되는 상태를 구분해 검증했습니다.</p></div>
+      <div class="foot"><span>차정민 · Game Programmer</span><span>Reproduce / Trace / Verify</span></div>
+    </section>
+    <section class="slide">
+      <div class="top"><div><p class="eyebrow">03 / SEEKER ANIMATION SYSTEM</p><h1>공통 로직과 캐릭터별 차이를<br />분리하는 Motion Matching 검토</h1><p class="lede">완료된 기능과 개선 검토를 구분해, 확장 가능한 애니메이션 파이프라인으로 정리했습니다.</p></div><span class="index">GAME PROGRAMMER / CASE 03</span></div>
+      <div class="content"><div class="grid"><article class="panel"><h2><span>01</span> 현재 확인된 구조</h2><ul><li>Pose Template → Proxy Asset → Chooser Table → Pose Search Database</li><li>캐릭터별 Animation Blueprint와 State Machine</li><li>GenerateTrajectory 월드 콜리전 처리와 MMBase 캐시 포즈</li><li>캐릭터별 Chooser Table 라우팅</li></ul></article><article class="panel"><h2><span>02</span> 발견한 문제와 개선 방향</h2><ul><li>ActiveTraits 선언 누락 가능성</li><li>부모·자식 AnimInstance의 Velocity 중복 계산</li><li>Stance·MovementMode·Direction 입력 보강</li><li>공통 캐시와 캐릭터별 계산 책임 분리</li><li>Inertialization·Dead Blending 검토</li></ul></article></div><p class="note">UpdateState → UpdateMovementDirection → UpdateTrajectory 순서를 명확히 하고, TObjectPtr·Gameplay Tag·Movement State를 Chooser 입력으로 연결합니다.</p></div>
+      <div class="foot"><span>차정민 · Game Programmer</span><span>Animation Systems / Review</span></div>
+    </section>
+    <section class="slide">
+      <div class="top"><div><p class="eyebrow">04 / CONTRIBUTION &amp; WORKING STYLE</p><h1>분야가 달라도<br />구현의 속도는 유지합니다</h1><p class="lede">기획과 창작 의지를 구현 단위로 쪼개고, AI가 가속할 지점과 사람이 검증할 경계를 정합니다.</p></div><span class="index">GAME PROGRAMMER / SIGNAL</span></div>
+      <div class="content"><div class="grid"><article class="panel"><h2><span>01</span> Git history snapshot</h2><ul><li>670개 범위 내 비병합 커밋</li><li>전체 범위 커밋의 34.8%</li><li>Source/GAS 고유 파일 260개 변경 (2026.06.06 이후)</li><li>2026.06.06 이후 123개 커밋</li></ul></article><article class="panel"><h2><span>02</span> Contribution surface</h2><ul><li>Gameplay / Systems · RTS · 전투 · 던전 · Fog of War</li><li>UI / Player Feedback · HUD · MVVM · 입력 · UX</li><li>Audio / VFX · Wwise 라우팅 · 피격 피드백 · VFX/SFX</li><li>Tools / AI · UnrealAgent · UnrealMCP · RAG · 자동화</li></ul></article></div><div class="pipeline"><div class="step"><b>01</b>기획</div><div class="step"><b>02</b>범위 분해</div><div class="step"><b>03</b>AI 가속</div><div class="step"><b>04</b>직접 구현</div><div class="step"><b>05</b>검증·기록</div></div><p class="note">수치는 2025.05–2026.09, Source/GAS + Config + Legacy/GameFeatures의 비병합 커밋 snapshot입니다. 커밋 수는 코드 품질과 보이지 않는 협업 기여를 대신하지 않으며, 기록보드의 기획·검증 흐름과 함께 읽었습니다.</p></div>
+      <div class="foot"><span>차정민 · Game Programmer</span><span>Plan / Create / Accelerate / Verify</span></div>
+    </section>
+  </main>
+</body>
+</html>
