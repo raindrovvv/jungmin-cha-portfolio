@@ -269,7 +269,7 @@ const portfolio = {
         tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"],
         href: "https://github.com/raindrovvv/UnityMCP",
         featured: false,
-        panel: ["DRY RUN", "true", "AudioSource → inspect → apply"],
+        panel: ["PREVIEW / PLACE", "true", "AudioSource → inspect → apply"],
       },
       {
         number: "02",
@@ -291,7 +291,7 @@ const portfolio = {
         tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
         href: "https://github.com/raindrovvv/UnrealAgent",
         featured: true,
-        panel: ["INSPECT / VERIFY", "READY", "editor → agent → verify"],
+        panel: ["CHECK / APPLY", "READY", "editor → agent → verify"],
       },
     ],
     activities: [
@@ -539,9 +539,9 @@ const createEnglishPortfolio = () => {
     },
   ];
   en.tooling = [
-    { number: "03", title: "UnityMCP", summary: "An MCP server connecting Unity Editor to a local AI agent, with AudioClip/AudioSource inspection and 3D sound/BGM placement tools.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["DRY RUN", "true", "AudioSource → inspect → apply"] },
+    { number: "03", title: "UnityMCP", summary: "An MCP server connecting Unity Editor to a local AI agent, with AudioClip/AudioSource inspection and 3D sound/BGM placement tools.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["PREVIEW / PLACE", "true", "AudioSource → inspect → apply"] },
     { number: "02", title: "Build Monitor", summary: "A build monitor that visualizes each step with a spinner and sends completion or failure alerts through Discord and Slack webhooks.", image: "../assets/tooling/build-monitor.svg", imageAlt: "GAS Build Monitor dashboard showing build progress and Discord Slack webhook status", tags: ["Compile", "Webhook", "Discord", "Slack"], href: "#debugging", featured: false, panel: ["BUILD MONITOR", "LIVE", "compile → webhook → notify"] },
-    { number: "01", title: "UnrealAgent", summary: "An MCP bridge connecting Unreal Editor and a local AI agent. It inspects Blueprints, Assets, Viewport, and Output Log before compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["INSPECT / VERIFY", "READY", "editor → agent → verify"] },
+    { number: "01", title: "UnrealAgent", summary: "An MCP bridge connecting Unreal Editor and a local AI agent. It inspects Blueprints, Assets, Viewport, and Output Log before compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
   ];
   en.activities = [
     { number: "01", period: "2025.11", type: "Public Showcase / Field QA", title: "G-STAR 2025 Guardian & Seeker", summary: "I turned booth observations and survey feedback into follow-up tasks for headphone mix, input bugs, balance, and tutorial UX.", proof: "Two-day BEXCO booth · player observation · survey synthesis", image: "../assets/activity/gstar-2025.png", alt: "Guardian & Seeker booth at G-STAR 2025", href: "https://raindrovvv.tistory.com/108", tags: ["Field QA", "Player Feedback", "Audio Mix"] },
