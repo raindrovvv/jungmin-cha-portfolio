@@ -16,21 +16,21 @@ const portfolio = {
       orbitGameplay: "Gameplay / Systems",
       orbitTooling: "Editor Tooling",
       orbitDebug: "Debug / Verify",
-      proofGameplay: "Gameplay",
-      proofGameplayDetail: "C++ / Blueprint systems",
-      proofDebugging: "Debugging",
-      proofDebuggingDetail: "reproduce → trace → verify",
-      proofTooling: "Tooling",
-      proofToolingDetail: "MCP / automation",
+      proofGameplay: "게임플레이",
+      proofGameplayDetail: "C++ / Blueprint 시스템",
+      proofDebugging: "디버깅",
+      proofDebuggingDetail: "재현 → 추적 → 검증",
+      proofTooling: "툴링 / 자동화",
+      proofToolingDetail: "MCP / 작업 자동화",
       heroKicker: "GAME PROGRAMMING / PORTFOLIO",
       heroDate: "2026.09 UPDATE",
       heroName: "차정민",
       heroRole: "Game Programmer",
       heroStack: "Gameplay Systems · Editor Tooling · Debugging",
       heroIntro:
-        "게임엔진에서 C++와 Blueprint로 게임플레이와 오디오 시스템을 구현합니다.\nWwise와 MCP를 활용해 기능을 빠르게 검증하고, 문제를 재현해 엔진과 미들웨어의 동작을 단계별로 추적합니다.",
-      heroPrimary: "View programming projects",
-      heroSecondary: "Open GitHub",
+        "게임엔진에서 C++와 Blueprint로 게임플레이와 오디오 시스템을 구현합니다.\nMCP 기반 도구로 개발 및 검증 루프를 단축하고, 엔진과 오디오 미들웨어(Wwise) 간의 문제를 디버깅합니다.",
+      heroPrimary: "프로젝트 보러가기",
+      heroSecondary: "GitHub 바로가기",
       projectsEyebrow: "02 / SUB PROJECTS",
       projectsTitle: "Sub Project",
       projectsNote: "툴링·디버깅·검증 사례를 별도 프로젝트로 정리했습니다.",
@@ -45,7 +45,7 @@ const portfolio = {
       contributionMetricFiles: "코어 코드 파일",
       contributionMetricRecent: "6월 이후 추가 커밋",
       contributionEvidence: "2025.05–2026.09 · Guardian & Seeker Git history · Source/GAS + Config + Legacy/GameFeatures",
-      contributionStrength: "기획과 창작 아이디어를 구현 단위로 나누고, AI를 활용할 범위와 직접 검증할 지점을 구분해 빠르게 결과를 만들었습니다.",
+      contributionStrength: "기획 요구사항을 기능 단위로 체계화하고, AI 툴을 활용할 부분, 직접 검증할 부분을 명확히 구분하여 개발 밀도와 완성도를 높였습니다.",
       contributionAreasTitle: "이 프로젝트에서 직접 다룬 영역",
       contributionAreasNote: "커밋 기록을 작업 영역별로 나눴습니다.",
       contributionAreaGameplay: "게임플레이",
@@ -65,15 +65,15 @@ const portfolio = {
       debuggingNote: "로그, 콜리전, 미들웨어 값을 같은 사건의 증거로 묶어 확인합니다.",
       toolingEyebrow: "03 / EDITOR TOOLING & BUILD MONITOR",
       toolingHeading: "에디터 도구와 빌드 상태를 한눈에 모니터링합니다",
-      toolingNote: "Unity 오디오 배치부터 Discord·Slack 알림까지, 작업 상태를 확인 가능한 흐름으로 연결했습니다.",
+      toolingNote: "Unity 오디오 배치부터 Discord·Slack 알림까지,\n작업 상태를 확인 가능한 흐름으로 연결했습니다.",
       activitiesEyebrow: "04 / PUBLIC ACTIVITIES",
       activitiesHeading: "현장에서 보고, 만들고, 다시 검증한 기록",
-      activitiesNote: "전시·프로토타이핑·해커톤·게임잼에서 플레이어와 팀의 피드백을 구현 과제로 바꿨습니다.",
+      activitiesNote: "전시·프로토타이핑·해커톤·게임잼에서\n플레이어와 팀의 피드백을 구현 과제로 바꿨습니다.",
       activityOpen: "기록 열기",
       activityProof: "기록",
       audioEyebrow: "05 / GAME AUDIO",
       audioHeading: "사운드 도메인에서 쌓은 시스템 감각",
-      audioNote: "오디오 경험은 구현·디버깅·QA를 실제 플레이 기준으로 판단하게 한 기반입니다.",
+      audioNote: "오디오 시스템을 다루며 쌓은 경험은 구현·디버깅·QA 전 과정을\n실제 플레이어 관점에서 검증하는 밑바탕이 되었습니다.",
       discographyEyebrow: "06 / DISCOGRAPHY",
       discographyHeading: "긴 호흡으로 결과를 다듬어 온 기록",
       audioPortfolioLink: "Game Sound Designer portfolio ↗",
@@ -95,10 +95,11 @@ const portfolio = {
       guardianMedia: "GUARDIAN & SEEKER / UE5",
       watchGameplay: "게임플레이 보기",
       guardianMediaDisclaimer: "※ 프로젝트 당시 비주얼·사운드 아트 관련 시스템까지 직접 구현한 범위를 설명하기 위해 ‘테크니컬 아트’라고 표현했습니다.",
-      agentLink: "View UnrealAgent on GitHub ↗",
-      debugOpen: "Open evidence",
-      toolingLink: "View repository ↗",
-      audioLearn: "See original audio portfolio ↗",
+      agentLink: "GitHub에서 UnrealAgent 보기 ↗",
+      debugOpen: "트러블슈팅 상세 보기",
+      devlogLink: "트러블슈팅 블로그 기록 보기 ↗",
+      toolingLink: "저장소 보러가기 ↗",
+      audioLearn: "오디오 포트폴리오 보기 ↗",
     },
     heroTags: ["C++ Gameplay", "Gameplay / Systems", "Editor Tooling", "AI-assisted Development"],
     projectMap: [
@@ -107,56 +108,76 @@ const portfolio = {
         number: "01",
         status: "GAME PROJECT",
         title: "조선 십이기사단",
-        summary: "한국적 세계관의 2D 액션 플랫폼 파이터. 전투 사운드와 게임플레이 구조를 함께 설계했습니다.",
+        summary: "한국적 세계관의 2D 액션 플랫폼 파이터입니다. 팀 리드/PM으로서 프로젝트 진행을 총괄하고, 전투 타격감과 UI 피드백을 위한 사운드 디자인 및 C++/Blueprint 연동 구조를 설계·구현했습니다.",
         image: "../assets/game/joseon-knights.webp",
         imageAlt: "조선 십이기사단 게임플레이",
         href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
         tags: ["UE5", "Gameplay", "Sound Design"],
+        links: [
+          { label: "GitHub ↗", href: "https://github.com/NBcampUnrealTrack/1st-Team2-CH4-Project" },
+          { label: "영상 보기 ↗", href: "https://www.youtube.com/watch?v=HrRCXKaU5pM" },
+        ],
       },
       {
         id: "projects",
         number: "02",
         status: "GAME PROJECT",
         title: "SYMBIO",
-        summary: "폐쇄된 연구소를 배경으로 긴장감 있는 전투와 생존의 분위기를 만든 액션 서바이벌 프로젝트입니다.",
+        summary: "폐쇄된 연구소 배경의 TPS 액션 서바이벌 프로젝트입니다. UI/UX 및 레벨 디자인, 시네마틱 컷씬 연출과 함께 실내 공간감·총기 격발·괴물 보이스 등 오디오 시스템 전반을 구현했습니다.",
         image: "../assets/game/symbio.webp",
         imageAlt: "SYMBIO 게임플레이",
         href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
         tags: ["UE5", "BGM / SFX", "Cinematic"],
+        links: [
+          { label: "GitHub ↗", href: "https://github.com/NBcampUnrealTrack/1st-Team14-CH3-Project" },
+          { label: "영상 보기 ↗", href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8" },
+        ],
       },
       {
         id: "projects",
         number: "03",
         status: "GAME PROJECT",
         title: "레인보우 가디언",
-        summary: "층마다 다른 테마가 들리도록 탐험·전투·상점·제단의 분위기를 구분한 테마 타워 RPG입니다.",
+        summary: "층마다 분위기가 변화하는 로그라이트형 테마 타워 RPG입니다. 게임 콘셉트 및 스토리 기획을 주도하고, 8개 테마 타워의 탐험·전투·상점·제단 분위기를 차별화하는 BGM 편곡 및 SFX를 제작했습니다.",
         image: "../assets/game/rainbow-guardian.webp",
         imageAlt: "레인보우 가디언 게임플레이",
         href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
         tags: ["RPG", "BGM", "SFX"],
+        links: [
+          { label: "GitHub ↗", href: "https://github.com/SeungH99/ProjectRainbowGuardian" },
+          { label: "영상 보기 ↗", href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw" },
+        ],
       },
       {
         id: "projects",
         number: "04",
         status: "INTERACTIVE MEDIA",
         title: "Flight Record",
-        summary: "앨범 음악과 공간 이동을 연결해 사용자의 행동이 음악 경험으로 이어지도록 만든 인터랙티브 미디어입니다.",
+        summary: "앨범 음악과 공간 이동을 인터랙티브하게 연결한 Unity 프로젝트입니다. 프로젝트 리더/PM 및 사운드 디자이너/개발자로 참여하여 Unity C# 음악 트리거, 오디오 리액티브 시스템, Jira/GitLab 협업 프로세스를 총괄했습니다.",
         image: "../assets/game/flight-record.webp",
         imageAlt: "Flight Record 인터랙티브 미디어",
-        href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s",
+        href: "https://raindrovvv.itch.io/flightrecord",
         tags: ["Unity", "Interactive Audio", "Direction"],
+        links: [
+          { label: "게임 플레이 (itch.io) ↗", href: "https://raindrovvv.itch.io/flightrecord" },
+          { label: "발표자료 (Figma) ↗", href: "https://www.figma.com/slides/YcWA2JrMtEHTAOaPmRyuVD/Flight?node-id=1-445&t=5YQc9pILEERBjQRY-0" },
+          { label: "영상 보기 ↗", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s" },
+        ],
       },
       {
         id: "projects",
         number: "05",
         status: "AI PROJECT",
         title: "AI Gunslinger",
-        summary: "AI API를 게임 루프에 연결해 플레이어의 선택과 시스템 반응을 빠르게 검증한 최신 프로젝트입니다.",
+        summary: "AI API를 게임 루프에 연결해 플레이어의 선택과 시스템 반응을 빠르게 검증한 프로토타입 프로젝트입니다. 웹 기반 실시간 상호작용 및 턴제 결투 흐름을 설계했습니다.",
         image: "../assets/game/ai-gunslinger.jpg",
         imageAlt: "AI Gunslinger duel scene",
         href: "https://ai-gunslinger.vercel.app",
-        secondaryHref: "https://github.com/raindrovvv/AI_GunSlinger",
         tags: ["AI API", "Prototype", "Web"],
+        links: [
+          { label: "GitHub ↗", href: "https://github.com/raindrovvv/AI_GunSlinger" },
+          { label: "플레이해보기 ↗", href: "https://ai-gunslinger.vercel.app" },
+        ],
       },
     ],
     contribution: {
@@ -171,10 +192,10 @@ const portfolio = {
       image: "../assets/game/guardian-seeker.gif",
       imageAlt: "Guardian & Seeker gameplay and Wwise implementation capture",
       summary:
-        "Guardian & Seeker는 UE5와 Wwise로 제작한 4v1 비대칭 PvP 액션 게임이다.\n\n저는 게임 빌더이자 오디오 시스템 담당으로 참여해 역할별 Audio Component 구조, Wwise Event·Switch·RTPC 연동, Physical Material 기반 발소리, BGM State 전환, UE Collision·Line Trace 기반 오클루전 시스템을 구현했다.\n\n사운드 에셋 제작에 그치지 않고 C++·Blueprint·Wwise가 연결되는 런타임 구조를 설계하고, 플레이테스트와 디버깅으로 결과를 검증했다.",
+        "Guardian & Seeker는 UE5와 Wwise로 제작한 4v1 비대칭 PvP 액션 게임입니다.\n\n게임플레이 및 오디오 시스템 구현 담당으로 참여하여 역할별 Audio Component 구조, Wwise Event·Switch·RTPC 연동, Physical Material 기반 발소리, BGM State 전환, UE Collision·Line Trace 기반 오클루전 시스템을 구현했습니다.\n\n단순한 사운드 에셋 제작에 그치지 않고 C++·Blueprint·Wwise가 유기적으로 연결되는 런타임 구조를 설계했으며, 지속적인 플레이테스트와 디버깅을 통해 검증했습니다.",
       links: [
-        { label: "View implementation ↗", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
-        { label: "Watch gameplay ↗", href: "https://www.youtube.com/watch?v=d7xon5fv-kg" },
+        { label: "구현 코드 보기 ↗", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev" },
+        { label: "게임플레이 보기 ↗", href: "https://www.youtube.com/watch?v=MGSCKdCAgDY" },
       ],
       evidence: [
         ["Role", "게임플레이·오디오 구현"],
@@ -189,15 +210,15 @@ const portfolio = {
         ["OUTPUT", "Wwise feedback"],
       ],
       metrics: [
-        ["299", "플레이테스터"],
-        ["4.36/5", "평균 피드백 점수"],
+        ["299명", "지스타 2025 현장 플레이테스터 ↗", "https://raindrovvv.tistory.com/108"],
+        ["4.36 / 5.0", "지스타 현장 관람객 만족도 평점 ↗", "https://raindrovvv.tistory.com/108"],
       ],
     },
     unrealAgent: {
       label: "EDITOR TOOLING / LOCAL AI WORKFLOW",
       title: "UnrealAgent",
       summary:
-        "반복적인 에디터 확인 작업을 줄이기 위해 Unreal Editor와 로컬 AI 에이전트를 연결하는 MCP 브리지를 제작했다.\n\nBlueprint, Asset, Viewport, Output Log를 확인할 수 있도록 도구를 구성하고, AI가 생성한 결과는 컴파일·실행·예외 상황 검증을 거친 뒤 적용했다.\n\nAI가 코드를 대신 작성했다는 점보다, 문제를 분해하고 도구의 범위를 정한 뒤 결과를 검증하는 개발 흐름을 구축한 경험에 의미가 있다.",
+        "반복적인 에디터 확인 작업을 줄이기 위해 Unreal Editor와 로컬 AI 에이전트를 연결하는 MCP 브리지를 제작했습니다.\n\nBlueprint, Asset, Viewport, Output Log를 조회·조작할 수 있도록 도구를 구성하고, AI가 제안한 변경 사항은 컴파일·실행·예외 처리 검증을 거친 뒤 안전하게 적용되도록 설계했습니다.\n\nAI의 단순 코드 작성을 넘어, 문제를 분해하고 도구의 역할을 명확히 한 뒤 결과를 철저히 검증하는 개발 프로세스를 구축하는 데 집중했습니다.",
       image: "../assets/tooling/unreal-mcp.png",
       imageAlt: "Unreal Editor 안에서 실행 중인 UnrealAgent 패널",
       tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
@@ -211,26 +232,39 @@ const portfolio = {
     debugging: [
       {
         number: "A",
-        title: "Occlusion / Collision",
+        title: "벽 너머 사운드 차폐와 오클루전 디버깅",
         image: "../assets/game/audio-debugging.webp",
         imageAlt: "게임 플레이 중 오클루전과 콜리전 디버깅 장면",
-        summary: "벽과 문 너머 몬스터 소리가 너무 가깝게 들리는 문제를 Wwise 값과 UE Collision/Line Trace로 분리해 확인했습니다.",
-        evidence: "DistanceToPlayer, Occlusion RTPC, Collision channel, Line Trace 결과를 같은 위치에서 비교하고 필터·볼륨·전달 정도를 조정했습니다.",
-        tags: ["Wwise RTPC", "UE Collision", "Line Trace"],
+        summary:
+          "벽과 문 너머 몬스터·함정 소리가 장애물을 무시하고 바로 옆처럼 들려 공간감이 붕괴되던 문제를 해결했습니다. 청각적 몰입감과 런타임 성능을 동시에 만족시키기 위해 Wwise 미들웨어와 UE Line Trace 간의 경계를 설계했습니다.",
+        evidence:
+          "[문제 배경] 성능 이슈로 오클루전이 꺼져 있어 벽 너머 몬스터 소리가 여과 없이 전달되었고, 단순 활성화 시 카메라 앵글에 따른 로컬 플레이어 자기 차폐(Self-Occlusion) 및 다중 리스너 충돌이 발생했습니다.\n[해결 및 구현 의도]\n- 연산 비용 통제: 매 프레임 Trace를 피하고 OcclusionRefreshInterval = 0.2f 주기를 설정해 성능 부하를 차단.\n- 자기 차폐 및 리스너 분리: 로컬 캐릭터는 주기를 0으로 두어 자기 소리가 씹히지 않게 보호하고, 리모트 플레이어의 CameraAudioListener는 강제 Unregister/비활성화 처리.\n- 현실적인 공간감(Wwise 커브): 벽 뒤 소리가 아예 끊기는 극단값(-200dB) 대신 -15~-20dB 볼륨 감쇠 + LPF(30~50) 곡선을 적용해 '벽 너머에서 먹먹하게 들리는' 자연스러운 공간감 연출.\n- 실시간 검증: 귀로만 판단하기 어려운 오클루전 상태를 즉시 확인할 수 있도록 콘솔 디버그 레이(GS.Audio.ShowOcclusionRay, 녹색: 정상 / 적색: 차폐) 시스템을 구축해 팀원들과 함께 시각적으로 검증.",
+        tags: ["Wwise Occlusion", "Line Trace", "C++"],
+        href: "https://raindrovvv.tistory.com/121",
       },
       {
         number: "B",
-        title: "Blueprint / C++ boundary",
-        summary: "이벤트가 호출되지 않는 구간을 Blueprint 이벤트, Anim Notify, C++ 컴포넌트 초기화 순서로 좁혔습니다.",
-        evidence: "호출 조건과 타이밍을 작은 체크리스트로 나누고, 실제 플레이 입력에서 재현한 뒤 누락 이벤트와 조건을 수정했습니다.",
-        tags: ["Blueprint", "Anim Notify", "Call path"],
+        title: "라이트 채널 분리를 통한 캐릭터 시인성 확보",
+        image: "../assets/game/dungeon-lighting.png",
+        imageAlt: "던전 조명 및 캐릭터 필라이트 전후 비교 장면",
+        summary:
+          "어두운 던전 맵의 음산한 배경 분위기는 유지하면서, 그 안에서 캐릭터 실루엣과 전면이 완전히 묻혀 조작성이 저하되던 가독성 충돌 문제를 라이트 채널 분리로 해결했습니다.",
+        evidence:
+          "[문제 배경] 던전 특유의 어두운 분위기를 살리기 위해 전체 환경광을 낮추면 캐릭터가 전혀 보이지 않고, 캐릭터를 밝히려고 조명을 올리면 배경 전체가 밝아져 공포스러운 분위기가 깨지는 딜레마가 있었습니다.\n[해결 및 구현 의도]\n- 물리적 조명 분리(Light Channel): 배경 환경 라이트는 Channel 0, 캐릭터 전용 라이트는 Channel 1로 지정하여 캐릭터 조명이 던전 벽이나 바닥에 번지지 않도록 물리적 간섭을 차단.\n- 전용 컴포넌트화: C++ UGS_CharacterFillLightComponent를 설계하여 정면 디테일을 살리는 Point Fill Light와 외곽 실루엣을 배경에서 떼어내는 Spot Rim Light를 하나의 컴포넌트에서 체계적으로 제어.\n- 파이프라인 편의성: 캐릭터 부위별 파츠가 많은 구조를 고려해 bAutoApplyMeshChannels로 Owner의 모든 SkeletalMeshComponent에 채널을 자동 전파하여 아티스트/기획자가 일일이 수동 세팅하는 실수를 원천 방지.\n- 빠른 튜닝 환경: 직관적인 밝기 조절을 위해 ELightUnits::Unitless 단위를 채택하고, 에디터 뷰포트에서 조명 범위와 방향을 바로 확인할 수 있는 디버그 시각화 기즈모(DrawDebugVisualization)를 탑재.",
+        tags: ["Light Channel", "Fill/Rim Light", "C++"],
+        href: "https://raindrovvv.tistory.com/186",
       },
       {
         number: "C",
-        title: "Build / Runtime log",
-        summary: "기능이 된 것처럼 보이는 상태와 빌드에서 실제로 동작하는 상태를 분리해 확인했습니다.",
-        evidence: "컴파일 결과, Output Log, 실행 중 예외, 플레이 결과를 한 사이클로 묶어 수정 후 다시 빌드했습니다.",
-        tags: ["Compile", "Output Log", "QA loop"],
+        title: "포탈 VFX 최적화와 블루프린트 계층 구조 개선",
+        image: "../assets/game/vfx-optimization.gif",
+        imageAlt: "포탈 VFX 거리 컬링 및 블루프린트 계층 구조 최적화 동작 장면",
+        summary:
+          "원거리 포탈 파티클을 최적화하기 위해 공용 최적화 컴포넌트를 붙였다가 에디터 프리뷰 원점이 틀어지고 부모 컴포넌트 상속으로 인해 필수 돌 문(StoneDoor) 에셋까지 컬링되어 소실되던 문제를 구조적으로 해결했습니다.",
+        evidence:
+          "[문제 배경] 최적화 컴포넌트가 동적으로 서브컴포넌트를 붙이는 과정에서 에디터 상의 Root/Preview 트랜스폼 기준이 흔들렸고, 부모 PrimitiveComponent의 거리 컬링이 자식 메시 전체에 강제 전파되어 문과 장식까지 사라졌습니다.\n[해결 및 구현 의도]\n- 프리뷰 안정성: 동적 서브컴포넌트 부착 방식을 제거하고 로컬 플레이어와의 실거리 연산 및 DrawDebugSphere 검증 방식으로 전환해 에디터 뷰포트 원점 안정성을 확보.\n- 블루프린트 계층 분리: 돌 문과 포탈 이펙트 간의 종속(Parent-Child) 관계를 끊고 형제(Sibling) 계층으로 재배치한 뒤, 라이트맵 및 씬 그래프 안정성을 위해 Static Mobility 정합성을 일치시킴.\n- 방어적 태그 및 컬링 보호 체계: 컬링 제외 대상을 정밀하게 제어할 수 있도록 단일 컴포넌트 제외(GS_VFXOptIgnore)와 하위 전체 제외(GS_VFXOptIgnoreSubtree) 태그 체계를 분리 구축하고, SetCullDistance(0) 및 bNeverDistanceCull 오버라이드를 적용해 다른 복합 액터에서도 안전하게 재사용 가능하도록 완성.",
+        tags: ["VFX Opt", "BP Hierarchy", "Cull Distance"],
+        href: "https://raindrovvv.tistory.com/178",
       },
     ],
     tooling: [
@@ -275,9 +309,9 @@ const portfolio = {
       { number: "04", period: "Activity record", type: "Game Jam / Team Project", title: "스파르타 게임잼", summary: "짧은 제작 사이클 안에서 게임 아이디어를 구현하고 팀과 결과물을 완주한 게임잼 기록입니다.", proof: "팀 협업 · 빠른 구현 · 플레이 가능한 결과물", image: "../assets/activity/sparta-gamejam.png", alt: "스파르타 게임잼 결과물 이미지", href: "#projects", tags: ["Game Jam", "Teamwork", "Playable Build"] },
     ],
     audio: [
-      { icon: "01", title: "Gameplay feedback", text: "전투 진입, 추격, UI 조작, 몬스터 경고음이 겹쳐도 먼저 읽혀야 할 신호를 우선순위로 정했습니다." },
-      { icon: "02", title: "Runtime audio", text: "Event·Switch·RTPC와 C++/Blueprint 호출 경계를 나누고, 거리·재질·상태가 실제 소리에 반영되도록 연결했습니다." },
-      { icon: "03", title: "Audio QA", text: "플레이테스트 피드백을 우선순위, 믹스, 시스템 조건 중 무엇을 바꿀지 판단하는 작업 단위로 번역했습니다." },
+      { icon: "01", title: "게임플레이 피드백", text: "전투 진입, 추격, UI 조작, 몬스터 경고음이 겹쳐도 먼저 읽혀야 할 신호를 우선순위로 정했습니다." },
+      { icon: "02", title: "런타임 오디오 연동", text: "Event·Switch·RTPC와 C++/Blueprint 호출 경계를 나누고, 거리·재질·상태가 실제 소리에 반영되도록 연결했습니다." },
+      { icon: "03", title: "오디오 QA / 검증", text: "플레이테스트 피드백을 우선순위, 믹스, 시스템 조건 중 무엇을 바꿀지 판단하는 작업 단위로 번역했습니다." },
     ],
     discography: {
       stats: [["50+", "released tracks"], ["7+", "years of production"], ["01", "full album · 비행"]],
@@ -311,7 +345,7 @@ const createEnglishPortfolio = () => {
     heroName: "Jungmin Cha",
     heroRole: "Game Programmer",
     heroStack: "Gameplay Systems · Editor Tooling · Debugging",
-    heroIntro: "I build gameplay and audio systems with C++ and Blueprint in a game engine.\nI use Wwise and MCP to validate features quickly, reproduce failures, and trace engine and middleware behavior one step at a time.",
+    heroIntro: "I build gameplay and audio systems with C++ and Blueprint in a game engine.\nI shorten development and validation loops with MCP-based tooling, and debug issues between the engine and audio middleware (Wwise).",
     heroPrimary: "View programming projects",
     heroSecondary: "Open GitHub",
     projectsEyebrow: "02 / SUB PROJECTS",
@@ -338,7 +372,9 @@ const createEnglishPortfolio = () => {
     audioHeading: "Systems thinking built in the audio domain",
     audioNote: "Audio work taught me to judge implementation, debugging, and QA against the actual playable build.",
     discographyHeading: "A long-form practice of finishing details",
+    agentLink: "View UnrealAgent on GitHub ↗",
     audioPortfolioLink: "Game Sound Designer portfolio ↗",
+    toolingLink: "View repository ↗",
     contributionEyebrow: "02 / GUARDIAN & SEEKER · CONTRIBUTION",
     contributionHeading: "My scope and outcomes in Guardian & Seeker",
     contributionNote: "A 4v1 asymmetric PvP game spanning gameplay, UI, sound, and development tools.",
@@ -347,7 +383,7 @@ const createEnglishPortfolio = () => {
     contributionMetricFiles: "core code files",
     contributionMetricRecent: "added since June",
     contributionEvidence: "2025.05–2026.09 · Guardian & Seeker Git history · Source/GAS + Config + Legacy/GameFeatures",
-    contributionStrength: "I turn product and creative ideas into buildable units, use AI where it helps, and verify the parts that matter in the final build.",
+    contributionStrength: "I structured design requirements into modular functional units, clearly separating tasks for AI tooling from areas requiring direct validation to maximize development density and polish.",
     contributionAreasTitle: "Areas I directly worked across",
     contributionAreasNote: "I grouped the commit record into practical work areas.",
     contributionAreaGameplay: "Gameplay",
@@ -378,16 +414,88 @@ const createEnglishPortfolio = () => {
     guardianMediaDisclaimer: "※ “Technical Art” describes my implementation of the visual and sound systems during the project—not an art-director title.",
       agentLink: "View UnrealAgent on GitHub ↗",
     debugOpen: "Open evidence",
+    devlogLink: "Read devlog article ↗",
     toolingLink: "View repository ↗",
     audioLearn: "See original audio portfolio ↗",
   });
   en.heroTags = ["C++ Gameplay", "Gameplay / Systems", "Editor Tooling", "AI-assisted Development"];
   en.projectMap = [
-    { id: "projects", number: "01", status: "GAME PROJECT", title: "Twelve Knights of Joseon", summary: "A 2D action platform fighter with Korean-inspired worldbuilding, where I shaped gameplay structure and combat sound.", image: "../assets/game/joseon-knights.webp", imageAlt: "Twelve Knights of Joseon gameplay", href: "https://www.youtube.com/watch?v=HrRCXKaU5pM", tags: ["UE5", "Gameplay", "Sound Design"] },
-    { id: "projects", number: "02", status: "GAME PROJECT", title: "SYMBIO", summary: "An action-survival project built around tense combat and the atmosphere of a sealed research facility.", image: "../assets/game/symbio.webp", imageAlt: "SYMBIO gameplay", href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8", tags: ["UE5", "BGM / SFX", "Cinematic"] },
-    { id: "projects", number: "03", status: "GAME PROJECT", title: "Rainbow Guardian", summary: "A themed tower RPG that gives exploration, combat, shops, and shrines distinct identities through sound.", image: "../assets/game/rainbow-guardian.webp", imageAlt: "Rainbow Guardian gameplay", href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw", tags: ["RPG", "BGM", "SFX"] },
-    { id: "projects", number: "04", status: "INTERACTIVE MEDIA", title: "Flight Record", summary: "An interactive media piece connecting album music and movement so user actions become part of the listening experience.", image: "../assets/game/flight-record.webp", imageAlt: "Flight Record interactive media", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s", tags: ["Unity", "Interactive Audio", "Direction"] },
-    { id: "projects", number: "05", status: "AI PROJECT", title: "AI Gunslinger", summary: "A recent project connecting an AI API to the game loop to quickly validate player choices and system responses.", image: "../assets/game/ai-gunslinger.jpg", imageAlt: "AI Gunslinger duel scene", href: "https://ai-gunslinger.vercel.app", secondaryHref: "https://github.com/raindrovvv/AI_GunSlinger", tags: ["AI API", "Prototype", "Web"] },
+    {
+      id: "projects",
+      number: "01",
+      status: "GAME PROJECT",
+      title: "Twelve Knights of Joseon",
+      summary: "A 2D action platform fighter with Korean-inspired worldbuilding. As team lead/PM, I directed project milestones and implemented combat impact sound design and C++/Blueprint integration.",
+      image: "../assets/game/joseon-knights.webp",
+      imageAlt: "Twelve Knights of Joseon gameplay",
+      href: "https://www.youtube.com/watch?v=HrRCXKaU5pM",
+      tags: ["UE5", "Gameplay", "Sound Design"],
+      links: [
+        { label: "GitHub ↗", href: "https://github.com/NBcampUnrealTrack/1st-Team2-CH4-Project" },
+        { label: "Watch video ↗", href: "https://www.youtube.com/watch?v=HrRCXKaU5pM" },
+      ],
+    },
+    {
+      id: "projects",
+      number: "02",
+      status: "GAME PROJECT",
+      title: "SYMBIO",
+      summary: "A third-person action survival game set in a sealed lab. I designed UI/UX and levels, staged cinematic cutscenes, and built the audio system including interior acoustics, weapon firing, and monster vocal synthesis.",
+      image: "../assets/game/symbio.webp",
+      imageAlt: "SYMBIO gameplay",
+      href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8",
+      tags: ["UE5", "BGM / SFX", "Cinematic"],
+      links: [
+        { label: "GitHub ↗", href: "https://github.com/NBcampUnrealTrack/1st-Team14-CH3-Project" },
+        { label: "Watch video ↗", href: "https://www.youtube.com/watch?v=2nxZ4AfdJa8" },
+      ],
+    },
+    {
+      id: "projects",
+      number: "03",
+      status: "GAME PROJECT",
+      title: "Rainbow Guardian",
+      summary: "A roguelite themed tower RPG. I drove the game concept and story, and produced distinctive BGM arrangements and SFX across 8 themed towers for exploration, combat, shops, and altars.",
+      image: "../assets/game/rainbow-guardian.webp",
+      imageAlt: "Rainbow Guardian gameplay",
+      href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw",
+      tags: ["RPG", "BGM", "SFX"],
+      links: [
+        { label: "GitHub ↗", href: "https://github.com/SeungH99/ProjectRainbowGuardian" },
+        { label: "Watch video ↗", href: "https://www.youtube.com/watch?v=9vPQz9_O9Uw" },
+      ],
+    },
+    {
+      id: "projects",
+      number: "04",
+      status: "INTERACTIVE MEDIA",
+      title: "Flight Record",
+      summary: "An interactive Unity media project connecting album music with spatial movement. As project leader/PM and sound designer/dev, I built Unity C# music triggers, audio-reactive systems, and led Jira/GitLab agile processes.",
+      image: "../assets/game/flight-record.webp",
+      imageAlt: "Flight Record interactive media",
+      href: "https://raindrovvv.itch.io/flightrecord",
+      tags: ["Unity", "Interactive Audio", "Direction"],
+      links: [
+        { label: "Play game (itch.io) ↗", href: "https://raindrovvv.itch.io/flightrecord" },
+        { label: "Presentation (Figma) ↗", href: "https://www.figma.com/slides/YcWA2JrMtEHTAOaPmRyuVD/Flight?node-id=1-445&t=5YQc9pILEERBjQRY-0" },
+        { label: "Watch video ↗", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s" },
+      ],
+    },
+    {
+      id: "projects",
+      number: "05",
+      status: "AI PROJECT",
+      title: "AI Gunslinger",
+      summary: "A prototype connecting an AI API into a real-time game loop to rapidly validate player decisions and system reactions in turn-based duels.",
+      image: "../assets/game/ai-gunslinger.jpg",
+      imageAlt: "AI Gunslinger duel scene",
+      href: "https://ai-gunslinger.vercel.app",
+      tags: ["AI API", "Prototype", "Web"],
+      links: [
+        { label: "GitHub ↗", href: "https://github.com/raindrovvv/AI_GunSlinger" },
+        { label: "Play demo ↗", href: "https://ai-gunslinger.vercel.app" },
+      ],
+    },
   ];
   en.guardian = {
     label: "CORE PROJECT / 4v1 ASYMMETRIC PVP",
@@ -396,12 +504,15 @@ const createEnglishPortfolio = () => {
     imageAlt: "Guardian & Seeker gameplay and Wwise implementation capture",
     summary: "Guardian & Seeker is a 4v1 asymmetric PvP action game built with UE5 and Wwise.\n\nAs the gameplay builder and audio systems owner, I implemented role-based Audio Components, Wwise Event/Switch/RTPC integration, Physical Material footsteps, BGM state transitions, and UE Collision/Line Trace occlusion.\n\nI did not stop at asset production: I designed the runtime boundary between C++, Blueprint, and Wwise, then verified the result through playtests and debugging.",
     links: [
-      { label: "View implementation ↗", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev/Source/GAS/Public/Sound" },
-      { label: "Watch gameplay ↗", href: "https://www.youtube.com/watch?v=d7xon5fv-kg" },
+      { label: "View implementation ↗", href: "https://github.com/raindrovvv/GuardianAndSeeker/tree/Dev" },
+      { label: "Watch gameplay ↗", href: "https://www.youtube.com/watch?v=MGSCKdCAgDY" },
     ],
     evidence: [["Role", "Gameplay and audio implementation"], ["Contribution", "Combat features, game state, sound hooks"], ["Evidence", "299 players · 4.36/5 average"], ["Stack", "UE5.6 · C++ · Blueprint · Wwise"]],
     flow: [["INPUT", "Player action"], ["STATE", "Gameplay state"], ["ROUTE", "Audio Component"], ["OUTPUT", "Wwise feedback"]],
-    metrics: [["299", "playtesters"], ["4.36/5", "average feedback score"]],
+    metrics: [
+      ["299", "G-STAR 2025 playtesters ↗", "https://raindrovvv.tistory.com/108"],
+      ["4.36 / 5.0", "G-STAR visitor survey score ↗", "https://raindrovvv.tistory.com/108"],
+    ],
   };
   en.unrealAgent = {
     label: "EDITOR TOOLING / LOCAL AI WORKFLOW",
@@ -414,9 +525,39 @@ const createEnglishPortfolio = () => {
     href: "https://github.com/raindrovvv/UnrealAgent",
   };
   en.debugging = [
-    { number: "A", title: "Occlusion / Collision", image: "../assets/game/audio-debugging.webp", imageAlt: "Occlusion and collision debugging during gameplay", summary: "I separated a too-close monster sound behind a wall or door into Wwise values and UE Collision/Line Trace evidence.", evidence: "DistanceToPlayer, Occlusion RTPC, collision channel, and Line Trace results were compared at the same location before tuning filter, volume, and transmission.", tags: ["Wwise RTPC", "UE Collision", "Line Trace"] },
-    { number: "B", title: "Blueprint / C++ boundary", summary: "I narrowed a missing event call through Blueprint events, Anim Notify timing, and C++ component initialization.", evidence: "I reduced conditions and timing to a small checklist, reproduced the issue from player input, and fixed missing events and conditions.", tags: ["Blueprint", "Anim Notify", "Call path"] },
-    { number: "C", title: "Build / Runtime log", summary: "I separate a feature that looks correct from a feature that actually works in the build.", evidence: "Compile result, Output Log, runtime exceptions, and play result stay in one loop; after a fix, I build again.", tags: ["Compile", "Output Log", "QA loop"] },
+    {
+      number: "A",
+      title: "Sound Occlusion & Collision Debugging",
+      image: "../assets/game/audio-debugging.webp",
+      imageAlt: "Occlusion and collision debugging during gameplay",
+      summary: "I resolved monster/trap sounds playing unfiltered through walls and doors using Wwise Occlusion, UE Visibility Line Traces, and local self-occlusion prevention.",
+      evidence:
+        "[Problem Background] Occlusion was disabled due to legacy performance concerns, causing monster sounds behind walls to play at full clarity. Simply reenabling it caused self-occlusion against the local player mesh and listener conflicts from camera angles.\n[Solution & Implementation Intent]\n- Performance Control: Replaced tick-based traces with an OcclusionRefreshInterval = 0.2f interval to throttle runtime cost.\n- Self-Occlusion & Listener Decoupling: Set interval to 0 on the local player to eliminate self-culling, while remote listeners are explicitly unregistered.\n- Spatial Realism (Wwise Curves): Replaced total cutoff (-200dB) with a gradual -15~-20dB attenuation + LPF (30~50) curve to create natural muffled sound behind obstacles.\n- Runtime Validation: Built a console CVar debug ray system (GS.Audio.ShowOcclusionRay, green: clear / red: occluded) for immediate multi-listener visual verification.",
+      tags: ["Wwise Occlusion", "Line Trace", "C++"],
+      href: "https://raindrovvv.tistory.com/121",
+    },
+    {
+      number: "B",
+      title: "Dungeon Lighting & Character Visibility",
+      image: "../assets/game/dungeon-lighting.png",
+      imageAlt: "Dungeon lighting and character fill light comparison preview",
+      summary: "I solved character silhouette and frontal readability collapse in dark dungeon environments while preserving ambient tension.",
+      evidence:
+        "[Problem Background] Lowering ambient light to sustain dungeon horror caused character models to blend completely into darkness, while raising global lighting broke the eerie atmospheric aesthetic.\n[Solution & Implementation Intent]\n- Physical Decoupling (Light Channels): Isolated background environment lighting to Channel 0 and dedicated character fill light to Channel 1, preventing spillover onto walls and floors.\n- Dedicated Component Architecture: Built C++ UGS_CharacterFillLightComponent to manage Point Fill (frontal readability) and Spot Rim (silhouette detachment) in a unified system.\n- Pipeline Ergonomics: Configured bAutoApplyMeshChannels to automatically propagate channels across all owner SkeletalMeshComponents, preventing manual setup errors by artists or level designers.\n- Rapid Tuning Workflow: Adopted ELightUnits::Unitless for direct brightness tuning, and provided viewport debug visualization gizmos (DrawDebugVisualization) for immediate visual feedback.",
+      tags: ["Light Channel", "Fill/Rim Light", "C++"],
+      href: "https://raindrovvv.tistory.com/186",
+    },
+    {
+      number: "C",
+      title: "Portal VFX Optimization & BP Hierarchy",
+      image: "../assets/game/vfx-optimization.gif",
+      imageAlt: "Portal VFX distance culling and blueprint hierarchy optimization in action",
+      summary: "I resolved editor preview origin collapse and unwanted child asset culling caused by parent PrimitiveComponent inheritance during portal VFX optimization.",
+      evidence:
+        "[Problem Background] Dynamic subcomponent attachment destabilized Root/Preview transforms in the editor viewport, while parent PrimitiveComponent distance culling propagated forcefully to child meshes, disappearing stone door assets.\n[Solution & Implementation Intent]\n- Preview Stability: Replaced dynamic attachment with player distance math and DrawDebugSphere verification to preserve editor viewport transform stability.\n- BP Hierarchy Decoupling: Severed parent-child dependencies between the StoneDoor and portal FX into sibling hierarchies and aligned Static Mobility for transform and lighting consistency.\n- Defensive Tagging & Cull Overrides: Designed single-component (GS_VFXOptIgnore) and subtree-wide (GS_VFXOptIgnoreSubtree) ignore tags, enforcing SetCullDistance(0) and bNeverDistanceCull overrides for safe reuse across composite actors.",
+      tags: ["VFX Opt", "BP Hierarchy", "Cull Distance"],
+      href: "https://raindrovvv.tistory.com/178",
+    },
   ];
   en.tooling = [
     { number: "03", title: "UnityMCP", summary: "An MCP server connecting Unity Editor to a local AI agent, with AudioClip/AudioSource inspection and 3D sound/BGM placement tools.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["DRY RUN", "true", "AudioSource → inspect → apply"] },
@@ -493,19 +634,28 @@ const renderProjectMap = () => {
   node.innerHTML = copy.projectMap
     .map(
       (project) => {
-        const href = project.href || `#${project.id}`;
-        const target = href.startsWith("http") ? ' target="_blank" rel="noreferrer"' : "";
+        const mainHref = project.href || `#${project.id}`;
+        const linksHtml = project.links && project.links.length
+          ? `<div class="project-map-links">
+              ${project.links
+                .map(
+                  (link) =>
+                    `<a class="project-map-link-btn" href="${escapeHtml(link.href)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`,
+                )
+                .join("")}
+            </div>`
+          : "";
+
         return `
         <article class="project-map-card" data-reveal>
-          <a class="project-map-link" href="${escapeHtml(href)}"${target} aria-label="${escapeHtml(`${project.title} ${copy.strings.projectOpen}`)}">
+          <div class="project-map-body">
             ${project.image ? `<figure class="project-map-media"><img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.imageAlt || project.title)}" loading="lazy" decoding="async" /></figure>` : ""}
             <div class="map-card-top"><span class="project-number">${escapeHtml(project.number)}</span><span class="project-status">${escapeHtml(project.status)}</span></div>
-            <h3>${escapeHtml(project.title)}</h3>
-            <p>${escapeHtml(project.summary)}</p>
+            <h3 class="project-map-title">${escapeHtml(project.title)}</h3>
+            <p class="project-map-desc">${escapeHtml(project.summary)}</p>
             ${tagList(project.tags)}
-            <span class="map-card-cta">${escapeHtml(copy.strings.projectOpen)} <span aria-hidden="true">↘</span></span>
-          </a>
-          ${project.secondaryHref ? `<a class="project-map-secondary" href="${escapeHtml(project.secondaryHref)}" target="_blank" rel="noreferrer">GitHub ↗</a>` : ""}
+          </div>
+          ${linksHtml}
         </article>`;
       },
     )
@@ -531,7 +681,11 @@ const renderContribution = () => {
           .map(([key, value]) => `<div><strong>${escapeHtml(key)}</strong><span>${escapeHtml(value)}</span></div>`)
           .join("")}</div>
         <div class="contribution-evidence-metrics">${project.metrics
-          .map(([value, text]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(text)}</span></div>`)
+          .map(([value, text, href]) =>
+            href
+              ? `<a class="contribution-evidence-metric-item" href="${escapeHtml(href)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(text)}</span></a>`
+              : `<div class="contribution-evidence-metric-item"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(text)}</span></div>`
+          )
           .join("")}</div>
       </div>
       <div class="contribution-story">
@@ -553,7 +707,9 @@ const renderGuardian = () => {
   if (!node) return;
   const copy = activeCopy();
   const item = copy.guardian;
-  const gameplayLink = item.links.find((link) => link.label.toLowerCase().includes("gameplay")) || item.links[0];
+  const gameplayLink =
+    item.links.find((link) => link.href.includes("youtube.com") || link.label.toLowerCase().includes("gameplay") || link.label.includes("게임플레이")) ||
+    item.links[0];
   node.innerHTML = `
     <div class="case-visual-wrap" data-reveal>
       <a class="case-visual" href="${escapeHtml(gameplayLink.href)}" target="_blank" rel="noreferrer">
@@ -595,6 +751,48 @@ const renderUnrealAgent = () => {
     </div>`;
 };
 
+const formatEvidence = (text) => {
+  if (!text) return "";
+  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  let html = "";
+  let currentBlock = null;
+
+  lines.forEach((line) => {
+    const sectionMatch = line.match(/^\[(.*?)\]\s*(.*)$/);
+    if (sectionMatch) {
+      if (currentBlock) {
+        html += `</div>`;
+      }
+      const [, title, firstLine] = sectionMatch;
+      const isProblem = title.includes("문제") || title.toLowerCase().includes("problem");
+      const badgeClass = isProblem ? "badge-problem" : "badge-solution";
+      html += `<div class="debug-evidence-block">
+        <div class="debug-evidence-title"><span class="debug-evidence-tag ${badgeClass}">${escapeHtml(title)}</span></div>`;
+      if (firstLine) {
+        html += `<p class="debug-evidence-text">${escapeHtml(firstLine)}</p>`;
+      }
+      currentBlock = title;
+    } else if (line.startsWith("- ")) {
+      const itemContent = line.slice(2);
+      const colonIndex = itemContent.indexOf(":");
+      if (colonIndex !== -1) {
+        const itemHead = itemContent.slice(0, colonIndex).trim();
+        const itemBody = itemContent.slice(colonIndex + 1).trim();
+        html += `<div class="debug-evidence-item"><strong class="debug-item-head">${escapeHtml(itemHead)}:</strong> <span class="debug-item-body">${escapeHtml(itemBody)}</span></div>`;
+      } else {
+        html += `<div class="debug-evidence-item"><span class="debug-item-bullet">•</span> <span class="debug-item-body">${escapeHtml(itemContent)}</span></div>`;
+      }
+    } else {
+      html += `<p class="debug-evidence-text">${escapeHtml(line)}</p>`;
+    }
+  });
+
+  if (currentBlock) {
+    html += `</div>`;
+  }
+  return html;
+};
+
 const renderDebugging = () => {
   const node = $("#debugging-content");
   if (!node) return;
@@ -604,10 +802,16 @@ const renderDebugging = () => {
       (item) => `
         <article class="debug-card ${item.image ? "has-debug-visual" : ""}" data-reveal>
           ${item.image ? `<img class="debug-card-visual" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" decoding="async" />` : ""}
-          <div class="debug-card-header"><span>CASE ${escapeHtml(item.number)}</span>${tagList(item.tags, "compact-tags")}</div>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.summary)}</p>
-          <details><summary>${escapeHtml(copy.strings.debugOpen)}</summary><p>${escapeHtml(item.evidence)}</p></details>
+          <div class="debug-card-header"><span class="debug-case-badge">CASE ${escapeHtml(item.number)}</span>${tagList(item.tags, "compact-tags")}</div>
+          <h3 class="debug-card-title">${escapeHtml(item.title)}</h3>
+          <p class="debug-card-summary">${escapeHtml(item.summary)}</p>
+          <details>
+            <summary>${escapeHtml(copy.strings.debugOpen)}</summary>
+            <div class="debug-evidence-body">
+              ${formatEvidence(item.evidence)}
+              ${item.href ? `<a class="debug-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(copy.strings.devlogLink || "트러블슈팅 블로그 기록 보기 ↗")}</a>` : ""}
+            </div>
+          </details>
         </article>`,
     )
     .join("");
@@ -776,6 +980,21 @@ const setupInteractions = () => {
       { rootMargin: "-35% 0px -55% 0px", threshold: 0 },
     );
     sections.forEach((section) => navObserver.observe(section));
+  }
+
+  const scrollTopBtn = $("#scroll-top");
+  if (scrollTopBtn) {
+    const toggleScrollTop = () => {
+      const show = window.scrollY > 400;
+      scrollTopBtn.classList.toggle("is-visible", show);
+    };
+
+    window.addEventListener("scroll", toggleScrollTop, { passive: true });
+    toggleScrollTop();
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 };
 
