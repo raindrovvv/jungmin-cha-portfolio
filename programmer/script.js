@@ -7,15 +7,10 @@ const portfolio = {
       navDebugging: "Debugging",
       navTooling: "Tooling",
       navActivities: "Activities",
-      navAudio: "Game Audio",
       navDiscography: "Discography",
       navContact: "Contact",
       soundPortfolio: "Game Audio",
       email: "Email",
-      orbitRole: "C++ Gameplay",
-      orbitGameplay: "Gameplay / Systems",
-      orbitTooling: "Editor Tooling",
-      orbitDebug: "Debug / Verify",
       proofGameplay: "게임플레이",
       proofGameplayDetail: "C++ / Blueprint 시스템",
       proofDebugging: "디버깅",
@@ -33,7 +28,7 @@ const portfolio = {
       heroSecondary: "GitHub 바로가기",
       projectsEyebrow: "02 / SUB PROJECTS",
       projectsTitle: "Sub Project",
-      projectsNote: "툴링·디버깅·검증 사례를 별도 프로젝트로 정리했습니다.",
+
       guardianProjectEyebrow: "01 / MAIN PROJECT",
       guardianProjectTitle: "Main Project",
       guardianProjectNote: "하나의 프로젝트 안에서 맡은 범위, 구현 결과, 문제 해결 과정을 이어서 보여줍니다.",
@@ -62,24 +57,21 @@ const portfolio = {
       agentHeading: "에디터와 로컬 AI를 연결한 MCP 브리지",
       debuggingEyebrow: "DEBUGGING",
       debuggingHeading: "증상을 재현하고 원인 경로를 좁혔습니다",
-      debuggingNote: "로그, 콜리전, 미들웨어 값을 같은 사건의 증거로 묶어 확인합니다.",
+
       toolingEyebrow: "03 / EDITOR TOOLING & BUILD MONITOR",
       toolingHeading: "에디터 도구와 빌드 상태를 한눈에 모니터링합니다",
-      toolingNote: "Unity 오디오 배치부터 Discord·Slack 알림까지,\n작업 상태를 확인 가능한 흐름으로 연결했습니다.",
+
       activitiesEyebrow: "04 / PUBLIC ACTIVITIES",
       activitiesHeading: "현장에서 보고, 만들고, 다시 검증한 기록",
-      activitiesNote: "전시·프로토타이핑·해커톤·게임잼에서\n플레이어와 팀의 피드백을 구현 과제로 바꿨습니다.",
+
       activityOpen: "기록 열기",
       activityProof: "기록",
-      audioEyebrow: "05 / GAME AUDIO",
-      audioHeading: "사운드 도메인에서 쌓은 시스템 감각",
-      audioNote: "오디오 시스템을 다루며 쌓은 경험은 구현·디버깅·QA 전 과정을\n실제 플레이어 관점에서 검증하는 밑바탕이 되었습니다.",
       discographyEyebrow: "06 / DISCOGRAPHY",
       discographyHeading: "긴 호흡으로 결과를 다듬어 온 기록",
       audioPortfolioLink: "Game Sound Designer portfolio ↗",
       contactEyebrow: "06 / CONTACT",
-      contactHeading: "플레이어가 느끼는 문제를\n시스템의 언어로 풀어냅니다.",
-      contactBody: "게임플레이 시스템 구현, 에디터 툴링, 런타임 디버깅 경험을 바탕으로 팀의 개발 과정을 빠르게 이해하고 검증 가능한 결과를 만드는 데 기여하겠습니다.",
+      contactHeading: "게임플레이·오디오·툴 제작,\n가리지 않습니다.",
+      contactBody: "제가 할 수 있는 최선을 다합니다.\nAI로 프로토타입을 빠르게 구현하여 팀과 대화하며 개선해나갑니다.",
       contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
       footerName: "차정민 · Game Programmer",
@@ -160,7 +152,6 @@ const portfolio = {
         tags: ["Unity", "Interactive Audio", "Direction"],
         links: [
           { label: "게임 플레이 (itch.io) ↗", href: "https://raindrovvv.itch.io/flightrecord" },
-          { label: "발표자료 (Figma) ↗", href: "https://www.figma.com/slides/YcWA2JrMtEHTAOaPmRyuVD/Flight?node-id=1-445&t=5YQc9pILEERBjQRY-0" },
           { label: "영상 보기 ↗", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s" },
         ],
       },
@@ -308,11 +299,6 @@ const portfolio = {
       { number: "03", period: "Activity record", type: "Hackathon / AI Collaboration", title: "Gemini 3 서울 해커톤", summary: "생성형 AI 도구를 활용해 아이디어를 빠르게 구체화하고 결과물을 검증한 해커톤 기록입니다.", proof: "아이디어 구체화 · 프로토타입 검증 · 결과 공유", image: "../assets/activity/gemini-3-seoul-hackathon.png", alt: "Gemini 3 서울 해커톤 활동 기록", href: "#contact", tags: ["Hackathon", "AI Collaboration", "Prototype"] },
       { number: "04", period: "Activity record", type: "Game Jam / Team Project", title: "스파르타 게임잼", summary: "짧은 제작 사이클 안에서 게임 아이디어를 구현하고 팀과 결과물을 완주한 게임잼 기록입니다.", proof: "팀 협업 · 빠른 구현 · 플레이 가능한 결과물", image: "../assets/activity/sparta-gamejam.png", alt: "스파르타 게임잼 결과물 이미지", href: "#projects", tags: ["Game Jam", "Teamwork", "Playable Build"] },
     ],
-    audio: [
-      { icon: "01", title: "게임플레이 피드백", text: "전투 진입, 추격, UI 조작, 몬스터 경고음이 겹쳐도 먼저 읽혀야 할 신호를 우선순위로 정했습니다." },
-      { icon: "02", title: "런타임 오디오 연동", text: "Event·Switch·RTPC와 C++/Blueprint 호출 경계를 나누고, 거리·재질·상태가 실제 소리에 반영되도록 연결했습니다." },
-      { icon: "03", title: "오디오 QA / 검증", text: "플레이테스트 피드백을 우선순위, 믹스, 시스템 조건 중 무엇을 바꿀지 판단하는 작업 단위로 번역했습니다." },
-    ],
     discography: {
       stats: [["50+", "released tracks"], ["7+", "years of production"], ["01", "full album · 비행"]],
       text: "50개 이상의 트랙을 작사·작곡·편곡·믹싱·마스터링까지 이어 오며 반복을 견디는 제작 습관을 쌓았습니다.\n이 경험은 게임에서도 소스 구조화와 디테일 검증을 끝까지 가져가는 힘이 되었습니다.",
@@ -329,11 +315,6 @@ const createEnglishPortfolio = () => {
     navGuardian: "Main",
     heroKicker: "GAME PROGRAMMING / PORTFOLIO",
     heroDate: "2026.09 UPDATE",
-    orbitRole: "C++ Gameplay",
-    orbitGameplay: "Gameplay / Systems",
-    orbitTooling: "Editor Tooling",
-    orbitDebug: "Debug / Verify",
-    navAudio: "Game Audio",
     navContribution: "Contribution",
     navDiscography: "Discography",
     proofGameplay: "Gameplay",
@@ -350,7 +331,7 @@ const createEnglishPortfolio = () => {
     heroSecondary: "Open GitHub",
     projectsEyebrow: "02 / SUB PROJECTS",
     projectsTitle: "Sub Project",
-    projectsNote: "Additional game, audio, and AI projects that show how I turn ideas into playable results.",
+
     guardianProjectEyebrow: "01 / MAIN PROJECT",
     guardianProjectTitle: "Main Project",
     guardianProjectNote: "One project, shown as a continuous story of scope, implementation, and problem solving.",
@@ -360,17 +341,14 @@ const createEnglishPortfolio = () => {
     agentHeading: "An MCP bridge between Unreal Editor and local AI",
     debuggingEyebrow: "DEBUGGING",
     debuggingHeading: "Reproduce the symptom. Narrow the cause.",
-    debuggingNote: "Logs, collision, and middleware values become evidence for the same incident.",
+
     toolingEyebrow: "03 / EDITOR TOOLING & BUILD MONITOR",
     toolingHeading: "Monitor editor tools and build status at a glance.",
     activitiesEyebrow: "04 / PUBLIC ACTIVITIES",
     activitiesHeading: "Records of observing, making, and verifying in the field",
-    activitiesNote: "Showcases, prototyping, hackathons, and game jams became concrete implementation tasks through player and team feedback.",
+
     activityOpen: "Open record",
     activityProof: "Record",
-    toolingNote: "From Unity audio placement to Discord and Slack alerts, every step stays visible and actionable.",
-    audioHeading: "Systems thinking built in the audio domain",
-    audioNote: "Audio work taught me to judge implementation, debugging, and QA against the actual playable build.",
     discographyHeading: "A long-form practice of finishing details",
     agentLink: "View UnrealAgent on GitHub ↗",
     audioPortfolioLink: "Game Sound Designer portfolio ↗",
@@ -395,8 +373,8 @@ const createEnglishPortfolio = () => {
     contributionAreaTools: "Development Tools / AI",
     contributionAreaToolsDetail: "Editor tools, automation, workflow checks",
     contactEyebrow: "06 / CONTACT",
-    contactHeading: "I translate player-facing problems\ninto system language.",
-    contactBody: "I bring gameplay systems, editor tooling, and runtime debugging experience to help a team understand complex work quickly and ship verifiable features.",
+    contactHeading: "Gameplay, audio, tools —\nI don't stay in one lane.",
+    contactBody: "I give the work everything I can.\nI prototype fast with AI, talk it through with the team, and keep improving.",
     contactEmail: "Send an email",
     contactGithub: "Open GitHub",
     footerName: "Jungmin Cha · Game Programmer",
@@ -477,7 +455,6 @@ const createEnglishPortfolio = () => {
       tags: ["Unity", "Interactive Audio", "Direction"],
       links: [
         { label: "Play game (itch.io) ↗", href: "https://raindrovvv.itch.io/flightrecord" },
-        { label: "Presentation (Figma) ↗", href: "https://www.figma.com/slides/YcWA2JrMtEHTAOaPmRyuVD/Flight?node-id=1-445&t=5YQc9pILEERBjQRY-0" },
         { label: "Watch video ↗", href: "https://www.youtube.com/watch?v=X-2pHNHbX7M&t=103s" },
       ],
     },
@@ -569,11 +546,6 @@ const createEnglishPortfolio = () => {
     { number: "02", period: "2025.08–09", type: "Prototype / User Test", title: "Smilegate Indie Game Prototyping Challenge", summary: "Across a five-week prototype cycle, I used mentoring and test feedback to validate combat flow, controls, and sound/UX response.", proof: "Weekly mentor feedback · online playtests · tracked improvements", image: "../assets/activity/smilegate-prototyping-challenge.png", alt: "Playtest session at the indie game prototyping challenge", href: "https://raindrovvv.tistory.com/117", secondaryHref: "https://raindrovvv.tistory.com/118", tags: ["Prototype", "User Test", "Combat UX"] },
     { number: "03", period: "Activity record", type: "Hackathon / AI Collaboration", title: "Gemini 3 Seoul Hackathon", summary: "A hackathon record of shaping an idea quickly with generative AI tools and validating the resulting prototype.", proof: "Idea shaping · prototype validation · result sharing", image: "../assets/activity/gemini-3-seoul-hackathon.png", alt: "Gemini 3 Seoul Hackathon activity record", href: "#contact", tags: ["Hackathon", "AI Collaboration", "Prototype"] },
     { number: "04", period: "Activity record", type: "Game Jam / Team Project", title: "Sparta Game Jam", summary: "A game-jam record of implementing an idea in a short production cycle and finishing a playable result with a team.", proof: "Team collaboration · rapid implementation · playable build", image: "../assets/activity/sparta-gamejam.png", alt: "Sparta Game Jam project artwork", href: "#projects", tags: ["Game Jam", "Teamwork", "Playable Build"] },
-  ];
-  en.audio = [
-    { icon: "01", title: "Gameplay feedback", text: "I prioritized the cues that must read first when combat entry, chase pressure, UI actions, and monster warnings overlap." },
-    { icon: "02", title: "Runtime audio", text: "I separated Event, Switch, RTPC, and C++/Blueprint call boundaries so distance, material, and state reach the actual sound." },
-    { icon: "03", title: "Audio QA", text: "I translated playtest feedback into a decision about priority, mix, or system conditions—not a list of vague requests." },
   ];
   en.discography = {
     stats: [["50+", "released tracks"], ["7+", "years of production"], ["01", "full album · Flight"]],
@@ -793,17 +765,21 @@ const formatEvidence = (text) => {
   return html;
 };
 
+const DEBUG_CASE_ICONS = { A: "scan", B: "signal", C: "zap" };
+
 const renderDebugging = () => {
   const node = $("#debugging-content");
   if (!node) return;
   const copy = activeCopy();
   node.innerHTML = copy.debugging
     .map(
-      (item) => `
+      (item) => {
+        const iconName = DEBUG_CASE_ICONS[item.number] || "scan";
+        return `
         <article class="debug-card ${item.image ? "has-debug-visual" : ""}" data-reveal>
           ${item.image ? `<img class="debug-card-visual" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" decoding="async" />` : ""}
           <div class="debug-card-header"><span class="debug-case-badge">CASE ${escapeHtml(item.number)}</span>${tagList(item.tags, "compact-tags")}</div>
-          <h3 class="debug-card-title">${escapeHtml(item.title)}</h3>
+          <h3 class="debug-card-title"><img class="debug-case-icon" src="../assets/doodle-icons/${iconName}.svg" alt="" aria-hidden="true"><span>${escapeHtml(item.title)}</span></h3>
           <p class="debug-card-summary">${escapeHtml(item.summary)}</p>
           <details>
             <summary>${escapeHtml(copy.strings.debugOpen)}</summary>
@@ -812,10 +788,13 @@ const renderDebugging = () => {
               ${item.href ? `<a class="debug-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(copy.strings.devlogLink || "트러블슈팅 블로그 기록 보기 ↗")}</a>` : ""}
             </div>
           </details>
-        </article>`,
+        </article>`;
+      }
     )
     .join("");
 };
+
+const TOOLING_ICONS = { "01": "setting", "02": "grid", "03": "signal" };
 
 const renderTooling = () => {
   const node = $("#tooling-content");
@@ -828,12 +807,13 @@ const renderTooling = () => {
         : item.placeholder
           ? `<div class="tool-media tool-placeholder" aria-label="${escapeHtml(item.title)} photo placeholder"><span>PHOTO / PREVIEW</span><strong>${escapeHtml(item.title)}</strong><small>visual asset to be connected</small></div>`
           : "";
+      const iconName = TOOLING_ICONS[item.number] || "setting";
       return `
         <article class="tool-card ${item.featured ? "featured" : ""}" data-reveal>
           ${visual}
           <div>
             <span class="tooling-number">${escapeHtml(item.number)} / ${escapeHtml(item.panel[0])}</span>
-            <h3>${escapeHtml(item.title)}</h3>
+            <h3><img class="tool-doodle" src="../assets/doodle-icons/${iconName}.svg" alt="" aria-hidden="true">${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.summary)}</p>
             ${tagList(item.tags)}
             <div class="case-links"><a class="text-link" href="${escapeHtml(item.href)}" ${item.href.startsWith("http") ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(copy.strings.toolingLink)}</a></div>
@@ -861,21 +841,6 @@ const renderActivities = () => {
         ${tagList(item.tags, "compact-tags")}
       </div>
     </article>`).join("");
-};
-
-const renderAudio = () => {
-  const node = $("#audio-content");
-  if (!node) return;
-  node.innerHTML = activeCopy().audio
-    .map(
-      (item) => `
-        <article class="audio-card" data-reveal>
-          <div class="audio-card-header"><span class="audio-icon" aria-hidden="true">${escapeHtml(item.icon)}</span><span class="section-index">DOMAIN</span></div>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.text)}</p>
-        </article>`,
-    )
-    .join("");
 };
 
 const renderDiscography = () => {
@@ -946,7 +911,6 @@ const renderCopy = () => {
   renderDebugging();
   renderTooling();
   renderActivities();
-  renderAudio();
   renderDiscography();
   renderContact();
   refreshRevealTargets();

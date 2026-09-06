@@ -28,10 +28,16 @@
     <meta name="twitter:image" content="https://jungmin-cha-portfolio.pages.dev/assets/tooling/unreal-mcp.png" />
     <link rel="icon" href="../assets/favicon-programmer.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css"
       rel="stylesheet"
       type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -46,7 +52,6 @@
         <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#tooling" data-i18n="navTooling">Tooling</a>
         <a href="#activities" data-i18n="navActivities">Activities</a>
-        <a href="#audio" data-i18n="navAudio">Game Audio</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
       <div class="header-actions">
@@ -65,14 +70,6 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-gridline" aria-hidden="true"></div>
-        <div class="role-orbit" aria-label="빠른 이동 오브젝트">
-          <a class="role-token token-role" href="#guardian" data-i18n="orbitRole">C++ Gameplay</a>
-          <a class="role-token token-gameplay" href="#guardian" data-i18n="orbitGameplay">Gameplay / Systems</a>
-          <span class="symbol-token token-signal" aria-hidden="true">✱</span>
-          <a class="role-token token-tooling" href="#tooling" data-i18n="orbitTooling">Editor Tooling</a>
-          <a class="role-token token-debug" href="#guardian" data-i18n="orbitDebug">Debug / Verify</a>
-          <a class="symbol-token token-down" href="#contact" aria-label="연락처(Contact)로 스크롤" title="연락처로 이동">↓</a>
-        </div>
         <div class="hero-copy">
           <p class="hero-kicker"><span class="live-dot" aria-hidden="true"></span><span data-i18n="heroKicker">GAME PROGRAMMING / PORTFOLIO</span><span class="hero-kicker-date" data-i18n="heroDate">2026.09 UPDATE</span></p>
           <h1 id="hero-title">
@@ -126,7 +123,6 @@
               <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/layer.svg" alt="" aria-hidden="true"><span data-i18n="guardianEyebrow">IMPLEMENTATION</span></p>
               <h2 id="guardian-title" data-i18n="guardianHeading">UE5 C++ 기반 플레이 피드백 시스템 구현</h2>
             </div>
-            <span class="section-index">CASE 01</span>
           </div>
           <div class="case-layout has-case-visual" id="guardian-content"></div>
         </div>
@@ -137,7 +133,6 @@
               <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/scan.svg" alt="" aria-hidden="true"><span data-i18n="debuggingEyebrow">DEBUGGING</span></p>
               <h2 id="debugging-title" data-i18n="debuggingHeading">증상을 재현하고 원인 경로를 좁혔습니다</h2>
             </div>
-            <p class="section-note" data-i18n="debuggingNote">로그, 콜리전, 미들웨어 값을 같은 사건의 증거로 묶어 확인합니다.</p>
           </div>
           <div class="debug-grid" id="debugging-content"></div>
         </div>
@@ -149,7 +144,6 @@
             <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/puzzle.svg" alt="" aria-hidden="true"><span data-i18n="projectsEyebrow">02 / SUB PROJECTS</span></p>
             <h2 id="projects-title" data-i18n="projectsTitle">메인 프로젝트에서 확장한 서브 프로젝트</h2>
           </div>
-          <p class="section-note" data-i18n="projectsNote">툴링·디버깅·검증 사례를 별도 프로젝트로 정리했습니다.</p>
         </div>
         <div class="project-map" id="project-map"></div>
       </section>
@@ -160,8 +154,6 @@
             <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/setting.svg" alt="" aria-hidden="true"><span data-i18n="toolingEyebrow">03 / EDITOR TOOLING &amp; BUILD MONITOR</span></p>
             <h2 id="tooling-title" data-i18n="toolingHeading">적용 전에 확인하고, 적용 후에 다시 빌드합니다</h2>
           </div>
-          <p class="section-note" data-i18n="toolingNote">Unity 오디오 배치부터 Discord·Slack 알림까지,
-작업 상태를 확인 가능한 흐름으로 연결했습니다.</p>
         </div>
         <div class="tooling-grid" id="tooling-content"></div>
       </section>
@@ -172,22 +164,8 @@
             <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/trophy.svg" alt="" aria-hidden="true"><span data-i18n="activitiesEyebrow">04 / PUBLIC ACTIVITIES</span></p>
             <h2 id="activities-title" data-i18n="activitiesHeading">현장에서 보고, 만들고, 다시 검증한 기록</h2>
           </div>
-          <p class="section-note" data-i18n="activitiesNote">전시·프로토타이핑·해커톤·게임잼에서
-플레이어와 팀의 피드백을 구현 과제로 바꿨습니다.</p>
         </div>
         <div class="activities-grid" id="activities-content"></div>
-      </section>
-
-      <section class="section audio-section" id="audio" aria-labelledby="audio-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/speaker.svg" alt="" aria-hidden="true"><span data-i18n="audioEyebrow">05 / GAME AUDIO</span></p>
-            <h2 id="audio-title" data-i18n="audioHeading">사운드 도메인에서 쌓은 시스템 감각</h2>
-          </div>
-          <p class="section-note" data-i18n="audioNote">오디오 시스템을 다루며 쌓은 경험은 구현·디버깅·QA 전 과정을
-실제 플레이어 관점에서 검증하는 밑바탕이 되었습니다.</p>
-        </div>
-        <div class="audio-grid" id="audio-content"></div>
       </section>
 
       <section class="section contact-section" id="contact" aria-labelledby="contact-title">
@@ -196,13 +174,20 @@
     </main>
 
     <footer class="footer">
-      <span data-i18n="footerName">차정민 · Game Programmer</span>
-      <span>UE5 · C++ · Blueprint · MCP · Wwise</span>
+      <span class="footer-line">
+        <img class="footer-doodle" src="../assets/doodle-icons/star.svg" alt="" aria-hidden="true">
+        <span data-i18n="footerName">차정민 · Game Programmer</span>
+      </span>
+      <span class="footer-line">
+        <span>UE5 · C++ · Blueprint · MCP · Wwise</span>
+        <img class="footer-doodle" src="../assets/doodle-icons/target.svg" alt="" aria-hidden="true">
+      </span>
     </footer>
 
     <button class="scroll-top-btn" id="scroll-top" type="button" aria-label="최상단으로 이동" title="최상단으로 이동">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="18 15 12 9 6 15"></polyline>
+      <svg class="scroll-top-doodle" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12.08 19.6c-.1-3.6-.14-8.4.02-13.2" stroke="currentColor" stroke-width="2.15" stroke-linecap="round"/>
+        <path d="M6.2 11.4c1.85-2.15 3.85-4.35 5.85-6.2 2.05 1.85 4.15 4.05 5.8 6.25" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
 
