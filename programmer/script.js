@@ -75,6 +75,7 @@ const portfolio = {
       contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
       footerName: "차정민 · Game Programmer",
+      printPdf: "PDF 인쇄",
       projectOpen: "Open case",
       projectStatus: "verified",
       caseRole: "Role",
@@ -378,6 +379,7 @@ const createEnglishPortfolio = () => {
     contactEmail: "Send an email",
     contactGithub: "Open GitHub",
     footerName: "Jungmin Cha · Game Programmer",
+    printPdf: "Print PDF",
     projectOpen: "Open case",
     projectStatus: "verified",
     caseRole: "Role",
@@ -958,6 +960,118 @@ const setupInteractions = () => {
 
     scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  const printBtn = $("#print-portfolio");
+  let restorePrint = null;
+
+  const posterUrl = (src) => src.replace(/\.(gif|webp)(\?.*)?$/i, "-poster.jpg$2");
+
+  const loadImage = (url) =>
+    new Promise((resolve) => {
+      const probe = new Image();
+      probe.onload = () => resolve(true);
+      probe.onerror = () => resolve(false);
+      probe.src = url;
+    });
+
+  const wrapPrintSlots = (container, itemSelector, perPage) => {
+    if (!container) return () => {};
+    const items = [...container.querySelectorAll(itemSelector)];
+    if (!items.length) return () => {};
+    const slots = [];
+    for (let i = 0; i < items.length; i += perPage) {
+      const slot = document.createElement("div");
+      slot.className = "print-page-slot";
+      const group = items.slice(i, i + perPage);
+      if (group.length === 1) slot.classList.add("is-single");
+      group[0].before(slot);
+      group.forEach((el) => slot.appendChild(el));
+      slots.push(slot);
+    }
+    return () => {
+      slots.forEach((slot) => {
+        while (slot.firstChild) slot.before(slot.firstChild);
+        slot.remove();
+      });
+    };
+  };
+
+  const openDebugDetailsForPrint = () => {
+    const details = $$(".debug-card details");
+    const previous = details.map((node) => node.open);
+    details.forEach((node) => {
+      node.open = true;
+    });
+    return () => {
+      details.forEach((node, index) => {
+        node.open = previous[index];
+      });
+    };
+  };
+
+  const applyPrintLayout = () => {
+    if (restorePrint) return;
+    const restoreDetails = openDebugDetailsForPrint();
+    const restoreSlots = [
+      wrapPrintSlots($("#debugging-content"), ":scope > .debug-card", 1),
+      wrapPrintSlots($("#project-map"), ":scope > .project-map-card", 2),
+      wrapPrintSlots($("#activities-content"), ":scope > .activity-card", 2),
+    ];
+    restorePrint = () => {
+      restoreSlots.forEach((restore) => restore());
+      restoreDetails();
+      restorePrint = null;
+    };
+  };
+
+  const prepareImagesForPrint = async () => {
+    const images = $$("main img");
+    const previous = images.map((img) => img.getAttribute("src"));
+    await Promise.all(
+      images.map(async (img) => {
+        img.loading = "eager";
+        const src = img.getAttribute("src") || "";
+        const poster = posterUrl(src);
+        if (poster !== src && (await loadImage(poster))) {
+          img.src = poster;
+        }
+        if (img.complete && img.naturalWidth) return;
+        await new Promise((resolve) => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+        });
+      }),
+    );
+    return () => {
+      images.forEach((img, index) => {
+        if (previous[index]) img.src = previous[index];
+      });
+    };
+  };
+
+  window.addEventListener("beforeprint", applyPrintLayout);
+  window.addEventListener("afterprint", () => {
+    restorePrint?.();
+  });
+
+  if (printBtn) {
+    printBtn.addEventListener("pointerenter", () => {
+      $$("main img").forEach((img) => {
+        const poster = posterUrl(img.getAttribute("src") || "");
+        if (poster !== img.getAttribute("src")) loadImage(poster);
+      });
+    }, { once: true });
+    printBtn.addEventListener("click", async () => {
+      const restoreImages = await prepareImagesForPrint();
+      applyPrintLayout();
+      const restoreLayout = restorePrint;
+      restorePrint = () => {
+        restoreLayout?.();
+        restoreImages();
+      };
+      window.print();
     });
   }
 };
