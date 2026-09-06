@@ -1027,20 +1027,21 @@ h3 {
 .contribution-content { display: grid; gap: 0; }
 .contribution-top,
 .contribution-areas { padding: 0 0 30px; border-bottom: 1px solid var(--line); background: transparent; }
-.contribution-top { position: relative; isolation: isolate; display: grid; grid-template-areas: "metrics evidence" "story evidence"; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); column-gap: clamp(28px, 4vw, 52px); row-gap: 22px; overflow: hidden; padding: clamp(24px, 3vw, 38px); border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); border-radius: 16px; background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 8%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%, color-mix(in srgb, var(--bg) 92%, transparent) 100%); }
+.contribution-top { position: relative; isolation: isolate; display: grid; grid-template-areas: "main evidence"; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); column-gap: clamp(28px, 4vw, 52px); align-items: start; overflow: hidden; padding: clamp(24px, 3vw, 38px); border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); border-radius: 16px; background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 8%, var(--surface)) 0%, color-mix(in srgb, var(--surface) 90%, transparent) 55%, color-mix(in srgb, var(--bg) 92%, transparent) 100%); }
 .contribution-top::before { position: absolute; inset: 0; z-index: -1; content: ""; opacity: .5; background: linear-gradient(90deg, transparent 0 50%, color-mix(in srgb, var(--accent) 12%, transparent) 50.05%, transparent 50.15%) 0 0 / 72px 100%, radial-gradient(circle at 8% 12%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 24%); mask-image: linear-gradient(90deg, black, transparent 78%); }
 .contribution-areas { padding-top: 34px; border-bottom: 0; }
-.contribution-metrics { display: grid; grid-area: metrics; grid-template-columns: 1.22fr repeat(3, minmax(0, .78fr)); column-gap: 8px; align-self: start; }
-.contribution-metric { min-width: 0; padding: 6px 12px; border-right: 0; }
+.contribution-main { grid-area: main; display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.contribution-metrics { display: grid; grid-area: metrics; grid-template-columns: max-content repeat(3, minmax(max-content, 1fr)); column-gap: clamp(20px, 2.4vw, 36px); align-self: start; }
+.contribution-metric { min-width: 0; padding: 6px 0; border-right: 0; }
 .contribution-metric:first-child { padding-left: 0; }
 .contribution-metric:last-child { padding-right: 0; border-right: 0; }
-.contribution-metric strong { display: block; color: var(--accent); font-size: clamp(26px, 3vw, 42px); letter-spacing: -.06em; line-height: .95; }
-.contribution-metric:not(.is-primary) strong { font-size: clamp(25px, 2.55vw, 36px); }
-.contribution-metric span { display: block; margin-top: 8px; color: var(--muted); font-size: 11px; line-height: 1.35; letter-spacing: -.02em; white-space: nowrap; }
-.contribution-metric.is-primary strong { font-size: clamp(48px, 5.4vw, 74px); }
+.contribution-metric strong { display: block; color: var(--accent); font-size: clamp(26px, 3vw, 42px); letter-spacing: -.04em; line-height: .95; white-space: nowrap; }
+.contribution-metric:not(.is-primary) strong { font-size: clamp(24px, 2.4vw, 36px); }
+.contribution-metric span { display: block; margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.35; letter-spacing: -.02em; white-space: nowrap; }
+.contribution-metric.is-primary strong { font-size: clamp(52px, 5.6vw, 80px); }
 .contribution-metric.is-primary span { color: var(--body); font-weight: 700; }
-.contribution-story { display: grid; grid-area: story; grid-template-columns: 1fr; gap: 12px; align-items: center; padding: 2px 0 0; border-top: 0; border-bottom: 0; }
-.contribution-story p { max-width: 600px; margin: 0; color: var(--text); font-size: 17px; font-weight: 550; line-height: 1.62; word-break: keep-all; }
+.contribution-story { display: grid; grid-area: story; grid-template-columns: 1fr; gap: 12px; align-items: start; padding: 0; border-top: 0; border-bottom: 0; }
+.contribution-story p { max-width: 640px; margin: 0; color: var(--text); font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.5; word-break: keep-all; }
 .contribution-story small { display: block; margin: 0; color: var(--muted-soft); font: 10px/1.55 "SFMono-Regular", Consolas, monospace; text-align: left; }
 .contribution-areas { display: grid; grid-template-columns: 1fr; gap: 18px; }
 .contribution-areas-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
@@ -2728,6 +2729,10 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
     grid-template-columns: 1fr;
   }
 
+  .contribution-main {
+    display: contents;
+  }
+
   .contribution-top {
     grid-template-areas:
       "metrics"
@@ -3326,31 +3331,55 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .contribution-top {
-    padding: 4mm 5mm;
-    row-gap: 3mm;
-    column-gap: 6mm;
+    grid-template-areas: "main evidence";
+    padding: 7mm 8mm;
+    row-gap: 5mm;
+    column-gap: 8mm;
+  }
+
+  .contribution-main {
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+  }
+
+  .contribution-metrics {
+    grid-template-columns: max-content repeat(3, minmax(max-content, 1fr));
+    column-gap: 8mm;
   }
 
   .contribution-metric.is-primary strong {
-    font-size: 36px;
+    font-size: 48px;
   }
 
   .contribution-metric strong {
-    font-size: 22px;
+    font-size: 28px;
   }
 
   .contribution-metric span {
-    margin-top: 2px;
-    font-size: 9px;
+    margin-top: 4px;
+    font-size: 11px;
   }
 
   .contribution-story p {
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contribution-evidence-head strong {
+    font-size: 18px;
+  }
+
+  .contribution-evidence-list span {
+    font-size: 13px;
   }
 
   .contribution-evidence-metrics strong {
-    font-size: 16px;
+    font-size: 24px;
+  }
+
+  .contribution-evidence-metrics span {
+    font-size: 11px;
   }
 
   .contribution-areas {

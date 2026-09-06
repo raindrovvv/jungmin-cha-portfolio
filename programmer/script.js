@@ -662,9 +662,15 @@ const renderContribution = () => {
   const label = (key) => copy.strings[key] || key;
   node.innerHTML = `
     <div class="contribution-top" data-reveal>
-      <div class="contribution-metrics">${item.metrics
-        .map(([value, key], index) => `<div class="contribution-metric ${index === 0 ? "is-primary" : ""}"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label(key))}</span></div>`)
-        .join("")}</div>
+      <div class="contribution-main">
+        <div class="contribution-metrics">${item.metrics
+          .map(([value, key], index) => `<div class="contribution-metric ${index === 0 ? "is-primary" : ""}"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label(key))}</span></div>`)
+          .join("")}</div>
+        <div class="contribution-story">
+          <p>${escapeHtml(label(item.strength))}</p>
+          <small>${escapeHtml(label(item.evidence))}</small>
+        </div>
+      </div>
       <div class="contribution-project-evidence">
         <div class="contribution-evidence-head"><strong>${escapeHtml(project.title)}</strong><span>${escapeHtml(project.label)}</span></div>
         <div class="contribution-evidence-list">${project.evidence
@@ -678,10 +684,6 @@ const renderContribution = () => {
               : `<div class="contribution-evidence-metric-item"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(text)}</span></div>`
           )
           .join("")}</div>
-      </div>
-      <div class="contribution-story">
-        <p>${escapeHtml(label(item.strength))}</p>
-        <small>${escapeHtml(label(item.evidence))}</small>
       </div>
     </div>
     <div class="contribution-areas" data-reveal>
