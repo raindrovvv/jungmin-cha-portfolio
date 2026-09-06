@@ -21,8 +21,16 @@
   --max: 1220px;
   --header-height: 64px;
   --display: "Paperlogy", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --body-font: "Paperlogy", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --body-font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --doodle-font: "Caveat", "Paperlogy", cursive;
+}
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2")
+    format("woff2-variations");
 }
 
 html[data-theme="light"] {
@@ -621,20 +629,10 @@ html[data-theme="light"] .symbol-token:hover {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  width: 100%;
-  max-width: 720px;
   margin: 0 0 24px;
   color: var(--lime);
   font-size: 11px;
   font-weight: 800;
-}
-
-.hero-kicker-date {
-  margin-left: auto;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
 }
 
 .live-dot {
@@ -900,6 +898,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
 }
 
 .project-map-card {
@@ -1152,6 +1151,35 @@ h3 {
 .case-summary p:last-child,
 .agent-summary p:last-child {
   margin-bottom: 0;
+}
+
+.case-scope {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px 18px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.case-scope li {
+  position: relative;
+  padding-left: 13px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.case-scope li::before {
+  position: absolute;
+  top: 0.52em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
 }
 
 .case-links {
@@ -2856,8 +2884,22 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
   }
 }
 
-.activities-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
-.activity-card { overflow:hidden; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
 .activity-media { position:relative; display:block; overflow:hidden; aspect-ratio:16/9; border:0; border-radius:0; background:var(--surface-strong); }
 .activity-media img { width:100%; height:100%; object-fit:cover; transition:transform 280ms ease; }
 .activity-media:hover img { transform:scale(1.03); }
@@ -2872,16 +2914,23 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
   font-size: 11px;
   font-weight: 700;
 }
-.activity-content { padding:20px 22px 22px; }
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 20px 22px 22px;
+}
 .activity-meta { display:flex; flex-wrap:wrap; gap:8px 12px; color:var(--muted); font-size:11px; }
 .activity-meta span:not(.activity-number) + span { padding-left:12px; border-left:1px solid var(--line); }
 .activity-number { color:var(--accent); font-weight:800; }
-.activity-card h3 { margin:16px 0 10px; font-size:clamp(20px,2.1vw,27px); }
+.activity-card h3 {
+  margin: 16px 0 10px;
+  font-size: clamp(20px, 2.1vw, 27px);
+  line-height: 1.25;
+  min-height: calc(1.25em * 2);
+}
 .activity-card p { margin:0; color:var(--muted); line-height:1.65; }
-.activity-proof { display:grid; grid-template-columns:52px 1fr; gap:12px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line); font-size:12px; line-height:1.55; }
-.activity-proof strong { color:var(--text); font-size:10px; letter-spacing:.08em; }
-.activity-proof span { color:var(--muted); }
-.activity-card .compact-tags { margin-top:16px; }
+.activity-card .compact-tags { margin-top: auto; padding-top: 16px; }
 .activity-secondary {
   display: inline-flex;
   align-items: center;
@@ -3374,6 +3423,16 @@ html[data-theme="light"] .scroll-top-btn:hover {
     margin: 0 0 2mm;
   }
 
+  .case-scope {
+    gap: 1.2mm 6mm;
+    margin: 0 0 2mm;
+  }
+
+  .case-scope li {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
   .debugging-chapter {
     break-before: page;
     page-break-before: always;
@@ -3655,6 +3714,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
     flex: 0 0 calc((100% - 6mm) / 2);
     width: calc((100% - 6mm) / 2);
     max-width: calc((100% - 6mm) / 2);
+    height: auto;
+    min-height: 0;
     box-sizing: border-box;
     break-before: auto;
     page-break-before: auto;
