@@ -3763,7 +3763,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   .tool-card .tool-media img,
   .tool-card.featured .tool-media img {
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #080a10;
   }
 
   .tool-card h3,

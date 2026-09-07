@@ -281,8 +281,8 @@ const portfolio = {
         number: "02",
         title: "Build Monitor",
         summary: "빌드 과정을 스피너와 단계로 보여줍니다. 완료·실패는 메신저 웹훅으로 알립니다.",
-        image: "../assets/tooling/build-monitor.svg",
-        imageAlt: "GAS Build Monitor에서 빌드 진행률과 Discord·Slack 웹훅 상태를 확인하는 대시보드",
+        image: "../assets/tooling/build-monitor.png",
+        imageAlt: "GAS Build Monitor에서 빌드 진행률과 메신저 웹훅 상태를 확인하는 대시보드",
         tags: ["Compile", "Run", "Exception", "Evidence"],
         href: "#debugging",
         featured: false,
@@ -554,7 +554,7 @@ const createEnglishPortfolio = () => {
   ];
   en.tooling = [
     { number: "03", title: "UnityMCP", summary: "An MCP server between Unity Editor and a local AI agent. It inspects AudioClip/AudioSource and places 3D sound and BGM.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["PREVIEW / PLACE", "true", "AudioSource → inspect → apply"] },
-    { number: "02", title: "Build Monitor", summary: "Build steps show as a spinner and stages. Done or failed results go out through Discord and Slack webhooks.", image: "../assets/tooling/build-monitor.svg", imageAlt: "GAS Build Monitor dashboard showing build progress and Discord Slack webhook status", tags: ["Compile", "Webhook", "Discord", "Slack"], href: "#debugging", featured: false, panel: ["BUILD MONITOR", "LIVE", "compile → webhook → notify"] },
+    { number: "02", title: "Build Monitor", summary: "Build steps show as a spinner and stages. Done or failed results go out through Discord and Slack webhooks.", image: "../assets/tooling/build-monitor.png", imageAlt: "GAS Build Monitor dashboard showing build progress and messenger webhook status", tags: ["Compile", "Webhook", "Discord", "Slack"], href: "#debugging", featured: false, panel: ["BUILD MONITOR", "LIVE", "compile → webhook → notify"] },
     { number: "01", title: "UnrealAgent", summary: "An MCP bridge between Unreal Editor and a local AI agent. It inspects Blueprint, Asset, Viewport, and Output Log, and applies AI changes only after compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
   ];
   en.activities = [
