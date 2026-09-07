@@ -73,6 +73,7 @@ const portfolio = {
       contactBody: "제가 할 수 있는 최선을 다합니다.\nAI로 프로토타입을 빠르게 구현하여 팀과 대화하며 개선해나갑니다.",
       contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
+      contactQr: "웹으로 보기",
       footerName: "차정민 · Game Programmer",
       printPdf: "PDF 인쇄",
       projectOpen: "Open case",
@@ -293,7 +294,7 @@ const portfolio = {
       {
         number: "01",
         title: "UnrealAgent",
-        summary: "Unreal Editor와 로컬 AI를 잇는 MCP 브리지입니다. Blueprint, Asset, Viewport, Output Log를 확인한 뒤 컴파일·실행·예외 검증을 거쳐 적용합니다.",
+        summary: "Unreal Editor와 로컬 AI를 잇는 MCP 브리지입니다. Blueprint, Asset, Viewport, Output Log를 조회하고, AI 제안은 컴파일·실행·예외 검증을 통과한 뒤에만 반영합니다.",
         image: "../assets/tooling/unreal-mcp.png",
         imageAlt: "Unreal Editor에서 실행 중인 UnrealAgent MCP 브리지",
         tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
@@ -385,6 +386,7 @@ const createEnglishPortfolio = () => {
     contactBody: "I give the work everything I can.\nI prototype fast with AI, talk it through with the team, and keep improving.",
     contactEmail: "Send an email",
     contactGithub: "Open GitHub",
+    contactQr: "View on web",
     footerName: "Jungmin Cha · Game Programmer",
     printPdf: "Print PDF",
     projectOpen: "Open case",
@@ -558,7 +560,7 @@ const createEnglishPortfolio = () => {
   en.tooling = [
     { number: "03", title: "UnityMCP", summary: "An MCP server between Unity Editor and a local AI agent. It inspects AudioClip/AudioSource and places 3D sound and BGM.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["PREVIEW / PLACE", "true", "AudioSource → inspect → apply"] },
     { number: "02", title: "Build Monitor", summary: "Build steps show as a spinner and stages. Done or failed results go out through Discord and Slack webhooks.", image: "../assets/tooling/build-monitor.svg", imageAlt: "GAS Build Monitor dashboard showing build progress and Discord Slack webhook status", tags: ["Compile", "Webhook", "Discord", "Slack"], href: "#debugging", featured: false, panel: ["BUILD MONITOR", "LIVE", "compile → webhook → notify"] },
-    { number: "01", title: "UnrealAgent", summary: "An MCP bridge between Unreal Editor and a local AI agent. It inspects Blueprint, Asset, Viewport, and Output Log, then applies after compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
+    { number: "01", title: "UnrealAgent", summary: "An MCP bridge between Unreal Editor and a local AI agent. It inspects Blueprint, Asset, Viewport, and Output Log, and applies AI changes only after compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
   ];
   en.activities = [
     { number: "01", period: "2025.11", type: "Public Showcase / Field QA", title: "G-STAR 2025 Guardian & Seeker", summary: "I watched booth play and read surveys. Headphone mix, input bugs, balance, and tutorial UX became the next tasks.", proof: "Two-day BEXCO booth · player observation · survey synthesis", image: "../assets/activity/gstar-2025.png", alt: "Guardian & Seeker booth at G-STAR 2025", href: "https://raindrovvv.tistory.com/108", tags: ["Field QA", "Player Feedback", "Audio Mix"] },
@@ -887,7 +889,12 @@ const renderContact = () => {
   const node = $("#contact-content");
   if (!node) return;
   const copy = activeCopy();
+  const siteUrl = "https://jungmin-cha-portfolio.pages.dev/programmer/";
   node.innerHTML = `
+    <a class="contact-qr" href="${siteUrl}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(copy.strings.contactQr)}">
+      <img src="../assets/programmer-web-qr.svg" alt="" width="96" height="96" />
+      <span>${escapeHtml(copy.strings.contactQr)}</span>
+    </a>
     <div class="contact-copy" data-reveal>
       <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/send.svg" alt="" aria-hidden="true"><span>${escapeHtml(copy.strings.contactEyebrow)}</span></p>
       <h2>${escapeHtml(copy.strings.contactHeading)}</h2>
