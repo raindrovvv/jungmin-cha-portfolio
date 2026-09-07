@@ -3212,6 +3212,17 @@ html[data-theme="light"] .scroll-top-btn:hover {
     margin-top: 10px;
   }
 
+  .button,
+  .button.primary,
+  .contact-links a,
+  .contact-links .contact-primary {
+    box-shadow: none !important;
+  }
+
+  .contact-card::after {
+    display: none;
+  }
+
   .hero-tags {
     margin-top: 8px;
   }
