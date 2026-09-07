@@ -33,9 +33,9 @@ html[data-theme="light"] {
   --surface-strong: #f5f5f7;
   --surface-soft: #e8e8ed;
   --text: #1d1d1f;
-  --body: #424245;
-  --muted: #6e6e73;
-  --muted-soft: #86868b;
+  --body: #2c2c2f;
+  --muted: #3f3f44;
+  --muted-soft: #5c5c61;
   --line: #d2d2d7;
   --line-strong: #b8b8bd;
   --accent: #0071e3;
@@ -3139,7 +3139,7 @@ html[data-theme="light"] .scroll-top-btn:hover {
   body {
     padding-top: 0;
     background: var(--bg) !important;
-    font-size: 13px;
+    font-size: 16px;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
@@ -3204,8 +3204,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   .hero-intro {
     margin-top: 8px;
-    font-size: 13px;
-    line-height: 1.45;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .hero-actions {
@@ -3393,8 +3393,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .contribution-story p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.55;
   }
 
   .contribution-evidence-head strong {
@@ -3402,7 +3402,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .contribution-evidence-list span {
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   .contribution-evidence-metrics strong {
@@ -3427,12 +3428,13 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   .contribution-area strong {
     margin-top: 6px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .contribution-area p {
     margin-top: 3px;
-    font-size: 10px;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .project-map-card,
@@ -3478,8 +3480,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .case-summary p {
-    font-size: 12px;
-    line-height: 1.45;
+    font-size: 15.5px;
+    line-height: 1.5;
     margin: 0 0 2mm;
   }
 
@@ -3489,8 +3491,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .case-scope li {
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   .debugging-chapter {
@@ -3587,8 +3589,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
     grid-row: 3;
     min-height: 0;
     margin: 0;
-    font-size: 12.5px;
-    line-height: 1.4;
+    font-size: 15.5px;
+    line-height: 1.5;
   }
 
   .debug-card details {
@@ -3604,8 +3606,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .debug-evidence-body {
-    font-size: 11px;
-    line-height: 1.38;
+    font-size: 14px;
+    line-height: 1.48;
   }
 
   .debug-evidence-block {
@@ -3614,8 +3616,8 @@ html[data-theme="light"] .scroll-top-btn:hover {
 
   .debug-evidence-text,
   .debug-evidence-item {
-    font-size: 11px;
-    line-height: 1.38;
+    font-size: 14px;
+    line-height: 1.48;
   }
 
   .debug-card .debug-link {
@@ -3694,13 +3696,13 @@ html[data-theme="light"] .scroll-top-btn:hover {
   }
 
   .project-map-card .project-map-title {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .project-map-card .project-map-desc {
     margin-top: 6px;
-    font-size: 10px;
-    line-height: 1.35;
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .map-card-top {
@@ -3756,13 +3758,13 @@ html[data-theme="light"] .scroll-top-btn:hover {
   .tool-card h3,
   .tool-card.featured h3 {
     margin-top: 4px;
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .tool-card p,
   .tool-card:not(.featured) > div > p {
-    font-size: 10px;
-    line-height: 1.35;
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .activities-grid {
