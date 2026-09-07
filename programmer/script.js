@@ -10,7 +10,6 @@ const portfolio = {
       navDiscography: "Discography",
       navContact: "Contact",
       soundPortfolio: "Game Audio",
-      email: "Email",
       proofGameplay: "게임플레이",
       proofGameplayDetail: "C++ / Blueprint 시스템",
       proofDebugging: "디버깅",
@@ -71,7 +70,6 @@ const portfolio = {
       contactEyebrow: "06 / CONTACT",
       contactHeading: "게임플레이·오디오·툴 제작,\n가리지 않습니다.",
       contactBody: "제가 할 수 있는 최선을 다합니다.\nAI로 프로토타입을 빠르게 구현하여 팀과 대화하며 개선해나갑니다.",
-      contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
       footerName: "차정민 · Game Programmer",
       printPdf: "PDF 인쇄",
@@ -383,7 +381,6 @@ const createEnglishPortfolio = () => {
     contactEyebrow: "06 / CONTACT",
     contactHeading: "Gameplay, audio, tools —\nI don't stay in one lane.",
     contactBody: "I give the work everything I can.\nI prototype fast with AI, talk it through with the team, and keep improving.",
-    contactEmail: "Send an email",
     contactGithub: "Open GitHub",
     footerName: "Jungmin Cha · Game Programmer",
     printPdf: "Print PDF",
@@ -894,7 +891,6 @@ const renderContact = () => {
       <p>${escapeHtml(copy.strings.contactBody)}</p>
     </div>
     <div class="contact-links" data-reveal>
-      <a class="contact-primary" href="mailto:vnrs97@gmail.com">${escapeHtml(copy.strings.contactEmail)}</a>
       <a class="contact-secondary" href="https://github.com/raindrovvv" target="_blank" rel="noreferrer">${escapeHtml(copy.strings.contactGithub)}</a>
     </div>`;
 };
