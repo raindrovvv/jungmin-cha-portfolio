@@ -2085,43 +2085,9 @@ html[data-theme="light"] .tool-card:hover .tool-doodle {
   pointer-events: none;
 }
 
-.contact-qr {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  width: 96px;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.contact-qr img {
-  display: block;
-  width: 88px;
-  height: 88px;
-  padding: 6px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-sizing: border-box;
-}
-
-.contact-qr span {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-  text-align: center;
-}
-
 .contact-copy {
   position: relative;
   z-index: 1;
-  padding-right: 112px;
 }
 
 .contact-copy .eyebrow {
@@ -2549,10 +2515,6 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
     align-items: start;
   }
 
-  .contact-copy {
-    padding-right: 100px;
-  }
-
   .contact-links {
     justify-content: flex-start;
   }
@@ -2817,22 +2779,6 @@ html[data-theme="light"] .footer-line:hover .footer-doodle {
 
   .contact-card {
     padding: 28px 21px;
-  }
-
-  .contact-qr {
-    top: 16px;
-    right: 16px;
-    width: 76px;
-  }
-
-  .contact-qr img {
-    width: 68px;
-    height: 68px;
-    padding: 5px;
-  }
-
-  .contact-copy {
-    padding-right: 86px;
   }
 
   .footer {
@@ -3886,28 +3832,6 @@ html[data-theme="light"] .scroll-top-btn:hover {
     break-after: avoid;
     page-break-after: avoid;
     width: 100%;
-  }
-
-  .contact-qr {
-    top: 6mm;
-    right: 6mm;
-    width: 24mm;
-  }
-
-  .contact-qr img {
-    width: 22mm;
-    height: 22mm;
-    padding: 1.5mm;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .contact-qr span {
-    font-size: 9px;
-  }
-
-  .contact-copy {
-    padding-right: 28mm;
   }
 
   .contact-copy h2 {

@@ -73,7 +73,6 @@ const portfolio = {
       contactBody: "제가 할 수 있는 최선을 다합니다.\nAI로 프로토타입을 빠르게 구현하여 팀과 대화하며 개선해나갑니다.",
       contactEmail: "메일 보내기",
       contactGithub: "GitHub 열기",
-      contactQr: "웹으로 보기",
       footerName: "차정민 · Game Programmer",
       printPdf: "PDF 인쇄",
       projectOpen: "Open case",
@@ -283,7 +282,7 @@ const portfolio = {
       {
         number: "02",
         title: "Build Monitor",
-        summary: "빌드 과정을 스피너와 단계로 보여줍니다. 완료·실패는 Discord·Slack 웹훅으로 알립니다.",
+        summary: "빌드 과정을 스피너와 단계로 보여줍니다. 완료·실패는 메신저 웹훅으로 알립니다.",
         image: "../assets/tooling/build-monitor.svg",
         imageAlt: "GAS Build Monitor에서 빌드 진행률과 Discord·Slack 웹훅 상태를 확인하는 대시보드",
         tags: ["Compile", "Run", "Exception", "Evidence"],
@@ -386,7 +385,6 @@ const createEnglishPortfolio = () => {
     contactBody: "I give the work everything I can.\nI prototype fast with AI, talk it through with the team, and keep improving.",
     contactEmail: "Send an email",
     contactGithub: "Open GitHub",
-    contactQr: "View on web",
     footerName: "Jungmin Cha · Game Programmer",
     printPdf: "Print PDF",
     projectOpen: "Open case",
@@ -889,12 +887,7 @@ const renderContact = () => {
   const node = $("#contact-content");
   if (!node) return;
   const copy = activeCopy();
-  const siteUrl = "https://jungmin-cha-portfolio.pages.dev/programmer/";
   node.innerHTML = `
-    <a class="contact-qr" href="${siteUrl}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(copy.strings.contactQr)}">
-      <img src="../assets/programmer-web-qr.svg" alt="" width="96" height="96" />
-      <span>${escapeHtml(copy.strings.contactQr)}</span>
-    </a>
     <div class="contact-copy" data-reveal>
       <p class="eyebrow"><img class="eyebrow-icon" src="../assets/doodle-icons/send.svg" alt="" aria-hidden="true"><span>${escapeHtml(copy.strings.contactEyebrow)}</span></p>
       <h2>${escapeHtml(copy.strings.contactHeading)}</h2>
