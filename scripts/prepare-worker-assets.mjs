@@ -26,15 +26,15 @@ const assetHash = async (filePath) => {
 const withVersion = (path, version) => `${path}?v=${version}`;
 const scriptVersion = await assetHash(join(dist, "script.js"));
 const stylesVersion = await assetHash(join(dist, "styles.css"));
-const indexPath = join(dist, "index.html");
-const index = await readFile(indexPath, "utf8");
-
-await writeFile(
-  indexPath,
-  index
-    .replace(/\.\/styles\.css(?:\?v=[^"']*)?/g, withVersion("./styles.css", stylesVersion))
-    .replace(/\.\/script\.js(?:\?v=[^"']*)?/g, withVersion("./script.js", scriptVersion)),
-);
+for (const indexPath of [join(dist, "index.html"), join(dist, "programmer", "index.html")]) {
+  const index = await readFile(indexPath, "utf8");
+  await writeFile(
+    indexPath,
+    index
+      .replace(/\.\/styles\.css(?:\?v=[^"']*)?/g, withVersion("./styles.css", stylesVersion))
+      .replace(/\.\/script\.js(?:\?v=[^"']*)?/g, withVersion("./script.js", scriptVersion)),
+  );
+}
 
 const gameAssetsDir = join(dist, "assets", "game");
 const gameAssets = await readdir(gameAssetsDir, { withFileTypes: true });
