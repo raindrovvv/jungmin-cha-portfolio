@@ -519,3 +519,56 @@ body.light .visual-unity .visual-caption { color: rgba(245, 245, 247, .66); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: 0.01ms !important; }
 }
+
+.footer-pdf-button { padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--text-soft); font-size: .68rem; }
+.footer-pdf-button:hover, .footer-pdf-button:focus-visible { border-color: var(--lime); color: var(--lime); }
+
+@page { size: A4 landscape; margin: 12mm; }
+
+@media print {
+  body {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #f4f6f7;
+    --text: #17191c;
+    --text-soft: #32363b;
+    --muted: #545b63;
+    --lime: #08786f;
+    --line: #d9dfe4;
+    --line-strong: #b8c1c9;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #17191c !important;
+    font-size: 9pt;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .site-header, .mobile-menu, .mobile-menu-toggle, .nav-actions, .scroll-top-btn, .ai-cursor,
+  .builds-section button:not(.project-gallery-trigger), .gallery-hint, .project-case-details > summary, .history-modal, .lightbox,
+  .footer-pdf-button, .contact-copy, .copy-feedback { display: none !important; }
+
+  html, body, main, .site-footer { overflow: visible !important; background: #fff !important; color: #17191c !important; }
+  main > section { padding-block: 8mm !important; background: #fff !important; color: #17191c !important; }
+  .hero-section { min-height: 0 !important; }
+  .hero-grid { min-height: 0 !important; }
+  .hero-console, .project-card, .workflow-item, .case-study-question, .case-study-grid article {
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #17191c !important;
+    border-color: #d9dfe4 !important;
+    break-inside: avoid;
+  }
+  .hero-console { transform: none !important; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 6mm !important; }
+  .project-card { overflow: visible !important; transform: none !important; border: 1px solid #d9dfe4 !important; }
+  .project-visual { max-height: 52mm; background: #f4f6f7 !important; }
+  .project-case-content { display: block !important; color: #32363b !important; }
+  .case-study-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .project-gallery-trigger { cursor: default !important; }
+  .site-footer { border-color: #d9dfe4 !important; }
+  .footer-inner { min-height: 0 !important; padding-block: 5mm !important; color: #545b63 !important; }
+  a { color: #17191c !important; text-decoration: none !important; }
+  img { max-width: 100% !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  [hidden] { display: none !important; }
+}

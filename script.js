@@ -41,7 +41,7 @@ const locales = {
     otherPortfolios: "다른 포트폴리오", gameAudioPortfolio: "게임 오디오 디자이너", aiVideoPortfolio: "AI 비디오 디자이너", aiTechBlog: "AI와 일하는 법을 정리한 블로그",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "처음부터 끝까지 Product를 만들며, 어떤 질문을 던지고 왜 그렇게 결정했는지를 기록했습니다.", caseStudyQuestionLabel: "첫 질문", caseStudyQuestion: "“문서 요약을 잘 만드는 것보다, 사용자가 실제로 판단할 수 있는 근거를 어떻게 남길까?”", caseStudyWhy: "긴 문서에서는 요약 하나만으로 위험·금액·기한이 묻힐 수 있다고 판단했습니다. 그래서 한 명의 Agent에게 모든 일을 맡기지 않고, 근거를 공유하는 여러 Agent 구조부터 설계했습니다.", caseProblemLabel: "Problem", caseProblem: "보험 약관·계약서·의료 문서를 누구나 이해하고 행동으로 옮길 수 있게 만드는 문제였습니다.", casePlanLabel: "Agent Plan", casePlan: "문서 intake → Intake Agent → 공유 근거 캐시 → Summary·Risk·Cost·Timeline Agent 병렬 분석 → 대시보드와 후속 질문으로 연결했습니다.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/Image parsing, JSON schema, Vercel을 연결했습니다.", caseProviderLabel: "Provider 선택", caseProvider: "6개 Agent를 병렬로 분석하는 구조에서는 모델의 지식만큼 응답 시간도 중요했습니다. Cerebras는 병렬 실행 흐름을 빠르게 검증하기 위한 provider로 선택했고, GPT-4.1과 같은 입력을 비교할 수 있도록 provider를 교체 가능한 구조로 설계했습니다.", caseFailureLabel: "Failure → Correction", caseFailure: "Vercel에서 PDF parsing이 실패했을 때 LLM 문제가 아니라 런타임 문제로 분리했습니다. DOMMatrix polyfill·dynamic import·worker preload를 추가하고, OCR은 이미지 업로드 경로로 범위를 조정했습니다.", caseHumanLabel: "Human Role", caseHuman: "문제의 범위, Agent 역할, 출력 schema, 공개 데모의 안전 기준을 정의하고 각 결과를 실행·검토했습니다.", caseResultLabel: "Result", caseResult: "문제 정의와 PRD부터 Agent 구조 설계, 구현, 배포 장애 대응, UX 개선, 검증까지 하나의 Product로 완성했습니다.",
     caseStudyHistoryTools: "Agentic history 보기 ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "AI로 게임을 만든 경험을 넘어, AI가 게임 에디터를 직접 읽고 호출하도록 도구 계층을 만들었습니다.", agentToolsCaseQuestionLabel: "핵심 질문", agentToolsCaseQuestion: "“AI Agent를 사용해 Unreal과 Unity를 개발하는 데서 끝나지 않고, Editor 자체를 조작하게 만들 수 있을까?”", agentToolsCaseWhy: "복잡한 Editor 작업은 코드 생성만으로 끝나지 않습니다. Agent가 현재 상태를 읽고, 필요한 도구를 호출하고, 변경 결과를 검증해야 실제 작업으로 이어진다고 판단했습니다.", agentProblemLabel: "Problem", agentProblem: "AI를 사용하는 개발자의 작업 흐름이 아니라, AI Agent가 Editor 안에서 직접 행동하는 실행 계층이 필요했습니다.", agentHarnessLabel: "Agent Harness", agentHarness: "MCP HTTP·stdio와 Codex CLI·Claude CLI를 연결하고, OpenAI·Anthropic 호환 Provider를 선택할 수 있는 로컬 harness로 구성했습니다.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "Blueprint·UMG·Material·Niagara·Control Rig·Asset·Viewport를 조작하고, RAG와 Vision까지 연결했습니다.", unityToolsLabel: "Unity Tool Layer", unityTools: "Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을 Unity Editor용 MCP 도구로 노출했습니다.", agentSafetyLabel: "Safety", agentSafety: "Agent의 변경을 바로 실행하지 않도록 dryRun을 두고, 실행 전 결과와 변경 범위를 확인할 수 있게 했습니다.", agentVerifyLabel: "Failure → Correction", agentVerify: "MCP discovery 문제에서 tools/list를 직접 확인해 원인을 좁혔고, UnityMCP에서는 오디오 authoring과 beta packaging 흐름을 정리했습니다.", agentToolsResultLabel: "Result", agentToolsResult: "AI로 게임을 만든 것을 넘어, AI가 Unreal·Unity Editor를 읽고 조작하고 검증하는 Agentic System을 직접 만들었습니다.",
-    contactEyebrow: "함께 만들 프로젝트", contactTitle: "함께 만들어요", footerLine: "AI 빌더 · 제품 제작자"
+    contactEyebrow: "함께 만들 프로젝트", contactTitle: "함께 만들어요", footerLine: "AI 빌더 · 제품 제작자", savePortfolioPdf: "포트폴리오 PDF 저장"
   },
   en: {
     pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
@@ -83,7 +83,7 @@ const locales = {
     otherPortfolios: "Other portfolios", gameAudioPortfolio: "Game Audio Designer", aiVideoPortfolio: "AI Video Designer", aiTechBlog: "Blog on working with AI",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "A record of the questions, decisions, and verification loops behind a product built from start to finish.", caseStudyQuestionLabel: "First question", caseStudyQuestion: "“How do we leave evidence people can actually use to make a decision, not just a good summary?”", caseStudyWhy: "In long documents, a single summary can hide risks, costs, and deadlines. I designed a shared-evidence multi-agent structure instead of asking one Agent to do everything.", caseProblemLabel: "Problem", caseProblem: "Make insurance policies, contracts, and medical documents understandable and actionable for everyone.", casePlanLabel: "Agent Plan", casePlan: "Document intake → Intake Agent → shared evidence cache → parallel Summary, Risk, Cost, and Timeline Agents → dashboard and follow-up chat.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/image parsing, JSON schema, and Vercel.", caseProviderLabel: "Provider choice", caseProvider: "With six Agents running in parallel, response time mattered alongside model knowledge. I chose Cerebras to quickly validate the parallel execution flow, while keeping the provider swappable so the same input could be compared with GPT-4.1.", caseFailureLabel: "Failure → Correction", caseFailure: "When PDF parsing failed on Vercel, I separated the runtime issue from the LLM path. I added a DOMMatrix polyfill, dynamic import, and worker preload, then scoped OCR to image uploads for stability.", caseHumanLabel: "Human Role", caseHuman: "Define the problem scope, Agent roles, output schema, demo safety rules, and review every result by running it.", caseResultLabel: "Result", caseResult: "A product completed from problem definition and PRD through Agent architecture, implementation, deployment fixes, UX refinement, and verification.",
     caseStudyHistoryTools: "View Agentic history ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "Beyond using AI to build games, I built the tool layer that lets AI read and call the game editor itself.", agentToolsCaseQuestionLabel: "Core question", agentToolsCaseQuestion: "“Could an AI Agent go beyond helping develop Unreal and Unity, and operate the Editor itself?”", agentToolsCaseWhy: "Complex editor work does not end with code generation. The Agent needs to read the current state, call the right tool, and verify the change before it becomes real work.", agentProblemLabel: "Problem", agentProblem: "I needed an execution layer where the AI Agent could act inside the Editor, not just a workflow for a developer using AI.", agentHarnessLabel: "Agent Harness", agentHarness: "I connected MCP over HTTP and stdio with Codex CLI and Claude CLI, plus OpenAI- and Anthropic-compatible providers in a local harness.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "I exposed Blueprint, UMG, Material, Niagara, Control Rig, Asset, and Viewport work, then connected RAG and Vision.", unityToolsLabel: "Unity Tool Layer", unityTools: "I exposed Scene, Asset, Material, Lighting, Audio, Character, and Animation work as Unity Editor MCP tools.", agentSafetyLabel: "Safety", agentSafety: "I added dryRun to change tools so the result and scope could be checked before an Agent executed the change.", agentVerifyLabel: "Failure → Correction", agentVerify: "I narrowed an MCP discovery issue by checking tools/list directly, then organized audio authoring and beta packaging flows in UnityMCP.", agentToolsResultLabel: "Result", agentToolsResult: "I went beyond building games with AI and built an Agentic System that reads, controls, and verifies work inside Unreal and Unity Editor.",
-    contactEyebrow: "PROJECTS WORTH BUILDING", contactTitle: "Let's build together", footerLine: "AI builder · product maker"
+    contactEyebrow: "PROJECTS WORTH BUILDING", contactTitle: "Let's build together", footerLine: "AI builder · product maker", savePortfolioPdf: "Save portfolio as PDF"
   }
 };
 
@@ -800,6 +800,50 @@ function initContactCopy() {
     }
   });
 }
+
+const printPortfolioButton = document.getElementById("printPortfolio");
+let restorePortfolioAfterPrint = null;
+window.addEventListener("beforeprint", () => {
+  if (restorePortfolioAfterPrint) return;
+
+  const details = [...document.querySelectorAll(".project-case-details")];
+  const previousDetails = details.map((item) => item.open);
+  const cards = [...document.querySelectorAll("#builds .project-card")];
+  const previousCards = cards.map((card) => ({ hidden: card.hidden, display: card.style.display }));
+  const emptyState = document.getElementById("emptyState");
+  const previousEmptyState = emptyState?.hidden;
+  const images = [...document.querySelectorAll("main img")];
+  const previousLoading = images.map((image) => image.loading);
+
+  restorePortfolioAfterPrint = () => {
+    details.forEach((item, index) => {
+      item.open = previousDetails[index];
+    });
+    cards.forEach((card, index) => {
+      card.hidden = previousCards[index].hidden;
+      card.style.display = previousCards[index].display;
+    });
+    if (emptyState) emptyState.hidden = previousEmptyState;
+    images.forEach((image, index) => {
+      image.loading = previousLoading[index];
+    });
+    restorePortfolioAfterPrint = null;
+  };
+
+  details.forEach((item) => {
+    item.open = true;
+  });
+  cards.forEach((card) => {
+    card.hidden = false;
+    card.style.display = "";
+  });
+  if (emptyState) emptyState.hidden = true;
+  images.forEach((image) => {
+    image.loading = "eager";
+  });
+});
+window.addEventListener("afterprint", () => restorePortfolioAfterPrint?.());
+printPortfolioButton?.addEventListener("click", () => window.print());
 
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme(activeTheme);
