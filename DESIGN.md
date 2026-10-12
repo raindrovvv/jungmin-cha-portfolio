@@ -238,7 +238,7 @@ The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`
 
 The right side of the hero is an open diagram (`#heroGraph`). It is the index of the seven builds, drawn on the hero background instead of inside a widget. In both themes the container has no border, no fill, no radius, no padding, and no shadow. No blur, no mesh, no glow, no status badge. The soft accent wash behind the diagram is the hero shader on the section background, not a glow on this container.
 
-On desktop (1068px and up) the diagram is somewhat larger than the old panel and extends toward the right edge of the viewport. A 20px inset keeps nodes and focus rings on screen. `.hero-section` clips overflow on the x axis, so the extension does not scroll the page sideways. The diagram stops growing at 64rem on very wide screens. Below 1068px the hero stacks in one column. At 720px and below the diagram stays inside that column, with no horizontal overflow.
+The diagram stays inside the page container. On desktop (1068px and up) it fills the hero grid's right column, and the rightmost project pill meets that container's right edge — the same edge as the header content, and the mirror of the left text margin. Below 1068px the hero stacks in one column and the diagram stays inside that column, with no horizontal overflow.
 
 The title (`graphTitle`, "작업에 쓴 도구" / "Tools I used") stays visible as a quiet eyebrow above the diagram: muted, small, tracked, and uppercased with CSS. English picks up the case; Korean does not change. It is not a panel heading. The group's accessible name is still `aria-label` from `graphAria`.
 

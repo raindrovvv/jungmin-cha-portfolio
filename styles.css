@@ -218,9 +218,7 @@ body.light .hero-graph { min-width: 0; border: 0; border-radius: 0; background: 
 .hero-graph.is-static .graph-node-tool { cursor: default; }
 .hero-graph.is-dragging .graph-node { cursor: grabbing; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; border: 0; pointer-events: none; }
-@media (min-width: 1068px) {
-  .hero-graph { width: min(64rem, calc(100% + max(var(--gutter), (100cqw - var(--page-max)) / 2) - 20px)); max-width: none; justify-self: start; }
-}
+.hero-graph { width: 100%; max-width: 100%; justify-self: stretch; }
 @media (hover: hover) and (pointer: fine) {
   .graph-node-project:hover { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-accent); }
 }
@@ -464,7 +462,6 @@ body.light .history-strip { background: color-mix(in srgb, var(--color-surface) 
 
 @media (max-width: 1067px) {
   .hero-grid { grid-template-columns: 1fr; gap: var(--space-8); }
-  .hero-graph { max-width: 640px; }
   .statement-grid { grid-template-columns: 90px 1fr; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-card, .project-card-wide, .project-card-pair { grid-column: span 1; }
@@ -533,7 +530,7 @@ body.light .history-strip { background: color-mix(in srgb, var(--color-surface) 
 }
 
 @media (max-width: 720px) {
-  .hero-graph { width: auto; max-width: 100%; }
+  .hero-graph { width: 100%; max-width: 100%; }
   .project-grid { grid-template-columns: 1fr; gap: var(--space-4); }
   .project-card,
   .project-card-wide,
