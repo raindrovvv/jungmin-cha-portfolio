@@ -608,8 +608,11 @@ function initProjectQuestions() {
     question.dataset.i18n = questionKey;
 
     decision.append(label, question);
-    const anchor = body.querySelector(".project-collaborator") || details;
-    body.insertBefore(decision, anchor);
+    const collaborator = body.querySelector(":scope > .project-collaborator");
+    const actions = body.querySelector(":scope > .project-actions");
+    const anchor = collaborator || actions;
+    if (anchor) body.insertBefore(decision, anchor);
+    else body.append(decision);
   });
 }
 
@@ -1099,20 +1102,22 @@ function initHeroGraph() {
       measure();
     }
     const pad = 8;
+    // Mobile columns share the same inset. Desktop projects stay flush with the stage's right edge.
+    const rightPad = window.matchMedia("(max-width: 600px)").matches ? pad : 0;
     const minGap = 8;
     const block = (list) => list.reduce((sum, node) => sum + node.h, 0) + minGap * Math.max(list.length - 1, 0);
     const slack = narrow ? 0 : 72;
     const height = Math.round(Math.max(block(tools), block(projects), 280) + pad * 2 + slack);
-    const key = `${width}|${height}|${narrow ? 1 : 0}|${reduced ? 1 : 0}|${nodes.map((node) => `${node.w}x${node.h}`).join(",")}`;
+    const key = `${width}|${height}|${narrow ? 1 : 0}|${reduced ? 1 : 0}|${rightPad}|${nodes.map((node) => `${node.w}x${node.h}`).join(",")}`;
     if (key === layoutKey) return;
     layoutKey = key;
     stageWidth = width;
     stageHeight = height;
     root.style.setProperty("--graph-h", `${height}px`);
-    root.style.setProperty("--graph-builds-x", `${Math.max(0, width - (projects[0]?.w || 0))}px`);
+    root.style.setProperty("--graph-builds-x", `${Math.max(0, width - (projects[0]?.w || 0) - rightPad)}px`);
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     place(tools, height, () => pad);
-    place(projects, height, (node) => width - node.w);
+    place(projects, height, (node) => width - node.w - rightPad);
     nodes.forEach((node) => {
       if (reduced || !node.placed) {
         node.x = node.homeX;
