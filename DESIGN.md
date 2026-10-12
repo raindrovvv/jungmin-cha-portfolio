@@ -1,82 +1,246 @@
 # Design
 
-## Source of truth
-- Status: Active
-- Last refreshed: 2026-08-08
-- Primary product surfaces: portfolio landing page, product cards, workflow story, project gallery
-- Evidence reviewed: `index.html`, `styles.css`, `script.js`, `img/optimized/`
+Source of truth for the Jungmin Cha portfolio. Static files only: `index.html`, `styles.css`, `script.js`. No build step and no component library.
 
-## Brand
-- Personality: calm, precise, curious, AI-native
-- Trust signals: shipped products, working links, screenshots, verification loop
-- Avoid: game-developer-only positioning, noisy decoration, unexplained jargon
+The theme toggle adds or removes `body.light`. `:root` is dark. `body.light` replaces the same custom properties. Do not invent a second theme class.
 
-## Product goals
-- Goals: make the AI Builder position clear within the first viewport; move visitors from proof to project screens; explain how products are made.
-- Non-goals: a dense resume, a generic agency landing page, visual effects that compete with the work.
-- Success signals: visitors understand the role, open a project, or start an email conversation.
+## Inspiration and rationale
 
-## Personas and jobs
-- Primary personas: hiring managers, product teams, technical collaborators
-- User jobs: quickly assess what was built, how AI was used, and whether the work is real.
-- Key contexts of use: desktop review, mobile skim, portfolio link shared in an application.
+Reference: **Linear**, in the sense used by [getdesign.md](https://getdesign.md/design-md/linear) DESIGN.md files: a product surface described as named tokens with roles, not a moodboard.
 
-## Information architecture
-- Primary navigation: 작업 / 만드는 방식 / 소개
-- Core routes/screens: single-page portfolio, project lightbox
-- Content hierarchy: positioning → shipped products → Agentic Coding case study → method → builder profile → contact
+Why Linear, for an agentic product developer:
 
-## Design principles
-- Product first: show working screens and outcomes before implementation detail.
-- Quiet confidence: use whitespace, typography, and alignment before decoration.
-- One accent: lime marks AI activity and action; surfaces stay neutral.
-- Tradeoffs: Apple-like restraint is prioritized over maximal technical detail; dark mode remains as an optional AI-console mood.
+- The audience (hiring managers, product teams, technical collaborators) judges the work the way Linear's audience judges software: by hierarchy, shipped surfaces, and the absence of theater.
+- Linear's system is near-black or near-white canvas, hairline borders, dense but quiet type, and one chromatic accent. That maps onto this site without copying Linear's indigo. The accent stays the existing teal / lime pair.
+- Linear feature pages use asymmetric tiles. A bento of real projects fits that pattern. A fake runtime console does not.
+- Motion is short and functional. Nothing breathes, spins, or counts up.
 
-## Visual language
-- Color: Apple-inspired white/soft gray light mode with restrained lime; deep charcoal dark mode.
-- Typography: system-first display stack with Korean Apple/Malgun fallback; Paperlogy for body and utility labels.
-- Spacing/layout rhythm: 80–120px section rhythm, one centered 1240px content rail with responsive gutters, 16–32px component gaps.
-- Shape/radius/elevation: 20px cards, pill controls, thin borders, layered low-contrast shadows.
-- Motion: short hover lift and gallery transitions; honor reduced motion.
-- Imagery/iconography: real product screenshots; engine marks only as supporting context.
+What we take from the reference: neutral canvas, one accent, hairline over glow, type that does the hierarchy, asymmetric project tiles, 120–320ms motion.
+
+What we do not take: Linear's indigo (`#5E6AD2`), Inter / Berkeley Mono as a new font stack, or a cloned marketing page. Fonts stay the ones already loaded in `index.html` (system display, Paperlogy, Space Grotesk). The `<head>` is frozen.
+
+Personality: calm, precise, curious. Trust comes from shipped products, working links, screenshots, and the verification loop. Not from a status widget.
+
+## Color tokens
+
+Names are roles. The accent is lime on dark surfaces and deep teal on light surfaces, so text stays readable. Bright lime is reserved for dark canvases (the contact band, Unreal / Unity tiles).
+
+### Dark (`:root`)
+
+| Token | Value | Role |
+| --- | --- | --- |
+| `--color-canvas` | `#101215` | Page background |
+| `--color-surface` | `#17191d` | Cards, hero panel, dialogs |
+| `--color-surface-2` | `#1e2126` | Inset rows, secondary buttons |
+| `--color-surface-3` | `#25292f` | Sunken chips |
+| `--color-ink` | `#f4f1e9` | Headings and primary text |
+| `--color-body` | `#c6c4be` | Body copy on dark |
+| `--color-muted` | `#8a8e96` | Secondary copy |
+| `--color-muted-2` | `#5e636c` | Labels, indexes |
+| `--color-hairline` | `rgba(244, 241, 233, .13)` | Quiet dividers |
+| `--color-hairline-strong` | `rgba(244, 241, 233, .24)` | Card and control borders |
+| `--color-accent` | `#c8f169` | Lime. Links, focus, emphasis |
+| `--color-accent-soft` | `rgba(200, 241, 105, .12)` | Accent wash behind a quote or active filter |
+| `--color-accent-fill` | `#c8f169` | Primary button fill |
+| `--color-accent-hover` | `#dbff8e` | Primary button hover |
+| `--color-on-accent` | `#101215` | Text on accent fill |
+| `--color-mark-start` | `#ddff80` | Brand mark gradient start |
+| `--color-mark-end` | `#a9df43` | Brand mark gradient end |
+| `--color-mark-shadow` | `rgba(188, 241, 78, .16)` | Brand mark shadow |
+| `--color-mark-ink` | `#101215` | Text on the brand mark |
+| `--color-warm` | `#ff8761` | Rare warm point. Not a second brand |
+| `--color-info` | `#90bcff` | Unity tile only |
+| `--color-contact-start` | `#202721` | Contact band |
+| `--color-contact-end` | `#18201c` | Contact band |
+| `--color-contact-ink` | `#f4f8e8` | Text on the contact band |
+| `--color-contact-muted` | `rgba(244, 248, 232, .72)` | Secondary text on the contact band |
+
+### Light (`body.light`)
+
+| Token | Value | Role |
+| --- | --- | --- |
+| `--color-canvas` | `#f5f5f7` | Page background |
+| `--color-surface` | `#ffffff` | Cards and panels |
+| `--color-surface-2` | `#f5f5f7` | Inset rows |
+| `--color-surface-3` | `#e8e8ed` | Sunken chips |
+| `--color-ink` | `#1d1d1f` | Headings |
+| `--color-body` | `#48484a` | Body |
+| `--color-muted` | `#6e6e73` | Secondary copy |
+| `--color-muted-2` | `#5f5f66` | Labels |
+| `--color-hairline` | `rgba(29, 29, 31, .09)` | Quiet dividers |
+| `--color-hairline-strong` | `rgba(29, 29, 31, .16)` | Card borders |
+| `--color-accent` | `#0e7c72` | Teal for text, links, focus |
+| `--color-accent-soft` | `rgba(31, 176, 162, .14)` | Accent wash |
+| `--color-accent-fill` | `#1fb0a2` | Primary button fill |
+| `--color-accent-hover` | `#15998c` | Primary button hover |
+| `--color-on-accent` | `#101215` | Text on the teal button |
+| `--color-mark-start` | `#57c9be` | Brand mark |
+| `--color-mark-end` | `#139b90` | Brand mark |
+| `--color-mark-shadow` | `rgba(31, 176, 162, .22)` | Brand mark shadow |
+| `--color-mark-ink` | `#ffffff` | Text on the brand mark |
+
+Light-mode shadows replace the dark shadows. Contact, `.visual-agent`, `.visual-unity`, and `.visual-lawgate` re-set `--color-accent` to `#c8f169` because those surfaces stay dark in both themes. The contact band also re-sets fill, hover, and on-accent so the email button stays lime with dark text.
+
+Engine tiles (Unreal `#242932`, Unity `#1a2735`) are art frames, not theme surfaces.
+
+## Type scale
+
+| Token | Size | Weight | Line height | Tracking | Use |
+| --- | --- | --- | --- | --- | --- |
+| `--type-display` | `clamp(3.15rem, 5.2vw, 5.2rem)` | 700 | 1.04 | -0.065em | Hero title. `--font-display` |
+| `--type-section` | `clamp(1.9rem, 3.2vw, 3.2rem)` | 600 | 1.05 | -0.045em | Section titles |
+| `--type-statement` | `clamp(1.8rem, 3vw, 3.2rem)` | 700 | 1.14 | -0.065em | Statement |
+| `--type-card-featured` | `clamp(2rem, 3vw, 2.6rem)` | 600 | 1.1 | -0.045em | LAW GATE title only |
+| `--type-card` | `1.6rem` | 600 | 1.1 | -0.045em | Other project titles |
+| `--type-body` | `1rem` | 400 | 1.6 | -0.01em | Body. `--font-text` |
+| `--type-small` | `0.9rem` | 400 | 1.65 | 0 | Card descriptions |
+| `--type-label` | `0.72rem` | 500 | 1.4 | 0.08em | Eyebrows, indexes, meta. `--font-text` |
+
+`--font-display` is the system stack with Apple SD Gothic Neo, Noto Sans KR, and Malgun Gothic. `--font-text` is Paperlogy with the same Korean fallbacks. `--font-ui` is Space Grotesk for the brand mark and short workflow labels. Do not add font stylesheets.
+
+Korean copy uses `word-break: keep-all`. The hero title may stay on two lines; it may wrap under 734px.
+
+## Spacing scale
+
+4 / 8 only. Use the token, not a nearby off-scale value.
+
+| Token | Value |
+| --- | --- |
+| `--space-1` | 4px |
+| `--space-2` | 8px |
+| `--space-3` | 12px |
+| `--space-4` | 16px |
+| `--space-5` | 24px |
+| `--space-6` | 32px |
+| `--space-7` | 48px |
+| `--space-8` | 64px |
+| `--space-9` | 80px |
+| `--space-10` | 112px |
+
+`--space-section` is `--space-10`. `--space-card` is `--space-6`.
+
+Page rail: `--page-max: 1240px`. Gutters: `--gutter: clamp(24px, 4vw, 56px)`, tightened to 16px at 734px. Header: `--header-h: 72px` (62px under 734px). Sections scroll with `scroll-margin-top` so anchors clear the sticky header.
+
+## Radius
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--radius-sm` | 8px | Small icon tiles, workflow numbers |
+| `--radius-md` | 12px | Menu rows, nested case cards |
+| `--radius-lg` | 20px | Project cards, hero panel, workflow list |
+| `--radius-xl` | 24px | History dialog |
+| `--radius-pill` | 999px | Buttons, filters, copy control |
+
+## Shadow and elevation
+
+Borders do most of the work. Shadows are low contrast and never colored glows.
+
+| Token | Dark | Light | Use |
+| --- | --- | --- | --- |
+| `--shadow-1` | `0 1px 2px rgba(0,0,0,.24)` | `0 1px 2px rgba(0,0,0,.04)` | Resting controls |
+| `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards, hero panel |
+| `--shadow-3` | `0 4px 12px rgba(0,0,0,.22), 0 20px 46px rgba(0,0,0,.28)` | `0 4px 12px rgba(0,0,0,.06), 0 20px 44px rgba(0,0,0,.12)` | Hover and menus |
+
+Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards and the hero panel do not blur the page behind them.
+
+Sticky header: hairline plus a mostly opaque canvas. Blur is allowed on the header only, as a reading aid, not as a glass card.
+
+## Motion
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--duration-fast` | 120ms | Color and border |
+| `--duration-base` | 180ms | Hover lift, menus |
+| `--duration-slow` | 320ms | Scroll reveal, image zoom |
+| `--ease-standard` | `cubic-bezier(0.2, 0, 0, 1)` | Most transitions |
+| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Reveal |
+
+Hover lift is at most 3px. No 3D tilt, no infinite pulse, no blinking cursor.
+
+Scroll reveal: `IntersectionObserver` adds `.reveal-pending` only from JavaScript, then `.is-revealed` once. Elements already in view are not hidden. If `prefers-reduced-motion: reduce` matches, or `IntersectionObserver` is missing, or JavaScript fails, nothing is hidden. CSS must not set `.reveal { opacity: 0 }`.
+
+`prefers-reduced-motion: reduce` disables animation, sets transition duration to nearly zero, and forces `.reveal-pending` to full opacity. In-page anchor scrolling uses `auto` in that case.
+
+## Grid and bento
+
+`#builds .project-grid` is a 12-column grid at `min-width: 1068px`, gap `--bento-gap` (`--space-5`). Reading order is DOM order. Do not use dense packing.
+
+| Tile | Card | Span | Treatment |
+| --- | --- | --- | --- |
+| Featured, largest | LAW GATE | 12 | Side-by-side visual and copy. Visual min-height 420px. Title uses `--type-card-featured` |
+| Medium / wide | Cerebras DocLens, Oh My Cosmos | 8 | Horizontal visual and copy |
+| Standard | RUF Dance Academy Web, Quest Tower | 4 | Vertical card |
+| Standard, closing pair | Unreal Agent, Unity MCP | 6 each | Vertical. Span 6 fills the last row. They are not wide tiles |
+
+Wide means span 8. The closing pair is span 6 so the row does not end on an empty cell.
+
+From 721px through 1067px the grid is 2 columns. LAW GATE spans both. Every other card spans one and stacks image over copy, so a half column stays readable.
+
+At `max-width: 720px` the grid is one column. Every card spans the row.
+
+All 7 `<article class="project-card">` elements stay in the DOM with their text, links, `data-i18n` attributes, `data-category` filters, gallery buttons, and `<details>` history. The LAW GATE project link stays `hidden` with the HTML comment `TODO(VENI): set LAW GATE URL in href and remove hidden`. `.project-link[hidden] { display: none }` stays. Print styles keep showing every card, including filtered ones, one landscape page each.
 
 ## Components
-- Existing components to reuse: hero console, project card, filter pills, workflow rows, gallery lightbox.
-- New/changed components: Apple-style light presentation layer, mobile navigation drawer, runtime console, contact copy fallback, simplified workflow strip, and expandable Agentic Coding history panels inside product cards.
-- Variants and states: light/dark theme, active filter, hover/focus, empty filter, gallery previous/next, collapsed/expanded project history.
-- Token/component ownership: global variables in `styles.css`; copy and language state in `script.js`.
 
-## Accessibility
-- Target standard: WCAG 2.1 AA intent.
-- Keyboard/focus behavior: visible focus ring, lightbox focus restore and Tab trap.
-- Contrast/readability: dark olive lime in light mode; bright lime only on dark surfaces.
-- Screen-reader semantics: labeled navigation, dialog, gallery buttons, live image counter.
-- Reduced motion and sensory considerations: `prefers-reduced-motion` disables animation and transitions.
+- Header with section links, language toggle (`ko` / `en`), and theme toggle.
+- Hero: existing eyebrow, title, description, and two CTAs. Right side is a flat panel: the existing method sentence plus the seven real project names, each linking to that card.
+- Project bento, filter pills, gallery lightbox, expandable Agentic history.
+- Workflow rows, about, contact, footer.
+- Primary contact control is an email button to `vnrs97@gmail.com`, with a copy button beside it. No other address.
 
-## Responsive behavior
-- Supported breakpoints/devices: 734px mobile, 900px narrow tablet, 1068px tablet/desktop transition, 1440px large desktop intent.
-- Layout adaptations: hero and featured card stack on tablet; filters and footer wrap on mobile.
-- Touch/hover differences: gallery uses full-card buttons; hover lift is supplementary.
+## Do
 
-## Interaction states
-- Loading: native lazy-loaded project images.
-- Empty: filter empty state explains that work is being organized.
-- Error: external links open in a new tab without blocking the portfolio.
-- Success: gallery opens with counter and keyboard navigation; contact email can open Gmail or be copied directly.
-- Disabled: no disabled primary controls.
-- Offline/slow network, if applicable: card copy remains useful if an image is slow.
+- Lead with the work. Screenshots, names, and questions before decoration.
+- Use one accent. Lime on dark, teal on light.
+- Keep copy that already exists in `script.js` locales. Korean and English must both have any new key.
+- Prefer hairline, spacing, and type size to show importance.
+- Keep focus rings on `--color-accent`, 3px, offset 3px.
+- Keep the print portfolio and the gallery keyboard path working.
+
+## Don't
+
+- Don't copy Linear's indigo or add a purple, blue, or mesh gradient.
+- Don't put glassmorphism on cards or on the hero panel (translucent fill plus heavy blur plus a glowing border).
+- Don't add metrics, client counts, or percentages that are not already in the copy.
+- Don't animate the hero with tilt, orbiting rings, or a fake cursor.
+- Don't hide content in CSS in a way that requires JavaScript to show it.
+- Don't change `<head>` SEO tags, `404.html`, `robots.txt`, `sitemap.xml`, or `assets/og-image.png`.
+- Don't add a library, a font, or a build step.
+
+## Anti-patterns: generic AI-made portfolio hero
+
+This is the hero to refuse. It shows up when a generator has no real work to point at:
+
+- A full-viewport purple-to-blue or violet-to-cyan mesh gradient, often with a second pink blob in the corner.
+- Glassmorphism cards: white at 10–20% opacity, `backdrop-filter: blur(20px)` or more, a 1px gradient border, and a colored outer glow.
+- The headline pattern "Hi, I'm {Name}", "Building the future of X", or "Crafting digital experiences that matter", with the name in gradient text.
+- Floating blurred orbs behind the headline, sometimes slowly drifting.
+- A fake terminal, IDE, or "agent runtime" panel. Typical contents: a green **LIVE** badge, a version line like `AGENT v0.1 · BUILD #024`, a made-up trace (`plan_problem` done, `tool_call` running, `verify_output` queued), and a log line "AI is thinking..." with a blinking cursor.
+- A pulsing "Available for work" or "System online" pill that is not a real status.
+- Emoji bullets, emoji skill chips, and a row of every framework logo as the main proof.
+- Buzzwords with no product attached: innovative, passionate, synergy, next-gen, cutting-edge, seamless, supercharge.
+- Fake stat counters: "10+ years", "50+ projects", "99% satisfaction", numbers that tick up on scroll.
+- Three identical glass cards under the hero, each an icon plus a vague noun (Design / Develop / Deploy).
+- Stock astronauts, humanoid robots, or a decorative 3D blob standing in for the work.
+- A fake GitHub contribution graph, fake star ratings, or testimonials that were not given.
+
+The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`, `heroTitleTwo`, `heroDesc`, `heroCta`, `heroContact`) and a list of the real projects. It does not claim a live agent, a build number, or a metric.
+
+## Accessibility and responsive behavior
+
+- Target: WCAG 2.1 AA intent.
+- Focus stays visible. The lightbox traps Tab and restores focus. The history dialog closes on Escape.
+- Breakpoints already in the CSS: 720px bento collapse, 734px type and gutter, 900px navigation drawer, 1068px desktop bento.
+- Touch targets for hero project links and filter controls stay at least 44px tall.
+- `lang` on `<html>` follows the language toggle.
 
 ## Content voice
-- Tone: direct, plain Korean, quietly confident.
-- Terminology: prefer 제품, AI, 도구, 확인; explain specialized terms in project context.
-- Microcopy rules: one idea per line; lead with outcome; avoid inflated claims.
 
-## Implementation constraints
-- Framework/styling system: static HTML/CSS/vanilla JavaScript.
-- Design-token constraints: use CSS custom properties for the 1240px page rail and responsive gutters; preserve the lime AI accent.
-- Performance constraints: use optimized local JPG thumbnails and lazy loading.
-- Compatibility constraints: Cloudflare Pages static output; no build step required.
-- Test/screenshot expectations: validate JS syntax, HTTP 200, asset paths, and browser smoke test.
+Direct, plain Korean, quietly confident. Prefer 제품, AI, 도구, 확인. One idea per line. No inflated claims.
 
-## Open questions
-- [ ] Confirm the final Cloudflare Pages project has the exact name `jungmin-cha-ai-builder` before production deploy.
+## Implementation
+
+- Tokens live in `styles.css` and match the names in this file.
+- Copy and language state live in `script.js` (`locales.ko`, `locales.en`).
+- Optimized local images, lazy loaded. Cloudflare Pages, no build.
+- Open question: confirm the production Pages project name `jungmin-cha-ai-builder` before a production deploy.

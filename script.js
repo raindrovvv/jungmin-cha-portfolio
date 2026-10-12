@@ -7,9 +7,7 @@ const locales = {
     heroTitleOne: "AI가 일할 구조를", heroTitleTwo: "만들어냅니다.",
     heroDesc: "문제를 정의하고, AI가 쓸 도구와 기준을 설계합니다.\n검증과 배포까지 이어지는 Agentic Coding으로\n제품을 완성합니다.",
     heroCta: "만든 것 보기 ↓", heroContact: "프로젝트 이야기하기 ↗",
-    proofProducts: "제품 출시", proofAgents: "AI 도구 제작",
-    consoleKicker: "AGENT RUNTIME / ACTIVE", consoleTitle: "AI가 문제를 읽고\n도구를 호출합니다.",
-    flowQuestion: "문제", flowTools: "도구", flowProduct: "제품", flowPrompt: "문제 정의", flowMcp: "도구 연결", flowEngine: "출시", traceDone: "완료", traceRunning: "실행 중", traceNext: "대기", consoleLog: "AI가 생각 중...", consoleBottom: "제품 / AI / 도구", runtimeVersion: "AGENT v0.1 · BUILD #024", copyEmail: "주소 복사", copiedEmail: "복사됨 ✓", lightboxKicker: "프로젝트 화면",
+    copyEmail: "주소 복사", copiedEmail: "복사됨 ✓", contactSend: "이메일 보내기", lightboxKicker: "프로젝트 화면",
     statement: "AI 에이전트에게는 <em>구조</em>가 필요합니다.",
     statementNote: "스스로 문제를 정의하고, AI와 회의하며, AI에게 필요한 도구를 쥐여주고, 제품으로 발전시킵니다.",
     buildsTitle: "주요 제품", buildsSubtitle: "아이디어에서 제품까지.\n카드에서 질문과 검증 과정을 확인해 보세요.",
@@ -50,9 +48,7 @@ const locales = {
     heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DEVELOPER", heroTitleOne: "Build the structure", heroTitleTwo: "that makes anything.",
     heroDesc: "I define the problem and set the tools and standards AI needs.\nThen I use Agentic Coding to verify, ship,\nand complete the product.",
     heroCta: "See the builds ↓", heroContact: "Start a conversation ↗",
-    proofProducts: "products shipped", proofAgents: "AI tools built",
-    consoleKicker: "AGENT RUNTIME / ACTIVE", consoleTitle: "AI reads the problem\nand calls the tools.",
-    flowQuestion: "Problem", flowTools: "Tools", flowProduct: "Product", flowPrompt: "define problem", flowMcp: "connect tools", flowEngine: "ship", traceDone: "DONE", traceRunning: "RUNNING", traceNext: "QUEUED", consoleLog: "Agent is thinking...", consoleBottom: "PRODUCT / AI / TOOLS", runtimeVersion: "AGENT v0.1 · BUILD #024", copyEmail: "Copy email", copiedEmail: "Copied ✓", lightboxKicker: "PROJECT SCREENS",
+    copyEmail: "Copy email", copiedEmail: "Copied ✓", contactSend: "Send an email", lightboxKicker: "PROJECT SCREENS",
     statement: "AI agents need <em>structure</em>.",
     statementNote: "I define the problem, meet with AI, give it the tools it needs, and turn the result into a product.",
     buildsTitle: "Selected builds", buildsSubtitle: "From idea to product.\nOpen a card to see the question and verification behind it.",
@@ -548,32 +544,8 @@ function initProjectQuestions() {
   });
 }
 
-function initHeroTilt() {
-  const console = document.querySelector(".hero-console");
-  const supportsTilt = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!console || !supportsTilt || reducedMotion) return;
-
-  let frame = 0;
-  let nextTilt = { x: 0, y: 0 };
-  const applyTilt = () => {
-    frame = 0;
-    console.style.setProperty("--hero-tilt-x", `${nextTilt.x.toFixed(2)}deg`);
-    console.style.setProperty("--hero-tilt-y", `${nextTilt.y.toFixed(2)}deg`);
-  };
-  const reset = () => {
-    nextTilt = { x: 0, y: 0 };
-    if (!frame) frame = requestAnimationFrame(applyTilt);
-  };
-
-  console.addEventListener("pointermove", (event) => {
-    const rect = console.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width * 2 - 1;
-    const y = (event.clientY - rect.top) / rect.height * 2 - 1;
-    nextTilt = { x: y * -1.6, y: x * 1.6 };
-    if (!frame) frame = requestAnimationFrame(applyTilt);
-  });
-  console.addEventListener("pointerleave", reset);
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 function initSmoothScroll() {
@@ -582,8 +554,33 @@ function initSmoothScroll() {
       const target = document.querySelector(anchor.getAttribute("href"));
       if (!target) return;
       event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
     });
+  });
+}
+
+function initReveal() {
+  if (!("IntersectionObserver" in window) || prefersReducedMotion()) return;
+  const nodes = [...document.querySelectorAll(".reveal")];
+  if (!nodes.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-revealed");
+      entry.target.classList.remove("reveal-pending");
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -40px 0px", threshold: 0.01 });
+
+  nodes.forEach((node) => {
+    const rect = node.getBoundingClientRect();
+    const inView = rect.bottom > 0 && rect.top < window.innerHeight * 0.92;
+    if (inView) {
+      node.classList.add("is-revealed");
+      return;
+    }
+    node.classList.add("reveal-pending");
+    observer.observe(node);
   });
 }
 
@@ -816,7 +813,6 @@ printPortfolioButton?.addEventListener("click", () => window.print());
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme(activeTheme);
   initProjectQuestions();
-  initHeroTilt();
   applyLanguage(activeLang);
   document.getElementById("langToggle")?.addEventListener("click", () => {
     activeLang = activeLang === "ko" ? "en" : "ko";
@@ -833,4 +829,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initHistoryPanels();
   initMobileMenu();
   initContactCopy();
+  initReveal();
 });
