@@ -802,47 +802,15 @@ function initContactCopy() {
 }
 
 const printPortfolioButton = document.getElementById("printPortfolio");
-let restorePortfolioAfterPrint = null;
+const printDetails = [...document.querySelectorAll("#builds .project-case-details")];
+let printDetailsState;
 window.addEventListener("beforeprint", () => {
-  if (restorePortfolioAfterPrint) return;
-
-  const details = [...document.querySelectorAll(".project-case-details")];
-  const previousDetails = details.map((item) => item.open);
-  const cards = [...document.querySelectorAll("#builds .project-card")];
-  const previousCards = cards.map((card) => ({ hidden: card.hidden, display: card.style.display }));
-  const emptyState = document.getElementById("emptyState");
-  const previousEmptyState = emptyState?.hidden;
-  const images = [...document.querySelectorAll("main img")];
-  const previousLoading = images.map((image) => image.loading);
-
-  restorePortfolioAfterPrint = () => {
-    details.forEach((item, index) => {
-      item.open = previousDetails[index];
-    });
-    cards.forEach((card, index) => {
-      card.hidden = previousCards[index].hidden;
-      card.style.display = previousCards[index].display;
-    });
-    if (emptyState) emptyState.hidden = previousEmptyState;
-    images.forEach((image, index) => {
-      image.loading = previousLoading[index];
-    });
-    restorePortfolioAfterPrint = null;
-  };
-
-  details.forEach((item) => {
-    item.open = true;
-  });
-  cards.forEach((card) => {
-    card.hidden = false;
-    card.style.display = "";
-  });
-  if (emptyState) emptyState.hidden = true;
-  images.forEach((image) => {
-    image.loading = "eager";
-  });
+  printDetailsState = printDetails.map((detail) => detail.open);
+  printDetails.forEach((detail) => { detail.open = true; });
 });
-window.addEventListener("afterprint", () => restorePortfolioAfterPrint?.());
+window.addEventListener("afterprint", () => {
+  printDetails.forEach((detail, index) => { detail.open = printDetailsState[index]; });
+});
 printPortfolioButton?.addEventListener("click", () => window.print());
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -522,53 +522,71 @@ body.light .visual-unity .visual-caption { color: rgba(245, 245, 247, .66); }
 
 .footer-pdf-button { padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--text-soft); font-size: .68rem; }
 .footer-pdf-button:hover, .footer-pdf-button:focus-visible { border-color: var(--lime); color: var(--lime); }
+.print-portfolio-header, .print-portfolio-footer, .print-method-card { display: none; }
 
-@page { size: A4 landscape; margin: 12mm; }
+@page { size: A4 landscape; margin: 9mm; }
 
 @media print {
+  html, body { width: 100% !important; min-width: 0 !important; overflow: visible !important; background: #fff !important; }
   body {
-    --bg: #fff;
-    --surface: #fff;
-    --surface-2: #f4f6f7;
     --text: #17191c;
-    --text-soft: #32363b;
-    --muted: #545b63;
+    --text-soft: #30363a;
+    --muted: #4e575d;
     --lime: #08786f;
+    --lime-soft: #e7f4f1;
     --line: #d9dfe4;
-    --line-strong: #b8c1c9;
-    padding: 0 !important;
-    background: #fff !important;
     color: #17191c !important;
     font-size: 9pt;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+  .site-noise, .site-header, .mobile-menu, .scroll-top-btn, .history-modal, .lightbox, .site-footer,
+  main > section:not(#builds), #builds .section-heading-row, #builds .project-link,
+  #builds .project-collaborator, #builds .gallery-hint, #builds .print-method-card,
+  #builds .print-portfolio-header, #builds .print-portfolio-footer,
+  #builds .project-case-details summary, #builds .project-case-kicker,
+  #builds .project-case-content > h4, #emptyState { display: none !important; }
 
-  .site-header, .mobile-menu, .mobile-menu-toggle, .nav-actions, .scroll-top-btn, .ai-cursor,
-  .builds-section button:not(.project-gallery-trigger), .gallery-hint, .project-case-details > summary, .history-modal, .lightbox,
-  .footer-pdf-button, .contact-copy, .copy-feedback { display: none !important; }
-
-  html, body, main, .site-footer { overflow: visible !important; background: #fff !important; color: #17191c !important; }
-  main > section { padding-block: 8mm !important; background: #fff !important; color: #17191c !important; }
-  .hero-section { min-height: 0 !important; }
-  .hero-grid { min-height: 0 !important; }
-  .hero-console, .project-card, .workflow-item, .case-study-question, .case-study-grid article {
-    box-shadow: none !important;
+  #builds { display: block !important; width: 100% !important; margin: 0 !important; padding: 0 !important; background: #fff !important; }
+  #builds .project-grid { display: block !important; margin: 0 !important; }
+  #builds .project-card, #builds .project-card[hidden] {
+    display: grid !important;
+    position: relative;
+    grid-template-columns: 35% 1fr !important;
+    gap: 7mm !important;
+    height: 185mm !important;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 15mm 0 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
     background: #fff !important;
-    color: #17191c !important;
-    border-color: #d9dfe4 !important;
+    box-shadow: none !important;
+    transform: none !important;
     break-inside: avoid;
+    break-after: page;
   }
-  .hero-console { transform: none !important; }
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 6mm !important; }
-  .project-card { overflow: visible !important; transform: none !important; border: 1px solid #d9dfe4 !important; }
-  .project-visual { max-height: 52mm; background: #f4f6f7 !important; }
-  .project-case-content { display: block !important; color: #32363b !important; }
-  .case-study-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  .project-gallery-trigger { cursor: default !important; }
-  .site-footer { border-color: #d9dfe4 !important; }
-  .footer-inner { min-height: 0 !important; padding-block: 5mm !important; color: #545b63 !important; }
-  a { color: #17191c !important; text-decoration: none !important; }
-  img { max-width: 100% !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  [hidden] { display: none !important; }
+  #builds .project-card:last-of-type { break-after: auto; }
+  #builds .project-card::before, #builds .project-card::after { position: absolute; left: 0; right: 0; color: #08786f; font-size: 8pt; }
+  #builds .project-card::before { content: "JUNGMIN CHA / AI NATIVE BUILDER"; top: 0; padding-bottom: 3mm; border-bottom: 1px solid #d9dfe4; font-weight: 700; letter-spacing: .08em; }
+  #builds .project-card::after { content: "jungmin-cha-ai-builder.pages.dev   ·   vnrs97@gmail.com"; bottom: 0; padding-top: 2mm; border-top: 1px solid #d9dfe4; }
+  #builds .project-visual { display: block !important; height: 62mm !important; min-height: 0 !important; overflow: hidden; border-radius: 3mm; }
+  #builds .project-gallery-trigger, #builds .project-thumb { display: block !important; width: 100% !important; height: 100% !important; }
+  #builds .project-thumb { object-fit: cover; }
+  #builds .project-body { display: block; min-width: 0; height: auto; padding: 0 !important; }
+  #builds .project-meta { color: #566168; font-size: 8pt; line-height: 1.2; }
+  #builds .project-body h3 { margin: 2mm 0; color: #17191c; font-size: 25pt; line-height: 1.1; letter-spacing: -.04em; }
+  #builds .project-body > p { min-height: 0; margin: 0 0 3mm; color: #41494f; font-size: 10pt; line-height: 1.4; }
+  #builds .project-decision { display: none !important; }
+  #builds .project-case-details, #builds .project-case-content { display: block !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; }
+  #builds .case-study-question { margin: 0 0 4mm !important; padding: 3mm 4mm !important; border-left: .8mm solid #08786f; background: #e7f4f1 !important; }
+  #builds .case-study-label { color: #08786f; font-size: 7pt; font-weight: 700; }
+  #builds .case-study-question blockquote { margin: 1mm 0 !important; color: #17191c; font-size: 11pt; font-weight: 700; line-height: 1.3; }
+  #builds .case-study-question p { margin: 0 !important; color: #41494f; font-size: 8pt; line-height: 1.35; }
+  #builds .case-study-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 2mm !important; margin: 0 !important; }
+  #builds .case-study-grid article { min-height: 0 !important; padding: 2mm !important; border: 1px solid #d9dfe4 !important; border-radius: 2mm !important; background: #fff !important; break-inside: avoid; }
+  #builds .case-study-grid h3 { margin: .5mm 0 !important; color: #17191c; font-size: 8pt !important; line-height: 1.2; }
+  #builds .case-study-grid p { margin: 0 !important; color: #41494f; font-size: 8pt !important; line-height: 1.35; }
+  #builds .case-study-number { color: #08786f; font-size: 6pt; }
 }
