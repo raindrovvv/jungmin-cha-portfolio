@@ -13,7 +13,7 @@ Reference: deepseek.com home, `/harness`, and a `/news` article, measured from c
 - **Type.** Montserrat 400 for display with `-0.02em` tracking (Pretendard Variable covers Hangul), DM Sans for body and controls, Fragment Mono uppercase at `.22em` for eyebrows and section indices. Korean mono labels drop to `.04em` because Fragment Mono has no Hangul.
 - **Hero.** One centred column. The shader paints a sky field (`--color-sky` → canvas), slow fbm clouds in `--color-cloud`, and a faint 88px grid; `uAmt` is cloud / grid / grain. The CSS gradient is the fallback. The header sits on the sky.
 - **Glass.** `--color-glass*` tokens: translucent white (light) or 4–6% white (dark), 2px light border, 12px blur, 24px radius. Used by the graph panel, ghost buttons, and controls.
-- **Buttons.** Pills, 44px tall, 15px/500. Hover is a circle that scales from the centre (`.btn::after`, 360ms) instead of a lift.
+- **Buttons.** Pills, 44px tall, 15px/500. Hover is a background and border color shift (120–160ms, `--ease-out`), only under `@media (hover: hover) and (pointer: fine)`.
 - **Surfaces.** Cards are flat: 16px radius, hairline border, no shadow. Sections breathe at 144px. The contact band is the Harness hero: near-black with deep blue radial fields.
 - **Lang toggle** is a KO / EN segmented pill driven by `html[lang]`.
 
@@ -209,6 +209,14 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 - Workflow rows, about, contact, footer.
 - Primary contact control is an email button to `vnrs97@gmail.com`, with a copy button beside it. No other address.
 
+## Hover states
+
+Pointer hover is quiet. Every hover rule lives in `@media (hover: hover) and (pointer: fine)`. Transitions are 120–160ms with `--ease-out`. Keyboard `:focus-visible` outlines and rings stay as they are.
+
+- Nav links: color shifts to `--color-accent` and a 1px underline grows from the left (`transform: scaleX` and `opacity` only).
+- Buttons: background and border color shift only. Primary uses `--color-accent-hover`. Ghost uses a slightly stronger fill and border. No lift.
+- No glow, halo, outer ring, expanding circle, or cursor-follow spotlight on hover.
+
 ## Do
 
 - Lead with the work. Screenshots, names, and questions before decoration.
@@ -224,6 +232,7 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 - Don't put glassmorphism on cards or on the hero graph (translucent fill plus heavy blur plus a glowing border).
 - Don't add metrics, client counts, or percentages that are not already in the copy.
 - Don't animate the hero with tilt, orbiting rings, or a fake cursor.
+- Don't add cursor-follow glows or hover halos.
 - Don't hide content in CSS in a way that requires JavaScript to show it.
 - Don't change `<head>` SEO tags, `404.html`, `robots.txt`, `sitemap.xml`, or `assets/og-image.png`.
 - Don't add a library, a font, or a build step.
