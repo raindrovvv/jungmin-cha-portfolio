@@ -3,39 +3,39 @@ const locales = {
     pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
     pageDesc: "Jungmin Cha의 포트폴리오. 문제를 정하고 AI가 쓸 도구와 검증 방식을 설계해 제품을 만듭니다.",
     navBuilds: "작업", navWorkflow: "만드는 방식", navAbout: "소개", navBlog: "블로그 ↗", navGithub: "GitHub ↗",
-    heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DEVELOPER",
-    heroTitleOne: "AI가 일할 구조를", heroTitleTwo: "만듭니다.",
-    heroDesc: "문제를 정의하고, AI가 쓸 도구와 기준을 정합니다.\nAgentic Coding으로 검증하고 배포해\n제품을 완성합니다.",
-    heroCta: "만든 것 보기 ↓", heroContact: "프로젝트 이야기하기 ↗",
+    heroEyebrow: "AI-NATIVE BUILDER",
+    heroTitleOne: "AI로 만들고,", heroTitleTwo: "직접 검증합니다.",
+    heroDesc: "해결할 문제를 정하고, AI 에이전트가 일할 도구와 규칙을 설계합니다.\n결과는 직접 실행해 확인한 뒤, 실제로 쓰이는 제품으로 배포합니다.",
+    heroCta: "대표 작업 보기 ↓", heroContact: "이메일로 문의하기 ↗",
     copyEmail: "주소 복사", copiedEmail: "복사됨 ✓", contactSend: "이메일 보내기", lightboxKicker: "프로젝트 화면",
     statement: "AI 에이전트에게는 <em>구조</em>가 필요합니다.",
-    statementNote: "문제를 직접 정하고, AI와 상의하고, 필요한 도구를 연결해 제품으로 만듭니다.",
-    buildsTitle: "주요 제품", buildsSubtitle: "카드를 열면 처음 던진 질문과 검증 과정을 볼 수 있습니다.",
+    statementNote: "AI는 맡을 문제, 쓸 도구, 결과를 확인할 기준이 정해져 있을 때 제대로 일합니다. 저는 그 틀을 먼저 설계한 뒤 AI와 함께 제품을 만듭니다.",
+    buildsTitle: "대표 작업", buildsSubtitle: "‘만든 과정 보기’를 누르면 처음 던진 질문부터 검증까지의 과정을 볼 수 있습니다.",
     filterAll: "전체", filterProduct: "제품", filterTool: "AI 도구", filterGame: "게임",
-    lawgateDesc: "법률 문제를 쟁점 분해, 멀티에이전트 검토, 공식 근거 재검증까지 연결한 워크벤치 제품.",
-    cerebrasDesc: "복잡한 PDF를 여러 AI 에이전트가 분석해 핵심·위험·비용·일정을 쉽게 설명하는 문서 이해 제품.",
+    lawgateDesc: "법률 문서에서 쟁점을 나누고, 여러 AI 에이전트가 검토한 내용을 공식 근거로 다시 확인하는 법률 검토 도구.",
+    cerebrasDesc: "길고 복잡한 PDF를 여러 AI 에이전트가 나눠 읽고, 핵심·위험·비용·일정을 한눈에 정리해 주는 문서 분석 서비스.",
     lawgateQuestion: "더 좋은 답보다, 근거가 부족한 답을 어떻게 막을까?",
     viewHistory: "만드는 과정 보기 ↓", projectQuestionLabel: "처음 던진 질문",
     collaborationLabel: "함께 만든 사람",
     caseStudyHistory: "Agentic history 보기 ↘", caseDetailLabel: "AGENTIC CODING HISTORY", closeHistory: "닫기",
     lawgateCaseTitle: "Agentic Coding history\nLawGate", lawgateCaseIntro: "Codex와 함께 법률 문서 검토 워크벤치를 처음부터 제품으로 만들며, 질문·제약·검증 루프를 쌓았습니다.", lawgateCaseQuestionLabel: "첫 질문", lawgateCaseQuestion: "“더 좋은 답을 만드는 것보다, 근거 없는 답변을 어떻게 차단할까?”", lawgateCaseWhy: "법률 제품에서는 출처와 검증 경계가 먼저라고 판단했습니다. 근거를 확인하고 다음 행동으로 연결하는 워크벤치를 목표로 잡았습니다.", lawgateProblemLabel: "Problem", lawgateProblem: "PDF·HWP 문서에서 쟁점을 찾고, 근거 없는 주장과 과장된 법률 조언을 막으면서도 일반 사용자가 결과를 이해할 수 있어야 했습니다.", lawgateStartLabel: "Start small", lawgateStart: "처음에는 정적 HTML·CSS·JS와 Node 서버로 핵심 검증 흐름을 빠르게 확인했습니다. 이후 필요성이 확인된 기능만 Codex CLI, RAG, Neo4j, 법령 API, PDF 처리로 확장했습니다.", lawgateFailureLabel: "Failure → Question", lawgateFailure: "PDF 33개·약 921MB 처리 지연, Windows spawn EPERM, Codex rate limit, 캐시 부재, 느린 판사 worker, 어려운 문장, 내부 경로 노출을 각각 원인을 묻는 질문으로 바꿨습니다.", lawgatePlanLabel: "Agent Plan", lawgatePlan: "질문 분해 → PDF·HWP intake → 로컬 TF-IDF RAG → 공식 법령 검색 → 원고·피고·판사 worker → 인용 검증과 증거 매트릭스로 이어지는 흐름을 설계했습니다.", lawgateContractLabel: "Agent contract", lawgateContract: "역할별 프롬프트, 한국 민사소송 실무 기준, JSON Schema, 증거 원장과 입증 공백을 분리해 Agent가 일할 업무 환경과 출력 계약을 만들었습니다.", lawgateProductLabel: "Product loop", lawgateProduct: "PDF hash 캐시, 배치 분할, 중간 digest, incremental review, 빠른 모드·정밀 모드, 4단계 litigation worker, 세션 저장, 일반인용·변호사용 PDF export로 실제 업무 흐름을 닫았습니다. 개발 기록에는 prompt 7개와 schema 4개가 남아 있습니다.", lawgateResultLabel: "Result", lawgateResult: "문제를 정의하고 질문·제약·출력 계약을 설계한 뒤 실행 결과를 보고 다음 질문을 던지며 법률 문서 검토 제품을 완성했습니다.",
-    rufDesc: "댄스 아카데미의 수업·강사·상담·위치 정보를 운영자가 직접 관리하는 웹사이트.",
+    rufDesc: "댄스 학원의 수업·강사·상담·위치 정보를 운영자가 코드 없이 직접 고칠 수 있는 웹사이트.",
     rufCaseTitle: "Agentic Coding history\nRUF Web", rufCaseQuestionLabel: "핵심 질문", rufCaseQuestion: "“운영자가 개발자에게 매번 요청하지 않아도, 실제로 계속 쓰이는 웹 제품을 어떻게 만들까?”", rufCaseWhy: "RUF는 홍보 페이지가 아니라 시간표·강사·주간 수업·상담·위치 정보를 계속 바꿔야 하는 운영형 제품이었습니다. 그래서 운영자가 직접 수정하고 사용자가 바로 다음 행동을 할 수 있는 구조를 먼저 질문했습니다.", rufProblemLabel: "Problem", rufProblem: "댄스 아카데미의 브랜드 소개, 수업 탐색, 위치 확인, 상담 전환을 하나의 웹 경험으로 묶어야 했습니다.", rufBuildLabel: "Product build", rufBuild: "Next.js 15·React 19·TypeScript를 바탕으로 브랜드 UI, 다국어, 일정, 강사, 상담, 위치, FAQ, SEO, 개인정보 페이지 구조를 처음부터 구성했습니다.", rufCmsLabel: "Question → CMS", rufCms: "“관리자 페이지를 새로 만들 것인가, Google Sheets를 CMS처럼 사용할 것인가?”를 질문했습니다. 운영자가 코드 수정 없이 시간표·주간 수업·영상·강사 정보를 바꿀 수 있어야 했고, 현재 규모에서는 별도 DB·로그인·관리자 화면 없이 Sheets가 작은 운영 시스템에 맞았습니다.", rufUxLabel: "Question → UX", rufUx: "브라우저에서 핵심 메시지가 밀리거나 문장이 어색하게 줄바꿈되고, 모바일 가로 스크롤과 탐색을 방해하는 캐러셀이 생기는 문제를 화면으로 확인했습니다. 그래서 실제 사용성을 기준으로 레이아웃과 인터랙션을 단순화했습니다.", rufReliabilityLabel: "Question → Reliability", rufReliability: "“외부 데이터가 비거나 네트워크가 실패하면 어떻게 할까?”를 먼저 물었습니다. Google Sheets 장애 시 정적 fallback을 보여주고, 주소는 지오코딩 실패 시 저장된 좌표를 사용해 서비스가 멈추지 않도록 했습니다.", rufOperationsLabel: "Question → Operations", rufOperations: "실제 일정이 바뀌면 만료된 CTA와 이벤트 전용 문구를 남겨두지 않았습니다. PRE-OPEN을 Open Event로 바꾸고, 시설 사진·이미지 로딩·모바일 CTA까지 운영 상황에 맞춰 다시 검증했습니다.", rufResultLabel: "Result", rufResult: "기획·UI 설계부터 다국어·SEO·지도·상담 전환·운영 데이터 연동·반응형 QA·배포까지 연결했습니다. 5월 초기 구축 후 7월 말까지 78개 커밋으로 실제 운영 가능한 웹 Product를 완성했습니다.",
-    loreDesc: "흩어진 설정과 세계관을 모아 AI 보이스가 있는 게임 캐릭터로 만드는 도구.", loreCaseTitle: "Agentic Coding history\nOh My Cosmos", loreCaseQuestionLabel: "핵심 질문", loreCaseQuestion: "“AI가 코드를 많이 작성했다는 점이 아니라, 제품 안에서 어떤 가치를 만들어야 하는가?”", loreCaseWhy: "AI 활용 자체는 흔한 차별점이라고 판단했습니다. 그래서 캐릭터·세계관·대사·음성을 실제 제작 흐름으로 연결하고, Guardian & Seeker를 첫 실증 제품으로 삼았습니다.", loreProblemLabel: "Product value", loreProblem: "Oh My Cosmos를 AI-native 캐릭터·세계관 제작 파이프라인으로 정의했습니다. Persona, Dialogue, Chat, TTS, Visual Prompt를 하나의 흐름으로 묶었습니다.", loreEvidenceLabel: "Evidence surface", loreEvidence: "Guardian & Seeker Production Kit API를 만들어 캐릭터, 대사, TTS 방향, 비주얼 프롬프트, Export Manifest를 외부에서 확인할 수 있게 했습니다.", loreImportLabel: "Document import", loreImport: "PDF·DOCX·이미지를 올려 OCR과 AI 분석을 거치고, 원문 source evidence를 보존한 채 캐릭터·관계·아이템·퀘스트를 추출하고 검토 후 적용하도록 설계했습니다.", loreGeneralizeLabel: "Avoid overfitting", loreGeneralize: "새 Workflow DB는 바로 만들지 않았습니다. 기존 World → Character → Dialogue → TTS → Export 엔티티를 조합하는 Studio부터 검증했습니다.", loreCollabLabel: "Collaboration", loreCollab: "WebSocket보다 먼저 owner/editor/viewer 권한, D1 기준 데이터, version·expectedVersion, stale write 409 Conflict, board event log를 정의한 뒤 polling과 Durable Object realtime을 단계적으로 붙였습니다.", loreStackLabel: "Product stack", loreStack: "Cloudflare Pages·Workers·D1·R2·Durable Objects, Drizzle ORM, 세션 인증, API 권한, 캐릭터 ZIP과 엔진별 Export까지 실제 배포 가능한 제품 표면으로 확장했습니다.", loreResultLabel: "Result", loreResult: "2026년 2월 초기 커밋부터 317개 커밋의 개선 기록과 23개 테스트 파일·128개 테스트를 남겼습니다. 질문·제약·검증을 반복해 AI 캐릭터 제작 제품을 처음부터 끝까지 완성했습니다.",
-    unrealDesc: "Unreal Editor를 읽고, 조작하고, 검증하는 AI 에이전트.",
-    unityDesc: "자연어 명령으로 Unity 씬과 에디터 작업을 움직이는 AI 개발 도구.",
-    spartaDesc: "학습·퀘스트·성장 루프를 게임형 인터페이스로 연결한 제품.", questCaseTitle: "Agentic Coding history\nQuest Tower", questCaseQuestionLabel: "핵심 질문", questCaseQuestion: "“학습 관리 앱이 아니라, 학습 행동을 반복시키는 제품으로 만들려면 무엇을 설계해야 할까?”", questCaseWhy: "Unreal 부트캠프의 학습 지속성을 높이려 했습니다. 다음 행동과 보상 루프가 분명해야 한다고 판단했습니다.", questProblemLabel: "Problem", questProblem: "학생·튜터의 학습 운영을 하나의 제품으로 묶고, 퀘스트 완료 → XP 획득 → 탑 성장이라는 반복 루프를 만들어야 했습니다.", questStartLabel: "Product build", questStart: "요구사항 정리와 Deep Interview로 범위를 확정한 뒤 UI·API·DB를 수직 슬라이스로 구현하고, 인증·퀘스트·타이머·리더보드·C++ 자동 채점·경제 시스템까지 연결했습니다.", questUxLabel: "Question → UX", questUx: "받을 보상이 있으면 보상 받기를 먼저, 없으면 학습 시작을 보여주도록 CTA를 상태 기반으로 설계했습니다. 다음 행동까지의 클릭 수를 줄이는 것이 기준이었습니다.", questDataLabel: "Question → Data", questData: "숨은 테스트케이스는 서버가 읽되 학생에게는 입력·정답을 마스킹하고, 중복 제출은 DB unique index로 막았습니다. 보안과 실행 가능성을 함께 지키는 선택이었습니다.", questReliabilityLabel: "Question → Reliability", questReliability: "XP·골드가 stale read-modify-write로 덮어써질 수 있어 Postgres atomic RPC, row lock, 원장 기록, 실패 시 롤백으로 데이터 정합성을 확보했습니다.", questOperationsLabel: "Question → Operations", questOperations: "실시간 UX를 없애지 않고 공유 polling·캐시·visible-tab 갱신으로 사용량을 줄였고, 외부 채점 서버 오류는 학생 코드 오류와 분리해 재시도할 수 있게 했습니다.", questResultLabel: "Result", questResult: "제품 기획부터 DB·UI·외부 API·배포·운영까지 완성하고, 235개 커밋의 개선 기록을 남겼습니다. 질문·제약·검증을 반복해 학습 제품을 닫았습니다.",
+    loreDesc: "흩어진 설정과 세계관 메모를 모아, 대사와 AI 음성을 갖춘 게임 캐릭터로 만드는 제작 도구.", loreCaseTitle: "Agentic Coding history\nOh My Cosmos", loreCaseQuestionLabel: "핵심 질문", loreCaseQuestion: "“AI가 코드를 많이 작성했다는 점이 아니라, 제품 안에서 어떤 가치를 만들어야 하는가?”", loreCaseWhy: "AI 활용 자체는 흔한 차별점이라고 판단했습니다. 그래서 캐릭터·세계관·대사·음성을 실제 제작 흐름으로 연결하고, Guardian & Seeker를 첫 실증 제품으로 삼았습니다.", loreProblemLabel: "Product value", loreProblem: "Oh My Cosmos를 AI-native 캐릭터·세계관 제작 파이프라인으로 정의했습니다. Persona, Dialogue, Chat, TTS, Visual Prompt를 하나의 흐름으로 묶었습니다.", loreEvidenceLabel: "Evidence surface", loreEvidence: "Guardian & Seeker Production Kit API를 만들어 캐릭터, 대사, TTS 방향, 비주얼 프롬프트, Export Manifest를 외부에서 확인할 수 있게 했습니다.", loreImportLabel: "Document import", loreImport: "PDF·DOCX·이미지를 올려 OCR과 AI 분석을 거치고, 원문 source evidence를 보존한 채 캐릭터·관계·아이템·퀘스트를 추출하고 검토 후 적용하도록 설계했습니다.", loreGeneralizeLabel: "Avoid overfitting", loreGeneralize: "새 Workflow DB는 바로 만들지 않았습니다. 기존 World → Character → Dialogue → TTS → Export 엔티티를 조합하는 Studio부터 검증했습니다.", loreCollabLabel: "Collaboration", loreCollab: "WebSocket보다 먼저 owner/editor/viewer 권한, D1 기준 데이터, version·expectedVersion, stale write 409 Conflict, board event log를 정의한 뒤 polling과 Durable Object realtime을 단계적으로 붙였습니다.", loreStackLabel: "Product stack", loreStack: "Cloudflare Pages·Workers·D1·R2·Durable Objects, Drizzle ORM, 세션 인증, API 권한, 캐릭터 ZIP과 엔진별 Export까지 실제 배포 가능한 제품 표면으로 확장했습니다.", loreResultLabel: "Result", loreResult: "2026년 2월 초기 커밋부터 317개 커밋의 개선 기록과 23개 테스트 파일·128개 테스트를 남겼습니다. 질문·제약·검증을 반복해 AI 캐릭터 제작 제품을 처음부터 끝까지 완성했습니다.",
+    unrealDesc: "AI 에이전트가 Unreal Editor의 상태를 읽고, 직접 조작하고, 결과까지 확인하게 하는 도구.",
+    unityDesc: "말로 요청하면 AI가 Unity 씬과 에디터 작업을 수행하고, 실행 전에 바뀔 범위를 먼저 보여 주는 도구.",
+    spartaDesc: "공부를 퀘스트로 바꾸고, 완료할 때마다 경험치가 쌓여 탑이 자라는 게임형 학습 서비스.", questCaseTitle: "Agentic Coding history\nQuest Tower", questCaseQuestionLabel: "핵심 질문", questCaseQuestion: "“학습 관리 앱이 아니라, 학습 행동을 반복시키는 제품으로 만들려면 무엇을 설계해야 할까?”", questCaseWhy: "Unreal 부트캠프의 학습 지속성을 높이려 했습니다. 다음 행동과 보상 루프가 분명해야 한다고 판단했습니다.", questProblemLabel: "Problem", questProblem: "학생·튜터의 학습 운영을 하나의 제품으로 묶고, 퀘스트 완료 → XP 획득 → 탑 성장이라는 반복 루프를 만들어야 했습니다.", questStartLabel: "Product build", questStart: "요구사항 정리와 Deep Interview로 범위를 확정한 뒤 UI·API·DB를 수직 슬라이스로 구현하고, 인증·퀘스트·타이머·리더보드·C++ 자동 채점·경제 시스템까지 연결했습니다.", questUxLabel: "Question → UX", questUx: "받을 보상이 있으면 보상 받기를 먼저, 없으면 학습 시작을 보여주도록 CTA를 상태 기반으로 설계했습니다. 다음 행동까지의 클릭 수를 줄이는 것이 기준이었습니다.", questDataLabel: "Question → Data", questData: "숨은 테스트케이스는 서버가 읽되 학생에게는 입력·정답을 마스킹하고, 중복 제출은 DB unique index로 막았습니다. 보안과 실행 가능성을 함께 지키는 선택이었습니다.", questReliabilityLabel: "Question → Reliability", questReliability: "XP·골드가 stale read-modify-write로 덮어써질 수 있어 Postgres atomic RPC, row lock, 원장 기록, 실패 시 롤백으로 데이터 정합성을 확보했습니다.", questOperationsLabel: "Question → Operations", questOperations: "실시간 UX를 없애지 않고 공유 polling·캐시·visible-tab 갱신으로 사용량을 줄였고, 외부 채점 서버 오류는 학생 코드 오류와 분리해 재시도할 수 있게 했습니다.", questResultLabel: "Result", questResult: "제품 기획부터 DB·UI·외부 API·배포·운영까지 완성하고, 235개 커밋의 개선 기록을 남겼습니다. 질문·제약·검증을 반복해 학습 제품을 닫았습니다.",
     gameDesc: "소리와 시스템 설계로 게임의 세계를 살아 움직이게 만드는 작업.",
     openProject: "프로젝트 열기 ↗", viewGithub: "GitHub에서 보기 ↗", viewPortfolio: "포트폴리오 열기 ↗", viewScreens: "화면 보기 ↗",
     emptyState: "이 카테고리에는 아직 작업이 없습니다.",
     workflowTitle: "AI와 함께 만드는 방법", workflowSubtitle: "문제를 정리하고, 도구를 연결하고, 결과를 확인합니다.",
-    workflowOneTitle: "무엇을 만들지 정합니다", workflowOneDesc: "먼저 해결할 문제와 꼭 지켜야 할 기준을 정합니다.",
+    workflowOneTitle: "무엇을 만들지 정합니다", workflowOneDesc: "해결할 문제와 결과물이 꼭 지켜야 할 기준부터 정합니다.",
     workflowTwoTitle: "AI에게 도구를 줍니다", workflowTwoDesc: "필요한 자료와 기능을 연결해 AI가 직접 작업할 수 있게 합니다.",
     workflowThreeTitle: "결과를 확인하고 다듬습니다", workflowThreeDesc: "AI가 만든 결과를 직접 실행해 보고, 부족한 부분을 고쳐 완성합니다.",
     aboutTitle: "소개",
-    aboutLede: "Quality Engineer로 시작해\n게임과 음악을 만드는 일로 옮겼습니다.\n지금은 AI 에이전트로\n분야를 가리지 않고 필요한 것을 직접 만듭니다.",
-    aboutDetailOne: "7년 동안 문제의 원인을 찾고 결과를 확인하는 일을 해왔습니다. AI가 만든 결과도 그대로 믿지 않고 검토합니다.",
-    aboutDetailTwo: "문서 도구나 업무 흐름처럼 분야가 달라도 AI로 직접 만듭니다.",
+    aboutLede: "전자제품 품질 엔지니어로 7년을 일한 뒤\n게임 사운드와 음악을 만들어 왔습니다.\n지금은 AI 에이전트로\n분야를 가리지 않고 필요한 제품을 직접 만듭니다.",
+    aboutDetailOne: "품질 엔지니어로 일하며 불량의 원인을 찾고 결과를 검증하는 습관이 몸에 뱄습니다. 그래서 AI가 만든 결과도 그대로 믿지 않고, 직접 실행해 확인합니다.",
+    aboutDetailTwo: "법률 문서 검토, 학습 서비스, 게임 에디터 도구처럼 분야가 달라도 같은 방식으로 문제를 정의하고 끝까지 완성합니다.",
     otherPortfolios: "다른 포트폴리오", gameAudioPortfolio: "게임 오디오 디자이너", aiVideoPortfolio: "AI 비디오 디자이너", aiTechBlog: "AI와 일하는 법을 정리한 블로그",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "처음부터 끝까지 Product를 만들며, 어떤 질문을 던지고 왜 그렇게 결정했는지를 기록했습니다.", caseStudyQuestionLabel: "첫 질문", caseStudyQuestion: "“문서 요약을 잘 만드는 것보다, 사용자가 실제로 판단할 수 있는 근거를 어떻게 남길까?”", caseStudyWhy: "긴 문서에서는 요약 하나만으로 위험·금액·기한이 묻힐 수 있다고 판단했습니다. 그래서 근거를 공유하는 여러 Agent 구조부터 설계했습니다.", caseProblemLabel: "Problem", caseProblem: "보험 약관·계약서·의료 문서를 누구나 이해하고 행동으로 옮길 수 있게 만드는 문제였습니다.", casePlanLabel: "Agent Plan", casePlan: "문서 intake → Intake Agent → 공유 근거 캐시 → Summary·Risk·Cost·Timeline Agent 병렬 분석 → 대시보드와 후속 질문으로 연결했습니다.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/Image parsing, JSON schema, Vercel을 연결했습니다.", caseProviderLabel: "Provider 선택", caseProvider: "6개 Agent를 병렬로 분석하는 구조에서는 모델의 지식만큼 응답 시간도 중요했습니다. Cerebras는 병렬 실행 흐름을 빠르게 검증하기 위한 provider로 선택했고, GPT-4.1과 같은 입력을 비교할 수 있도록 provider를 교체 가능한 구조로 설계했습니다.", caseFailureLabel: "Failure → Correction", caseFailure: "Vercel에서 PDF parsing이 실패했을 때 LLM 문제와 런타임 문제를 나눠 확인했고, 원인은 런타임이었습니다. DOMMatrix polyfill·dynamic import·worker preload를 추가하고, OCR은 이미지 업로드 경로로 범위를 조정했습니다.", caseHumanLabel: "Human Role", caseHuman: "문제의 범위, Agent 역할, 출력 schema, 공개 데모의 안전 기준을 정의하고 각 결과를 실행·검토했습니다.", caseResultLabel: "Result", caseResult: "문제 정의와 PRD부터 Agent 구조 설계, 구현, 배포 장애 대응, UX 개선, 검증까지 하나의 Product로 완성했습니다.",
     caseStudyHistoryTools: "Agentic history 보기 ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "AI가 게임 에디터를 직접 읽고 호출하도록 도구 계층을 만들었습니다.", agentToolsCaseQuestionLabel: "핵심 질문", agentToolsCaseQuestion: "“AI Agent를 사용해 Unreal과 Unity를 개발하는 데서 끝나지 않고, Editor 자체를 조작하게 만들 수 있을까?”", agentToolsCaseWhy: "Agent가 현재 상태를 읽고, 필요한 도구를 호출하고, 변경 결과를 검증해야 실제 작업으로 이어진다고 판단했습니다.", agentProblemLabel: "Problem", agentProblem: "AI Agent가 Editor 안에서 직접 행동하는 실행 계층이 필요했습니다.", agentHarnessLabel: "Agent Harness", agentHarness: "MCP HTTP·stdio와 Codex CLI·Claude CLI를 연결하고, OpenAI·Anthropic 호환 Provider를 선택할 수 있는 로컬 harness로 구성했습니다.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "Blueprint·UMG·Material·Niagara·Control Rig·Asset·Viewport를 조작하고, RAG와 Vision까지 연결했습니다.", unityToolsLabel: "Unity Tool Layer", unityTools: "Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을 Unity Editor용 MCP 도구로 노출했습니다.", agentSafetyLabel: "Safety", agentSafety: "Agent의 변경을 바로 실행하지 않도록 dryRun을 두고, 실행 전 결과와 변경 범위를 확인할 수 있게 했습니다.", agentVerifyLabel: "Failure → Correction", agentVerify: "MCP discovery 문제에서 tools/list를 직접 확인해 원인을 좁혔고, UnityMCP에서는 오디오 authoring과 beta packaging 흐름을 정리했습니다.", agentToolsResultLabel: "Result", agentToolsResult: "AI가 Unreal·Unity Editor를 읽고 조작하고 검증하는 Agentic System을 직접 만들었습니다.",
@@ -45,27 +45,27 @@ const locales = {
     pageTitle: "Jungmin Cha | AI Native Builder · Agentic Product Developer",
     pageDesc: "Jungmin Cha's portfolio. I define problems, design the tools and checks AI agents use, and ship products.",
     navBuilds: "Builds", navWorkflow: "How I build", navAbout: "About", navBlog: "Blog ↗", navGithub: "GitHub ↗",
-    heroEyebrow: "AI-NATIVE BUILDER / AGENTIC PRODUCT DEVELOPER", heroTitleOne: "I build the structure", heroTitleTwo: "AI works in.",
-    heroDesc: "I define the problem and set the tools and standards AI needs.\nThen I verify and ship it with Agentic Coding.",
-    heroCta: "See the builds ↓", heroContact: "Start a conversation ↗",
+    heroEyebrow: "AI-NATIVE BUILDER", heroTitleOne: "Built with AI.", heroTitleTwo: "Verified by me.",
+    heroDesc: "I define the problem and design the tools and rules AI agents work with.\nThen I run every result myself and ship products people actually use.",
+    heroCta: "See selected work ↓", heroContact: "Email me ↗",
     copyEmail: "Copy email", copiedEmail: "Copied ✓", contactSend: "Send an email", lightboxKicker: "PROJECT SCREENS",
     statement: "AI agents need <em>structure</em>.",
-    statementNote: "I define the problem, talk it through with AI, connect the tools it needs, and build the product.",
-    buildsTitle: "Selected builds", buildsSubtitle: "Open a card to see the first question and how it was checked.",
+    statementNote: "AI does its best work when the problem, the tools, and the bar for checking results are set. I design that frame first, then build the product with AI.",
+    buildsTitle: "Selected work", buildsSubtitle: "Select “See how it was made” to follow each build from its first question to verification.",
     filterAll: "All", filterProduct: "Products", filterTool: "Agent tools", filterGame: "Games",
-    lawgateDesc: "A workbench product that breaks down legal problems, reviews them from multiple angles, and checks official sources.",
-    cerebrasDesc: "A document intelligence product where multiple AI agents explain the key points, risks, costs, and deadlines in complex PDFs.",
+    lawgateDesc: "A legal review tool that splits documents into issues, has several AI agents review them, and rechecks the findings against official sources.",
+    cerebrasDesc: "Several AI agents split up a long, complex PDF and lay out its key points, risks, costs, and deadlines at a glance.",
     lawgateQuestion: "How do we block an answer when the evidence is not strong enough?",
     viewHistory: "See how it was made ↓",
     collaborationLabel: "Built with", projectQuestionLabel: "First question",
     caseStudyHistory: "View Agentic history ↘", caseDetailLabel: "AGENTIC CODING HISTORY", closeHistory: "Close",
     lawgateCaseTitle: "Agentic Coding history\nLawGate", lawgateCaseIntro: "With Codex, I built a legal document review workbench from the first prototype to a usable product by keeping the questions, constraints, and verification loops visible.", lawgateCaseQuestionLabel: "First question", lawgateCaseQuestion: "“Instead of making a better answer, how do we block an answer without enough evidence?”", lawgateCaseWhy: "For a legal product, sources and verification boundaries come first. The workbench checks evidence and leads to the next action.", lawgateProblemLabel: "Problem", lawgateProblem: "Find issues in PDF and HWP documents, block unsupported claims and overconfident legal advice, and still make the result understandable to a general user.", lawgateStartLabel: "Start small", lawgateStart: "I first used static HTML, CSS, JavaScript, and a Node server to validate the core evidence flow. Only after that did I add Codex CLI, RAG, Neo4j, legal-source APIs, and PDF processing.", lawgateFailureLabel: "Failure → Question", lawgateFailure: "I turned slow processing of 33 PDFs totaling about 921MB, Windows spawn EPERM, Codex rate limits, missing cache, slow judge workers, difficult language, and leaked internal paths into questions about their causes.", lawgatePlanLabel: "Agent Plan", lawgatePlan: "Question breakdown → PDF/HWP intake → local TF-IDF RAG → official legal-source search → plaintiff, defendant, and judge workers → citation checks and an evidence matrix.", lawgateContractLabel: "Agent contract", lawgateContract: "I separated role prompts, Korean civil-litigation practice, JSON Schema, evidence ledger, and proof gaps into a working environment and output contract for each Agent.", lawgateProductLabel: "Product loop", lawgateProduct: "PDF-hash cache, batch splitting, intermediate digests, incremental review, fast and precise modes, four-stage litigation workers, session storage, and separate public/attorney PDF exports closed the real workflow. The development record includes seven prompts and four schemas.", lawgateResultLabel: "Result", lawgateResult: "I defined the problem, designed the questions, constraints, and output contracts, then used each run to ask the next question and finish a legal document review product.",
-    rufDesc: "A dance academy website where staff update classes, instructors, consultations, and location themselves.",
+    rufDesc: "A dance academy website where staff update classes, instructors, consultations, and location without touching code.",
     rufCaseTitle: "Agentic Coding history\nRUF Web", rufCaseQuestionLabel: "Core question", rufCaseQuestion: "“How do we build a web product that operators can keep using without asking a developer for every change?”", rufCaseWhy: "RUF was not only a promotional page. It needed schedules, instructors, weekly classes, consultation, and location information to keep changing. So I started by asking how operators could update content themselves and users could reach the next action quickly.", rufProblemLabel: "Problem", rufProblem: "Bring the academy brand, class discovery, location information, and consultation conversion into one web experience.", rufBuildLabel: "Product build", rufBuild: "Using Next.js 15, React 19, and TypeScript, I built the brand UI, multilingual content, schedule, instructors, consultation, location, FAQ, SEO, and privacy-page structure from the ground up.", rufCmsLabel: "Question → CMS", rufCms: "I asked: “Should I build a custom admin page, or use Google Sheets as a CMS?” Operators needed to update schedules, weekly classes, videos, and instructors without editing code. At this scale, Sheets kept the operating system small, with no separate database, auth, or admin UI.", rufUxLabel: "Question → UX", rufUx: "Browser review exposed pushed-down hero messaging, awkward Korean line breaks, mobile horizontal scrolling, and a carousel that made browsing harder. I simplified the layout and interactions against actual usability.", rufReliabilityLabel: "Question → Reliability", rufReliability: "I asked: “What happens when external data is empty or the network fails?” The product shows static fallbacks when Sheets is unavailable, and uses saved coordinates only when geocoding the address fails.", rufOperationsLabel: "Question → Operations", rufOperations: "When the real schedule changed, I removed expired CTAs and event-only copy. PRE-OPEN became Open Event, and facility imagery, image loading, and mobile CTAs were rechecked against the live operation.", rufResultLabel: "Result", rufResult: "I connected planning, UI, multilingual content, SEO, maps, consultation conversion, operational data, responsive QA, and deployment. From the initial build in May through the end of July, 78 commits turned it into an operating web Product.",
-    loreDesc: "A tool that turns scattered notes and lore into game characters with AI voices.", loreCaseTitle: "Agentic Coding history\nOh My Cosmos", loreCaseQuestionLabel: "Core question", loreCaseQuestion: "“The value was not that AI wrote a lot of code; what value should AI create inside the product?”", loreCaseWhy: "I judged AI usage itself to be a common differentiator. So I connected characters, worlds, dialogue, and voice into a real production flow, using Guardian & Seeker as the first proof product.", loreProblemLabel: "Product value", loreProblem: "I defined Oh My Cosmos as an AI-native character and world-building pipeline, connecting Persona, Dialogue, Chat, TTS, and Visual Prompt in one flow.", loreEvidenceLabel: "Evidence surface", loreEvidence: "I built the Guardian & Seeker Production Kit API so characters, dialogue, TTS direction, visual prompts, and an Export Manifest could be checked externally.", loreImportLabel: "Document import", loreImport: "Users can upload PDF, DOCX, and images for OCR and AI analysis. Source evidence stays attached while characters, relationships, items, and quests are extracted, reviewed, and applied.", loreGeneralizeLabel: "Avoid overfitting", loreGeneralize: "I first validated a Studio by composing the existing World → Character → Dialogue → TTS → Export entities. The new Workflow DB waited until that Studio check.", loreCollabLabel: "Collaboration", loreCollab: "Before WebSocket, I defined owner/editor/viewer roles, D1 as the source of truth, version and expectedVersion, stale-write 409 Conflict, and a board event log, then added polling and Durable Object realtime step by step.", loreStackLabel: "Product stack", loreStack: "I expanded the surface to Cloudflare Pages, Workers, D1, R2, Durable Objects, Drizzle ORM, session auth, API permissions, character ZIPs, and engine-specific exports.", loreResultLabel: "Result", loreResult: "From the first February 2026 commit, I left a 317-commit improvement history and 23 test files with 128 passing tests. Repeated questions, constraints, and verification completed the AI character production product end to end.",
-    unrealDesc: "An AI agent that reads, controls, and verifies work inside Unreal Editor.",
-    unityDesc: "An AI development tool for moving Unity scenes and editor workflows through natural language.",
-    spartaDesc: "A product connecting learning, quests, and a growth loop through a game-like interface.", questCaseTitle: "Agentic Coding history\nQuest Tower", questCaseQuestionLabel: "Core question", questCaseQuestion: "“What should be designed so this becomes a product that repeats learning behavior, not just a learning management app?”", questCaseWhy: "The goal was to improve learning continuity in an Unreal bootcamp. The product needed a clear next action and reward loop.", questProblemLabel: "Problem", questProblem: "Bring student and tutor operations into one product and create a repeatable loop: complete a quest → earn XP → grow the tower.", questStartLabel: "Product build", questStart: "I set scope through requirements and deep interviews, then built UI, API, and DB vertical slices before connecting auth, quests, timers, leaderboards, C++ grading, and the economy system.", questUxLabel: "Question → UX", questUx: "Show Claim reward first when a reward is available, otherwise show Start learning. The success metric was fewer clicks to the next action.", questDataLabel: "Question → Data", questData: "The server reads hidden test cases while masking inputs and answers from students; a DB unique index blocks duplicate submissions. This balanced security with executable grading.", questReliabilityLabel: "Question → Reliability", questReliability: "Because XP and gold could be overwritten by stale read-modify-write, I moved the critical path to Postgres atomic RPC, row locks, ledger records, and rollback on failure.", questOperationsLabel: "Question → Operations", questOperations: "I kept the real-time experience while reducing usage with shared polling, caching, and visible-tab refresh. External grading errors became a retryable infrastructure state, separate from student code errors.", questResultLabel: "Result", questResult: "I completed the product from planning through DB, UI, external APIs, deployment, and operations, leaving a 235-commit improvement history. Repeated questions, constraints, and verification closed the learning product.",
+    loreDesc: "A production tool that gathers scattered notes and lore into game characters with dialogue and AI voices.", loreCaseTitle: "Agentic Coding history\nOh My Cosmos", loreCaseQuestionLabel: "Core question", loreCaseQuestion: "“The value was not that AI wrote a lot of code; what value should AI create inside the product?”", loreCaseWhy: "I judged AI usage itself to be a common differentiator. So I connected characters, worlds, dialogue, and voice into a real production flow, using Guardian & Seeker as the first proof product.", loreProblemLabel: "Product value", loreProblem: "I defined Oh My Cosmos as an AI-native character and world-building pipeline, connecting Persona, Dialogue, Chat, TTS, and Visual Prompt in one flow.", loreEvidenceLabel: "Evidence surface", loreEvidence: "I built the Guardian & Seeker Production Kit API so characters, dialogue, TTS direction, visual prompts, and an Export Manifest could be checked externally.", loreImportLabel: "Document import", loreImport: "Users can upload PDF, DOCX, and images for OCR and AI analysis. Source evidence stays attached while characters, relationships, items, and quests are extracted, reviewed, and applied.", loreGeneralizeLabel: "Avoid overfitting", loreGeneralize: "I first validated a Studio by composing the existing World → Character → Dialogue → TTS → Export entities. The new Workflow DB waited until that Studio check.", loreCollabLabel: "Collaboration", loreCollab: "Before WebSocket, I defined owner/editor/viewer roles, D1 as the source of truth, version and expectedVersion, stale-write 409 Conflict, and a board event log, then added polling and Durable Object realtime step by step.", loreStackLabel: "Product stack", loreStack: "I expanded the surface to Cloudflare Pages, Workers, D1, R2, Durable Objects, Drizzle ORM, session auth, API permissions, character ZIPs, and engine-specific exports.", loreResultLabel: "Result", loreResult: "From the first February 2026 commit, I left a 317-commit improvement history and 23 test files with 128 passing tests. Repeated questions, constraints, and verification completed the AI character production product end to end.",
+    unrealDesc: "A tool that lets an AI agent read Unreal Editor state, operate it directly, and check the result.",
+    unityDesc: "Ask in plain language and AI carries out Unity scene and editor work, showing what will change before it runs.",
+    spartaDesc: "A gamified learning service that turns study into quests, where every completed quest earns XP and grows your tower.", questCaseTitle: "Agentic Coding history\nQuest Tower", questCaseQuestionLabel: "Core question", questCaseQuestion: "“What should be designed so this becomes a product that repeats learning behavior, not just a learning management app?”", questCaseWhy: "The goal was to improve learning continuity in an Unreal bootcamp. The product needed a clear next action and reward loop.", questProblemLabel: "Problem", questProblem: "Bring student and tutor operations into one product and create a repeatable loop: complete a quest → earn XP → grow the tower.", questStartLabel: "Product build", questStart: "I set scope through requirements and deep interviews, then built UI, API, and DB vertical slices before connecting auth, quests, timers, leaderboards, C++ grading, and the economy system.", questUxLabel: "Question → UX", questUx: "Show Claim reward first when a reward is available, otherwise show Start learning. The success metric was fewer clicks to the next action.", questDataLabel: "Question → Data", questData: "The server reads hidden test cases while masking inputs and answers from students; a DB unique index blocks duplicate submissions. This balanced security with executable grading.", questReliabilityLabel: "Question → Reliability", questReliability: "Because XP and gold could be overwritten by stale read-modify-write, I moved the critical path to Postgres atomic RPC, row locks, ledger records, and rollback on failure.", questOperationsLabel: "Question → Operations", questOperations: "I kept the real-time experience while reducing usage with shared polling, caching, and visible-tab refresh. External grading errors became a retryable infrastructure state, separate from student code errors.", questResultLabel: "Result", questResult: "I completed the product from planning through DB, UI, external APIs, deployment, and operations, leaving a 235-commit improvement history. Repeated questions, constraints, and verification closed the learning product.",
     gameDesc: "Game audio and systems work that makes a world feel alive through sound.",
     openProject: "Open project ↗", viewGithub: "View on GitHub ↗", viewPortfolio: "Open portfolio ↗", viewScreens: "View screens ↗", emptyState: "Nothing in this category yet.",
     workflowTitle: "How I build with AI", workflowSubtitle: "Set the problem, connect the tools, and check the result.",
@@ -73,9 +73,9 @@ const locales = {
     workflowTwoTitle: "Give AI the right tools", workflowTwoDesc: "Connect the files and functions AI needs to do the work directly.",
     workflowThreeTitle: "Check and improve", workflowThreeDesc: "Run the result, find what is missing, and keep refining until it works.",
     aboutTitle: "About",
-    aboutLede: "I started as a Quality Engineer, moved into games and music, and now use AI agents to build whatever the work needs.",
-    aboutDetailOne: "For seven years I have found causes and checked results. I bring the same habit to AI: do not trust an output until it has been reviewed.",
-    aboutDetailTwo: "Document tools, workflows, other fields: I build them with AI myself.",
+    aboutLede: "After seven years as a quality engineer for consumer electronics, I made game sound and music. Now I work with AI agents to build whatever product the work needs.",
+    aboutDetailOne: "Hardware quality engineering taught me to trace defects to their root cause and verify results. I bring the same habit to AI: I do not trust an output until I have run it myself.",
+    aboutDetailTwo: "Legal document review, learning services, game editor tools: the field changes, but I define the problem and finish the product the same way.",
     otherPortfolios: "Other portfolios", gameAudioPortfolio: "Game Audio Designer", aiVideoPortfolio: "AI Video Designer", aiTechBlog: "Blog on working with AI",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "A record of the questions, decisions, and verification loops behind a product built from start to finish.", caseStudyQuestionLabel: "First question", caseStudyQuestion: "“How do we leave evidence people can actually use to make a decision, not just a good summary?”", caseStudyWhy: "In long documents, a single summary can hide risks, costs, and deadlines. I designed a shared-evidence multi-agent structure.", caseProblemLabel: "Problem", caseProblem: "Make insurance policies, contracts, and medical documents understandable and actionable for everyone.", casePlanLabel: "Agent Plan", casePlan: "Document intake → Intake Agent → shared evidence cache → parallel Summary, Risk, Cost, and Timeline Agents → dashboard and follow-up chat.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/image parsing, JSON schema, and Vercel.", caseProviderLabel: "Provider choice", caseProvider: "With six Agents running in parallel, response time mattered alongside model knowledge. I chose Cerebras to quickly validate the parallel execution flow, while keeping the provider swappable so the same input could be compared with GPT-4.1.", caseFailureLabel: "Failure → Correction", caseFailure: "When PDF parsing failed on Vercel, I separated the runtime issue from the LLM path. I added a DOMMatrix polyfill, dynamic import, and worker preload, then scoped OCR to image uploads for stability.", caseHumanLabel: "Human Role", caseHuman: "Define the problem scope, Agent roles, output schema, demo safety rules, and review every result by running it.", caseResultLabel: "Result", caseResult: "A product completed from problem definition and PRD through Agent architecture, implementation, deployment fixes, UX refinement, and verification.",
     caseStudyHistoryTools: "View Agentic history ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "I built the tool layer that lets AI read and call the game editor itself.", agentToolsCaseQuestionLabel: "Core question", agentToolsCaseQuestion: "“Could an AI Agent go beyond helping develop Unreal and Unity, and operate the Editor itself?”", agentToolsCaseWhy: "The Agent needs to read the current state, call the right tool, and verify the change before it becomes real work.", agentProblemLabel: "Problem", agentProblem: "I needed an execution layer where the AI Agent could act inside the Editor.", agentHarnessLabel: "Agent Harness", agentHarness: "I connected MCP over HTTP and stdio with Codex CLI and Claude CLI, plus OpenAI- and Anthropic-compatible providers in a local harness.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "I exposed Blueprint, UMG, Material, Niagara, Control Rig, Asset, and Viewport work, then connected RAG and Vision.", unityToolsLabel: "Unity Tool Layer", unityTools: "I exposed Scene, Asset, Material, Lighting, Audio, Character, and Animation work as Unity Editor MCP tools.", agentSafetyLabel: "Safety", agentSafety: "I added dryRun to change tools so the result and scope could be checked before an Agent executed the change.", agentVerifyLabel: "Failure → Correction", agentVerify: "I narrowed an MCP discovery issue by checking tools/list directly, then organized audio authoring and beta packaging flows in UnityMCP.", agentToolsResultLabel: "Result", agentToolsResult: "I built an Agentic System that reads, controls, and verifies work inside Unreal and Unity Editor.",
@@ -87,7 +87,7 @@ locales.ko.lawgateCaseWhy = "PDF·HWP 법률 문서와 증거 자료는 분량�
 locales.en.lawgateCaseWhy = "PDF and HWP legal documents contain a large amount of dense text and evidence, making it difficult for a person to find the right basis and decide. So the workbench checks evidence and leads to the next action.";
 locales.ko.lawgateResult = "문제를 정의하고 질문·제약·출력 계약을 설계한 뒤 실행 결과를 보고 다음 질문을 던지며 법률 문서 검토 제품을 완성했습니다.";
 locales.en.lawgateResult = "I defined the problem, designed the questions, constraints, and output contract, then used each result to ask the next question and complete the legal document review product.";
-locales.ko.loreDesc = "흩어진 설정과 세계관을 모아 AI 보이스가 있는 게임 캐릭터로 만드는 도구.";
+locales.ko.loreDesc = "흩어진 설정과 세계관 메모를 모아, 대사와 AI 음성을 갖춘 게임 캐릭터로 만드는 제작 도구.";
 locales.ko.loreCaseQuestion = "“흩어진 세계관과 캐릭터 아이디어를 AI가 실제 게임 제작 자산으로 연결하려면 어떻게 해야 할까?”";
 locales.ko.loreCaseWhy = "게임을 만드는 인디 팀에서 Discord·Notion·회의 중 나온 설정과 대사가 흩어지고, 캐릭터 설정이 정리되지 않으면 기획과 게임 사운드가 함께 멈추는 문제를 겪었습니다. 그래서 이 문제를 협업 캔버스와 AI 제작 파이프라인으로 만들고, Guardian & Seeker에 직접 적용해 검증하는 방향을 잡았습니다.";
 locales.ko.loreProblemLabel = "Problem";
@@ -104,7 +104,7 @@ locales.ko.loreStackLabel = "Product pipeline";
 locales.ko.loreStack = "Cloudflare 기반 서비스에 캐릭터·세계관·대사·TTS·엔진 Export를 연결하고, ElevenLabs·Naver CLOVA Voice처럼 라이선스 가능한 음성 API를 고려해 저작권 위험을 줄이는 흐름으로 설계했습니다.";
 locales.ko.loreResultLabel = "Result";
 locales.ko.loreResult = "흩어진 아이디어를 회의에서 제작 자산으로 이어주는 AI 협업 회의실·캐릭터 세계관 제작 플랫폼으로 정의했습니다. Guardian & Seeker에 직접 적용해 제작 속도와 세계관 완성도를 검증하는 제품으로 발전시키고 있습니다.";
-locales.en.loreDesc = "A tool that turns scattered notes and lore into game characters with AI voices.";
+locales.en.loreDesc = "A production tool that gathers scattered notes and lore into game characters with dialogue and AI voices.";
 locales.en.loreCaseQuestion = "“How can AI turn scattered world and character ideas into real game-production assets?”";
 locales.en.loreCaseWhy = "In the indie team building a 4v1 asymmetric PvP game, settings and dialogue from Discord, Notion, and meetings kept getting scattered. When character settings were not organized, both planning and game audio stalled. I turned that firsthand bottleneck into a collaborative canvas and AI production pipeline, then applied it directly to Guardian & Seeker for validation.";
 locales.en.loreProblemLabel = "Problem";
@@ -450,12 +450,14 @@ locales.ko.unityProblem = "자연어로 명령한 Scene·Asset·Material·Lighti
 locales.ko.unityMcp = "Unity Editor의 상태를 파악하고 AI가 작업할 수 있도록 MCP 도구로 만들었습니다. Agent가 씬을 읽고 필요한 명령을 고를 수 있습니다.";
 locales.ko.questProblemLabel = "문제";
 
-locales.ko.graphTitle = "작업에 쓴 도구";
-locales.ko.graphAria = "작업에 쓴 도구와 프로젝트. 프로젝트를 누르면 해당 카드로 갑니다.";
+locales.ko.graphTitle = "작업별로 쓴 AI 도구";
+locales.ko.graphToolsLabel = "AI 도구";
+locales.ko.graphBuildsLabel = "만든 것";
+locales.ko.graphHintHover = "도구를 가리키면 연결된 작업이 강조되고, ";
+locales.ko.graphHintTap = "작업을 누르면 해당 카드로 이동합니다.";
 locales.ko.graphJumpSuffix = ", 카드로 이동";
 locales.ko.toolCodex = "Codex";
 locales.ko.toolClaude = "Claude";
-locales.ko.toolGemini = "Gemini";
 locales.ko.toolMcp = "MCP";
 locales.ko.toolRag = "RAG";
 locales.ko.graphLabelLawgate = "LAW GATE";
@@ -472,12 +474,21 @@ locales.ko.graphLabelUnreal = "UNREAL AGENT";
 locales.ko.graphLabelUnrealShort = "UNREAL";
 locales.ko.graphLabelUnity = "UNITY MCP";
 locales.ko.graphLabelUnityShort = "UNITY";
-locales.en.graphTitle = "Tools I used";
-locales.en.graphAria = "Tools I used and my projects. Select a project to go to its card.";
+locales.ko.graphSubLawgate = "법률 문서 검토";
+locales.ko.graphSubCerebras = "PDF 문서 분석";
+locales.ko.graphSubRuf = "학원 운영 웹사이트";
+locales.ko.graphSubCosmos = "게임 캐릭터 제작";
+locales.ko.graphSubQuest = "게임형 학습 서비스";
+locales.ko.graphSubUnreal = "언리얼 에디터 에이전트";
+locales.ko.graphSubUnity = "유니티 에디터 MCP";
+locales.en.graphTitle = "AI tools used in each build";
+locales.en.graphToolsLabel = "AI tools";
+locales.en.graphBuildsLabel = "Builds";
+locales.en.graphHintHover = "Point at a tool to highlight the builds that use it. ";
+locales.en.graphHintTap = "Select a build to jump to its card.";
 locales.en.graphJumpSuffix = ", jump to card";
 locales.en.toolCodex = "Codex";
 locales.en.toolClaude = "Claude";
-locales.en.toolGemini = "Gemini";
 locales.en.toolMcp = "MCP";
 locales.en.toolRag = "RAG";
 locales.en.graphLabelLawgate = "LAW GATE";
@@ -494,6 +505,13 @@ locales.en.graphLabelUnreal = "UNREAL AGENT";
 locales.en.graphLabelUnrealShort = "UNREAL";
 locales.en.graphLabelUnity = "UNITY MCP";
 locales.en.graphLabelUnityShort = "UNITY";
+locales.en.graphSubLawgate = "Legal document review";
+locales.en.graphSubCerebras = "PDF document analysis";
+locales.en.graphSubRuf = "Academy website";
+locales.en.graphSubCosmos = "Game character studio";
+locales.en.graphSubQuest = "Gamified learning";
+locales.en.graphSubUnreal = "Unreal Editor agent";
+locales.en.graphSubUnity = "Unity Editor MCP";
 
 const LANG_KEY = "jungmin-builder-language";
 const THEME_KEY = "jungmin-builder-theme-v2";
@@ -922,7 +940,7 @@ printPortfolioButton?.addEventListener("click", () => window.print());
 
 // Lines only where that build's write-up names the tool.
 // LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP.
-// Gemini is named in the workflow stack and has no build line.
+// Gemini appears only in the workflow stack: with no build line it read as a broken node.
 const HERO_GRAPH_EDGES = [
   ["codex", "lawgate"],
   ["rag", "lawgate"],
@@ -1001,12 +1019,20 @@ function initHeroGraph() {
     return Math.round(value / step) * step;
   }
 
+  function readSize(node) {
+    node.w = node.el.getBoundingClientRect().width;
+    node.h = node.el.offsetHeight;
+  }
+
+  // One width per column keeps every edge endpoint on a straight vertical line.
   function measure() {
-    nodes.forEach((node) => {
-      const rect = node.el.getBoundingClientRect();
-      node.w = rect.width;
-      node.h = node.el.offsetHeight;
+    nodes.forEach((node) => { node.el.style.width = ""; });
+    nodes.forEach(readSize);
+    [tools, projects].forEach((list) => {
+      const width = Math.ceil(list.reduce((max, node) => Math.max(max, node.w), 0));
+      list.forEach((node) => { node.el.style.width = `${width}px`; });
     });
+    nodes.forEach(readSize);
   }
 
   function columnsFit(width) {
@@ -1069,6 +1095,7 @@ function initHeroGraph() {
     stageWidth = width;
     stageHeight = height;
     root.style.setProperty("--graph-h", `${height}px`);
+    root.style.setProperty("--graph-builds-x", `${Math.max(0, width - (projects[0]?.w || 0))}px`);
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     place(tools, height, () => pad);
     place(projects, height, (node) => width - node.w);

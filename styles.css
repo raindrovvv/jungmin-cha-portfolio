@@ -180,12 +180,15 @@ section { scroll-margin-top: calc(var(--header-h) + 24px); }
 .hero-copy h1 { max-width: 680px; margin-top: var(--space-5); font-family: var(--font-display); font-size: var(--type-display); font-weight: 700; letter-spacing: -.065em; line-height: 1.04; }
 .hero-title-line { display: block; white-space: nowrap; }
 .hero-copy h1 em { color: var(--color-accent); font-style: normal; }
-.hero-desc { max-width: 560px; margin-top: var(--space-5); color: var(--color-body); font-size: clamp(.98rem, 1vw, 1.1rem); line-height: 1.62; letter-spacing: -.025em; }
+.hero-desc { max-width: 36em; margin-top: var(--space-5); color: var(--color-body); font-size: clamp(.98rem, 1vw, 1.08rem); line-height: 1.7; letter-spacing: -.02em; text-wrap: pretty; }
 .hero-cta-group { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 .hero-graph,
 body.light .hero-graph { min-width: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 0; }
-.hero-graph-title { margin: 0; color: var(--color-muted); font-family: var(--font-text); font-size: var(--type-label); font-weight: 500; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; }
-.hero-graph-stage { position: relative; margin-top: var(--space-3); touch-action: pan-y; }
+.hero-graph-head { position: relative; display: flex; justify-content: space-between; padding-inline: 8px 0; color: var(--color-muted); font-family: var(--font-text); font-size: var(--type-label); font-weight: 600; letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; }
+.hero-graph.is-ready .hero-graph-head span:last-child { position: absolute; top: 0; left: var(--graph-builds-x, auto); }
+.hero-graph-stage { position: relative; margin-top: var(--space-2); touch-action: pan-y; }
+.hero-graph-hint { margin-top: var(--space-3); padding-left: 8px; color: var(--color-muted); font-size: .8rem; line-height: 1.5; }
+@media (hover: none) { .hero-graph-hint-hover { display: none; } }
 .hero-graph.is-ready .hero-graph-stage { height: var(--graph-h, 420px); }
 .hero-graph-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .hero-graph-edge { fill: none; stroke: var(--color-hairline-strong); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 1; transition: stroke var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
@@ -196,11 +199,13 @@ body.light .hero-graph { min-width: 0; border: 0; border-radius: 0; background: 
 .hero-graph.is-ready .hero-graph-nodes { position: absolute; inset: 0; display: block; }
 .graph-node { display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; background: transparent; color: var(--color-body); font-family: var(--font-ui); font-size: var(--type-label); font-weight: 500; letter-spacing: .06em; line-height: 1.2; text-align: center; user-select: none; touch-action: pan-y; white-space: nowrap; opacity: 1; transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
 .hero-graph.is-ready:not(.is-static) .graph-node { will-change: transform; }
-.graph-node-tool { order: -1; gap: 7px; min-height: 32px; padding: 4px 2px 4px 0; border: 0; border-radius: 0; background: transparent; color: var(--color-muted); font-size: .78rem; letter-spacing: .08em; cursor: grab; }
-.graph-node-tool::before { content: ""; width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: currentColor; opacity: .7; }
-.graph-node-project { flex: 1 1 100%; min-height: 44px; justify-content: flex-start; padding: 10px 14px; border: 1px solid color-mix(in srgb, var(--color-hairline-strong) 62%, transparent); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-ink) 3.5%, transparent); color: var(--color-ink); font-family: var(--font-display); font-size: .92rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; text-align: left; white-space: normal; cursor: pointer; }
+.graph-node-tool { order: -1; justify-content: flex-start; gap: 8px; min-height: 34px; padding: 6px 14px 6px 12px; border: 1px solid var(--color-hairline-strong); border-radius: var(--radius-pill); background: var(--color-surface); box-shadow: var(--shadow-1); color: var(--color-body); font-size: .8rem; font-weight: 600; letter-spacing: .04em; cursor: grab; }
+.graph-node-tool::before { content: ""; width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: var(--color-accent); opacity: .55; }
+.graph-node-project { flex: 1 1 100%; min-height: 44px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; padding: 9px 16px; border: 1px solid color-mix(in srgb, var(--color-hairline-strong) 62%, transparent); border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-surface) 82%, transparent); box-shadow: var(--shadow-1); color: var(--color-ink); font-family: var(--font-display); font-size: .9rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.2; text-align: left; white-space: normal; cursor: pointer; }
+.graph-node-sub { color: var(--color-muted); font-family: var(--font-text); font-size: .74rem; font-weight: 500; letter-spacing: -.01em; transition: color var(--duration-fast) var(--ease-out); }
 .graph-label-full { min-width: 0; white-space: normal; }
 .graph-label-short { display: none; white-space: nowrap; }
+.hero-graph.is-narrow .graph-node-sub { display: none; }
 .hero-graph.is-ready .graph-node { position: absolute; top: 0; left: 0; width: max-content; max-width: 240px; }
 .hero-graph.is-ready .graph-node-project { min-width: 0; }
 .hero-graph.is-ready .graph-node-tool { max-width: none; }
@@ -210,8 +215,9 @@ body.light .hero-graph { min-width: 0; border: 0; border-radius: 0; background: 
 .hero-graph.is-hot .graph-node { opacity: .3; }
 .hero-graph.is-hot .graph-node.is-lit,
 .graph-node.is-lit { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-accent); opacity: 1; }
+.graph-node.is-lit .graph-node-sub { color: color-mix(in srgb, var(--color-accent) 72%, var(--color-muted)); }
 .hero-graph.is-hot .graph-node-tool.is-lit,
-.graph-node-tool.is-lit { border-color: transparent; background: transparent; color: var(--color-accent); }
+.graph-node-tool.is-lit { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-accent); }
 .graph-node-tool.is-lit::before { opacity: 1; }
 .hero-graph.is-static .graph-node-tool { cursor: default; }
 .hero-graph.is-dragging .graph-node { cursor: grabbing; }
@@ -219,6 +225,7 @@ body.light .hero-graph { min-width: 0; border: 0; border-radius: 0; background: 
 .hero-graph { width: 100%; max-width: 100%; justify-self: stretch; }
 @media (hover: hover) and (pointer: fine) {
   .graph-node-project:hover { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-accent); }
+  .graph-node-project:hover .graph-node-sub { color: color-mix(in srgb, var(--color-accent) 72%, var(--color-muted)); }
 }
 
 /* Statement */
