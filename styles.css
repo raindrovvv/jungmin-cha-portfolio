@@ -260,6 +260,7 @@ img.engine-logo-unity { width: 104px !important; height: 104px !important; }
 .project-decision b { color: var(--text-soft); font-size: .8rem; font-weight: 500; line-height: 1.5; overflow-wrap: keep-all; word-break: keep-all; text-wrap: pretty; }
 .project-link { display: inline-flex; margin-top: auto; padding-top: 21px; color: var(--lime); font-family: "Paperlogy", sans-serif; font-size: .74rem; }
 .project-link:hover { color: var(--text); }
+.project-link[hidden] { display: none; }
 .empty-state { padding: 50px; border: 1px dashed var(--line-strong); color: var(--muted); text-align: center; }
 .project-link-secondary { margin-left: 16px; color: var(--text-soft); }
 .project-link-secondary:hover { color: var(--lime); }
