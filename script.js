@@ -450,6 +450,53 @@ locales.ko.unityProblem = "자연어로 명령한 Scene·Asset·Material·Lighti
 locales.ko.unityMcp = "Unity Editor의 상태를 파악하고 AI가 작업할 수 있도록 MCP 도구로 만들었습니다. Agent가 씬을 읽고 필요한 명령을 고를 수 있게 한 것입니다.";
 locales.ko.questProblemLabel = "문제";
 
+locales.ko.graphTitle = "도구와 제품";
+locales.ko.graphNote = "선은 그 작업 기록에 도구 이름이 있을 때만 잇습니다.";
+locales.ko.graphAria = "도구와 제품. 제품 이름을 누르면 해당 카드로 이동합니다.";
+locales.ko.graphJumpSuffix = ", 카드로 이동";
+locales.ko.toolCodex = "Codex";
+locales.ko.toolClaude = "Claude";
+locales.ko.toolGemini = "Gemini";
+locales.ko.toolMcp = "MCP";
+locales.ko.toolRag = "RAG";
+locales.ko.graphLabelLawgate = "LAW GATE";
+locales.ko.graphLabelLawgateShort = "LAW GATE";
+locales.ko.graphLabelCerebras = "CEREBRAS DOCLENS";
+locales.ko.graphLabelCerebrasShort = "DOCLENS";
+locales.ko.graphLabelRuf = "RUF DANCE ACADEMY WEB";
+locales.ko.graphLabelRufShort = "RUF WEB";
+locales.ko.graphLabelCosmos = "OH MY COSMOS";
+locales.ko.graphLabelCosmosShort = "COSMOS";
+locales.ko.graphLabelQuest = "QUEST TOWER";
+locales.ko.graphLabelQuestShort = "QUEST";
+locales.ko.graphLabelUnreal = "UNREAL AGENT";
+locales.ko.graphLabelUnrealShort = "UNREAL";
+locales.ko.graphLabelUnity = "UNITY MCP";
+locales.ko.graphLabelUnityShort = "UNITY";
+locales.en.graphTitle = "Tools and builds";
+locales.en.graphNote = "A line means that build's write-up names the tool.";
+locales.en.graphAria = "Tools and builds. Activate a build name to jump to its card.";
+locales.en.graphJumpSuffix = ", jump to card";
+locales.en.toolCodex = "Codex";
+locales.en.toolClaude = "Claude";
+locales.en.toolGemini = "Gemini";
+locales.en.toolMcp = "MCP";
+locales.en.toolRag = "RAG";
+locales.en.graphLabelLawgate = "LAW GATE";
+locales.en.graphLabelLawgateShort = "LAW GATE";
+locales.en.graphLabelCerebras = "CEREBRAS DOCLENS";
+locales.en.graphLabelCerebrasShort = "DOCLENS";
+locales.en.graphLabelRuf = "RUF DANCE ACADEMY WEB";
+locales.en.graphLabelRufShort = "RUF WEB";
+locales.en.graphLabelCosmos = "OH MY COSMOS";
+locales.en.graphLabelCosmosShort = "COSMOS";
+locales.en.graphLabelQuest = "QUEST TOWER";
+locales.en.graphLabelQuestShort = "QUEST";
+locales.en.graphLabelUnreal = "UNREAL AGENT";
+locales.en.graphLabelUnrealShort = "UNREAL";
+locales.en.graphLabelUnity = "UNITY MCP";
+locales.en.graphLabelUnityShort = "UNITY";
+
 const LANG_KEY = "jungmin-builder-language";
 const THEME_KEY = "jungmin-builder-theme-v2";
 const currentLang = localStorage.getItem(LANG_KEY) === "en" ? "en" : "ko";
@@ -466,6 +513,11 @@ function applyLanguage(lang) {
     const value = copy[element.dataset.i18n];
     if (value === undefined) return;
     element.innerHTML = value.replace(/\n/g, "<br />");
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const value = copy[element.dataset.i18nAria];
+    if (value === undefined) return;
+    element.setAttribute("aria-label", value);
   });
   const label = document.getElementById("langLabel");
   if (label) label.textContent = lang === "ko" ? "EN" : "KO";
@@ -810,6 +862,435 @@ window.addEventListener("afterprint", () => {
 });
 printPortfolioButton?.addEventListener("click", () => window.print());
 
+// Lines only where that build's write-up names the tool.
+// LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP.
+// Gemini is named in the workflow stack and has no build line.
+const HERO_GRAPH_EDGES = [
+  ["codex", "lawgate"],
+  ["rag", "lawgate"],
+  ["codex", "unreal"],
+  ["claude", "unreal"],
+  ["mcp", "unreal"],
+  ["rag", "unreal"],
+  ["mcp", "unity"]
+];
+
+function initHeroGraph() {
+  const root = document.getElementById("heroGraph");
+  const stage = root?.querySelector(".hero-graph-stage");
+  const svg = stage?.querySelector(".hero-graph-svg");
+  if (!root || !stage || !svg) return;
+
+  const nodes = [...stage.querySelectorAll("[data-node]")].map((el) => ({
+    id: el.dataset.node,
+    kind: el.classList.contains("graph-node-project") ? "project" : "tool",
+    el,
+    x: 0,
+    y: 0,
+    homeX: 0,
+    homeY: 0,
+    w: 0,
+    h: 0,
+    vx: 0,
+    vy: 0,
+    dragX: 0,
+    dragY: 0,
+    dragging: false,
+    placed: false
+  }));
+  const byId = new Map(nodes.map((node) => [node.id, node]));
+  const tools = nodes.filter((node) => node.kind === "tool");
+  const projects = nodes.filter((node) => node.kind === "project");
+  const svgNS = "http://www.w3.org/2000/svg";
+  const edges = HERO_GRAPH_EDGES.flatMap(([from, to]) => {
+    if (!byId.has(from) || !byId.has(to)) return [];
+    const path = document.createElementNS(svgNS, "path");
+    path.setAttribute("class", "hero-graph-edge");
+    path.dataset.from = from;
+    path.dataset.to = to;
+    svg.appendChild(path);
+    return [{ from, to, path }];
+  });
+
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let reduced = motionQuery.matches;
+  let stageWidth = 0;
+  let stageHeight = 0;
+  let narrow = false;
+  let layoutKey = "";
+  let hoverId = null;
+  let focusId = null;
+  let drag = null;
+  let suppressClick = false;
+  let pointer = { x: 0, y: 0, inside: false };
+  let onScreen = true;
+  let pageVisible = document.visibilityState !== "hidden";
+  let loopOn = false;
+  let raf = 0;
+  let lastFrame = 0;
+  let observedWidth = 0;
+
+  function maxDpr() {
+    return narrow ? 1 : 1.5;
+  }
+
+  function snap(value) {
+    const step = 1 / maxDpr();
+    return Math.round(value / step) * step;
+  }
+
+  function measure() {
+    nodes.forEach((node) => {
+      node.w = node.el.offsetWidth;
+      node.h = node.el.offsetHeight;
+    });
+  }
+
+  function columnsFit(width) {
+    const pad = 8;
+    const gutter = 48;
+    const toolW = tools.reduce((max, node) => Math.max(max, node.w), 0);
+    const projectW = projects.reduce((max, node) => Math.max(max, node.w), 0);
+    return toolW + projectW + gutter + pad * 2 <= width;
+  }
+
+  function place(list, height, xFor) {
+    const pad = 8;
+    const minGap = 8;
+    const content = list.reduce((sum, node) => sum + node.h, 0);
+    const gaps = Math.max(list.length - 1, 0);
+    const free = Math.max(0, height - pad * 2 - content);
+    const gap = gaps ? Math.max(minGap, free / gaps) : 0;
+    const block = content + gap * gaps;
+    let y = Math.max(pad, (height - block) / 2);
+    list.forEach((node) => {
+      node.homeX = xFor(node);
+      node.homeY = y;
+      y += node.h + gap;
+    });
+  }
+
+  function layout() {
+    const width = Math.round(stage.clientWidth);
+    if (!width) return;
+    observedWidth = width;
+    narrow = width < 380;
+    root.classList.toggle("is-narrow", narrow);
+    root.classList.toggle("is-static", reduced);
+    root.classList.add("is-ready");
+    measure();
+    if (!narrow && !columnsFit(width)) {
+      narrow = true;
+      root.classList.add("is-narrow");
+      measure();
+    }
+    const pad = 8;
+    const minGap = 8;
+    const block = (list) => list.reduce((sum, node) => sum + node.h, 0) + minGap * Math.max(list.length - 1, 0);
+    const height = Math.round(Math.max(block(tools), block(projects), 280) + pad * 2);
+    const key = `${width}|${height}|${narrow ? 1 : 0}|${reduced ? 1 : 0}|${nodes.map((node) => `${node.w}x${node.h}`).join(",")}`;
+    if (key === layoutKey) return;
+    layoutKey = key;
+    stageWidth = width;
+    stageHeight = height;
+    root.style.setProperty("--graph-h", `${height}px`);
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    place(tools, height, () => pad);
+    place(projects, height, (node) => Math.max(pad, width - pad - node.w));
+    nodes.forEach((node) => {
+      if (reduced || !node.placed) {
+        node.x = node.homeX;
+        node.y = node.homeY;
+        node.vx = 0;
+        node.vy = 0;
+      }
+      node.placed = true;
+    });
+    paint();
+    if (!reduced && nodes.some((node) => Math.abs(node.x - node.homeX) > 0.5 || Math.abs(node.y - node.homeY) > 0.5)) wake();
+  }
+
+  function edgePath(edge) {
+    const from = byId.get(edge.from);
+    const to = byId.get(edge.to);
+    const x1 = snap(from.x + from.w);
+    const y1 = snap(from.y + from.h / 2);
+    const x2 = snap(to.x);
+    const y2 = snap(to.y + to.h / 2);
+    if (narrow) return `M ${x1} ${y1} L ${x2} ${y2}`;
+    const bend = snap((x1 + x2) / 2);
+    return `M ${x1} ${y1} C ${bend} ${y1}, ${bend} ${y2}, ${x2} ${y2}`;
+  }
+
+  function paint() {
+    nodes.forEach((node) => {
+      node.el.style.transform = `translate3d(${snap(node.x)}px, ${snap(node.y)}px, 0)`;
+    });
+    edges.forEach((edge) => edge.path.setAttribute("d", edgePath(edge)));
+  }
+
+  function highlight(id) {
+    const lit = new Set();
+    if (id) lit.add(id);
+    edges.forEach((edge) => {
+      const on = Boolean(id) && (edge.from === id || edge.to === id);
+      edge.path.classList.toggle("is-lit", on);
+      if (on) {
+        lit.add(edge.from);
+        lit.add(edge.to);
+      }
+    });
+    nodes.forEach((node) => node.el.classList.toggle("is-lit", lit.has(node.id)));
+    root.classList.toggle("is-hot", Boolean(id));
+  }
+
+  function shownId() {
+    return focusId || hoverId;
+  }
+
+  function canHover() {
+    return finePointerQuery.matches;
+  }
+
+  function stopLoop() {
+    loopOn = false;
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+  }
+
+  function wake() {
+    if (reduced || !onScreen || !pageVisible || loopOn) return;
+    loopOn = true;
+    lastFrame = 0;
+    raf = requestAnimationFrame(tick);
+  }
+
+  function tick(now) {
+    if (!loopOn) return;
+    const gap = narrow ? 32 : 16;
+    if (lastFrame && now - lastFrame < gap) {
+      raf = requestAnimationFrame(tick);
+      return;
+    }
+    lastFrame = now;
+    const nudging = !narrow && pointer.inside && canHover();
+    let moving = false;
+    nodes.forEach((node) => {
+      let targetX = node.homeX;
+      let targetY = node.homeY;
+      if (nudging && !node.dragging) {
+        const dx = node.x + node.w / 2 - pointer.x;
+        const dy = node.y + node.h / 2 - pointer.y;
+        const dist = Math.hypot(dx, dy);
+        const radius = 112;
+        if (dist > 0 && dist < radius) {
+          const push = (1 - dist / radius) * 8;
+          targetX += (dx / dist) * push;
+          targetY += (dy / dist) * push;
+        }
+      }
+      if (node.dragging) {
+        node.x = node.dragX;
+        node.y = node.dragY;
+        node.vx = 0;
+        node.vy = 0;
+        moving = true;
+        return;
+      }
+      node.vx = (node.vx + (targetX - node.x) * 0.22) * 0.64;
+      node.vy = (node.vy + (targetY - node.y) * 0.22) * 0.64;
+      node.x += node.vx;
+      node.y += node.vy;
+      if (Math.abs(node.vx) > 0.05 || Math.abs(node.vy) > 0.05 || Math.abs(targetX - node.x) > 0.4 || Math.abs(targetY - node.y) > 0.4) {
+        moving = true;
+      } else {
+        node.x = targetX;
+        node.y = targetY;
+        node.vx = 0;
+        node.vy = 0;
+      }
+    });
+    paint();
+    if (moving) {
+      raf = requestAnimationFrame(tick);
+      return;
+    }
+    stopLoop();
+  }
+
+  function endDrag() {
+    if (!drag) return;
+    drag.node.dragging = false;
+    drag = null;
+    root.classList.remove("is-dragging");
+    wake();
+  }
+
+  function clampDrag(node, x, y) {
+    node.dragX = Math.min(Math.max(0, x), Math.max(0, stageWidth - node.w));
+    node.dragY = Math.min(Math.max(0, y), Math.max(0, stageHeight - node.h));
+  }
+
+  stage.addEventListener("pointerdown", (event) => {
+    suppressClick = false;
+    const el = event.target.closest?.("[data-node]");
+    if (!el || reduced || event.button > 0) return;
+    const node = byId.get(el.dataset.node);
+    if (!node) return;
+    drag = {
+      node,
+      id: event.pointerId,
+      sx: event.clientX,
+      sy: event.clientY,
+      ox: node.x,
+      oy: node.y,
+      type: event.pointerType,
+      active: false
+    };
+  });
+
+  stage.addEventListener("pointermove", (event) => {
+    const rect = stage.getBoundingClientRect();
+    pointer.x = event.clientX - rect.left;
+    pointer.y = event.clientY - rect.top;
+    pointer.inside = true;
+    if (drag && drag.id === event.pointerId && !reduced) {
+      const dx = event.clientX - drag.sx;
+      const dy = event.clientY - drag.sy;
+      if (!drag.active) {
+        if (Math.hypot(dx, dy) < 6) {
+          if (!narrow && canHover()) wake();
+          return;
+        }
+        if (drag.type === "touch" && Math.abs(dy) >= Math.abs(dx)) return;
+        drag.active = true;
+        drag.node.dragging = true;
+        root.classList.add("is-dragging");
+        drag.node.el.setPointerCapture?.(event.pointerId);
+      }
+      clampDrag(drag.node, drag.ox + dx, drag.oy + dy);
+      wake();
+      return;
+    }
+    if (!reduced && !narrow && canHover()) wake();
+  });
+
+  function finishPointer(event) {
+    if (!drag || drag.id !== event.pointerId) return;
+    const dist = Math.hypot(event.clientX - drag.sx, event.clientY - drag.sy);
+    const dragged = drag.active;
+    endDrag();
+    suppressClick = dragged || dist > 6;
+  }
+
+  stage.addEventListener("pointerup", finishPointer);
+  stage.addEventListener("pointercancel", (event) => {
+    if (!drag || drag.id !== event.pointerId) return;
+    endDrag();
+    suppressClick = true;
+  });
+  stage.addEventListener("pointerleave", () => {
+    pointer.inside = false;
+    hoverId = null;
+    highlight(shownId());
+    wake();
+  });
+  stage.addEventListener("pointerover", (event) => {
+    if (!canHover()) return;
+    const el = event.target.closest?.("[data-node]");
+    hoverId = el ? el.dataset.node : null;
+    highlight(shownId());
+  });
+  stage.addEventListener("pointerout", (event) => {
+    if (!canHover()) return;
+    const next = event.relatedTarget;
+    if (next && stage.contains(next)) {
+      const el = next.closest?.("[data-node]");
+      hoverId = el ? el.dataset.node : null;
+    } else {
+      hoverId = null;
+    }
+    highlight(shownId());
+  });
+  stage.addEventListener("focusin", (event) => {
+    const el = event.target.closest?.("[data-node]");
+    focusId = el ? el.dataset.node : null;
+    highlight(shownId());
+  });
+  stage.addEventListener("focusout", (event) => {
+    if (stage.contains(event.relatedTarget)) return;
+    focusId = null;
+    highlight(shownId());
+  });
+  stage.addEventListener("click", (event) => {
+    if (!suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressClick = false;
+  }, true);
+
+  const onMotionChange = () => {
+    reduced = motionQuery.matches;
+    if (reduced) {
+      endDrag();
+      stopLoop();
+    }
+    layoutKey = "";
+    layout();
+  };
+  if (typeof motionQuery.addEventListener === "function") motionQuery.addEventListener("change", onMotionChange);
+
+  if ("IntersectionObserver" in window) {
+    const visibility = new IntersectionObserver((entries) => {
+      onScreen = entries.some((entry) => entry.isIntersecting);
+      if (onScreen) wake();
+      else {
+        endDrag();
+        stopLoop();
+      }
+    });
+    visibility.observe(stage);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    pageVisible = document.visibilityState !== "hidden";
+    if (pageVisible) wake();
+    else {
+      endDrag();
+      stopLoop();
+    }
+  });
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      const width = Math.round(stage.clientWidth);
+      if (!width || width === observedWidth) return;
+      layout();
+    });
+    resizeObserver.observe(root);
+  } else {
+    window.addEventListener("resize", () => {
+      layoutKey = "";
+      layout();
+    });
+  }
+
+  document.getElementById("langToggle")?.addEventListener("click", () => {
+    layoutKey = "";
+    requestAnimationFrame(layout);
+  });
+
+  nodes.forEach((node) => node.el.setAttribute("draggable", "false"));
+  layout();
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(() => {
+      layoutKey = "";
+      layout();
+    }).catch(() => {});
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme(activeTheme);
   initProjectQuestions();
@@ -829,5 +1310,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initHistoryPanels();
   initMobileMenu();
   initContactCopy();
+  initHeroGraph();
   initReveal();
 });

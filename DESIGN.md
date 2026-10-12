@@ -30,7 +30,7 @@ Names are roles. The accent is lime on dark surfaces and deep teal on light surf
 | Token | Value | Role |
 | --- | --- | --- |
 | `--color-canvas` | `#101215` | Page background |
-| `--color-surface` | `#17191d` | Cards, hero panel, dialogs |
+| `--color-surface` | `#17191d` | Cards, hero graph, dialogs |
 | `--color-surface-2` | `#1e2126` | Inset rows, secondary buttons |
 | `--color-surface-3` | `#25292f` | Sunken chips |
 | `--color-ink` | `#f4f1e9` | Headings and primary text |
@@ -127,7 +127,7 @@ Page rail: `--page-max: 1240px`. Gutters: `--gutter: clamp(24px, 4vw, 56px)`, ti
 | --- | --- | --- |
 | `--radius-sm` | 8px | Small icon tiles, workflow numbers |
 | `--radius-md` | 12px | Menu rows, nested case cards |
-| `--radius-lg` | 20px | Project cards, hero panel, workflow list |
+| `--radius-lg` | 20px | Project cards, hero graph, workflow list |
 | `--radius-xl` | 24px | History dialog |
 | `--radius-pill` | 999px | Buttons, filters, copy control |
 
@@ -138,10 +138,10 @@ Borders do most of the work. Shadows are low contrast and never colored glows.
 | Token | Dark | Light | Use |
 | --- | --- | --- | --- |
 | `--shadow-1` | `0 1px 2px rgba(0,0,0,.24)` | `0 1px 2px rgba(0,0,0,.04)` | Resting controls |
-| `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards, hero panel |
+| `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards, hero graph |
 | `--shadow-3` | `0 4px 12px rgba(0,0,0,.22), 0 20px 46px rgba(0,0,0,.28)` | `0 4px 12px rgba(0,0,0,.06), 0 20px 44px rgba(0,0,0,.12)` | Hover and menus |
 
-Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards and the hero panel do not blur the page behind them.
+Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards and the hero graph do not blur the page behind them.
 
 Sticky header: hairline plus a mostly opaque canvas. Blur is allowed on the header only, as a reading aid, not as a glass card.
 
@@ -155,7 +155,7 @@ Sticky header: hairline plus a mostly opaque canvas. Blur is allowed on the head
 | `--ease-standard` | `cubic-bezier(0.2, 0, 0, 1)` | Most transitions |
 | `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Reveal |
 
-Hover lift is at most 3px. No 3D tilt, no infinite pulse, no blinking cursor.
+Hover lift is at most 3px. No 3D tilt, no infinite pulse, no blinking cursor. The hero graph may shift a node by at most 8px while the pointer is over it, then spring back. That shift is not an idle animation. See Pattern: hero tool graph.
 
 Scroll reveal: `IntersectionObserver` adds `.reveal-pending` only from JavaScript, then `.is-revealed` once. Elements already in view are not hidden. If `prefers-reduced-motion: reduce` matches, or `IntersectionObserver` is missing, or JavaScript fails, nothing is hidden. CSS must not set `.reveal { opacity: 0 }`.
 
@@ -183,7 +183,7 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 ## Components
 
 - Header with section links, language toggle (`ko` / `en`), and theme toggle.
-- Hero: existing eyebrow, title, description, and two CTAs. Right side is a flat panel: the existing method sentence plus the seven real project names, each linking to that card.
+- Hero: existing eyebrow, title, description, and two CTAs. Right side is the hero tool graph. See Pattern: hero tool graph.
 - Project bento, filter pills, gallery lightbox, expandable Agentic history.
 - Workflow rows, about, contact, footer.
 - Primary contact control is an email button to `vnrs97@gmail.com`, with a copy button beside it. No other address.
@@ -200,7 +200,7 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 ## Don't
 
 - Don't copy Linear's indigo or add a purple, blue, or mesh gradient.
-- Don't put glassmorphism on cards or on the hero panel (translucent fill plus heavy blur plus a glowing border).
+- Don't put glassmorphism on cards or on the hero graph (translucent fill plus heavy blur plus a glowing border).
 - Don't add metrics, client counts, or percentages that are not already in the copy.
 - Don't animate the hero with tilt, orbiting rings, or a fake cursor.
 - Don't hide content in CSS in a way that requires JavaScript to show it.
@@ -224,7 +224,42 @@ This is the hero to refuse. It shows up when a generator has no real work to poi
 - Stock astronauts, humanoid robots, or a decorative 3D blob standing in for the work.
 - A fake GitHub contribution graph, fake star ratings, or testimonials that were not given.
 
-The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`, `heroTitleTwo`, `heroDesc`, `heroCta`, `heroContact`) and a list of the real projects. It does not claim a live agent, a build number, or a metric.
+The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`, `heroTitleTwo`, `heroDesc`, `heroCta`, `heroContact`) and the hero tool graph of the real projects. It does not claim a live agent, a build number, or a metric.
+
+## Pattern: hero tool graph
+
+The right side of the hero is one flat panel (`#heroGraph`). It is the index of the seven builds, drawn as a diagram instead of a numbered list. Solid `--color-surface`, hairline border, `--radius-lg`, `--shadow-2`. No blur, no mesh, no glow, no status badge.
+
+Twelve nodes, no more:
+
+- Tools, in the same order as the workflow stack: Codex, Claude, Gemini, MCP, RAG.
+- Builds, in card order: LAW GATE, Cerebras DocLens, RUF Dance Academy Web, Oh My Cosmos, Quest Tower, Unreal Agent, Unity MCP.
+
+A line is drawn only where that build's write-up names the tool.
+
+| Tool | Builds that name it |
+| --- | --- |
+| Codex | LAW GATE, Unreal Agent |
+| Claude | Unreal Agent |
+| Gemini | none. The stack names Gemini. No build write-up does |
+| MCP | Unreal Agent, Unity MCP |
+| RAG | LAW GATE, Unreal Agent |
+
+Cerebras DocLens, RUF Dance Academy Web, Oh My Cosmos, and Quest Tower stay in the diagram with no line. Their cards do not name these five tools. Do not add a line to fill the empty space.
+
+Behavior:
+
+- Project nodes are real links to `#project-lawgate`, `#project-cerebras`, `#project-ruf`, `#project-ohmycosmos`, `#project-questtower`, `#project-unreal`, and `#project-unity`. Click and Enter use the existing in-page scroll. A drag does not navigate.
+- Hover or focus on a project highlights that node, the tools its write-up names, and the lines between them. Hover on a tool highlights the builds that name it.
+- The pointer may ease a node at most 8px, and a node can be dragged. It springs back to the layout. Nothing moves when the pointer is gone.
+- `prefers-reduced-motion: reduce` snaps the static layout and does not run the loop or the drag.
+- The loop stops when the panel is off screen (`IntersectionObserver`) or `document.hidden`, and it does not run while the nodes are already at rest.
+- Stage width under 380px, or whenever the columns would leave less than 48px between them: shorter labels, straight lines, no pointer nudge, and a 32ms frame gap. `touch-action: pan-y` on the stage and the nodes, so the page still scrolls vertically.
+- Edges are SVG stroked with the color tokens. There is no canvas bitmap. Motion snaps to a device-pixel grid capped at 1 on narrow screens and 1.5 otherwise.
+- The panel `role` is `group`, with `aria-label` from `graphAria`. Visible strings use `graphTitle`, `graphNote`, `toolCodex`, `toolClaude`, `toolGemini`, `toolMcp`, `toolRag`, and `graphLabel*` / `graphLabel*Short`. Both `locales.ko` and `locales.en` define every key.
+- Without JavaScript the same project links remain a readable stack. Do not hide them in CSS.
+
+Copy stays plain. The note says a line exists only when the write-up names the tool. No counts, no percentages, no live state.
 
 ## Accessibility and responsive behavior
 
