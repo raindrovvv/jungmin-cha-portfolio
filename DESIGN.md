@@ -4,6 +4,19 @@ Source of truth for the Jungmin Cha portfolio. Static files only: `index.html`, 
 
 The theme toggle adds or removes `body.light`. `:root` is dark. `body.light` replaces the same custom properties. Do not invent a second theme class.
 
+## 2026-10-12 refresh: DeepSeek reference (supersedes the Linear color, type, and hero rules below)
+
+Reference: deepseek.com home, `/harness`, and a `/news` article, measured from computed styles.
+
+- **Light** = DeepSeek home. Page `#f9f8f8`, ink `#1e232c`, headings `--color-heading` `#152443`, accent `#3a65c2`, button fill `#4176e6` with white text.
+- **Dark** = Harness. Canvas `#0a0a0a`, white headings, body at 78% white, hairlines at 6–14% white, white primary button with black text, accent `#8fb0ff`.
+- **Type.** Montserrat 400 for display with `-0.02em` tracking (Pretendard Variable covers Hangul), DM Sans for body and controls, Fragment Mono uppercase at `.22em` for eyebrows and section indices. Korean mono labels drop to `.04em` because Fragment Mono has no Hangul.
+- **Hero.** One centred column. The shader paints a sky field (`--color-sky` → canvas), slow fbm clouds in `--color-cloud`, and a faint 88px grid; `uAmt` is cloud / grid / grain. The CSS gradient is the fallback. The header sits on the sky.
+- **Glass.** `--color-glass*` tokens: translucent white (light) or 4–6% white (dark), 2px light border, 12px blur, 24px radius. Used by the graph panel, ghost buttons, and controls.
+- **Buttons.** Pills, 44px tall, 15px/500. Hover is a circle that scales from the centre (`.btn::after`, 360ms) instead of a lift.
+- **Surfaces.** Cards are flat: 16px radius, hairline border, no shadow. Sections breathe at 144px. The contact band is the Harness hero: near-black with deep blue radial fields.
+- **Lang toggle** is a KO / EN segmented pill driven by `html[lang]`.
+
 ## Inspiration and rationale
 
 Reference: **Linear**, in the sense used by [getdesign.md](https://getdesign.md/design-md/linear) DESIGN.md files: a product surface described as named tokens with roles, not a moodboard.

@@ -535,8 +535,6 @@ function applyLanguage(lang) {
     if (value === undefined) return;
     element.setAttribute("aria-label", value);
   });
-  const label = document.getElementById("langLabel");
-  if (label) label.textContent = lang === "ko" ? "EN" : "KO";
   localStorage.setItem(LANG_KEY, lang);
 }
 
@@ -863,6 +861,22 @@ function initHistoryPanels() {
       closeButton.focus();
     }
   });
+}
+
+function initHeaderCapsule() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  let queued = false;
+  const sync = () => {
+    queued = false;
+    header.classList.toggle("is-scrolled", window.scrollY > 8);
+  };
+  window.addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(sync);
+  }, { passive: true });
+  sync();
 }
 
 function initMobileMenu() {
@@ -1530,6 +1544,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGalleries();
   initHistoryPanels();
   initMobileMenu();
+  initHeaderCapsule();
   initContactCopy();
   initHeroGraph();
   initHeroShader();
@@ -1541,7 +1556,7 @@ function initHeroShader() {
   const canvas = hero && hero.querySelector(".hero-shader");
   if (!hero || !canvas) return;
   const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const frag = "#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nuniform vec2 uRes,uCss;uniform float uTime;uniform vec3 uAmt,uBg,uTop,uAccent;float hash(vec2 p){vec3 p3=fract(vec3(p.xyx)*.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}void main(){vec2 css=gl_FragCoord.xy*(uCss/max(uRes,vec2(1.)));float dist=length(fract(css/22.)-.5)*22.;float dots=1.-smoothstep(.55,1.55,dist);vec2 nuv=css*.0031;float field=noise(nuv+vec2(uTime*.018,uTime*.011));field=field*.7+noise(nuv*1.9-uTime*.009)*.3;float alpha=dots*uAmt.x*(.22+.78*clamp(field,0.,1.));vec2 p=css/max(uCss,vec2(1.));vec2 q=(p-vec2(.8,.46))/vec2(.32,.5);vec3 col=mix(uBg,uTop,clamp(p.y,0.,1.));col=mix(col,uAccent,exp(-dot(q,q))*uAmt.y);col+=(hash(gl_FragCoord.xy)-.5)*uAmt.z;col=mix(col,uAccent,alpha);gl_FragColor=vec4(clamp(col,0.,1.),1.);}";
+  const frag = "#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nuniform vec2 uRes,uCss;uniform float uTime;uniform vec3 uAmt,uBg,uTop,uAccent;float hash(vec2 p){vec3 p3=fract(vec3(p.xyx)*.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}float fbm(vec2 p){float v=0.;float a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+vec2(17.,9.);a*=.5;}return v;}void main(){vec2 css=gl_FragCoord.xy*(uCss/max(uRes,vec2(1.)));vec2 p=css/max(uCss,vec2(1.));float sky=smoothstep(.0,1.,p.y);vec3 col=mix(uBg,uTop,sky*.85);vec2 q=css*.0014+vec2(uTime*.010,uTime*.003);float c=fbm(q+fbm(q*.6-vec2(uTime*.004,0.)));float cloud=smoothstep(.38,.86,c)*(.25+.75*sky);col=mix(col,uAccent,cloud*uAmt.x);vec2 g=(.5-abs(fract(css/88.)-.5))*88.;float line=1.-smoothstep(0.,1.2,min(g.x,g.y));col=mix(col,uAccent,line*uAmt.y*(.3+.7*sky));col+=(hash(gl_FragCoord.xy)-.5)*uAmt.z;gl_FragColor=vec4(clamp(col,0.,1.),1.);}";
   let gl, prog, buf, loc, shown, blend, rafId = 0, blendRaf = 0, loopOn = false, onScreen = false, ready = false, dead = false, last = 0, fitW = 0;
   let pageOn = document.visibilityState !== "hidden", resizeObserver, intersectionObserver;
 
@@ -1558,12 +1573,12 @@ function initHeroShader() {
   function readColors() {
     const style = getComputedStyle(document.body);
     const light = document.body.classList.contains("light");
-    const bg = parseColor(style.getPropertyValue("--color-canvas"));
     return {
-      bg,
-      top: light ? parseColor(style.getPropertyValue("--color-surface")) : bg.slice(),
-      accent: parseColor(style.getPropertyValue("--color-accent")),
-      amt: light ? [0.1, 0.055, 0.01] : [0.13, 0.08, 0.016]
+      bg: parseColor(style.getPropertyValue("--color-canvas")),
+      top: parseColor(style.getPropertyValue("--color-sky")),
+      accent: parseColor(style.getPropertyValue("--color-cloud")),
+      // x: cloud strength, y: grid line strength, z: grain
+      amt: light ? [0.62, 0.28, 0.008] : [0.5, 0.07, 0.012]
     };
   }
 
