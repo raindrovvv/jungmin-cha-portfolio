@@ -1003,7 +1003,8 @@ function initHeroGraph() {
 
   function measure() {
     nodes.forEach((node) => {
-      node.w = node.el.offsetWidth;
+      const rect = node.el.getBoundingClientRect();
+      node.w = rect.width;
       node.h = node.el.offsetHeight;
     });
   }
@@ -1026,7 +1027,11 @@ function initHeroGraph() {
     const block = content + gap * gaps;
     let y = Math.max(pad, (height - block) / 2);
     list.forEach((node) => {
-      node.homeX = xFor(node);
+      const step = 1 / maxDpr();
+      const limit = Math.max(0, stageWidth - node.w);
+      // Floor onto the paint snap grid so a node cannot draw past the stage's right edge.
+      const snappedLimit = Math.floor((limit + 1e-4) / step) * step;
+      node.homeX = Math.min(Math.max(0, xFor(node)), snappedLimit);
       node.homeY = y;
       y += node.h + gap;
     });
@@ -1040,9 +1045,9 @@ function initHeroGraph() {
 
   function layout() {
     readOrigin();
-    const width = Math.round(stage.clientWidth);
-    if (!width) return;
-    observedWidth = width;
+    const width = stage.getBoundingClientRect().width;
+    if (width < 1) return;
+    observedWidth = Math.round(stage.clientWidth);
     narrow = width < 380;
     root.classList.toggle("is-narrow", narrow);
     root.classList.toggle("is-static", reduced);
@@ -1066,7 +1071,7 @@ function initHeroGraph() {
     root.style.setProperty("--graph-h", `${height}px`);
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     place(tools, height, () => pad);
-    place(projects, height, (node) => Math.max(pad, width - pad - node.w));
+    place(projects, height, (node) => width - node.w);
     nodes.forEach((node) => {
       if (reduced || !node.placed) {
         node.x = node.homeX;

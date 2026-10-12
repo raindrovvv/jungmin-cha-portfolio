@@ -214,6 +214,7 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 - Don't hide content in CSS in a way that requires JavaScript to show it.
 - Don't change `<head>` SEO tags, `404.html`, `robots.txt`, `sitemap.xml`, or `assets/og-image.png`.
 - Don't add a library, a font, or a build step.
+- Don't add decorative vertical guide lines in the hero.
 
 ## Anti-patterns: generic AI-made portfolio hero
 
@@ -238,7 +239,7 @@ The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`
 
 The right side of the hero is an open diagram (`#heroGraph`). It is the index of the seven builds, drawn on the hero background instead of inside a widget. In both themes the container has no border, no fill, no radius, no padding, and no shadow. No blur, no mesh, no glow, no status badge. The soft accent wash behind the diagram is the hero shader on the section background, not a glow on this container.
 
-On desktop (1068px and up) the diagram is somewhat larger than the old panel and extends toward the right edge of the viewport. A 20px inset keeps nodes and focus rings on screen. `.hero-section` clips overflow on the x axis, so the extension does not scroll the page sideways. The diagram stops growing at 64rem on very wide screens. Below 1068px the hero stacks in one column. At 720px and below the diagram stays inside that column, with no horizontal overflow.
+The diagram stays inside the page container. On desktop (1068px and up) the hero grid sizes the copy column to its content and gives the remaining width to the diagram, with a short column gap so the tools sit beside the headline instead of across an empty span. The diagram spreads across that column: tool labels toward the left, project pills toward the right. The rightmost project pill meets the container's right edge — the same edge as the header content, and the mirror of the left text margin. The headline does not overlap the diagram. Below 1068px the hero stacks in one column and the diagram stays inside that column, with no horizontal overflow.
 
 The title (`graphTitle`, "작업에 쓴 도구" / "Tools I used") stays visible as a quiet eyebrow above the diagram: muted, small, tracked, and uppercased with CSS. English picks up the case; Korean does not change. It is not a panel heading. The group's accessible name is still `aria-label` from `graphAria`.
 
@@ -307,9 +308,8 @@ Performance budget:
 
 ## Quiet surface details
 
-Two faint treatments from outside studies. Both use tokens already on the page.
+One faint treatment from outside studies. It uses tokens already on the page.
 
-- Blueprint guides (청사진 구획). `.hero-section::before` and `::after` are 1px vertical hairlines on the page content edges. Color is `--color-hairline` at low opacity. They frame the hero. They are not a box around the graph.
 - Site grain. `.site-noise` is a small repeated SVG `feTurbulence` tile, desaturated, inlined as a data URI. Opacity is 5% in dark and 3.5% in light. No image file.
 
 The anti-patterns above still apply. One accent, very low contrast. No purple, no mesh, no glass, no glow on the diagram.
