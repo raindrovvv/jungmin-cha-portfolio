@@ -33,7 +33,7 @@ const locales = {
     workflowTwoTitle: "AI에게 도구를 줍니다", workflowTwoDesc: "필요한 자료와 기능을 연결해 AI가 직접 작업할 수 있게 합니다.",
     workflowThreeTitle: "결과를 확인하고 다듬습니다", workflowThreeDesc: "AI가 만든 결과를 직접 실행해 보고, 부족한 부분을 고쳐 완성합니다.",
     aboutTitle: "소개",
-    aboutLede: "전자제품 품질 엔지니어로 7년을 일한 뒤\n게임 사운드와 음악을 만들어 왔습니다.\n지금은 AI 에이전트로\n분야를 가리지 않고 필요한 제품을 직접 만듭니다.",
+    aboutLede: "전자제품 품질 엔지니어로 7년을 일한 뒤 게임 사운드와 음악을 만들어 왔습니다. 지금은 AI 에이전트로 분야를 가리지 않고 필요한 제품을 직접 만듭니다.",
     aboutDetailOne: "품질 엔지니어로 일하며 불량의 원인을 찾고 결과를 검증하는 습관이 몸에 뱄습니다. 그래서 AI가 만든 결과도 그대로 믿지 않고, 직접 실행해 확인합니다.",
     aboutDetailTwo: "법률 문서 검토, 학습 서비스, 게임 에디터 도구처럼 분야가 달라도 같은 방식으로 문제를 정의하고 끝까지 완성합니다.",
     otherPortfolios: "다른 포트폴리오", gameAudioPortfolio: "게임 오디오 디자이너", aiVideoPortfolio: "AI 비디오 디자이너", aiTechBlog: "AI와 일하는 법을 정리한 블로그",
@@ -186,7 +186,7 @@ locales.ko.unityCaseQuestionLabel = "핵심 질문";
 locales.ko.unityCaseQuestion = "“자연어로 Unity Editor를 조작하고, Agent의 변경을 안전하게 검증하려면 어떻게 해야 할까?”";
 locales.ko.unityCaseWhy = "Scene과 Asset을 읽고 필요한 Editor 도구를 호출하며 변경 전후를 확인하는 MCP를 만들고 싶었습니다.";
 locales.ko.unityProblemLabel = "문제";
-locales.ko.unityProblem = "자연어로 요청한 Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을\nUnity Editor에서 실제 결과로 이어지게 했습니다.";
+locales.ko.unityProblem = "자연어로 요청한 Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을 Unity Editor에서 실제 결과로 이어지게 했습니다.";
 locales.ko.unityMcpLabel = "Unity MCP";
 locales.ko.unityMcp = "Unity Editor의 상태를 파악하고 AI가 작업을 할 수 있게 MCP 도구로 만들었습니다. Agent가 씬을 읽고 필요한 명령을 고를 수 있습니다.";
 locales.ko.unityToolsOnlyLabel = "Tool Layer";
