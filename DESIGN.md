@@ -139,7 +139,7 @@ Borders do most of the work. Shadows are low contrast and never colored glows.
 | --- | --- | --- | --- |
 | `--shadow-1` | `0 1px 2px rgba(0,0,0,.24)` | `0 1px 2px rgba(0,0,0,.04)` | Resting controls |
 | `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards |
-| `--shadow-3` | `0 4px 12px rgba(0,0,0,.22), 0 20px 46px rgba(0,0,0,.28)` | `0 4px 12px rgba(0,0,0,.06), 0 20px 44px rgba(0,0,0,.12)` | Hover and menus |
+| `--shadow-3` | `0 4px 12px rgba(0,0,0,.22), 0 20px 46px rgba(0,0,0,.28)` | `0 4px 12px rgba(0,0,0,.06), 0 20px 44px rgba(0,0,0,.12)` | Menus |
 
 Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards do not blur the page behind them. The hero graph has no surface of its own.
 
@@ -149,17 +149,25 @@ Sticky header: hairline plus a mostly opaque canvas. Blur is allowed on the head
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--duration-fast` | 120ms | Color and border |
-| `--duration-base` | 180ms | Hover lift, menus |
-| `--duration-slow` | 320ms | Scroll reveal, image zoom |
-| `--ease-standard` | `cubic-bezier(0.2, 0, 0, 1)` | Most transitions |
-| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Reveal |
+| `--duration-fast` | 120ms | Color, border, theme, copy confirmation |
+| `--duration-press` | 100ms | Pointer-down scale on a button |
+| `--duration-base` | 180ms | Hover lift, menus, overlays |
+| `--duration-slow` | 280ms | Scroll reveal opacity. First view only, still under 300ms |
+| `--ease-out` | `cubic-bezier(0.23, 1, 0.32, 1)` | UI enter, exit, and hover |
+| `--ease-in-out` | `cubic-bezier(0.77, 0, 0.175, 1)` | On-screen movement |
+| `--ease-standard` | `var(--ease-out)` | Alias for the UI curve |
 
-Hover lift is at most 3px. No 3D tilt, no infinite pulse, no blinking cursor. The hero graph may shift a node by at most 8px while the pointer is over it, then spring back. That shift is not an idle animation. See Pattern: hero tool graph.
+Button release uses 160ms with `--ease-out`. Press is `--duration-press` so the downbeat is faster than the release. Hover lift is at most 3px and only under `@media (hover: hover) and (pointer: fine)`. No 3D tilt, no infinite pulse, no blinking cursor. No `transition: all`, no `ease-in`, and no animation of `height`, `padding`, `top`, `left`, or `box-shadow`.
 
-Scroll reveal: `IntersectionObserver` adds `.reveal-pending` only from JavaScript, then `.is-revealed` once. Elements already in view are not hidden. If `prefers-reduced-motion: reduce` matches, or `IntersectionObserver` is missing, or JavaScript fails, nothing is hidden. CSS must not set `.reveal { opacity: 0 }`.
+The hero graph may shift a node by at most 8px while the pointer is over it. That chase is critically damped (damping 1, response 0.3s). A drag tracks the pointer, rubber-bands past the stage edge, and springs home from the release velocity (damping 0.8, response 0.4s). Nothing idles when the pointer is gone. See Pattern: hero tool graph.
 
-`prefers-reduced-motion: reduce` disables animation, sets transition duration to nearly zero, and forces `.reveal-pending` to full opacity. In-page anchor scrolling uses `auto` in that case.
+Scroll reveal: `IntersectionObserver` adds `.reveal-pending` only from JavaScript, then `.is-revealed` once. The entrance is opacity plus `translateY(8px)`. Items that enter together stagger by 50ms, capped at six steps. Elements already in view are not hidden. If `prefers-reduced-motion: reduce` matches, or `IntersectionObserver` is missing, or JavaScript fails, nothing is hidden. CSS must not set `.reveal { opacity: 0 }`.
+
+Theme changes color and background over `--duration-fast`. The hero shader eases the same colors over 120ms. There is no transform on the theme toggle.
+
+Filters show and hide cards immediately. The grid does not animate height.
+
+`prefers-reduced-motion: reduce` drops movement: reveal travel, hover lift, press scale, overlay translate and scale, the graph spring, and the shader loop. Opacity and color transitions stay at `--duration-fast`. `.reveal-pending` stays fully visible. In-page anchor scrolling uses `auto`.
 
 ## Grid and bento
 
@@ -183,7 +191,7 @@ All 7 `<article class="project-card">` elements stay in the DOM with their text,
 ## Components
 
 - Header with section links, language toggle (`ko` / `en`), and theme toggle.
-- Hero: existing eyebrow, title, description, and two CTAs. Right side is the hero tool graph. See Pattern: hero tool graph.
+- Hero: existing eyebrow, title, description, and two CTAs. Right side is the hero tool graph. See Pattern: hero tool graph and Hero shader.
 - Project bento, filter pills, gallery lightbox, expandable Agentic history.
 - Workflow rows, about, contact, footer.
 - Primary contact control is an email button to `vnrs97@gmail.com`, with a copy button beside it. No other address.
@@ -228,9 +236,9 @@ The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`
 
 ## Pattern: hero tool graph
 
-The right side of the hero is an open diagram (`#heroGraph`). It is the index of the seven builds, drawn on the hero background instead of inside a widget. In both themes the container has no border, no fill, no radius, no padding, and no shadow. No blur, no mesh, no glow, no status badge.
+The right side of the hero is an open diagram (`#heroGraph`). It is the index of the seven builds, drawn on the hero background instead of inside a widget. In both themes the container has no border, no fill, no radius, no padding, and no shadow. No blur, no mesh, no glow, no status badge. The soft accent wash behind the diagram is the hero shader on the section background, not a glow on this container.
 
-On desktop the diagram is somewhat larger than the old panel and extends toward the right edge of the viewport. A 20px inset keeps nodes and focus rings on screen. `.hero-section` clips overflow on the x axis, so the extension does not scroll the page sideways. The diagram stops growing at 64rem on very wide screens. At 720px and below the hero stacks in one column and the diagram stays inside that column, with no horizontal overflow.
+On desktop (1068px and up) the diagram is somewhat larger than the old panel and extends toward the right edge of the viewport. A 20px inset keeps nodes and focus rings on screen. `.hero-section` clips overflow on the x axis, so the extension does not scroll the page sideways. The diagram stops growing at 64rem on very wide screens. Below 1068px the hero stacks in one column. At 720px and below the diagram stays inside that column, with no horizontal overflow.
 
 The title (`graphTitle`, "작업에 쓴 도구" / "Tools I used") stays visible as a quiet eyebrow above the diagram: muted, small, tracked, and uppercased with CSS. English picks up the case; Korean does not change. It is not a panel heading. The group's accessible name is still `aria-label` from `graphAria`.
 
@@ -261,7 +269,7 @@ Behavior:
 
 - Project nodes are real links to `#project-lawgate`, `#project-cerebras`, `#project-ruf`, `#project-ohmycosmos`, `#project-questtower`, `#project-unreal`, and `#project-unity`. Click and Enter use the existing in-page scroll. A drag does not navigate.
 - Hover or focus on a project highlights that node, the tools its write-up names, and the lines between them. Hover on a tool highlights the builds that name it.
-- The pointer may ease a node at most 8px, and a node can be dragged. It springs back to the layout. Nothing moves when the pointer is gone.
+- The pointer may ease a node at most 8px, and a node can be dragged. The drag stays 1:1 with the pointer, including past the edge, where it rubber-bands. On release it springs back to the layout from the pointer's velocity. Nothing moves when the pointer is gone and the spring has settled.
 - `prefers-reduced-motion: reduce` snaps the static layout and does not run the loop or the drag.
 - The loop stops when the diagram is off screen (`IntersectionObserver`) or `document.hidden`, and it does not run while the nodes are already at rest.
 - Stage width under 380px, or whenever the columns would leave less than 48px between them: shorter labels, straight lines, no pointer nudge, and a 32ms frame gap. `touch-action: pan-y` on the stage and the nodes, so the page still scrolls vertically.
@@ -270,6 +278,41 @@ Behavior:
 - Without JavaScript the same project links remain a readable stack. Do not hide them in CSS.
 
 Copy stays plain. A line exists only when the write-up names the tool. No counts, no percentages, no live state.
+
+## Hero shader
+
+A hand-written WebGL1 shader paints the hero background. `<canvas class="hero-shader" aria-hidden="true">` is absolutely positioned behind the copy and the tool graph, with pointer events off. No shader library. The script added for this stays under 4KB. It is a dot grid plus a grain gradient, kept quiet enough that it does not become a second graphic.
+
+What it draws, back to front:
+
+- The background color. Dark is flat `--color-canvas`. Light keeps the existing wash from `--color-surface` at the top to `--color-canvas` at the bottom.
+- A soft radial wash of `--color-accent`, centered on the right half behind the graph. A few percent at the center, and essentially none under the title. Not a blob, not a mesh, and not a border glow.
+- Faint monochrome grain. The grain pattern itself does not animate, so it does not strobe. Theme changes cross-fade the shader colors over `--duration-fast`.
+- A dot grid at 22 CSS pixels. A slow low-frequency noise field changes each dot's alpha. The field drifts; it does not pulse. Peak alpha is about 13% in dark and 10% in light.
+
+Colors are read from those custom properties and passed as uniforms. The theme toggle reads them again. Type stays on the canvas color, so contrast remains WCAG AA. The dots are a sparse tint, not a new text color.
+
+`prefers-reduced-motion: reduce` draws one static frame and does not run the loop.
+
+If WebGL is missing, the shader fails to compile or link, or a lost context cannot be restored, the canvas is removed. On context loss the canvas is hidden until the browser restores it, so the CSS background shows in the meantime.
+
+Fallback, and the look before the shader starts: `.hero-section` has a static `radial-gradient` dot tile at `background-size: 22px` and a soft accent radial gradient. Light mode keeps the vertical wash. The hero is readable with or without the canvas.
+
+Performance budget:
+
+- Init waits for `load`, then `requestIdleCallback`, and only creates the context once the hero intersects (`IntersectionObserver`).
+- The drawing buffer is the CSS size times `min(devicePixelRatio, 1)` at hero widths of 720px and below, otherwise `min(devicePixelRatio, 1.5)`, then times `0.75`.
+- The loop targets about 30fps. It pauses when the hero is off screen or `document.hidden`.
+- `ResizeObserver` refits the buffer. A resize while paused draws one frame.
+
+## Quiet surface details
+
+Two faint treatments from outside studies. Both use tokens already on the page.
+
+- Blueprint guides (청사진 구획). `.hero-section::before` and `::after` are 1px vertical hairlines on the page content edges. Color is `--color-hairline` at low opacity. They frame the hero. They are not a box around the graph.
+- Site grain. `.site-noise` is a small repeated SVG `feTurbulence` tile, desaturated, inlined as a data URI. Opacity is 5% in dark and 3.5% in light. No image file.
+
+The anti-patterns above still apply. One accent, very low contrast. No purple, no mesh, no glass, no glow on the diagram.
 
 ## Accessibility and responsive behavior
 
