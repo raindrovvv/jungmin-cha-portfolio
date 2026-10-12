@@ -522,6 +522,8 @@ function applyLanguage(lang) {
   localStorage.setItem(LANG_KEY, lang);
 }
 
+let syncHeroShaderColors = function () {};
+
 function applyTheme(theme) {
   document.body.classList.toggle("light", theme === "light");
   const button = document.getElementById("themeToggle");
@@ -529,6 +531,7 @@ function applyTheme(theme) {
   const themeColor = document.querySelector('meta[name="theme-color"]');
   if (themeColor) themeColor.content = theme === "light" ? "#f5f5f7" : "#101215";
   localStorage.setItem(THEME_KEY, theme);
+  syncHeroShaderColors();
 }
 
 function initFilters() {
@@ -598,6 +601,39 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+function setOverlay(el, open) {
+  if (!el) return;
+  const gen = (el._overlayGen || 0) + 1;
+  el._overlayGen = gen;
+  window.clearTimeout(el._overlayTimer);
+  if (open) {
+    el.inert = false;
+    if (prefersReducedMotion()) {
+      el.classList.remove("is-closed");
+      el.hidden = false;
+      return;
+    }
+    el.classList.add("is-closed");
+    el.hidden = false;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (el._overlayGen !== gen) return;
+        el.classList.remove("is-closed");
+      });
+    });
+    return;
+  }
+  el.inert = true;
+  el.classList.add("is-closed");
+  if (prefersReducedMotion()) {
+    el.hidden = true;
+    return;
+  }
+  el._overlayTimer = window.setTimeout(() => {
+    if (el._overlayGen === gen && el.classList.contains("is-closed")) el.hidden = true;
+  }, 240);
+}
+
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (event) => {
@@ -613,13 +649,20 @@ function initReveal() {
   if (!("IntersectionObserver" in window) || prefersReducedMotion()) return;
   const nodes = [...document.querySelectorAll(".reveal")];
   if (!nodes.length) return;
+  const stagger = 50;
+  const maxSteps = 6;
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-revealed");
-      entry.target.classList.remove("reveal-pending");
-      observer.unobserve(entry.target);
-    });
+    const entering = entries.filter((entry) => entry.isIntersecting);
+    if (!entering.length) return;
+    entering.forEach((entry) => observer.unobserve(entry.target));
+    entering
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left)
+      .forEach((entry, index) => {
+        window.setTimeout(() => {
+          entry.target.classList.add("is-revealed");
+          entry.target.classList.remove("reveal-pending");
+        }, Math.min(index, maxSteps) * stagger);
+      });
   }, { rootMargin: "0px 0px -40px 0px", threshold: 0.01 });
 
   nodes.forEach((node) => {
@@ -632,6 +675,19 @@ function initReveal() {
     node.classList.add("reveal-pending");
     observer.observe(node);
   });
+
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const showAll = () => {
+    nodes.forEach((node) => {
+      node.classList.add("is-revealed");
+      node.classList.remove("reveal-pending");
+    });
+  };
+  if (typeof motion.addEventListener === "function") {
+    motion.addEventListener("change", () => {
+      if (motion.matches) showAll();
+    });
+  }
 }
 
 const galleries = {
@@ -686,7 +742,7 @@ function openGallery(name, opener) {
   activeGallery = gallery;
   activeGalleryIndex = 0;
   lastFocusedElement = opener || document.activeElement;
-  lightbox.hidden = false;
+  setOverlay(lightbox, true);
   document.body.classList.add("is-lightbox-open");
   updateGallery();
   document.querySelector(".lightbox-close")?.focus();
@@ -695,13 +751,13 @@ function openGallery(name, opener) {
 function closeGallery() {
   const lightbox = document.getElementById("lightbox");
   if (!lightbox) return;
-  lightbox.hidden = true;
-  document.body.classList.remove("is-lightbox-open");
-  activeGallery = null;
   if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
     lastFocusedElement.focus({ preventScroll: true });
   }
   lastFocusedElement = null;
+  activeGallery = null;
+  document.body.classList.remove("is-lightbox-open");
+  setOverlay(lightbox, false);
 }
 
 function moveGallery(step) {
@@ -750,12 +806,14 @@ function initHistoryPanels() {
 
   let opener = null;
   const close = () => {
-    modal.hidden = true;
-    modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("is-history-open");
-    historyBody.replaceChildren();
     if (opener && typeof opener.focus === "function") opener.focus({ preventScroll: true });
     opener = null;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("is-history-open");
+    setOverlay(modal, false);
+    window.setTimeout(() => {
+      if (modal.hidden) historyBody.replaceChildren();
+    }, prefersReducedMotion() ? 0 : 240);
   };
 
   document.querySelectorAll(".project-case-details").forEach((details) => {
@@ -771,7 +829,7 @@ function initHistoryPanels() {
       clone.querySelector("h4")?.remove();
       historyBody.replaceChildren(clone);
       opener = summary;
-      modal.hidden = false;
+      setOverlay(modal, true);
       modal.setAttribute("aria-hidden", "false");
       document.body.classList.add("is-history-open");
       closeButton.focus();
@@ -794,19 +852,21 @@ function initMobileMenu() {
   const menu = document.getElementById("mobileMenu");
   if (!toggle || !menu) return;
   const close = () => {
-    menu.hidden = true;
+    if (menu.hidden && menu.classList.contains("is-closed")) return;
+    if (menu.contains(document.activeElement)) toggle.focus();
     toggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("is-menu-open");
+    setOverlay(menu, false);
+  };
+  const open = () => {
+    toggle.setAttribute("aria-expanded", "true");
+    document.body.classList.add("is-menu-open");
+    setOverlay(menu, true);
+    menu.querySelector("a")?.focus();
   };
   toggle.addEventListener("click", () => {
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    if (isOpen) close();
-    else {
-      menu.hidden = false;
-      toggle.setAttribute("aria-expanded", "true");
-      document.body.classList.add("is-menu-open");
-      menu.querySelector("a")?.focus();
-    }
+    if (toggle.getAttribute("aria-expanded") === "true") close();
+    else open();
   });
   menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
   document.addEventListener("keydown", (event) => {
@@ -894,6 +954,7 @@ function initHeroGraph() {
     dragX: 0,
     dragY: 0,
     dragging: false,
+    momentum: false,
     placed: false
   }));
   const byId = new Map(nodes.map((node) => [node.id, node]));
@@ -928,6 +989,8 @@ function initHeroGraph() {
   let raf = 0;
   let lastFrame = 0;
   let observedWidth = 0;
+  let originX = 0;
+  let originY = 0;
 
   function maxDpr() {
     return narrow ? 1 : 1.5;
@@ -969,7 +1032,14 @@ function initHeroGraph() {
     });
   }
 
+  function readOrigin() {
+    const rect = stage.getBoundingClientRect();
+    originX = rect.left;
+    originY = rect.top;
+  }
+
   function layout() {
+    readOrigin();
     const width = Math.round(stage.clientWidth);
     if (!width) return;
     observedWidth = width;
@@ -1003,6 +1073,7 @@ function initHeroGraph() {
         node.y = node.homeY;
         node.vx = 0;
         node.vy = 0;
+        node.momentum = false;
       }
       node.placed = true;
     });
@@ -1022,11 +1093,30 @@ function initHeroGraph() {
     return `M ${x1} ${y1} C ${bend} ${y1}, ${bend} ${y2}, ${x2} ${y2}`;
   }
 
+  function paintNode(node) {
+    const next = `translate3d(${snap(node.x)}px, ${snap(node.y)}px, 0)`;
+    if (node.painted === next) return;
+    node.painted = next;
+    node.el.style.transform = next;
+  }
+
+  function paintEdge(edge) {
+    const d = edgePath(edge);
+    if (edge.d === d) return;
+    edge.d = d;
+    edge.path.setAttribute("d", d);
+  }
+
   function paint() {
-    nodes.forEach((node) => {
-      node.el.style.transform = `translate3d(${snap(node.x)}px, ${snap(node.y)}px, 0)`;
+    nodes.forEach(paintNode);
+    edges.forEach(paintEdge);
+  }
+
+  function paintDrag(node) {
+    paintNode(node);
+    edges.forEach((edge) => {
+      if (edge.from === node.id || edge.to === node.id) paintEdge(edge);
     });
-    edges.forEach((edge) => edge.path.setAttribute("d", edgePath(edge)));
   }
 
   function highlight(id) {
@@ -1065,13 +1155,49 @@ function initHeroGraph() {
     raf = requestAnimationFrame(tick);
   }
 
+  // Release keeps the pointer's velocity (damping 0.8, response 0.4s).
+  // Hover chase is critically damped (damping 1, response 0.3s). Velocity is px/s.
+  function springTowards(node, targetX, targetY, dt) {
+    const response = node.momentum ? 0.4 : 0.3;
+    const ratio = node.momentum ? 0.8 : 1;
+    const omega = (Math.PI * 2) / response;
+    const stiffness = omega * omega;
+    const damping = 2 * ratio * omega;
+    let left = Math.min(Math.max(dt, 0), 0.048);
+    while (left > 0.0001) {
+      const step = Math.min(0.016, left);
+      const ax = (targetX - node.x) * stiffness - node.vx * damping;
+      const ay = (targetY - node.y) * stiffness - node.vy * damping;
+      node.vx += ax * step;
+      node.vy += ay * step;
+      node.x += node.vx * step;
+      node.y += node.vy * step;
+      left -= step;
+    }
+  }
+
+  function needsMotion() {
+    if (drag && drag.active) return true;
+    const nudging = !narrow && pointer.inside && canHover();
+    for (const node of nodes) {
+      if (node.dragging || node.momentum) return true;
+      if (Math.abs(node.x - node.homeX) > 0.4 || Math.abs(node.y - node.homeY) > 0.4) return true;
+      if (!nudging) continue;
+      const dx = node.homeX + node.w / 2 - pointer.x;
+      const dy = node.homeY + node.h / 2 - pointer.y;
+      if (Math.hypot(dx, dy) < 120) return true;
+    }
+    return false;
+  }
+
   function tick(now) {
     if (!loopOn) return;
-    const gap = narrow ? 32 : 16;
-    if (lastFrame && now - lastFrame < gap) {
+    const gap = narrow ? 32 : 0;
+    if (gap && lastFrame && now - lastFrame < gap) {
       raf = requestAnimationFrame(tick);
       return;
     }
+    const dt = lastFrame ? Math.min(0.048, (now - lastFrame) / 1000) : (gap ? gap / 1000 : 0.016);
     lastFrame = now;
     const nudging = !narrow && pointer.inside && canHover();
     let moving = false;
@@ -1079,8 +1205,8 @@ function initHeroGraph() {
       let targetX = node.homeX;
       let targetY = node.homeY;
       if (nudging && !node.dragging) {
-        const dx = node.x + node.w / 2 - pointer.x;
-        const dy = node.y + node.h / 2 - pointer.y;
+        const dx = node.homeX + node.w / 2 - pointer.x;
+        const dy = node.homeY + node.h / 2 - pointer.y;
         const dist = Math.hypot(dx, dy);
         const radius = 112;
         if (dist > 0 && dist < radius) {
@@ -1092,22 +1218,20 @@ function initHeroGraph() {
       if (node.dragging) {
         node.x = node.dragX;
         node.y = node.dragY;
-        node.vx = 0;
-        node.vy = 0;
         moving = true;
         return;
       }
-      node.vx = (node.vx + (targetX - node.x) * 0.22) * 0.64;
-      node.vy = (node.vy + (targetY - node.y) * 0.22) * 0.64;
-      node.x += node.vx;
-      node.y += node.vy;
-      if (Math.abs(node.vx) > 0.05 || Math.abs(node.vy) > 0.05 || Math.abs(targetX - node.x) > 0.4 || Math.abs(targetY - node.y) > 0.4) {
-        moving = true;
-      } else {
+      springTowards(node, targetX, targetY, dt);
+      const speed = Math.hypot(node.vx, node.vy);
+      const dist = Math.hypot(targetX - node.x, targetY - node.y);
+      if (speed < 12 && dist < 0.35) {
         node.x = targetX;
         node.y = targetY;
         node.vx = 0;
         node.vy = 0;
+        node.momentum = false;
+      } else {
+        moving = true;
       }
     });
     paint();
@@ -1118,25 +1242,69 @@ function initHeroGraph() {
     stopLoop();
   }
 
-  function endDrag() {
-    if (!drag) return;
-    drag.node.dragging = false;
-    drag = null;
-    root.classList.remove("is-dragging");
-    wake();
+  function rubberband(overshoot, dimension) {
+    const constant = 0.55;
+    const span = Math.max(dimension, 1);
+    return (overshoot * span * constant) / (span + constant * Math.abs(overshoot));
   }
 
   function clampDrag(node, x, y) {
-    node.dragX = Math.min(Math.max(0, x), Math.max(0, stageWidth - node.w));
-    node.dragY = Math.min(Math.max(0, y), Math.max(0, stageHeight - node.h));
+    const maxX = Math.max(0, stageWidth - node.w);
+    const maxY = Math.max(0, stageHeight - node.h);
+    node.dragX = x < 0 ? -rubberband(-x, stageWidth) : (x > maxX ? maxX + rubberband(x - maxX, stageWidth) : x);
+    node.dragY = y < 0 ? -rubberband(-y, stageHeight) : (y > maxY ? maxY + rubberband(y - maxY, stageHeight) : y);
+  }
+
+  function pushSample(x, y) {
+    if (!drag) return;
+    const t = performance.now();
+    drag.samples.push({ x, y, t });
+    const minT = t - 100;
+    while (drag.samples.length > 2 && drag.samples[0].t < minT) drag.samples.shift();
+  }
+
+  function endDrag() {
+    if (!drag) return;
+    const current = drag;
+    drag = null;
+    current.node.dragging = false;
+    const samples = current.samples || [];
+    if (current.active && samples.length >= 2) {
+      const first = samples[0];
+      const last = samples[samples.length - 1];
+      const span = (last.t - first.t) / 1000;
+      if (span > 0.008) {
+        const cap = 1400;
+        let vx = Math.max(-cap, Math.min(cap, (last.x - first.x) / span));
+        let vy = Math.max(-cap, Math.min(cap, (last.y - first.y) / span));
+        const hx = current.node.homeX - last.x;
+        const hy = current.node.homeY - last.y;
+        const homeDist = Math.hypot(hx, hy) || 1;
+        const toward = (vx * hx + vy * hy) / homeDist;
+        if (toward < 0) {
+          vx *= 0.25;
+          vy *= 0.25;
+        }
+        current.node.vx = vx;
+        current.node.vy = vy;
+        current.node.momentum = Math.hypot(vx, vy) > 80;
+      }
+    }
+    root.classList.remove("is-dragging");
+    if (stage.hasPointerCapture?.(current.id)) {
+      try { stage.releasePointerCapture(current.id); } catch (err) { /* already released */ }
+    }
+    wake();
   }
 
   stage.addEventListener("pointerdown", (event) => {
-    suppressClick = false;
+    if (drag || reduced || event.button > 0) return;
     const el = event.target.closest?.("[data-node]");
-    if (!el || reduced || event.button > 0) return;
+    if (!el) return;
     const node = byId.get(el.dataset.node);
     if (!node) return;
+    suppressClick = false;
+    readOrigin();
     drag = {
       node,
       id: event.pointerId,
@@ -1145,34 +1313,49 @@ function initHeroGraph() {
       ox: node.x,
       oy: node.y,
       type: event.pointerType,
-      active: false
+      active: false,
+      samples: []
     };
   });
 
   stage.addEventListener("pointermove", (event) => {
-    const rect = stage.getBoundingClientRect();
-    pointer.x = event.clientX - rect.left;
-    pointer.y = event.clientY - rect.top;
+    if (drag && drag.id !== event.pointerId) return;
+    pointer.x = event.clientX - originX;
+    pointer.y = event.clientY - originY;
     pointer.inside = true;
-    if (drag && drag.id === event.pointerId && !reduced) {
+    if (drag && !reduced) {
       const dx = event.clientX - drag.sx;
       const dy = event.clientY - drag.sy;
       if (!drag.active) {
         if (Math.hypot(dx, dy) < 6) {
-          if (!narrow && canHover()) wake();
+          if (needsMotion()) wake();
           return;
         }
         if (drag.type === "touch" && Math.abs(dy) >= Math.abs(dx)) return;
         drag.active = true;
         drag.node.dragging = true;
+        drag.node.momentum = false;
+        drag.node.vx = 0;
+        drag.node.vy = 0;
         root.classList.add("is-dragging");
-        drag.node.el.setPointerCapture?.(event.pointerId);
+        stage.setPointerCapture?.(event.pointerId);
+        clampDrag(drag.node, drag.ox + dx, drag.oy + dy);
+        drag.node.x = drag.node.dragX;
+        drag.node.y = drag.node.dragY;
+        drag.samples = [{ x: drag.node.x, y: drag.node.y, t: performance.now() }];
+        paintDrag(drag.node);
+        wake();
+        return;
       }
       clampDrag(drag.node, drag.ox + dx, drag.oy + dy);
+      drag.node.x = drag.node.dragX;
+      drag.node.y = drag.node.dragY;
+      pushSample(drag.node.x, drag.node.y);
+      paintDrag(drag.node);
       wake();
       return;
     }
-    if (!reduced && !narrow && canHover()) wake();
+    if (needsMotion()) wake();
   });
 
   function finishPointer(event) {
@@ -1189,11 +1372,18 @@ function initHeroGraph() {
     endDrag();
     suppressClick = true;
   });
+  stage.addEventListener("lostpointercapture", (event) => {
+    if (!drag || drag.id !== event.pointerId) return;
+    endDrag();
+    suppressClick = true;
+  });
+  stage.addEventListener("pointerenter", readOrigin);
+  window.addEventListener("scroll", readOrigin, { passive: true, capture: true });
   stage.addEventListener("pointerleave", () => {
     pointer.inside = false;
     hoverId = null;
     highlight(shownId());
-    wake();
+    if (needsMotion()) wake();
   });
   stage.addEventListener("pointerover", (event) => {
     if (!canHover()) return;
@@ -1310,5 +1500,257 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initContactCopy();
   initHeroGraph();
+  initHeroShader();
   initReveal();
 });
+
+function initHeroShader() {
+  const hero = document.querySelector(".hero-section");
+  const canvas = hero && hero.querySelector(".hero-shader");
+  if (!hero || !canvas) return;
+  const reducedQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const frag = "#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nuniform vec2 uRes,uCss;uniform float uTime;uniform vec3 uAmt,uBg,uTop,uAccent;float hash(vec2 p){vec3 p3=fract(vec3(p.xyx)*.1031);p3+=dot(p3,p3.yzx+33.33);return fract((p3.x+p3.y)*p3.z);}float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}void main(){vec2 css=gl_FragCoord.xy*(uCss/max(uRes,vec2(1.)));float dist=length(fract(css/22.)-.5)*22.;float dots=1.-smoothstep(.55,1.55,dist);vec2 nuv=css*.0031;float field=noise(nuv+vec2(uTime*.018,uTime*.011));field=field*.7+noise(nuv*1.9-uTime*.009)*.3;float alpha=dots*uAmt.x*(.22+.78*clamp(field,0.,1.));vec2 p=css/max(uCss,vec2(1.));vec2 q=(p-vec2(.8,.46))/vec2(.32,.5);vec3 col=mix(uBg,uTop,clamp(p.y,0.,1.));col=mix(col,uAccent,exp(-dot(q,q))*uAmt.y);col+=(hash(gl_FragCoord.xy)-.5)*uAmt.z;col=mix(col,uAccent,alpha);gl_FragColor=vec4(clamp(col,0.,1.),1.);}";
+  let gl, prog, buf, loc, shown, blend, rafId = 0, blendRaf = 0, loopOn = false, onScreen = false, ready = false, dead = false, last = 0, fitW = 0;
+  let pageOn = document.visibilityState !== "hidden", resizeObserver, intersectionObserver;
+
+  function parseColor(input) {
+    let h = String(input || "").trim();
+    if (h.charAt(0) !== "#") return [0.063, 0.071, 0.082];
+    h = h.slice(1);
+    if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+    const n = parseInt(h.slice(0, 6), 16);
+    if (n !== n) return [0.063, 0.071, 0.082];
+    return [(n >> 16) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+  }
+
+  function readColors() {
+    const style = getComputedStyle(document.body);
+    const light = document.body.classList.contains("light");
+    const bg = parseColor(style.getPropertyValue("--color-canvas"));
+    return {
+      bg,
+      top: light ? parseColor(style.getPropertyValue("--color-surface")) : bg.slice(),
+      accent: parseColor(style.getPropertyValue("--color-accent")),
+      amt: light ? [0.1, 0.055, 0.01] : [0.13, 0.08, 0.016]
+    };
+  }
+
+  function cloneColors(source) {
+    return {
+      bg: source.bg.slice(),
+      top: source.top.slice(),
+      accent: source.accent.slice(),
+      amt: source.amt.slice()
+    };
+  }
+
+  function mixColors(now) {
+    if (!blend || !shown) return;
+    const t = Math.min(1, (now - blend.at) / 120);
+    const eased = 1 - (1 - t) * (1 - t);
+    ["bg", "top", "accent", "amt"].forEach((key) => {
+      const from = blend.from[key];
+      const to = blend.to[key];
+      const out = shown[key];
+      out[0] = from[0] + (to[0] - from[0]) * eased;
+      out[1] = from[1] + (to[1] - from[1]) * eased;
+      out[2] = from[2] + (to[2] - from[2]) * eased;
+    });
+    if (t >= 1) blend = null;
+  }
+
+  function stopLoop() {
+    loopOn = false;
+    cancelAnimationFrame(rafId);
+    rafId = 0;
+  }
+
+  function removeCanvas() {
+    if (dead) return;
+    dead = true;
+    stopLoop();
+    cancelAnimationFrame(blendRaf);
+    gl = null;
+    fitW = 0;
+    if (resizeObserver) resizeObserver.disconnect();
+    if (intersectionObserver) intersectionObserver.disconnect();
+    canvas.remove();
+    syncHeroShaderColors = function () {};
+  }
+
+  function setup() {
+    const opts = { alpha: false, antialias: false, depth: false, stencil: false, powerPreference: "low-power" };
+    gl = canvas.getContext("webgl", opts) || canvas.getContext("experimental-webgl", opts);
+    if (!gl) return false;
+    fitW = 0;
+    const compile = (type, source) => {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
+      console.warn(gl.getShaderInfoLog(shader));
+      gl.deleteShader(shader);
+      return null;
+    };
+    const vs = compile(gl.VERTEX_SHADER, "attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}");
+    const fs = compile(gl.FRAGMENT_SHADER, frag);
+    if (!vs || !fs) return false;
+    prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.bindAttribLocation(prog, 0, "a");
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.warn(gl.getProgramInfoLog(prog));
+      return false;
+    }
+    buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    loc = {};
+    ["uRes", "uCss", "uTime", "uAmt", "uBg", "uTop", "uAccent"].forEach((name) => {
+      loc[name] = gl.getUniformLocation(prog, name);
+    });
+    return true;
+  }
+
+  function fit() {
+    if (!gl) return false;
+    if (fitW) return true;
+    const cssW = hero.clientWidth;
+    const cssH = hero.clientHeight;
+    if (!cssW || !cssH) return false;
+    const scale = Math.min(window.devicePixelRatio || 1, cssW <= 720 ? 1 : 1.5) * 0.75;
+    const w = Math.max(1, Math.round(cssW * scale));
+    const h = Math.max(1, Math.round(cssH * scale));
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
+    }
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    gl.viewport(0, 0, w, h);
+    gl.uniform2f(loc.uRes, w, h);
+    gl.uniform2f(loc.uCss, cssW, cssH);
+    fitW = cssW;
+    return true;
+  }
+
+  function draw(time) {
+    if (!gl || gl.isContextLost() || !fit()) return;
+    if (!shown) shown = cloneColors(readColors());
+    mixColors(time || performance.now());
+    const c = shown;
+    gl.uniform3fv(loc.uBg, c.bg);
+    gl.uniform3fv(loc.uTop, c.top);
+    gl.uniform3fv(loc.uAccent, c.accent);
+    gl.uniform3f(loc.uAmt, c.amt[0], c.amt[1], c.amt[2]);
+    gl.uniform1f(loc.uTime, reducedQuery.matches ? 0 : time * 0.001);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    canvas.classList.add("is-ready");
+  }
+
+  function loop(now) {
+    if (!loopOn) return;
+    rafId = requestAnimationFrame(loop);
+    if (!blend && now - last < 33) return;
+    last = now;
+    draw(now);
+  }
+
+  function blendLoop(now) {
+    blendRaf = 0;
+    if (!blend || loopOn || dead) return;
+    draw(now);
+    if (blend) blendRaf = requestAnimationFrame(blendLoop);
+  }
+
+  function syncRun() {
+    if (dead || !gl || gl.isContextLost()) return;
+    if (onScreen && pageOn && !reducedQuery.matches) {
+      if (!loopOn) {
+        loopOn = true;
+        last = 0;
+        rafId = requestAnimationFrame(loop);
+      }
+      return;
+    }
+    stopLoop();
+    if (onScreen && pageOn) draw(0);
+  }
+
+  syncHeroShaderColors = function () {
+    const next = readColors();
+    if (!shown) {
+      shown = cloneColors(next);
+      return;
+    }
+    blend = { from: cloneColors(shown), to: next, at: performance.now() };
+    if (loopOn || dead || !gl || gl.isContextLost() || !onScreen || !pageOn) return;
+    if (!blendRaf) blendRaf = requestAnimationFrame(blendLoop);
+  };
+
+  function ensure() {
+    if (dead || !ready || !onScreen) return;
+    if (gl) return syncRun();
+    try {
+      if (!setup()) removeCanvas();
+      else syncRun();
+    } catch (error) {
+      removeCanvas();
+    }
+  }
+
+  canvas.addEventListener("webglcontextlost", (event) => {
+    event.preventDefault();
+    stopLoop();
+    cancelAnimationFrame(blendRaf);
+    blendRaf = 0;
+    gl = null;
+    fitW = 0;
+    canvas.classList.remove("is-ready");
+  });
+  canvas.addEventListener("webglcontextrestored", () => {
+    if (!dead) ensure();
+  });
+
+  const refit = () => {
+    fitW = 0;
+    if (gl && pageOn && onScreen) draw(performance.now());
+  };
+  if ("ResizeObserver" in window) {
+    resizeObserver = new ResizeObserver(refit);
+    resizeObserver.observe(hero);
+  } else {
+    window.addEventListener("resize", refit);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    pageOn = document.visibilityState !== "hidden";
+    syncRun();
+  });
+  if (typeof reducedQuery.addEventListener === "function") reducedQuery.addEventListener("change", syncRun);
+
+  if ("IntersectionObserver" in window) {
+    intersectionObserver = new IntersectionObserver((entries) => {
+      onScreen = entries.some((entry) => entry.isIntersecting);
+      ensure();
+    });
+    intersectionObserver.observe(hero);
+  } else {
+    onScreen = true;
+  }
+
+  const kick = () => {
+    const run = () => {
+      ready = true;
+      ensure();
+    };
+    if (window.requestIdleCallback) window.requestIdleCallback(run, { timeout: 1500 });
+    else window.setTimeout(run, 1);
+  };
+  if (document.readyState === "complete") kick();
+  else window.addEventListener("load", kick, { once: true });
+}
