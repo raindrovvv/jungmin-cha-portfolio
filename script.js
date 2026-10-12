@@ -986,7 +986,8 @@ function initHeroGraph() {
     const pad = 8;
     const minGap = 8;
     const block = (list) => list.reduce((sum, node) => sum + node.h, 0) + minGap * Math.max(list.length - 1, 0);
-    const height = Math.round(Math.max(block(tools), block(projects), 280) + pad * 2);
+    const slack = narrow ? 0 : 72;
+    const height = Math.round(Math.max(block(tools), block(projects), 280) + pad * 2 + slack);
     const key = `${width}|${height}|${narrow ? 1 : 0}|${reduced ? 1 : 0}|${nodes.map((node) => `${node.w}x${node.h}`).join(",")}`;
     if (key === layoutKey) return;
     layoutKey = key;

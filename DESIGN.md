@@ -30,7 +30,7 @@ Names are roles. The accent is lime on dark surfaces and deep teal on light surf
 | Token | Value | Role |
 | --- | --- | --- |
 | `--color-canvas` | `#101215` | Page background |
-| `--color-surface` | `#17191d` | Cards, hero graph, dialogs |
+| `--color-surface` | `#17191d` | Cards and dialogs |
 | `--color-surface-2` | `#1e2126` | Inset rows, secondary buttons |
 | `--color-surface-3` | `#25292f` | Sunken chips |
 | `--color-ink` | `#f4f1e9` | Headings and primary text |
@@ -127,7 +127,7 @@ Page rail: `--page-max: 1240px`. Gutters: `--gutter: clamp(24px, 4vw, 56px)`, ti
 | --- | --- | --- |
 | `--radius-sm` | 8px | Small icon tiles, workflow numbers |
 | `--radius-md` | 12px | Menu rows, nested case cards |
-| `--radius-lg` | 20px | Project cards, hero graph, workflow list |
+| `--radius-lg` | 20px | Project cards, workflow list |
 | `--radius-xl` | 24px | History dialog |
 | `--radius-pill` | 999px | Buttons, filters, copy control |
 
@@ -138,10 +138,10 @@ Borders do most of the work. Shadows are low contrast and never colored glows.
 | Token | Dark | Light | Use |
 | --- | --- | --- | --- |
 | `--shadow-1` | `0 1px 2px rgba(0,0,0,.24)` | `0 1px 2px rgba(0,0,0,.04)` | Resting controls |
-| `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards, hero graph |
+| `--shadow-2` | `0 2px 8px rgba(0,0,0,.18), 0 16px 38px rgba(0,0,0,.22)` | `0 2px 8px rgba(0,0,0,.04), 0 14px 34px rgba(0,0,0,.08)` | Cards |
 | `--shadow-3` | `0 4px 12px rgba(0,0,0,.22), 0 20px 46px rgba(0,0,0,.28)` | `0 4px 12px rgba(0,0,0,.06), 0 20px 44px rgba(0,0,0,.12)` | Hover and menus |
 
-Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards and the hero graph do not blur the page behind them.
+Dialogs may use a stronger scrim (`rgba(7, 9, 12, .76)` plus blur) because they cover the page. Cards do not blur the page behind them. The hero graph has no surface of its own.
 
 Sticky header: hairline plus a mostly opaque canvas. Blur is allowed on the header only, as a reading aid, not as a glass card.
 
@@ -228,7 +228,17 @@ The hero on this site uses the existing sentences (`heroEyebrow`, `heroTitleOne`
 
 ## Pattern: hero tool graph
 
-The right side of the hero is one flat panel (`#heroGraph`). It is the index of the seven builds, drawn as a diagram instead of a numbered list. Solid `--color-surface`, hairline border, `--radius-lg`, `--shadow-2`. No blur, no mesh, no glow, no status badge.
+The right side of the hero is an open diagram (`#heroGraph`). It is the index of the seven builds, drawn on the hero background instead of inside a widget. In both themes the container has no border, no fill, no radius, no padding, and no shadow. No blur, no mesh, no glow, no status badge.
+
+On desktop the diagram is somewhat larger than the old panel and extends toward the right edge of the viewport. A 20px inset keeps nodes and focus rings on screen. `.hero-section` clips overflow on the x axis, so the extension does not scroll the page sideways. The diagram stops growing at 64rem on very wide screens. At 720px and below the hero stacks in one column and the diagram stays inside that column, with no horizontal overflow.
+
+The title (`graphTitle`, "작업에 쓴 도구" / "Tools I used") stays visible as a quiet eyebrow above the diagram: muted, small, tracked, and uppercased with CSS. English picks up the case; Korean does not change. It is not a panel heading. The group's accessible name is still `aria-label` from `graphAria`.
+
+Nodes are light objects on the canvas:
+
+- Tool nodes are a label plus a small dot. No chip fill and no border. Hover and focus turn the label and the dot accent without changing their size.
+- Project nodes are the links. A hairline border and a near-transparent fill keep the hit shape visible. The target is at least 44px tall. Hover and focus use the accent border, accent text, and accent wash.
+- While a node is hot, other nodes and edges drop to 30% opacity. Lit nodes and lit edges stay fully opaque. Lit edges use the accent stroke.
 
 Twelve nodes, no more:
 
@@ -253,13 +263,13 @@ Behavior:
 - Hover or focus on a project highlights that node, the tools its write-up names, and the lines between them. Hover on a tool highlights the builds that name it.
 - The pointer may ease a node at most 8px, and a node can be dragged. It springs back to the layout. Nothing moves when the pointer is gone.
 - `prefers-reduced-motion: reduce` snaps the static layout and does not run the loop or the drag.
-- The loop stops when the panel is off screen (`IntersectionObserver`) or `document.hidden`, and it does not run while the nodes are already at rest.
+- The loop stops when the diagram is off screen (`IntersectionObserver`) or `document.hidden`, and it does not run while the nodes are already at rest.
 - Stage width under 380px, or whenever the columns would leave less than 48px between them: shorter labels, straight lines, no pointer nudge, and a 32ms frame gap. `touch-action: pan-y` on the stage and the nodes, so the page still scrolls vertically.
 - Edges are SVG stroked with the color tokens. There is no canvas bitmap. Motion snaps to a device-pixel grid capped at 1 on narrow screens and 1.5 otherwise.
-- The panel `role` is `group`, with `aria-label` from `graphAria`. Visible strings use `graphTitle`, `graphNote`, `toolCodex`, `toolClaude`, `toolGemini`, `toolMcp`, `toolRag`, and `graphLabel*` / `graphLabel*Short`. Both `locales.ko` and `locales.en` define every key.
+- The group `role` is `group`, with `aria-label` from `graphAria`. The visible eyebrow is `graphTitle`. Node strings use `toolCodex`, `toolClaude`, `toolGemini`, `toolMcp`, `toolRag`, and `graphLabel*` / `graphLabel*Short`. Both `locales.ko` and `locales.en` define every key.
 - Without JavaScript the same project links remain a readable stack. Do not hide them in CSS.
 
-Copy stays plain. The note says a line exists only when the write-up names the tool. No counts, no percentages, no live state.
+Copy stays plain. A line exists only when the write-up names the tool. No counts, no percentages, no live state.
 
 ## Accessibility and responsive behavior
 
