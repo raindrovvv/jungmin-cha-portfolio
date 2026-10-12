@@ -608,8 +608,11 @@ function initProjectQuestions() {
     question.dataset.i18n = questionKey;
 
     decision.append(label, question);
-    const anchor = body.querySelector(".project-collaborator") || details;
-    body.insertBefore(decision, anchor);
+    const collaborator = body.querySelector(":scope > .project-collaborator");
+    const actions = body.querySelector(":scope > .project-actions");
+    const anchor = collaborator || actions;
+    if (anchor) body.insertBefore(decision, anchor);
+    else body.append(decision);
   });
 }
 

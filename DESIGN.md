@@ -25,10 +25,10 @@ Why Linear, for an agentic product developer:
 
 - The audience (hiring managers, product teams, technical collaborators) judges the work the way Linear's audience judges software: by hierarchy, shipped surfaces, and the absence of theater.
 - Linear's system is near-black or near-white canvas, hairline borders, dense but quiet type, and one chromatic accent. That maps onto this site without copying Linear's indigo. The accent stays the existing teal / lime pair.
-- Linear feature pages use asymmetric tiles. A bento of real projects fits that pattern. A fake runtime console does not.
+- Linear feature pages use asymmetric tiles. Full-width project rows that swap the image side fit that pattern. A fake runtime console does not.
 - Motion is short and functional. Nothing breathes, spins, or counts up.
 
-What we take from the reference: neutral canvas, one accent, hairline over glow, type that does the hierarchy, asymmetric project tiles, 120–320ms motion.
+What we take from the reference: neutral canvas, one accent, hairline over glow, type that does the hierarchy, asymmetric project rows, 120–320ms motion.
 
 What we do not take: Linear's indigo (`#5E6AD2`), Inter / Berkeley Mono as a new font stack, or a cloned marketing page. Fonts stay the ones already loaded in `index.html` (system display, Paperlogy, Space Grotesk). The `<head>` is frozen.
 
@@ -103,8 +103,8 @@ Engine tiles (Unreal `#242932`, Unity `#1a2735`) are art frames, not theme surfa
 | `--type-display` | `clamp(3.15rem, 5.2vw, 5.2rem)` | 700 | 1.04 | -0.065em | Hero title. `--font-display` |
 | `--type-section` | `clamp(1.9rem, 3.2vw, 3.2rem)` | 600 | 1.05 | -0.045em | Section titles |
 | `--type-statement` | `clamp(1.8rem, 3vw, 3.2rem)` | 700 | 1.14 | -0.065em | Statement |
-| `--type-card-featured` | `clamp(2rem, 3vw, 2.6rem)` | 600 | 1.1 | -0.045em | LAW GATE title only |
-| `--type-card` | `1.6rem` | 600 | 1.1 | -0.045em | Other project titles |
+| `--type-card-featured` | `clamp(2rem, 3vw, 2.6rem)` | 600 | 1.1 | -0.045em | Unused. Every project title uses `--type-card` |
+| `--type-card` | `1.6rem` | 600 | 1.1 | -0.045em | All seven project titles |
 | `--type-body` | `1rem` | 400 | 1.6 | -0.01em | Body. `--font-text` |
 | `--type-small` | `0.9rem` | 400 | 1.65 | 0 | Card descriptions |
 | `--type-label` | `0.72rem` | 500 | 1.4 | 0.08em | Eyebrows, indexes, meta. `--font-text` |
@@ -182,30 +182,29 @@ Filters show and hide cards immediately. The grid does not animate height.
 
 `prefers-reduced-motion: reduce` drops movement: reveal travel, hover lift, press scale, overlay translate and scale, the graph spring, and the shader loop. Opacity and color transitions stay at `--duration-fast`. `.reveal-pending` stays fully visible. In-page anchor scrolling uses `auto`.
 
-## Grid and bento
+## Project rows
 
-`#builds .project-grid` is a 12-column grid at `min-width: 1068px`, gap `--bento-gap` (`--space-5`). Reading order is DOM order. Do not use dense packing.
+`#builds .project-grid` is one project per row. The gap is `--bento-gap` (`--space-5`). Reading order is DOM order. All seven cards use the same size. `project-card-featured`, `project-card-wide`, `project-card-pair`, and `project-card-dark` do not change layout.
 
-| Tile | Card | Span | Treatment |
-| --- | --- | --- | --- |
-| Featured, largest | LAW GATE | 12 | Side-by-side visual and copy. Visual min-height 420px. Title uses `--type-card-featured` |
-| Medium / wide | Cerebras DocLens, Oh My Cosmos | 8 | Horizontal visual and copy |
-| Standard | RUF Dance Academy Web, Quest Tower | 4 | Vertical card |
-| Standard, closing pair | Unreal Agent, Unity MCP | 6 each | Vertical. Span 6 fills the last row. They are not wide tiles |
+From `min-width: 900px` each card is a two-column grid: image about half, text about half. Odd rows place the image on the left. Even rows place the image on the right with `.project-card:nth-child(even) .project-visual { order: 2 }`. The text column is vertically centered (`justify-content: center`). Its contents stack with `--space-4` and no `margin-top: auto` gap.
 
-Wide means span 8. The closing pair is span 6 so the row does not end on an empty cell.
+Below 900px the card stacks. The image comes first, then the text.
 
-From 721px through 1067px the grid is 2 columns. LAW GATE spans both. Every other card spans one and stacks image over copy, so a half column stays readable.
+Text column order, every card:
 
-At `max-width: 720px` the grid is one column. Every card spans the row.
+1. Eyebrow and number (`.project-meta`).
+2. Title. Every title uses `--type-card`.
+3. One-line description (the direct `p` in `.project-body`).
+4. `처음 던진 질문` box (`.project-decision`). LAW GATE includes it in HTML. `initProjectQuestions` fills the other six from the case-study question keys, inserted before `.project-collaborator` or `.project-actions`.
+5. Actions row (`.project-actions`): `만든 과정 보기` beside `프로젝트 열기` and, when the card has screens, `화면 보기`. Unreal Agent and Unity MCP keep the GitHub label. The image stays a gallery button. The screen label lives in the actions row.
 
-All 7 `<article class="project-card">` elements stay in the DOM with their text, links, `data-i18n` attributes, `data-category` filters, gallery buttons, and `<details>` history. The LAW GATE project link stays `hidden` with the HTML comment `TODO(VENI): set LAW GATE URL in href and remove hidden`. `.project-link[hidden] { display: none }` stays. Print styles keep showing every card, including filtered ones, one landscape page each.
+All 7 `<article class="project-card">` elements stay in the DOM with their text, links, `data-i18n` attributes, `data-category` filters, gallery buttons, reveal classes, and `<details>` history. The LAW GATE project link stays `hidden` with `href="#"` and the HTML comment `TODO(VENI): set LAW GATE URL in href and remove hidden`. `.project-link[hidden] { display: none }` stays. Print styles keep showing every card, including filtered ones, one landscape page each, with the image on the left.
 
 ## Components
 
 - Header with section links, language toggle (`ko` / `en`), and theme toggle.
 - Hero: existing eyebrow, title, description, and two CTAs. Right side is the hero tool graph. See Pattern: hero tool graph and Hero shader.
-- Project bento, filter pills, gallery lightbox, expandable Agentic history.
+- Project rows, filter pills, gallery lightbox, expandable Agentic history.
 - Workflow rows, about, contact, footer.
 - Primary contact control is an email button to `vnrs97@gmail.com`, with a copy button beside it. No other address.
 
@@ -340,7 +339,7 @@ The anti-patterns above still apply. One accent, very low contrast. No purple, n
 
 - Target: WCAG 2.1 AA intent.
 - Focus stays visible. The lightbox traps Tab and restores focus. The history dialog closes on Escape.
-- Breakpoints already in the CSS: 720px bento collapse, 734px type and gutter, 900px navigation drawer, 1068px desktop bento.
+- Breakpoints already in the CSS: 900px project rows (stacked below that), 734px type and gutter, 900px navigation drawer, 1068px desktop hero.
 - Touch targets for hero project links and filter controls stay at least 44px tall.
 - `lang` on `<html>` follows the language toggle.
 
