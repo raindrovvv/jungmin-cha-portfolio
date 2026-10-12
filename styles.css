@@ -65,6 +65,7 @@
 
   --page-max: 1240px;
   --gutter: clamp(24px, 4vw, 56px);
+  --gutter-mobile: 20px;
   --header-h: 72px;
   --bento-gap: var(--space-5);
 
@@ -582,6 +583,86 @@ body.light .history-strip { background: color-mix(in srgb, var(--color-surface) 
 
 @media (max-width: 734px) {
   .case-study-grid { grid-template-columns: 1fr; }
+}
+
+/* One inset for every mobile rail. Later than the 734px block so it wins at <=600px. */
+@media (max-width: 600px) {
+  :root { --gutter: var(--gutter-mobile); }
+
+  .section-inner,
+  .nav-inner,
+  .hero-grid,
+  .footer-inner {
+    width: min(var(--page-max), calc(100% - (var(--gutter-mobile) * 2)));
+  }
+
+  .site-header.is-scrolled .nav-inner {
+    width: min(1180px, calc(100% - (var(--gutter-mobile) * 2)));
+  }
+
+  .site-header.is-scrolled .mobile-menu {
+    right: var(--gutter-mobile);
+    left: var(--gutter-mobile);
+  }
+
+  .mobile-menu { padding-inline: var(--gutter-mobile); }
+
+  .hero-copy,
+  .hero-cta-group { width: 100%; max-width: 100%; }
+  .hero-cta-group .btn,
+  .contact-actions .btn,
+  .footer-pdf-button { max-width: 100%; }
+
+  .project-body { padding: var(--gutter-mobile); }
+
+  .project-body,
+  .project-actions,
+  .project-case-details,
+  .project-case-content,
+  .case-study-question,
+  .case-study-grid,
+  .case-study-grid article,
+  .workflow-item,
+  .workflow-grid,
+  .about-grid,
+  .about-identity,
+  .about-lede,
+  .about-details,
+  .statement,
+  .contact-inner,
+  .history-strip {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .project-actions { width: 100%; }
+  .project-actions .project-case-details {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .case-study-grid,
+  .project-case-content .case-study-grid,
+  .history-dialog-body .case-study-grid {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  /* The avatar column was squeezing the lede, so its keep-all rag sat on the right edge. */
+  .about-identity {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .about-profile {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-profile figcaption { margin-top: 0; text-align: left; }
+  .about-lede { max-width: 100%; }
 }
 
 .reveal-pending { opacity: 0; transform: translateY(8px); transition: none; }
