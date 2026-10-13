@@ -225,15 +225,15 @@ html[lang="ko"] :is(.hero-graph-head, .workflow-tool, .stack-row > span, .used-a
 .hero-desc { max-width: 40em; margin-top: var(--space-5); color: var(--color-body); font-size: clamp(1rem, 1.1vw, 1.1rem); line-height: 1.75; text-wrap: pretty; }
 .hero-cta-group { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4); margin-top: var(--space-7); }
 .hero-graph { width: 100%; min-width: 0; padding: 24px 24px 18px; border: 2px solid var(--color-glass-border); border-radius: 24px; background: var(--color-glass); backdrop-filter: blur(12px); }
-.hero-graph-head { position: relative; display: flex; justify-content: space-between; padding-inline: 8px 0; color: var(--color-muted); font-family: var(--font-mono); font-size: .7rem; font-weight: 400; letter-spacing: .22em; line-height: 1.4; text-transform: uppercase; }
+.hero-graph-head { position: relative; display: flex; justify-content: space-between; padding-inline: 8px; color: var(--color-muted); font-family: var(--font-mono); font-size: .7rem; font-weight: 400; letter-spacing: .22em; line-height: 1.4; text-transform: uppercase; }
 .hero-graph.is-ready .hero-graph-head span:last-child { position: absolute; top: 0; left: var(--graph-builds-x, auto); }
 .hero-graph-stage { position: relative; margin-top: var(--space-2); touch-action: pan-y; }
 .hero-graph-hint { margin-top: var(--space-3); padding-left: 8px; color: var(--color-muted); font-size: .8rem; line-height: 1.5; }
 @media (hover: none) { .hero-graph-hint-hover { display: none; } }
 .hero-graph.is-ready .hero-graph-stage { height: var(--graph-h, 420px); }
 .hero-graph-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.hero-graph-edge { fill: none; stroke: var(--color-hairline-strong); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 1; transition: stroke var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
-.hero-graph.is-hot .hero-graph-edge { opacity: .3; }
+.hero-graph-edge { fill: none; stroke: var(--color-hairline-strong); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .45; transition: stroke var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
+.hero-graph.is-hot .hero-graph-edge { opacity: .12; }
 .hero-graph.is-hot .hero-graph-edge.is-lit,
 .hero-graph-edge.is-lit { stroke: var(--color-accent); stroke-width: 2.25; opacity: 1; }
 .hero-graph-nodes { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: var(--space-2); }
@@ -252,7 +252,8 @@ html[lang="ko"] :is(.hero-graph-head, .workflow-tool, .stack-row > span, .used-a
 .hero-graph.is-ready .graph-node-tool { max-width: none; }
 .hero-graph.is-narrow .graph-label-full { display: none; }
 .hero-graph.is-narrow .graph-label-short { display: inline; }
-.hero-graph.is-narrow.is-ready .graph-node-project { max-width: 46%; }
+.hero-graph.is-narrow.is-ready .graph-node-project { max-width: 46%; padding: 7px 10px; font-size: .76rem; }
+.hero-graph.is-narrow.is-ready .graph-node-tool { max-width: 46%; padding: 0 10px 0 8px; font-size: .74rem; }
 .hero-graph.is-hot .graph-node { opacity: .3; }
 .hero-graph.is-hot .graph-node.is-lit,
 .graph-node.is-lit { border-color: var(--color-accent); background: var(--color-accent-soft); color: var(--color-accent); opacity: 1; }
@@ -432,7 +433,7 @@ img.engine-logo-unity { width: 104px !important; height: 104px !important; }
 .history-strip i { display: grid; width: 20px; height: 20px; flex: 0 0 auto; place-items: center; border: 1px solid var(--color-hairline); border-radius: 50%; color: var(--color-muted-2); font-style: normal; font-size: .6rem; }
 .stack-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding-top: 52px; padding-bottom: 0; color: var(--color-muted-2); font-size: .65rem; letter-spacing: .05em; }
 .stack-row > span { margin-right: 8px; color: var(--color-muted); }
-.stack-row b { color: var(--color-body); font-size: .68rem; font-weight: 500; }
+.stack-row b { color: var(--color-body); font-size: .68rem; font-weight: 500; white-space: nowrap; }
 .used-ai { min-width: 0; max-width: 100%; padding-top: var(--space-7); padding-bottom: 80px; }
 .used-ai-heading { margin-bottom: var(--space-4); color: var(--color-muted); font-family: var(--font-mono); font-size: .72rem; font-weight: 400; letter-spacing: .08em; line-height: 1.4; }
 .used-ai-list { display: grid; gap: var(--space-3); min-width: 0; list-style: none; }
