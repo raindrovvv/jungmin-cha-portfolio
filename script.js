@@ -1022,20 +1022,18 @@ window.addEventListener("afterprint", () => {
 });
 printPortfolioButton?.addEventListener("click", () => window.print());
 
-// Lines only where that build's write-up names the tool.
-// LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude Code, MCP, RAG.
-// Unity MCP: MCP, Claude Code, Antigravity (README client setup). AI Gunslinger: Codex. ZCODE: no build write-up yet.
+// Codex and ZCODE: every build. Claude Code: every build except the Unreal and Unity agents.
+// MCP, RAG, Antigravity: only where that build's write-up names the tool.
+const HERO_GRAPH_PROJECTS = ["lawgate", "cerebras", "ruf", "cosmos", "quest", "unreal", "unity", "gunslinger"];
 const HERO_GRAPH_EDGES = [
-  ["codex", "lawgate"],
+  ...HERO_GRAPH_PROJECTS.map((id) => ["codex", id]),
+  ...HERO_GRAPH_PROJECTS.map((id) => ["zcode", id]),
+  ...HERO_GRAPH_PROJECTS.filter((id) => id !== "unreal" && id !== "unity").map((id) => ["claude", id]),
   ["rag", "lawgate"],
-  ["codex", "unreal"],
-  ["claude", "unreal"],
   ["mcp", "unreal"],
   ["rag", "unreal"],
   ["mcp", "unity"],
-  ["claude", "unity"],
-  ["antigravity", "unity"],
-  ["codex", "gunslinger"]
+  ["antigravity", "unity"]
 ];
 
 function initHeroGraph() {

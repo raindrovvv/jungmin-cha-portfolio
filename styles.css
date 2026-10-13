@@ -232,8 +232,8 @@ html[lang="ko"] :is(.hero-graph-head, .workflow-tool, .stack-row > span, .used-a
 @media (hover: none) { .hero-graph-hint-hover { display: none; } }
 .hero-graph.is-ready .hero-graph-stage { height: var(--graph-h, 420px); }
 .hero-graph-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.hero-graph-edge { fill: none; stroke: var(--color-hairline-strong); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: 1; transition: stroke var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
-.hero-graph.is-hot .hero-graph-edge { opacity: .3; }
+.hero-graph-edge { fill: none; stroke: var(--color-hairline-strong); stroke-width: 1; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .45; transition: stroke var(--duration-fast) var(--ease-out), opacity var(--duration-fast) var(--ease-out); }
+.hero-graph.is-hot .hero-graph-edge { opacity: .12; }
 .hero-graph.is-hot .hero-graph-edge.is-lit,
 .hero-graph-edge.is-lit { stroke: var(--color-accent); stroke-width: 2.25; opacity: 1; }
 .hero-graph-nodes { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: var(--space-2); }
