@@ -758,7 +758,56 @@ function initReveal() {
 const galleries = {
   yaho: {
     title: "YAHO (야호)",
-    images: ["img/optimized/yaho_0.png", "img/optimized/yaho_1.png", "img/optimized/yaho_2.png", "img/optimized/yaho_3.png", "img/optimized/yaho_4.png"]
+    items: [
+      {
+        src: "img/optimized/yaho_demo_documents.gif",
+        captionKo: "HWP·PDF 양방향 문서 파싱 및 공문서 업무 자동화 데모 (Live Demo)",
+        captionEn: "Live Demo: HWP & PDF Document Parsing & Public Notice Automation"
+      },
+      {
+        src: "img/optimized/yaho_demo_work.gif",
+        captionKo: "에이전트 자율 작업 실행 및 3단계 의사결정 승인 루프 (Live Demo)",
+        captionEn: "Live Demo: Autonomous Agent Execution & 3-Step Decision Approval Loop"
+      },
+      {
+        src: "img/optimized/yaho_demo_business.gif",
+        captionKo: "기업 지원사업 적합도 실시간 분석 및 사업계획서 피드백 (Live Demo)",
+        captionEn: "Live Demo: Government Support Grant Matching & Proposal Feedback Engine"
+      },
+      {
+        src: "img/optimized/yaho_demo_companion.gif",
+        captionKo: "1인 사업자 업무 온톨로지 기반 동반자 AI 에이전트 인터랙션 (Live Demo)",
+        captionEn: "Live Demo: Company Ontology-driven Companion AI Workspace Interaction"
+      },
+      {
+        src: "img/optimized/yaho_0.png",
+        captionKo: "YAHO 데스크톱 셸 워크스페이스 전경",
+        captionEn: "YAHO Desktop Shell Workspace Overview"
+      },
+      {
+        src: "img/optimized/yaho_1.png",
+        captionKo: "지원사업 루브릭 평가 및 가점 항목 매칭 상세",
+        captionEn: "Grant Evaluation Rubric & Additional Score Point Breakdown"
+      },
+      {
+        src: "img/optimized/yaho_2.png",
+        captionKo: "회사 지식 온톨로지 및 원장 메모리 그래프",
+        captionEn: "Company Knowledge Ontology & Ledger Memory Graph"
+      },
+      {
+        src: "img/optimized/yaho_3.png",
+        captionKo: "리스크 작업 실행 승인 게이트 및 감사 로그",
+        captionEn: "Gated Execution Confirmation & Immutable Audit Log"
+      },
+      {
+        src: "img/optimized/yaho_4.png",
+        captionKo: "Atomic Note 지식 분해 및 태그 연동 화면",
+        captionEn: "Atomic Note Knowledge Decomposition & Tag Association"
+      }
+    ],
+    get images() {
+      return this.items.map(function(i) { return i.src; });
+    }
   },
   lawgate: {
     title: "LAW GATE",
@@ -792,16 +841,30 @@ function updateGallery() {
   const title = document.getElementById("lightboxTitle");
   const caption = document.getElementById("lightboxCaption");
   const counter = document.getElementById("lightboxCounter");
-  const source = activeGallery.images[activeGalleryIndex];
+
+  const item = activeGallery.items ? activeGallery.items[activeGalleryIndex] : null;
+  const source = item ? item.src : (activeGallery.images ? activeGallery.images[activeGalleryIndex] : "");
+  const total = activeGallery.items ? activeGallery.items.length : activeGallery.images.length;
+
   if (image) {
     image.src = source;
-    image.alt = activeLang === "ko"
-      ? `${activeGallery.title} 화면 ${activeGalleryIndex + 1}`
-      : `${activeGallery.title} screenshot ${activeGalleryIndex + 1}`;
+    if (item) {
+      image.alt = activeLang === "ko" ? item.captionKo : item.captionEn;
+    } else {
+      image.alt = activeLang === "ko"
+        ? `${activeGallery.title} 화면 ${activeGalleryIndex + 1}`
+        : `${activeGallery.title} screenshot ${activeGalleryIndex + 1}`;
+    }
   }
   if (title) title.textContent = activeGallery.title;
-  if (caption) caption.textContent = `${activeGallery.title} · ${activeLang === "ko" ? "화면" : "screen"} ${activeGalleryIndex + 1}`;
-  if (counter) counter.textContent = `${activeGalleryIndex + 1} / ${activeGallery.images.length}`;
+  if (caption) {
+    if (item) {
+      caption.textContent = `${activeGallery.title} · ${activeLang === "ko" ? item.captionKo : item.captionEn}`;
+    } else {
+      caption.textContent = `${activeGallery.title} · ${activeLang === "ko" ? "화면" : "screen"} ${activeGalleryIndex + 1}`;
+    }
+  }
+  if (counter) counter.textContent = `${activeGalleryIndex + 1} / ${total}`;
 }
 
 function openGallery(name, opener) {
