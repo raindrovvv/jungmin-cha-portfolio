@@ -12,6 +12,27 @@ const locales = {
     statementNote: "AI는 맡을 문제, 쓸 도구, 결과를 확인할 기준이 정해져 있을 때 제대로 일합니다. 저는 그 틀을 먼저 설계한 뒤 AI와 함께 제품을 만듭니다.",
     buildsTitle: "대표 작업", buildsSubtitle: "‘만든 과정 보기’를 누르면 처음 던진 질문부터 검증까지의 과정을 볼 수 있습니다.",
     filterAll: "전체", filterProduct: "제품", filterTool: "AI 도구", filterGame: "게임",
+    yahoDesc: "1인 사업자·크리에이터의 업무 맥락을 기억하고 HWP·법률·지원사업·후속 실행을 자동화하는 데스크톱 AI 매니저.",
+    yahoQuestion: "AI가 일회성 답변을 만드는 데 그치지 않고, 회사의 업무 기억을 소유하며 검증된 실행까지 이어가게 하려면 어떻게 해야 할까?",
+    yahoCaseTitle: "Agentic Coding history\nYAHO (야호)",
+    yahoCaseIntro: "Hermes Agent와 Electron 기반 데스크톱 셸 위에 회사 온톨로지·기억·선택지·근거 중심 워크플로우를 결합한 플래그십 AI 매니저 제품입니다.",
+    yahoCaseQuestionLabel: "첫 질문",
+    yahoCaseQuestion: "“Task는 넘겨도 Learning은 넘기지 않는 개인 업무 분신 에이전트를 어떻게 만들까?”",
+    yahoCaseWhy: "1인 사업자와 크리에이터는 대표·기획·마케팅·영업·행정을 혼자 감당합니다. 일반 챗봇은 매번 맥락을 처음부터 설명해야 하고, 결과의 사실 여부도 일일이 의심해야 했습니다. 그래서 회사의 업무 기억을 온톨로지로 축적하고, 출처(Evidence)와 사람의 최종 승인을 거쳐 실행하는 구조를 설계했습니다.",
+    yahoProblemLabel: "Problem",
+    yahoProblem: "HWP·PDF·공문서 분석, 지원사업 공고 매칭, 세무·노무 행정 등 외산 AI가 해결하지 못하는 한국 실무의 장벽을 넘어야 했습니다. 또한 AI의 할루시네이션이나 무검토 자동화로 인한 리스크를 원천 차단해야 했습니다.",
+    yahoStartLabel: "Start small",
+    yahoStart: "Hermes Agent 런타임과 데스크톱 셸을 스파이크로 검증하며, 회사 기억(Memory)과 의사결정 후보(Decision Candidates)를 분리하는 로컬 프로토타입부터 시작했습니다. 이후 검증된 경로만 멀티테넌트 SaaS 및 클라우드 워커로 확장했습니다.",
+    yahoFailureLabel: "Failure → Question",
+    yahoFailure: "“구독이 있는 사용자와 없는 사용자의 모델 비용 구조를 어떻게 나눌 것인가?”, “대규모 HWP/PDF 파싱 및 OCR 지연을 백그라운드에서 어떻게 견디게 할 것인가?”를 질문으로 전환했습니다.",
+    yahoPlanLabel: "Agent Plan",
+    yahoPlan: "Desktop(Electron UI) ↔ Render Web(API/SSE) ↔ Render Worker(AI·Deep 실행·Fence lease) ↔ Render Cron ↔ Neon PostgreSQL(원장·감사 로그)로 역할을 분리하고, 사용자 로컬 Codex 경로와 서버 Agents API 경로를 투 트랙으로 설계했습니다.",
+    yahoContractLabel: "Agent contract",
+    yahoContract: "Evidence·Claim·Citation 연결 계약, 위험 작업(발송·결제·삭제) 승인 게이트, AtomicNote 분해 규칙, 그리고 tenantId·workspaceId·spaceId 기반의 철저한 데이터 격리 프로토콜을 정의했습니다.",
+    yahoProductLabel: "Product loop",
+    yahoProduct: "회사 온톨로지 그래프 시각화, HWP 양방향 렌더링, 지원사업 실시간 피드백 루브릭, 불씨(크레딧) 과금 엔진, 그리고 실제 상용 배포(desktop.yaho-ai.com)까지 닫힌 루프로 구축했습니다.",
+    yahoResultLabel: "Result",
+    yahoResult: "단순한 AI 챗봇이 아니라, 한국 기업과 크리에이터의 업무 맥락을 기억하고 책임 있는 실행을 보장하는 상용 수준의 플래그십 AI 에이전트 OS로 완성했습니다.",
     lawgateDesc: "법률 문서에서 쟁점을 나누고, 여러 AI 에이전트가 검토한 내용을 공식 근거로 다시 확인하는 법률 검토 도구.",
     cerebrasDesc: "길고 복잡한 PDF를 여러 AI 에이전트가 나눠 읽고, 핵심·위험·비용·일정을 한눈에 정리해 주는 문서 분석 서비스.",
     lawgateQuestion: "더 좋은 답보다, 근거가 부족한 답을 어떻게 막을까?",
@@ -35,7 +56,7 @@ const locales = {
     aboutTitle: "소개",
     aboutLede: "전자제품 품질 엔지니어로 7년을 일한 뒤\n게임 사운드와 음악을 만들어 왔습니다.\n지금은 AI 에이전트로\n분야를 가리지 않고 필요한 제품을 직접 만듭니다.",
     aboutDetailOne: "품질 엔지니어로 일하며 불량의 원인을 찾고 결과를 검증하는 습관이 몸에 뱄습니다. 그래서 AI가 만든 결과도 그대로 믿지 않고, 직접 실행해 확인합니다.",
-    aboutDetailTwo: "법률 문서 검토, 학습 서비스, 게임 에디터 도구처럼 분야가 달라도 같은 방식으로 문제를 정의하고 끝까지 완성합니다.",
+    aboutDetailTwo: "데스크톱 AI 매니저 OS(YAHO), 법률 문서 검토, 학습 서비스, 게임 에디터 도구처럼 분야가 달라도 같은 방식으로 문제를 정의하고 끝까지 완성합니다.",
     otherPortfolios: "다른 포트폴리오", gameAudioPortfolio: "게임 오디오 디자이너", aiVideoPortfolio: "AI 비디오 디자이너", aiTechBlog: "AI와 일하는 법을 정리한 블로그",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "처음부터 끝까지 Product를 만들며, 어떤 질문을 던지고 왜 그렇게 결정했는지를 기록했습니다.", caseStudyQuestionLabel: "첫 질문", caseStudyQuestion: "“문서 요약을 잘 만드는 것보다, 사용자가 실제로 판단할 수 있는 근거를 어떻게 남길까?”", caseStudyWhy: "긴 문서에서는 요약 하나만으로 위험·금액·기한이 묻힐 수 있다고 판단했습니다. 그래서 근거를 공유하는 여러 Agent 구조부터 설계했습니다.", caseProblemLabel: "Problem", caseProblem: "보험 약관·계약서·의료 문서를 누구나 이해하고 행동으로 옮길 수 있게 만드는 문제였습니다.", casePlanLabel: "Agent Plan", casePlan: "문서 intake → Intake Agent → 공유 근거 캐시 → Summary·Risk·Cost·Timeline Agent 병렬 분석 → 대시보드와 후속 질문으로 연결했습니다.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/Image parsing, JSON schema, Vercel을 연결했습니다.", caseProviderLabel: "Provider 선택", caseProvider: "6개 Agent를 병렬로 분석하는 구조에서는 모델의 지식만큼 응답 시간도 중요했습니다. Cerebras는 병렬 실행 흐름을 빠르게 검증하기 위한 provider로 선택했고, GPT-4.1과 같은 입력을 비교할 수 있도록 provider를 교체 가능한 구조로 설계했습니다.", caseFailureLabel: "Failure → Correction", caseFailure: "Vercel에서 PDF parsing이 실패했을 때 LLM 문제와 런타임 문제를 나눠 확인했고, 원인은 런타임이었습니다. DOMMatrix polyfill·dynamic import·worker preload를 추가하고, OCR은 이미지 업로드 경로로 범위를 조정했습니다.", caseHumanLabel: "Human Role", caseHuman: "문제의 범위, Agent 역할, 출력 schema, 공개 데모의 안전 기준을 정의하고 각 결과를 실행·검토했습니다.", caseResultLabel: "Result", caseResult: "문제 정의와 PRD부터 Agent 구조 설계, 구현, 배포 장애 대응, UX 개선, 검증까지 하나의 Product로 완성했습니다.",
     caseStudyHistoryTools: "Agentic history 보기 ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "AI가 게임 에디터를 직접 읽고 호출하도록 도구 계층을 만들었습니다.", agentToolsCaseQuestionLabel: "핵심 질문", agentToolsCaseQuestion: "“AI Agent를 사용해 Unreal과 Unity를 개발하는 데서 끝나지 않고, Editor 자체를 조작하게 만들 수 있을까?”", agentToolsCaseWhy: "Agent가 현재 상태를 읽고, 필요한 도구를 호출하고, 변경 결과를 검증해야 실제 작업으로 이어진다고 판단했습니다.", agentProblemLabel: "Problem", agentProblem: "AI Agent가 Editor 안에서 직접 행동하는 실행 계층이 필요했습니다.", agentHarnessLabel: "Agent Harness", agentHarness: "MCP HTTP·stdio와 Codex CLI·Claude CLI를 연결하고, OpenAI·Anthropic 호환 Provider를 선택할 수 있는 로컬 harness로 구성했습니다.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "Blueprint·UMG·Material·Niagara·Control Rig·Asset·Viewport를 조작하고, RAG와 Vision까지 연결했습니다.", unityToolsLabel: "Unity Tool Layer", unityTools: "Scene·Asset·Material·Lighting·Audio·Character·Animation 작업을 Unity Editor용 MCP 도구로 노출했습니다.", agentSafetyLabel: "Safety", agentSafety: "Agent의 변경을 바로 실행하지 않도록 dryRun을 두고, 실행 전 결과와 변경 범위를 확인할 수 있게 했습니다.", agentVerifyLabel: "Failure → Correction", agentVerify: "MCP discovery 문제에서 tools/list를 직접 확인해 원인을 좁혔고, UnityMCP에서는 오디오 authoring과 beta packaging 흐름을 정리했습니다.", agentToolsResultLabel: "Result", agentToolsResult: "AI가 Unreal·Unity Editor를 읽고 조작하고 검증하는 Agentic System을 직접 만들었습니다.",
@@ -53,6 +74,27 @@ const locales = {
     statementNote: "AI does its best work when the problem, the tools, and the bar for checking results are set. I design that frame first, then build the product with AI.",
     buildsTitle: "Selected work", buildsSubtitle: "Select “See how it was made” to follow each build from its first question to verification.",
     filterAll: "All", filterProduct: "Products", filterTool: "Agent tools", filterGame: "Games",
+    yahoDesc: "A desktop AI manager that remembers company context and automates Korean business workflows, HWP reports, and verified execution.",
+    yahoQuestion: "How do we help an AI agent retain organizational memory and execute safe, verified business actions instead of throwing away context every session?",
+    yahoCaseTitle: "Agentic Coding history\nYAHO",
+    yahoCaseIntro: "A flagship desktop AI workspace built on Hermes Agent and Electron, connecting company ontology, persistent memory, and gated execution for solo founders and SMBs.",
+    yahoCaseQuestionLabel: "First question",
+    yahoCaseQuestion: "“How do we build an organizational alter-ego agent where users delegate tasks without surrendering their learnings and institutional memory?”",
+    yahoCaseWhy: "Solo founders and operators wear multiple hats simultaneously—CEO, planner, marketer, and operator. Generic chat interfaces force users to re-explain context every time and lack ground-truth verification. YAHO was architected to accumulate institutional memory as an ontology and enforce human approval before any external action.",
+    yahoProblemLabel: "Problem",
+    yahoProblem: "Foreign AI products fail at localized Korean business realities: HWP/PDF document parsing, government grant rubric matching, and strict statutory compliance. Furthermore, unverified hallucinations or unsupervised execution pose catastrophic operational risks.",
+    yahoStartLabel: "Start small",
+    yahoStart: "I began with a bounded feasibility spike on the Hermes Agent desktop shell, validating whether separating company memory from personal sessions felt like an authentic work double. Once proven, I scaled it into a resilient multi-tenant SaaS architecture.",
+    yahoFailureLabel: "Failure → Question",
+    yahoFailure: "I transformed engineering bottlenecks into targeted questions: “How can we isolate token costs between BYO-subscription users and cloud credit users?”, and “How do we prevent heavy background OCR and HWP parsing from choking web request threads?”",
+    yahoPlanLabel: "Agent Plan",
+    yahoPlan: "I designed a decoupled topology: Desktop (Electron) ↔ Render Web (API/SSE/Outbox) ↔ Render Worker (AI execution, deep research, lease fencing) ↔ Render Cron (reconciliation) ↔ Neon PostgreSQL (durable source of truth).",
+    yahoContractLabel: "Agent contract",
+    yahoContract: "I established strict JSON contracts for Evidence-Claim-Citation traces, AtomicNote decomposition, gated approvals for high-risk actions (messaging, payments, destructive changes), and tenant/workspace/space multi-tenant security boundaries.",
+    yahoProductLabel: "Product loop",
+    yahoProduct: "I connected ontology graph visualization, bidirectional HWP rendering, grant evaluation feedback, a credit/fire billing engine, and live production deployment at desktop.yaho-ai.com.",
+    yahoResultLabel: "Result",
+    yahoResult: "Delivered a commercially operating, production-ready desktop AI operating system that bridges long-term organizational intelligence with verified execution.",
     lawgateDesc: "A legal review tool that splits documents into issues, has several AI agents review them, and rechecks the findings against official sources.",
     cerebrasDesc: "Several AI agents split up a long, complex PDF and lay out its key points, risks, costs, and deadlines at a glance.",
     lawgateQuestion: "How do we block an answer when the evidence is not strong enough?",
@@ -75,7 +117,7 @@ const locales = {
     aboutTitle: "About",
     aboutLede: "After seven years as a quality engineer for consumer electronics, I made game sound and music. Now I work with AI agents to build whatever product the work needs.",
     aboutDetailOne: "Hardware quality engineering taught me to trace defects to their root cause and verify results. I bring the same habit to AI: I do not trust an output until I have run it myself.",
-    aboutDetailTwo: "Legal document review, learning services, game editor tools: the field changes, but I define the problem and finish the product the same way.",
+    aboutDetailTwo: "From enterprise desktop AI OS (YAHO) to legal review workbenches, gamified learning, and game engine agents: the field changes, but I define problems and finish products with rigorous verification.",
     otherPortfolios: "Other portfolios", gameAudioPortfolio: "Game Audio Designer", aiVideoPortfolio: "AI Video Designer", aiTechBlog: "Blog on working with AI",
     caseStudyTitle: "Agentic Coding history\nCerebras DocLens", caseStudyIntro: "A record of the questions, decisions, and verification loops behind a product built from start to finish.", caseStudyQuestionLabel: "First question", caseStudyQuestion: "“How do we leave evidence people can actually use to make a decision, not just a good summary?”", caseStudyWhy: "In long documents, a single summary can hide risks, costs, and deadlines. I designed a shared-evidence multi-agent structure.", caseProblemLabel: "Problem", caseProblem: "Make insurance policies, contracts, and medical documents understandable and actionable for everyone.", casePlanLabel: "Agent Plan", casePlan: "Document intake → Intake Agent → shared evidence cache → parallel Summary, Risk, Cost, and Timeline Agents → dashboard and follow-up chat.", caseToolsLabel: "Tools", caseTools: "Next.js, Cerebras API, Gemma 4 31B, PDF/image parsing, JSON schema, and Vercel.", caseProviderLabel: "Provider choice", caseProvider: "With six Agents running in parallel, response time mattered alongside model knowledge. I chose Cerebras to quickly validate the parallel execution flow, while keeping the provider swappable so the same input could be compared with GPT-4.1.", caseFailureLabel: "Failure → Correction", caseFailure: "When PDF parsing failed on Vercel, I separated the runtime issue from the LLM path. I added a DOMMatrix polyfill, dynamic import, and worker preload, then scoped OCR to image uploads for stability.", caseHumanLabel: "Human Role", caseHuman: "Define the problem scope, Agent roles, output schema, demo safety rules, and review every result by running it.", caseResultLabel: "Result", caseResult: "A product completed from problem definition and PRD through Agent architecture, implementation, deployment fixes, UX refinement, and verification.",
     caseStudyHistoryTools: "View Agentic history ↘", agentToolsCaseTitle: "Agentic Coding history\nUnrealAgent + UnityMCP", agentToolsCaseIntro: "I built the tool layer that lets AI read and call the game editor itself.", agentToolsCaseQuestionLabel: "Core question", agentToolsCaseQuestion: "“Could an AI Agent go beyond helping develop Unreal and Unity, and operate the Editor itself?”", agentToolsCaseWhy: "The Agent needs to read the current state, call the right tool, and verify the change before it becomes real work.", agentProblemLabel: "Problem", agentProblem: "I needed an execution layer where the AI Agent could act inside the Editor.", agentHarnessLabel: "Agent Harness", agentHarness: "I connected MCP over HTTP and stdio with Codex CLI and Claude CLI, plus OpenAI- and Anthropic-compatible providers in a local harness.", unrealToolsLabel: "Unreal Tool Layer", unrealTools: "I exposed Blueprint, UMG, Material, Niagara, Control Rig, Asset, and Viewport work, then connected RAG and Vision.", unityToolsLabel: "Unity Tool Layer", unityTools: "I exposed Scene, Asset, Material, Lighting, Audio, Character, and Animation work as Unity Editor MCP tools.", agentSafetyLabel: "Safety", agentSafety: "I added dryRun to change tools so the result and scope could be checked before an Agent executed the change.", agentVerifyLabel: "Failure → Correction", agentVerify: "I narrowed an MCP discovery issue by checking tools/list directly, then organized audio authoring and beta packaging flows in UnityMCP.", agentToolsResultLabel: "Result", agentToolsResult: "I built an Agentic System that reads, controls, and verifies work inside Unreal and Unity Editor.",
@@ -460,6 +502,8 @@ locales.ko.toolCodex = "Codex";
 locales.ko.toolClaude = "Claude";
 locales.ko.toolMcp = "MCP";
 locales.ko.toolRag = "RAG";
+locales.ko.graphLabelYaho = "YAHO";
+locales.ko.graphLabelYahoShort = "YAHO";
 locales.ko.graphLabelLawgate = "LAW GATE";
 locales.ko.graphLabelLawgateShort = "LAW GATE";
 locales.ko.graphLabelCerebras = "CEREBRAS DOCLENS";
@@ -474,6 +518,7 @@ locales.ko.graphLabelUnreal = "UNREAL AGENT";
 locales.ko.graphLabelUnrealShort = "UNREAL";
 locales.ko.graphLabelUnity = "UNITY MCP";
 locales.ko.graphLabelUnityShort = "UNITY";
+locales.ko.graphSubYaho = "데스크톱 AI 매니저 OS";
 locales.ko.graphSubLawgate = "법률 문서 검토";
 locales.ko.graphSubCerebras = "PDF 문서 분석";
 locales.ko.graphSubRuf = "학원 운영 웹사이트";
@@ -491,6 +536,8 @@ locales.en.toolCodex = "Codex";
 locales.en.toolClaude = "Claude";
 locales.en.toolMcp = "MCP";
 locales.en.toolRag = "RAG";
+locales.en.graphLabelYaho = "YAHO";
+locales.en.graphLabelYahoShort = "YAHO";
 locales.en.graphLabelLawgate = "LAW GATE";
 locales.en.graphLabelLawgateShort = "LAW GATE";
 locales.en.graphLabelCerebras = "CEREBRAS DOCLENS";
@@ -505,6 +552,7 @@ locales.en.graphLabelUnreal = "UNREAL AGENT";
 locales.en.graphLabelUnrealShort = "UNREAL";
 locales.en.graphLabelUnity = "UNITY MCP";
 locales.en.graphLabelUnityShort = "UNITY";
+locales.en.graphSubYaho = "Desktop AI Manager OS";
 locales.en.graphSubLawgate = "Legal document review";
 locales.en.graphSubCerebras = "PDF document analysis";
 locales.en.graphSubRuf = "Academy website";
@@ -577,6 +625,7 @@ function initProjectNumbers() {
 
 function initProjectQuestions() {
   const questionKeys = [
+    "yahoQuestion",
     "lawgateQuestion",
     "caseStudyQuestion",
     "rufCaseQuestion",
@@ -707,6 +756,10 @@ function initReveal() {
 }
 
 const galleries = {
+  yaho: {
+    title: "YAHO (야호)",
+    images: ["img/optimized/yaho_0.png", "img/optimized/yaho_1.png", "img/optimized/yaho_2.png", "img/optimized/yaho_3.png", "img/optimized/yaho_4.png"]
+  },
   lawgate: {
     title: "LAW GATE",
     images: ["img/optimized/lawgate_0.jpg", "img/optimized/lawgate_1.jpg", "img/optimized/lawgate_2.jpg"]
@@ -941,21 +994,29 @@ function initContactCopy() {
 }
 
 const printPortfolioButton = document.getElementById("printPortfolio");
-const printDetails = [...document.querySelectorAll("#builds .project-case-details")];
+function getPrintDetails() {
+  return [...document.querySelectorAll("#builds .project-case-details")];
+}
 let printDetailsState;
 window.addEventListener("beforeprint", () => {
-  printDetailsState = printDetails.map((detail) => detail.open);
-  printDetails.forEach((detail) => { detail.open = true; });
+  const details = getPrintDetails();
+  printDetailsState = details.map((detail) => detail.open);
+  details.forEach((detail) => { detail.open = true; });
 });
 window.addEventListener("afterprint", () => {
-  printDetails.forEach((detail, index) => { detail.open = printDetailsState[index]; });
+  const details = getPrintDetails();
+  details.forEach((detail, index) => { detail.open = printDetailsState?.[index] ?? false; });
 });
 printPortfolioButton?.addEventListener("click", () => window.print());
 
 // Lines only where that build's write-up names the tool.
-// LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP.
+// YAHO: Codex, Claude, MCP, RAG. LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP.
 // Gemini appears only in the workflow stack: with no build line it read as a broken node.
 const HERO_GRAPH_EDGES = [
+  ["codex", "yaho"],
+  ["claude", "yaho"],
+  ["mcp", "yaho"],
+  ["rag", "yaho"],
   ["codex", "lawgate"],
   ["rag", "lawgate"],
   ["codex", "unreal"],
