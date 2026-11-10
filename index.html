@@ -261,15 +261,60 @@
 
     <section id="workflow" class="workflow-section reveal">
       <div class="section-inner workflow-grid">
-        <div><p class="section-index">04 / 04</p><h2 data-i18n="workflowTitle">AI와 함께<br />만드는 방법</h2><p class="section-subtitle" data-i18n="workflowSubtitle">문제를 정리하고, 도구를 연결하고, 결과를 확인합니다.</p></div>
+        <div>
+          <p class="section-index">04 / 04</p>
+          <h2 data-i18n="workflowTitle">AI와 함께<br />만드는 방법</h2>
+          <p class="section-subtitle" data-i18n="workflowSubtitle">단순 대화형 보조(Assist)에 머물지 않습니다. 엄격한 제약 설계와 런타임 도구 계층(Harness), 그리고 집요한 품질 검증으로 완성합니다.</p>
+        </div>
         <div class="workflow-list">
-          <div class="workflow-item"><span class="workflow-number">01</span><div><h3 data-i18n="workflowOneTitle">무엇을 만들지 정합니다</h3><p data-i18n="workflowOneDesc">해결할 문제와 결과물이 꼭 지켜야 할 기준부터 정합니다.</p></div><span class="workflow-tool">문제 정리</span></div>
-          <div class="workflow-item"><span class="workflow-number">02</span><div><h3 data-i18n="workflowTwoTitle">AI에게 도구를 줍니다</h3><p data-i18n="workflowTwoDesc">필요한 자료와 기능을 연결해 AI가 직접 작업할 수 있게 합니다.</p></div><span class="workflow-tool">도구 연결</span></div>
-          <div class="workflow-item"><span class="workflow-number">03</span><div><h3 data-i18n="workflowThreeTitle">결과를 확인하고 다듬습니다</h3><p data-i18n="workflowThreeDesc">AI가 만든 결과를 직접 실행해 보고, 부족한 부분을 고쳐 완성합니다.</p></div><span class="workflow-tool">확인</span></div>
+          <div class="workflow-item">
+            <span class="workflow-number">01</span>
+            <div>
+              <h3 data-i18n="workflowOneTitle">AI가 방황하지 않도록 엄격한 경계와 불변식(Invariants)을 세웁니다</h3>
+              <p data-i18n="workflowOneDesc">AI의 할루시네이션은 모호한 요구사항에서 시작됩니다. 기획 인터뷰와 도메인 분석으로 해결할 문제를 명확히 정의하고, 입출력 JSON 스키마, 데이터 격리 규칙, 보안 경계 등 AI가 벗어날 수 없는 계약(Contract)을 먼저 구축합니다.</p>
+            </div>
+            <span class="workflow-tool" data-i18n="workflowOneTool">제약 설계 &amp; 계약</span>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-number">02</span>
+            <div>
+              <h3 data-i18n="workflowTwoTitle">에이전트가 런타임을 직접 읽고 조작할 수 있는 도구 계층을 연결합니다</h3>
+              <p data-i18n="workflowTwoDesc">채팅창에 가두지 않고 Claude Code, Hermes Agent, MCP(Model Context Protocol)를 에디터(UE5/Unity), 터미널, DB에 직접 연동합니다. 실시간 런타임 상태를 스스로 파악하고, dryRun으로 영향도를 검토하며 안전하게 자율 실행할 수 있는 하네스를 제공합니다.</p>
+            </div>
+            <span class="workflow-tool" data-i18n="workflowTwoTool">에이전트 하네스 &amp; MCP</span>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-number">03</span>
+            <div>
+              <h3 data-i18n="workflowThreeTitle">AI의 코드는 단 한 줄도 맹신하지 않고, 실제 런타임에서 끝까지 검증합니다</h3>
+              <p data-i18n="workflowThreeDesc">7년의 전자제품 품질 엔지니어 경험을 바탕으로 모든 결과물을 실제 환경에서 빌드·테스트하고 경계값을 흔들어 봅니다. 발생한 오류를 원인 분석 질문으로 전환해 수정 루프를 돌리고, 사람이 안심하고 운영할 수 있는 상용 완성도로 마감합니다.</p>
+            </div>
+            <span class="workflow-tool" data-i18n="workflowThreeTool">품질 공학 &amp; 폐쇄 루프</span>
+          </div>
         </div>
       </div>
-      <div class="section-inner history-strip" aria-label="AI product workflow"><span>문제</span><i>→</i><span>질문</span><i>→</i><span>AI</span><i>→</i><span>도구</span><i>→</i><span>확인</span><i>→</i><span>완성</span></div>
-      <div class="section-inner stack-row"><span>사용하는 도구</span><b>CODEX</b><b>CLAUDE</b><b>GEMINI</b><b>MCP</b><b>RAG</b></div>
+      <div class="section-inner history-strip" aria-label="AI product workflow">
+        <span data-i18n="pipelineStep1">문제 정의</span>
+        <i>→</i>
+        <span data-i18n="pipelineStep2">제약 설계</span>
+        <i>→</i>
+        <span data-i18n="pipelineStep3">에이전트 하네스</span>
+        <i>→</i>
+        <span data-i18n="pipelineStep4">도구 실행 (MCP)</span>
+        <i>→</i>
+        <span data-i18n="pipelineStep5">런타임 검증</span>
+        <i>→</i>
+        <span data-i18n="pipelineStep6">프로덕트 배포</span>
+      </div>
+      <div class="section-inner stack-row">
+        <span data-i18n="stackRowLabel">핵심 도구 및 런타임</span>
+        <b>CLAUDE CODE</b>
+        <b>CODEX</b>
+        <b>HERMES AGENT</b>
+        <b>MCP (HTTP/STDIO)</b>
+        <b>POSTGRES / D1</b>
+        <b>UE5 / UNITY</b>
+      </div>
     </section>
 
     <section id="contact" class="contact-section reveal">
