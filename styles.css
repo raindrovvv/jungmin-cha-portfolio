@@ -520,6 +520,68 @@ body.light .mobile-menu { background: color-mix(in srgb, var(--color-surface) 94
 body.light .workflow-section { background: var(--color-canvas); }
 body.light .history-strip { background: color-mix(in srgb, var(--color-surface) 72%, transparent); }
 
+/* Contact Section & Footer in Light Mode */
+body.light .contact-section {
+  --color-accent: #3a65c2;
+  --color-accent-soft: rgba(77, 107, 254, .1);
+  --color-accent-fill: #4176e6;
+  --color-accent-hover: #3157aa;
+  --color-on-accent: #ffffff;
+  --color-glass-strong: rgba(0, 0, 0, .06);
+  background: linear-gradient(180deg, var(--color-canvas) 0%, color-mix(in srgb, var(--color-sky) 12%, var(--color-canvas)) 50%, var(--color-canvas) 100%);
+  border-top: 1px solid var(--color-hairline);
+}
+body.light .contact-section::before {
+  background: 
+    radial-gradient(ellipse 75% 70% at 72% 28%, rgba(65, 118, 230, .14) 0%, rgba(156, 193, 231, .32) 45%, transparent 72%),
+    radial-gradient(ellipse 50% 50% at 25% 70%, rgba(65, 118, 230, .08) 0%, transparent 65%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 1) 60px, rgba(0, 0, 0, 1) calc(100% - 60px), transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 1) 60px, rgba(0, 0, 0, 1) calc(100% - 60px), transparent 100%);
+}
+body.light .contact-section .eyebrow {
+  color: var(--color-muted);
+}
+body.light .contact-inner h2 {
+  color: var(--color-heading);
+}
+body.light .contact-inner h2 em {
+  color: var(--color-accent);
+}
+body.light .contact-section .contact-primary {
+  background: var(--color-accent-fill);
+  border-color: var(--color-accent-fill);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(65, 118, 230, .25);
+}
+body.light .contact-section .contact-primary:hover,
+body.light .contact-section .contact-primary:focus-visible {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #ffffff;
+}
+body.light .contact-primary .contact-primary-address {
+  color: rgba(255, 255, 255, .92);
+}
+body.light .contact-section .contact-copy {
+  border-color: var(--color-control-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+}
+body.light .contact-section .contact-copy:hover,
+body.light .contact-section .contact-copy:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+body.light .contact-section .copy-feedback {
+  color: var(--color-accent);
+}
+body.light .site-footer {
+  border-top: 1px solid var(--color-hairline);
+  background: var(--color-canvas);
+}
+
 .hero-copy h1,
 .section-heading-row h2,
 .workflow-grid h2,
