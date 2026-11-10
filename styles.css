@@ -288,16 +288,16 @@ html[lang="ko"] :is(.hero-graph-head, .workflow-tool, .stack-row > span, .contac
 .project-card:hover { border-color: rgba(255, 255, 255, 0.12); transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 20px 44px -10px rgba(0, 0, 0, 0.55); }
 
 .project-card-wide { display: grid; grid-column: span 8; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
-.project-card-featured { display: grid; grid-column: span 12; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr); align-items: stretch; border: 1px solid rgba(255, 255, 255, 0.07); background: radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%), var(--color-surface); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 52px -12px rgba(0, 0, 0, 0.55); border-radius: var(--radius-lg); }
+.project-card-featured { display: grid; grid-column: span 12; grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.92fr); align-items: stretch; border: 1px solid rgba(255, 255, 255, 0.07); background: radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.08) 0%, transparent 60%), var(--color-surface); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 20px 52px -12px rgba(0, 0, 0, 0.55); border-radius: var(--radius-lg); }
 .project-card-featured:hover { border-color: rgba(255, 255, 255, 0.16); transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 28px 68px -12px rgba(0, 0, 0, 0.65); }
 .project-card-pair { grid-column: span 6; }
 .project-card-pair .project-visual { height: 260px; min-height: 260px; max-height: 260px; }
 
 .project-visual { position: relative; height: 215px; min-height: 215px; max-height: 215px; overflow: hidden; }
-.project-card-featured .project-visual { min-height: 400px; height: 100%; max-height: none; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 60% 40%, #162030 0%, #090c12 100%); padding: 22px 24px; }
-.project-card-featured .project-gallery-trigger { position: relative; inset: auto; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.project-card-featured .project-thumb { width: 100%; height: 100%; max-height: 440px; object-fit: contain; object-position: center; border-radius: 12px; box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1); transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out); }
-.project-card-featured:hover .project-thumb { transform: scale(1.018); box-shadow: 0 26px 56px -10px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(147, 197, 253, 0.25); }
+.project-card-featured .project-visual { position: relative; width: 100%; height: 100%; min-height: 0; max-height: none; overflow: hidden; padding: 0; background: #0c0e14; }
+.project-card-featured .project-gallery-trigger { position: absolute; inset: 0; width: 100%; height: 100%; display: block; padding: 0; }
+.project-card-featured .project-thumb { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: left center; border-radius: 0; box-shadow: none; transition: transform var(--duration-base) var(--ease-out); }
+.project-card-featured:hover .project-thumb { transform: scale(1.02); }
 .project-card-featured .project-body { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(24px, 3.2vw, 36px); }
 .project-card-featured .project-body h3 { font-size: clamp(2.2rem, 3.5vw, 2.85rem); font-weight: 600; letter-spacing: -0.04em; margin-top: 12px; }
 .project-card-featured .project-body p { min-height: auto; margin-top: 12px; font-size: 0.98rem; line-height: 1.7; color: var(--color-muted); }
@@ -704,7 +704,7 @@ body.light .site-footer {
   .project-card-featured { grid-column: 1 / -1; grid-template-columns: 1fr; }
   .project-card-wide { display: flex; flex-direction: column; }
   .project-card-wide .project-visual,
-  .project-card-featured .project-visual { max-height: none; min-height: 240px; }
+  .project-card-featured .project-visual { max-height: none; min-height: 260px; aspect-ratio: 720 / 431; }
 }
 
 @media (min-width: 901px) {
