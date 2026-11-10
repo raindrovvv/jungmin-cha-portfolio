@@ -518,7 +518,10 @@ img.engine-logo-unity { width: 104px !important; height: 104px !important; }
 
 body.light .mobile-menu { background: color-mix(in srgb, var(--color-surface) 94%, transparent); }
 body.light .workflow-section { background: var(--color-canvas); }
+body.light .workflow-tool { border-color: var(--color-hairline-strong); color: var(--color-muted); background: var(--color-surface); }
 body.light .history-strip { background: color-mix(in srgb, var(--color-surface) 72%, transparent); }
+body.light .history-strip span { color: var(--color-ink); }
+body.light .stack-row b { color: var(--color-heading); }
 
 /* Contact Section & Footer in Light Mode */
 body.light .contact-section {
