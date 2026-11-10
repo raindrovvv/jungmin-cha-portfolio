@@ -657,7 +657,7 @@ function initProjectQuestions() {
     question.dataset.i18n = questionKey;
 
     decision.append(label, question);
-    const anchor = body.querySelector(".project-collaborator") || details;
+    const anchor = body.querySelector(".project-collaborator") || body.querySelector(".project-actions") || details;
     body.insertBefore(decision, anchor);
   });
 }
