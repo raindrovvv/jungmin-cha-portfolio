@@ -617,7 +617,7 @@ locales.ko.gunslingerFallback = "API 키가 없어도 폴백 덱으로 전체 �
 locales.ko.gunslingerTeamLabel = "Codex + team";
 locales.ko.gunslingerTeam = "Codex가 React 19 + Vite 화면, Vercel Serverless API 3종, Canvas 결투장을 구현했고, 두 사람이 규칙·밸런스·카피를 설계하고 플레이테스트로 검증했습니다.";
 locales.ko.gunslingerResultLabel = "결과";
-locales.ko.gunslingerResult = "9라운드 서부 테마, 3판 2선생 보스전, 평화 엔딩까지 갖춘 브라우저 게임을 OpenAI Game Builders Seoul에 냈습니다.";
+locales.ko.gunslingerResult = "9라운드 서부 테마, 3판 2선승 보스전, 평화 엔딩까지 갖춘 브라우저 게임을 OpenAI Game Builders Seoul에 냈습니다.";
 
 locales.en.gunslingerDesc = "A browser western duel game with live LLM mind games. What you say in the standoff changes the opponent's draw speed and accuracy.";
 locales.en.gunslingerQuestion = "How do we keep a 0.2-second duel fair while waiting on an LLM?";
@@ -710,9 +710,9 @@ function initProjectQuestions() {
     "rufCaseQuestion",
     "loreCaseQuestion",
     "questCaseQuestion",
+    "gunslingerQuestion",
     "unrealCaseQuestion",
-    "unityCaseQuestion",
-    "gunslingerQuestion"
+    "unityCaseQuestion"
   ];
 
   document.querySelectorAll("#builds .project-card").forEach((card, index) => {
