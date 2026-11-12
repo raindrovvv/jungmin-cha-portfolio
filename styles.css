@@ -292,6 +292,9 @@ html[lang="ko"] :is(.hero-graph-head, .workflow-tool, .stack-row > span, .contac
 .project-card-featured:hover { border-color: rgba(255, 255, 255, 0.16); transform: translateY(-3px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 28px 68px -12px rgba(0, 0, 0, 0.65); }
 .project-card-pair { grid-column: span 6; }
 .project-card-pair .project-visual { height: 260px; min-height: 260px; max-height: 260px; }
+.project-card-full { display: grid; grid-column: span 12; grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.85fr); align-items: stretch; }
+.project-card-full .project-visual { height: 100%; min-height: 320px; max-height: none; }
+.project-card-full .project-body { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(20px, 2.4vw, 30px); }
 
 .project-visual { position: relative; height: 215px; min-height: 215px; max-height: 215px; overflow: hidden; }
 .project-card-featured .project-visual { position: relative; width: 100%; height: 100%; min-height: 0; max-height: none; overflow: hidden; padding: 0; background: #0c0e14; aspect-ratio: 720 / 431; }
@@ -629,6 +632,8 @@ body.light .site-footer {
   .statement-grid { grid-template-columns: 90px 1fr; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-card, .project-card-wide, .project-card-pair { grid-column: span 1; }
+  .project-card-full { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .project-card-full .project-visual { min-height: 300px; aspect-ratio: 720 / 431; }
   .project-card-wide { display: flex; flex-direction: column; }
   .project-card-wide .project-visual { max-height: none; min-height: 280px; }
   .project-card-featured { grid-column: 1 / -1; grid-template-columns: 1fr; }
@@ -701,7 +706,9 @@ body.light .site-footer {
   .project-card,
   .project-card-wide,
   .project-card-pair,
+  .project-card-full,
   .project-card-featured { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .project-card-full .project-visual { max-height: none; min-height: 260px; aspect-ratio: 720 / 431; }
   .project-card-wide { display: flex; flex-direction: column; }
   .project-card-wide .project-visual,
   .project-card-featured .project-visual { max-height: none; min-height: 260px; aspect-ratio: 720 / 431; }

@@ -587,6 +587,59 @@ locales.en.graphSubQuest = "Gamified learning";
 locales.en.graphSubUnreal = "Unreal Editor agent";
 locales.en.graphSubUnity = "Unity Editor MCP";
 
+// AI Gunslinger (2026-10-13 PR #14) — brought into master without touching the YAHO redesign.
+locales.ko.graphLabelGunslinger = "AI GUNSLINGER";
+locales.ko.graphLabelGunslingerShort = "GUNSLINGER";
+locales.ko.graphSubGunslinger = "서부 결투 브라우저 게임";
+locales.en.graphLabelGunslinger = "AI GUNSLINGER";
+locales.en.graphLabelGunslingerShort = "GUNSLINGER";
+locales.en.graphSubGunslinger = "Western duel browser game";
+
+locales.ko.watchDemo = "시연 영상 보기 ↗";
+locales.en.watchDemo = "Watch the demo ↗";
+
+locales.ko.gunslingerDesc = "서부 결투에 실시간 LLM 심리전을 더한 브라우저 게임. 대치에서 나눈 대화가 상대의 반응속도와 명중률을 바꿉니다.";
+locales.ko.gunslingerQuestion = "LLM 응답을 기다리는 동안에도 0.2초 결투 판정이 흔들리지 않게 하려면?";
+locales.ko.gunslingerCaseTitle = "Agentic Coding history\nAI Gunslinger";
+locales.ko.gunslingerCaseQuestionLabel = "첫 질문";
+locales.ko.gunslingerCaseQuestion = "“말로 상대를 흔들고, 그 결과가 총싸움 수치로 이어지게 만들 수 있을까?”";
+locales.ko.gunslingerCaseWhy = "AI는 결투 전과 후에만 개입하고, 결투 판정은 클라이언트에서만 처리하기로 정했습니다.";
+locales.ko.gunslingerProblemLabel = "문제";
+locales.ko.gunslingerProblem = "LLM 지연이 0.2초 반응속도 판정을 흔들면 안 됐습니다. 그러면서도 대치에서 나눈 대화가 결투에 실제로 영향을 줘야 했습니다.";
+locales.ko.gunslingerTimingLabel = "AI timing";
+locales.ko.gunslingerTiming = "AI는 수배서, 대치, 신문 세 화면에만 들어가고 DRAW 판정은 지연 없이 클라이언트에서 처리합니다.";
+locales.ko.gunslingerWordsLabel = "Words → numbers";
+locales.ko.gunslingerWords = "LLM이 상대의 mood를 평정·분노·위축·공포·경계 중에서 고르면, 서버가 mood별 구간으로 반응속도와 명중률 변화를 고정합니다.";
+locales.ko.gunslingerPromptLabel = "Prompt as contract";
+locales.ko.gunslingerPrompt = "JSON 스키마, 용어 통일(텔 → 버릇), 인젝션 방어를 api/_lib/rules.ts에 모아 코드로 강제했습니다.";
+locales.ko.gunslingerFallbackLabel = "Fallback first";
+locales.ko.gunslingerFallback = "API 키가 없어도 폴백 덱으로 전체 루프가 돌아가고, 푸터에 LIVE AI / OFFLINE FALLBACK 상태가 보입니다.";
+locales.ko.gunslingerTeamLabel = "Codex + team";
+locales.ko.gunslingerTeam = "Codex가 React 19 + Vite 화면, Vercel Serverless API 3종, Canvas 결투장을 구현했고, 두 사람이 규칙·밸런스·카피를 설계하고 플레이테스트로 검증했습니다.";
+locales.ko.gunslingerResultLabel = "결과";
+locales.ko.gunslingerResult = "9라운드 서부 테마, 3판 2선생 보스전, 평화 엔딩까지 갖춘 브라우저 게임을 OpenAI Game Builders Seoul에 냈습니다.";
+
+locales.en.gunslingerDesc = "A browser western duel game with live LLM mind games. What you say in the standoff changes the opponent's draw speed and accuracy.";
+locales.en.gunslingerQuestion = "How do we keep a 0.2-second duel fair while waiting on an LLM?";
+locales.en.gunslingerCaseTitle = "Agentic Coding history\nAI Gunslinger";
+locales.en.gunslingerCaseQuestionLabel = "First question";
+locales.en.gunslingerCaseQuestion = "“Can words shake an opponent, and can that show up in the duel numbers?”";
+locales.en.gunslingerCaseWhy = "AI only steps in before and after the duel. The duel itself is judged on the client.";
+locales.en.gunslingerProblemLabel = "Problem";
+locales.en.gunslingerProblem = "LLM latency could not touch the 0.2-second draw. Yet the standoff conversation still had to change the duel.";
+locales.en.gunslingerTimingLabel = "AI timing";
+locales.en.gunslingerTiming = "AI works only on the wanted poster, the standoff, and the newspaper. The DRAW is judged on the client with no delay.";
+locales.en.gunslingerWordsLabel = "Words → numbers";
+locales.en.gunslingerWords = "The LLM picks a mood (calm, angered, intimidated, scared, suspicious), and the server clamps reaction and accuracy changes to that mood's range.";
+locales.en.gunslingerPromptLabel = "Prompt as contract";
+locales.en.gunslingerPrompt = "JSON schemas, unified terms (tell → habit), and injection defense live in api/_lib/rules.ts and are enforced in code.";
+locales.en.gunslingerFallbackLabel = "Fallback first";
+locales.en.gunslingerFallback = "Without an API key the full loop still runs on a fallback deck, and the footer shows LIVE AI or OFFLINE FALLBACK.";
+locales.en.gunslingerTeamLabel = "Codex + team";
+locales.en.gunslingerTeam = "Codex built the React 19 + Vite screens, three Vercel Serverless APIs, and the Canvas duel. Two people designed the rules, balance, and copy and checked them in playtests.";
+locales.en.gunslingerResultLabel = "Result";
+locales.en.gunslingerResult = "Shipped a browser game with nine western rounds, a best-of-three boss fight, and a peace ending for OpenAI Game Builders Seoul.";
+
 const LANG_KEY = "jungmin-builder-language";
 const THEME_KEY = "jungmin-builder-theme-v2";
 const currentLang = localStorage.getItem(LANG_KEY) === "en" ? "en" : "ko";
@@ -644,7 +697,7 @@ function initFilters() {
 }
 
 function initProjectNumbers() {
-  document.querySelectorAll(".project-card .project-meta span:last-child").forEach((number, index) => {
+  document.querySelectorAll(".project-card .project-meta > .project-index").forEach((number, index) => {
     number.textContent = String(index + 1).padStart(2, "0");
   });
 }
@@ -658,7 +711,8 @@ function initProjectQuestions() {
     "loreCaseQuestion",
     "questCaseQuestion",
     "unrealCaseQuestion",
-    "unityCaseQuestion"
+    "unityCaseQuestion",
+    "gunslingerQuestion"
   ];
 
   document.querySelectorAll("#builds .project-card").forEach((card, index) => {
@@ -854,6 +908,10 @@ const galleries = {
   questtower: {
     title: "QUEST TOWER",
     images: ["img/optimized/QuestTower_0.jpg", "img/optimized/QuestTower_1.jpg", "img/optimized/QuestTower_2.jpg", "img/optimized/QuestTower_3.jpg", "img/optimized/QuestTower_4.jpg"]
+  },
+  gunslinger: {
+    title: "AI GUNSLINGER",
+    images: ["img/optimized/gunslinger_0.jpg", "img/optimized/gunslinger_1.jpg", "img/optimized/gunslinger_2.jpg", "img/optimized/gunslinger_3.jpg", "img/optimized/gunslinger_4.jpg"]
   }
 };
 
@@ -1099,7 +1157,7 @@ window.addEventListener("afterprint", () => {
 printPortfolioButton?.addEventListener("click", () => window.print());
 
 // Lines only where that build's write-up names the tool.
-// YAHO: Codex, Claude, MCP, RAG. LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP.
+// YAHO: Codex, Claude, MCP, RAG. LAW GATE: Codex, RAG. Unreal Agent: Codex, Claude, MCP, RAG. Unity MCP: MCP. AI Gunslinger: Codex.
 // Gemini appears only in the workflow stack: with no build line it read as a broken node.
 const HERO_GRAPH_EDGES = [
   ["codex", "yaho"],
@@ -1112,7 +1170,8 @@ const HERO_GRAPH_EDGES = [
   ["claude", "unreal"],
   ["mcp", "unreal"],
   ["rag", "unreal"],
-  ["mcp", "unity"]
+  ["mcp", "unity"],
+  ["codex", "gunslinger"]
 ];
 
 function initHeroGraph() {
