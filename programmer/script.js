@@ -173,7 +173,7 @@ const portfolio = {
         number: "06",
         status: "LIVE GAME / MSW",
         title: "Last Camp",
-        summary: "메이플스토리 월드에서 1~4인 협동으로 즐기는 좀비 생존 게임입니다. 1,113개 스크립트(12만 줄 Lua)에서 단일 데이터 계약을 지켜고, 캐릭터 시스템을 데이터 정의로 전환한 리팩터링(PR #31, QA 183건 통과)을 마쳤습니다. 공모전 본선 진출작이며 월드코인 이벤트를 운영 중입니다.",
+        summary: "메이플스토리 월드에서 1~4인 협동으로 즐기는 좀비 생존 게임입니다. 1,113개 스크립트(12만 줄 Lua)에서 단일 데이터 계약을 지켰고, 캐릭터 시스템을 데이터 정의로 전환한 리팩터링(PR #31, QA 183건 통과)을 마쳤습니다. 공모전 본선 진출작이며 월드코인 이벤트를 운영 중입니다.",
         image: "../assets/game/last-camp.webp",
         imageAlt: "라스트캠프 베이스캠프 플레이 화면",
         href: "https://maplestoryworlds.nexon.com/ko/play/a788a48532094b91aba0596c82bc35a9/",
