@@ -168,6 +168,22 @@ const portfolio = {
           { label: "플레이해보기 ↗", href: "https://ai-gunslinger.vercel.app" },
         ],
       },
+      {
+        id: "projects",
+        number: "06",
+        status: "LIVE GAME / MSW",
+        title: "Last Camp",
+        summary: "메이플스토리 월드에서 1~4인 협동으로 즐기는 좀비 아포칼립스 생존 게임입니다. 캠프 건설·원정·전투·경제 시스템을 설계했고, 1,113개 스크립트(약 12만 줄 Lua)에서 PlayerDBManager 단일 데이터 계약과 인벤토리·영구 자원 분리를 지켰습니다. 자원 자동 흡입·치명타 파티클 같은 손맛 연출과 서버 권한 컷씬 무적까지 직접 구현했고, 캐릭터 시스템을 데이터 정의로 전환한 리팩터링(PR #31, QA 183건 통과)을 마쳤습니다. MSW 공모전 본선 진출작이며 월드코인 이벤트를 운영 중입니다.",
+        image: "../assets/game/last-camp.webp",
+        imageAlt: "라스트캠프 베이스캠프 플레이 화면",
+        href: "https://maplestoryworlds.nexon.com/ko/play/a788a48532094b91aba0596c82bc35a9/",
+        tags: ["MapleStory Worlds", "Lua", "Game Systems", "Data Contract"],
+        links: [
+          { label: "MSW에서 플레이 ↗", href: "https://maplestoryworlds.nexon.com/ko/play/a788a48532094b91aba0596c82bc35a9/" },
+          { label: "공식 사이트 ↗", href: "https://lastcamp.vercel.app" },
+          { label: "트레일러 ↗", href: "https://www.youtube.com/watch?v=SwYRnQjhvoU" },
+        ],
+      },
     ],
     contribution: {
       metrics: [["670", "contributionMetricCommits"], ["34.8%", "contributionMetricShare"], ["260", "contributionMetricFiles"], ["123", "contributionMetricRecent"]],
@@ -216,7 +232,7 @@ const portfolio = {
       label: "EDITOR TOOLING / LOCAL AI WORKFLOW",
       title: "UnrealAgent",
       summary:
-        "에디터 확인을 줄이려고 Unreal Editor와 로컬 AI를 잇는 MCP 브리지를 만들었습니다.\n\nBlueprint, Asset, Viewport, Output Log를 조회·조작합니다. AI 제안은 컴파일·실행·예외 검증을 거친 뒤에만 적용됩니다.\n\n코드 생성이 목적이 아닙니다. 문제를 나누고, 도구 역할을 정하고, 결과를 검증하는 루프를 만들었습니다.",
+        "에디터 확인을 줄이려고 Unreal Editor와 로컬 AI를 잇는 MCP 브리지를 만들었습니다.\n\nC#/.NET 에디터 채팅 레이어에서 요청하면 Blueprint, Asset, Viewport, Output Log를 조회·조작합니다. AI 제안은 컴파일·실행·예외 검증을 거친 뒤에만 적용됩니다.\n\n빌드 모니터링이 컴파일·실행 결과를 자동으로 모아 실패 지점을 바로 보여줍니다. 코드 생성이 목적이 아닙니다. 문제를 나누고, 도구 역할을 정하고, 결과를 검증하는 루프를 만들었습니다.",
       image: "../assets/tooling/unreal-mcp.png",
       imageAlt: "Unreal Editor 안에서 실행 중인 UnrealAgent 패널",
       tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
@@ -291,7 +307,7 @@ const portfolio = {
       {
         number: "01",
         title: "UnrealAgent",
-        summary: "Unreal Editor와 로컬 AI를 잇는 MCP 브리지입니다. Blueprint, Asset, Viewport, Output Log를 조회하고, AI 제안은 컴파일·실행·예외 검증을 통과한 뒤에만 반영합니다.",
+        summary: "Unreal Editor 안에서 도는 로컬 AI 에이전트입니다. C#/.NET 에디터 채팅 레이어에서 요청하면 MCP 툴 레이어가 Blueprint, Asset, Viewport, Output Log를 조회·조작하고, AI 제안은 컴파일·실행·예외 검증을 통과한 뒤에만 반영합니다. 빌드를 자동으로 모니터링해 실패 지점을 바로 보여줍니다.",
         image: "../assets/tooling/unreal-mcp.png",
         imageAlt: "Unreal Editor에서 실행 중인 UnrealAgent MCP 브리지",
         tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
@@ -479,6 +495,22 @@ const createEnglishPortfolio = () => {
         { label: "Play demo ↗", href: "https://ai-gunslinger.vercel.app" },
       ],
     },
+    {
+      id: "projects",
+      number: "06",
+      status: "LIVE GAME / MSW",
+      title: "Last Camp",
+      summary: "A 1–4-player co-op zombie apocalypse survival game live on MapleStory Worlds. I designed the camp building, expedition, combat, and economy systems, holding a single PlayerDBManager data contract and keeping inventory items separate from permanent camp resources across 1,113 scripts (~120k lines of Lua). I built the feel layer (resource auto-suction, critical-hit particles) and server-authoritative cutscene invulnerability, then moved the character system onto data definitions (PR #31, QA pass=183 fail=0). A MapleStory Worlds contest finalist, running an official world-coin event until November 19.",
+      image: "../assets/game/last-camp.webp",
+      imageAlt: "Last Camp basecamp gameplay screen",
+      href: "https://maplestoryworlds.nexon.com/ko/play/a788a48532094b91aba0596c82bc35a9/",
+      tags: ["MapleStory Worlds", "Lua", "Game Systems", "Data Contract"],
+      links: [
+        { label: "Play on MSW ↗", href: "https://maplestoryworlds.nexon.com/ko/play/a788a48532094b91aba0596c82bc35a9/" },
+        { label: "Official site ↗", href: "https://lastcamp.vercel.app" },
+        { label: "Trailer ↗", href: "https://www.youtube.com/watch?v=SwYRnQjhvoU" },
+      ],
+    },
   ];
   en.guardian = {
     label: "CORE PROJECT / 4v1 ASYMMETRIC PVP",
@@ -510,7 +542,7 @@ const createEnglishPortfolio = () => {
   en.unrealAgent = {
     label: "EDITOR TOOLING / LOCAL AI WORKFLOW",
     title: "UnrealAgent",
-    summary: "I built an MCP bridge between Unreal Editor and a local AI agent to cut repetitive editor checks.\n\nThe tools inspect Blueprints, Assets, Viewport, and Output Log. AI changes apply only after compile, run, and exception checks.\n\nThe point is not code generation. I split the problem, defined tool roles, and verified the result.",
+    summary: "I built an MCP bridge between Unreal Editor and a local AI agent to cut repetitive editor checks.\n\nFrom a C#/.NET editor chat layer, the tools inspect and drive Blueprints, Assets, Viewport, and Output Log. AI changes apply only after compile, run, and exception checks.\n\nBuild monitoring collects compile and run results automatically and shows where it failed. The point is not code generation. I split the problem, defined tool roles, and verified the result.",
     image: "../assets/tooling/unreal-mcp.png",
     imageAlt: "UnrealAgent panel running inside Unreal Editor",
     tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"],
@@ -555,7 +587,7 @@ const createEnglishPortfolio = () => {
   en.tooling = [
     { number: "03", title: "UnityMCP", summary: "An MCP server between Unity Editor and a local AI agent. It inspects AudioClip/AudioSource and places 3D sound and BGM.", image: "../assets/tooling/unity-mcp.png", imageAlt: "UnityMCP audio placement tools running in Unity Editor", tags: ["Unity 2022.3+", "Node.js", "C#", "AudioSource"], href: "https://github.com/raindrovvv/UnityMCP", featured: false, panel: ["PREVIEW / PLACE", "true", "AudioSource → inspect → apply"] },
     { number: "02", title: "Build Monitor", summary: "Build steps show as a spinner and stages. Done or failed results go out through Discord and Slack webhooks.", image: "../assets/tooling/build-monitor.png", imageAlt: "GAS Build Monitor dashboard showing build progress and messenger webhook status", tags: ["Compile", "Webhook", "Discord", "Slack"], href: "#debugging", featured: false, panel: ["BUILD MONITOR", "LIVE", "compile → webhook → notify"] },
-    { number: "01", title: "UnrealAgent", summary: "An MCP bridge between Unreal Editor and a local AI agent. It inspects Blueprint, Asset, Viewport, and Output Log, and applies AI changes only after compile, run, and exception checks.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
+    { number: "01", title: "UnrealAgent", summary: "A local AI agent running inside Unreal Editor. From a C#/.NET editor chat layer, the MCP tool layer inspects and drives Blueprint, Asset, Viewport, and Output Log; AI changes apply only after compile, run, and exception checks. It also monitors builds automatically and surfaces the failing point.", image: "../assets/tooling/unreal-mcp.png", imageAlt: "UnrealAgent MCP bridge running in Unreal Editor", tags: ["Unreal Editor", "MCP", "C++", "C#/.NET", "Python"], href: "https://github.com/raindrovvv/UnrealAgent", featured: true, panel: ["CHECK / APPLY", "READY", "editor → agent → verify"] },
   ];
   en.activities = [
     { number: "01", period: "2025.11", type: "Public Showcase / Field QA", title: "G-STAR 2025 Guardian & Seeker", summary: "I watched booth play and read surveys. Headphone mix, input bugs, balance, and tutorial UX became the next tasks.", proof: "Two-day BEXCO booth · player observation · survey synthesis", image: "../assets/activity/gstar-2025.png", alt: "Guardian & Seeker booth at G-STAR 2025", href: "https://raindrovvv.tistory.com/108", tags: ["Field QA", "Player Feedback", "Audio Mix"] },
